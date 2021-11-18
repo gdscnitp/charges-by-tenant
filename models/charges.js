@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const chargeSchema = new mongoose.Schema({
     site_id:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
         requred:true
     },
     isPaid:{

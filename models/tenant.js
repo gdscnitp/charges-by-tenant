@@ -58,6 +58,6 @@ const tenantSchema = new mongoose.Schema({
         water:String,
         required:true
     }
-});
+},{timestamps:true});
 
 module.exports = mongoose.model("Tenant",tenantSchema);

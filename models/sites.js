@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const {isDate} = require("validator")
 const sitesSchema = new mongoose.Schema({
     landlord_id:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
         required:true
     },
     tenant_id:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
         required:true
     },
     address:{
@@ -36,6 +36,6 @@ const sitesSchema = new mongoose.Schema({
         required:String,
         required:true
     }
-});
+},{timestamps:true});
 
 module.exports = mongoose.model("Sites",sitesSchema)

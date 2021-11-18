@@ -58,6 +58,6 @@ const landlordSchema = new mongoose.Schema({
         ifsc:String,
         required:true
     }
-});
+},{timestamps:true});
 
 module.exports = mongoose.model("Landlord",landlordSchema);

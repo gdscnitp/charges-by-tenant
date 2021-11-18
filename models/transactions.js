@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const tranSchema = new mongoose.Schema({
     charge_id:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
         required:true
     },
     order_date:{
@@ -15,13 +15,13 @@ const tranSchema = new mongoose.Schema({
         required:true
     },
     landlord_id:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
         required:true
     },
     tenant_id:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
         required:true
     }
-});
+},{timestamps:true});
 
 module.exports = mongoose.model("Transaction",tranSchema)
