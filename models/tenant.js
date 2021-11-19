@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 const {isEmail,isDate} = require("validator")
 const tenantSchema = new mongoose.Schema({
     name:{
@@ -59,5 +60,25 @@ const tenantSchema = new mongoose.Schema({
         required:true
     }
 },{timestamps:true});
+
+//when tenant updates password
+tenantSchema.pre('save',(next)=>{
+
+    if(!this.isModified('password')){
+        return next();
+    }
+    const user = this;
+    bcrypt.genSalt(10, function(err, salt){
+        if (err){ return next(err) }
+
+        bcrypt.hash(user.password, salt, null, function(err, hash){
+            if(err){return next(err)}
+
+            user.password = hash;
+            next();
+        })
+    })
+
+});
 
 module.exports = mongoose.model("Tenant",tenantSchema);

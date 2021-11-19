@@ -60,4 +60,24 @@ const landlordSchema = new mongoose.Schema({
     }
 },{timestamps:true});
 
+//when landlord updates password
+landlordSchema.pre('save',(next)=>{
+
+    if(!this.isModified('password')){
+        return next();
+    }
+    const user = this;
+    bcrypt.genSalt(10, function(err, salt){
+        if (err){ return next(err) }
+
+        bcrypt.hash(user.password, salt, null, function(err, hash){
+            if(err){return next(err)}
+
+            user.password = hash;
+            next();
+        })
+    })
+
+});
+
 module.exports = mongoose.model("Landlord",landlordSchema);
