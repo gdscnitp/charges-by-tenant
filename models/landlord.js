@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt")
 const {isEmail,isDate} = require("validator")
+import "../db/db"
 
 const landlordSchema = new mongoose.Schema({
     name:{

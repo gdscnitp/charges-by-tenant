@@ -11,7 +11,7 @@ const tenantSchema = new mongoose.Schema({
     username:{
         type:String,
         required:[true,'Please enter a username'],
-        min:3,
+        min:2,
         max:25,
         unique:true
     },
