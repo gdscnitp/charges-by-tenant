@@ -5,26 +5,21 @@ const chargeSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         requred:true
     },
+    tenant_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        requred:true
+    },
     isPaid:{
         type:Boolean,
         required:true
     },
-    electricity:{
-        type:Number,
-        required:true,
-    },
-    rent:{
-        type:Number,
-        required:true
-    },
-    water:{
-        type:Number,
-        required:true
-    },
-    internet:{
-        type:Number,
+    description:{
+        type:Object,
         required:true
     }
+
+    
+    
 },{timestamps:true});
 
 module.exports = mongoose.model("Charges",chargeSchema)
