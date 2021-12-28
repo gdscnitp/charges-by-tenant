@@ -13,28 +13,10 @@ const chargeSchema = new mongoose.Schema({
         type:Boolean,
         required:true
     },
-    description:[{
-        electricity:{
-            type:Number,
-            
-        },
-        rent:{
-            type:Number,
-            
-        },
-        water:{
-            type:Number,
-            
-        },
-        food:{
-            type:Number,
-            
-        },
-        internet:{
-            type:Number,
-            
-        },
-    }],
+    description:{
+        type:Object,
+        required:true
+    }
 
     
     
