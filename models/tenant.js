@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const {isEmail,isDate} = require("validator")
+const {isEmail,isDate} = require("validator");
+const { default: isPostalCode } = require("validator/lib/isPostalCode");
 const tenantSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -35,15 +36,36 @@ const tenantSchema = new mongoose.Schema({
         required:true,
         validate:[isDate,'Please enter a valid date']
     },
-    address:{
-        first_line:String,
-        city:String,
-        state:String,
-        Country:String,
-        pincode:Number,
-        landmark:String,
-        required:true
-    },
+    address:[{
+            first_line:{
+                type:String,
+                required:[true,'Please enter your address'],
+                
+            },
+            city:{
+                type:String,
+                required:[true,'Please enter your city']
+            },
+            state:{
+                type:String,
+                required:[true,'Please enter your state']
+            },
+            Country:{
+                type:String,
+                required:[true,'Please enter your country']
+            },
+            pincode:{
+                type:Number,
+                required:[true,'Please enter your pincode'],
+                validate:[isPostalCode,'Please enter proper pin code']
+            },
+            landmark:{
+                type:String,
+                //not setting required as true, keeping it optional
+            }
+
+        }],
+
     occupation:{
         type:String,
         required:[true,'Please enter your occupation']
@@ -53,12 +75,11 @@ const tenantSchema = new mongoose.Schema({
         enum:['Aadhar','VoterID','PanCard'],
         required:[true,'Please enter your verification id']
     },
-    customerId:{
-        electricity:String,
-        internet:String,
-        water:String,
-        required:true
+    
+    history:{
+        type:Array,
     }
+
 },{timestamps:true});
 
 //when tenant updates password

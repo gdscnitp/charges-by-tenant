@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
-var log4jsLogger = require("../loggers/log4js_module");
+var log4jsLogger = require("../logger/log4js_module");
 
 
 require("../models/accounts");
