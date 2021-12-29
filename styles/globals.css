@@ -16,114 +16,112 @@ a {
   box-sizing: border-box;
 }
 
-.side{
+.side {
   background-color: white;
   margin-left: 450px;
   height: 100vh;
-  width:910px;
+  width: 910px;
   border-top-left-radius: 5%;
   border-bottom-left-radius: 5%;
 }
 
-.disp{
+.disp {
   font-weight: bold;
   display: flex;
   font-size: 35px;
   justify-content: space-around;
-  padding-top:110px;
+  padding-top: 110px;
   padding-left: 120px;
 }
 
-.disp1{
+.disp1 {
   font-weight: bold;
   display: flex;
   font-size: 35px;
   justify-content: space-around;
-  padding-top:110px;
+  padding-top: 110px;
   padding-left: 150px;
 }
 
-.p_icon2{
+.p_icon2 {
   display: flex;
   justify-content: center;
   padding-top: 20px;
 }
-.p_icon{
-  font-weight:500;
+.p_icon {
+  font-weight: 500;
   display: flex;
   font-size: 20px;
-  padding-top:50px;
+  padding-top: 50px;
   padding-left: 400px;
 }
 
-.p_icon1{
+.p_icon1 {
   display: flex;
   padding-left: 30px;
 }
 
-.p_form-group{
+.p_form-group {
   display: flex;
   justify-content: center;
   padding-top: 50px;
   padding-left: 150px;
 }
 
-.p_input{
-  height:35px; width:300px;
+.p_input {
+  height: 35px;
+  width: 300px;
 }
 
-input:focus{
+input:focus {
   outline: none;
 }
 
-    .fishes
-    {
-      position:absolute;
-      top: 10px;
-      left: 10px;
-      z-index: 1;
-    }
-
-    .fish
-    {
-      position:absolute;
-      top: 11px;
-      left: 15px;
-      z-index: 2;
-    }
-.home{
-  position:absolute;
-  width:80px;
-  height:80px;
-  top:20px;
-  left:20px;
+.fishes {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
 }
-.p_img{
-  position:absolute;
-  width:450px;
-  height:400px;
-  top:110px;
-  left:195px;
+
+.fish {
+  position: absolute;
+  top: 11px;
+  left: 15px;
+  z-index: 2;
+}
+.home {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 20px;
+  left: 20px;
+}
+.p_img {
+  position: absolute;
+  width: 450px;
+  height: 400px;
+  top: 110px;
+  left: 195px;
   z-index: 0;
 }
 
-
-.p_img1{
-  position:absolute;
-  width:450px;
-  height:400px;
-  top:110px;
-  left:177px;
+.p_img1 {
+  position: absolute;
+  width: 450px;
+  height: 400px;
+  top: 110px;
+  left: 177px;
 }
 
-.p_btn1{
+.p_btn1 {
   display: flex;
   justify-content: space-around;
   position: inherit;
   padding-top: 50px;
 }
 
-#p_btn1{
+#p_btn1 {
   border: none;
   color: white;
   padding: 15px 32px;
@@ -134,97 +132,310 @@ input:focus{
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 7px;
-  background-color:#52C6C6;
+  background-color: #52c6c6;
 }
 
-
-i.fa-user{ position: relative; top: 10px; padding-right: 5px;}
-i.fa-envelope{ position: relative; top: 10px; padding-right: 5px; }
-i.fa-phone-square-alt{ position: relative; top: 10px; padding-right: 5px;}
-i.fa-lock{ position: relative; top: 10px; padding-right: 5px;}
+i.fa-user {
+  position: relative;
+  top: 10px;
+  padding-right: 5px;
+}
+i.fa-envelope {
+  position: relative;
+  top: 10px;
+  padding-right: 5px;
+}
+i.fa-phone-square-alt {
+  position: relative;
+  top: 10px;
+  padding-right: 5px;
+}
+i.fa-lock {
+  position: relative;
+  top: 10px;
+  padding-right: 5px;
+}
 
 /*Total Charges Page*/
-.top_head{
+.top_head {
   display: flex;
   justify-content: center;
-  width:100%;
+  width: 100%;
   height: 50px;
   font-weight: bold;
   font-size: 28px;
   color: white;
-  background-color: #023C40;
+  background-color: #023c40;
 }
-.heading{
+.heading {
   height: 100vh;
   background-color: white;
 }
 
-.card1{
-  height:240px;
-  width:290px;
-  margin:20px;
+.card1 {
+  height: 240px;
+  width: 290px;
+  margin: 20px;
   background-color: #eff2f5;
   border-radius: 7px;
 }
 
-.cardb{
+.cardb {
   padding: 20px;
   margin: 5px;
 }
-.tc{
-  position:absolute;
-  width:450px;
-  height:400px;
-  top:161px;
-  left:900px;
+.tc {
+  position: absolute;
+  width: 450px;
+  height: 400px;
+  top: 161px;
+  left: 900px;
 }
 
 /*Different charges page*/
 .label {
-    justify-content:space-around;
-    color: white;
-    width:200px;
-    font-size: 22px;
-    margin:15px 70px 15px 15px;
-    background-color: #ff9800;
-    padding: 8px 0px 8px 20px;
-    display:inline-block;
-    font-family: Arial;
-    border-radius:7px;
-  }
-  .charges{
-    margin:70px;
-    padding-left: 150px;
-  }
-  
-  .ip{ padding-left:58px; width:170px; height: 50px; background-color: #eff2f5; border-radius: 5px; border: 1px solid ;}
-  .dc{
-    position:absolute;
-    width:450px;
-    height:400px;
-    top:60px;
-    left:910px;
+  justify-content: space-around;
+  color: white;
+  width: 200px;
+  font-size: 22px;
+  margin: 15px 70px 15px 15px;
+  background-color: #ff9800;
+  padding: 8px 0px 8px 20px;
+  display: inline-block;
+  font-family: Arial;
+  border-radius: 7px;
+}
+.charges {
+  margin: 70px;
+  padding-left: 150px;
+}
+
+.ip {
+  padding-left: 58px;
+  width: 170px;
+  height: 50px;
+  background-color: #eff2f5;
+  border-radius: 5px;
+  border: 1px solid;
+}
+.dc {
+  position: absolute;
+  width: 450px;
+  height: 400px;
+  top: 60px;
+  left: 910px;
+}
+
+.btn2 {
+  display: flex;
+  position: inherit;
+  padding-top: 80px;
+  padding-left: 150px;
+}
+
+#btn2 {
+  border: none;
+  width: 200px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #009dae;
+}
+
+/* Anuj Code */
+.a-parent {
+  background-image: url("../public/images/homePage.png");
+  background-size: cover;
+  height: 52vw;
+  position: relative;
+}
+
+.a-text {
+  color: white;
+  position: absolute;
+}
+
+.a-head-text {
+  width: 55vw;
+  left: 79px;
+  top: 10vw;
+  font-weight: bold;
+  font-size: 5vw;
+  line-height: 110%;
+}
+
+.a-start-button {
+  background-image: linear-gradient(
+    92.88deg,
+    #f49f3f 9.16%,
+    #f49f3f 43.89%,
+    #f49f3f 64.72%
+  );
+  border-radius: 40px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  padding: 5px 50px;
+
+  text-shadow: #ff8800 0 3px 8px;
+  width: 290px;
+  position: absolute;
+  top: 25vw;
+  left: 120px;
+}
+
+.a-start-button:hover {
+  box-shadow: rgba(80, 63, 205, 0a-5) 0 1px 30px;
+  transition-duration: 0a-1s;
+}
+
+.a-heading {
+  font-weight: bold;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.a-left {
+  position: absolute;
+  width: 30vw;
+  height: 0px;
+  left: 0px;
+  border-bottom: 2px solid #023c40;
+}
+
+.a-left::after {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  background: blue;
+  border-radius: 50%;
+  right: -1px;
+  top: -3.7px;
+}
+
+.a-right {
+  position: absolute;
+  width: 30vw;
+  height: 0px;
+  right: 0px;
+  border-bottom: 2px solid #023c40;
+}
+
+.a-right::before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  background: blue;
+  border-radius: 50%;
+  left: -1px;
+  top: -3.7px;
+}
+
+.a-features-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.a-signin-cards {
+  display: flex;
+  justify-content: center;
+}
+
+.a-card-inner-text {
+  background: #009dae;
+  border-radius: 0 0 20px 20px !important;
+}
+
+.a-signin-cards-width {
+  width: 20vw;
+  border-radius: 20px !important;
+}
+
+.a-container {
+  display: flex;
+  justify-content: center;
+}
+
+.a-display-flex-cards {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.a-feature-card {
+  min-width: 20vw;
+}
+
+.a-signin-cards-image {
+  height: 300px;
+  object-fit: contain;
+}
+
+.a-make-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-self: center;
+  position: relative;
+}
+
+.a-signin-card-button {
+  background: #ff8800 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.a-make-center::before {
+  content: "SignIn as";
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  position: absolute;
+  top: -16px;
+  left: 5vw;
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  .a-start-button {
+    width: 39vw;
+    font-size: 4vw;
+    left: 20vw;
+    padding: 3px 5px;
   }
 
-  .btn2{
-    display: flex;
-    position: inherit;
-    padding-top: 80px;
-    padding-left: 150px;
-    
+  .a-display-flex-cards {
+    flex-direction: column;
   }
 
-  #btn2{
-    border: none;
-    width:200px;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 20px;
-    background-color:#009dae;
+  .a-signin-cards-width {
+    width: 200px;
+    padding: 0px;
   }
+
+  .a-heading {
+    font-size: 7vw;
+  }
+
+  .a-feature-card {
+    min-width: 40vw;
+  }
+
+  .a-signin-cards-image {
+    height: 100px;
+  }
+}
