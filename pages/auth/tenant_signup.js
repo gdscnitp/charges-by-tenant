@@ -6,6 +6,7 @@ import Ellipse47 from '../../public/images/Ellipse47.png'
 function tenant_signup() {
     return (
         <>
+            <div className='p_back'>
             <div className='fish'> 
             <Image src={Home_fill} alt="sub"  /> 
             </div>
@@ -42,6 +43,8 @@ function tenant_signup() {
                 </div>
                 
             </div>
+            </div>
+            
         </>
     )
 }
