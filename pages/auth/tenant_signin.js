@@ -10,6 +10,7 @@ import Google from '../../public/images/Google.png'
 function tenant_signin() {
     return (
         <>
+        <div className='p_back'>
             <div className='fish'> 
             <Image src={Home_fill} alt="sub"  /> 
             </div>
@@ -50,6 +51,8 @@ function tenant_signin() {
                         </div>
                 </div>
             </div>
+        </div>
+            
         </>
     )
 }
