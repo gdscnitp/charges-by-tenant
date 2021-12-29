@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/Profile.css";
 import logger from "../helpers/logger";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -14,7 +15,6 @@ function MyApp({ Component, pageProps }) {
 MyApp.getInitialProps = async (ctx) => {
   const areLogsEnabled = ctx?.router?.query?.debug || "";
   global.areLogsEnabled = areLogsEnabled === "true";
-  return {};
 };
 
 export default MyApp;
