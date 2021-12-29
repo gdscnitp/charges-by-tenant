@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-.icon {
+.S_icon {
   font-size: 1.5vw;
   color: aliceblue;
   padding: 10px;
@@ -24,23 +24,23 @@
   text-align: center;
 }
 
-.icon:hover {
+.S_icon:hover {
   background: white;
   color: #023c40;
   border-radius: 10px;
 }
 
-.icon0 {
+.S_icon0 {
   font-size: 2vw;
   margin-bottom: 200%;
 }
 
-.icon6 {
+.S_icon6 {
   color: black;
   font-size: 60px;
 }
 
-.icon7 {
+.S_icon7 {
   color: yellow;
   font-size: 1.7vw;
 }
