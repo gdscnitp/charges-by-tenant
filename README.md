@@ -1,34 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Charges By Tenant Project
 
-## Getting Started
+A web application for tenants and landlords to manage and pay the fees and charges using direct payment method for different billing services.
 
-First, run the development server:
 
+
+## Problems Addressed:
+- Tenant’s have to get reminded by the landlords for the different charges and fees to be paid on time.
+-	If the number of tenants are high for a single landlord then it become very hectic to inform all the tenants.
+-	Pay at different platforms for different kind of things for the same problem.
+-	It is very difficult for landlords and tenants to keep very old record and analyze their old records.
+
+
+
+## Features :
+
+**App Working:**
+
+-	Application will consist of different profile of landlords and tenants.
+-	Landlords can directly contact to the tenant for paying the charges using the app.
+-	The platform of payment gateway will help the tenant to pay the charges to the bank account of the landlords and directly pay the electricity bills when generated.
+-	Real time notifications on automation basis will help landlords not to remind every month.
+-	Application will accept the aggregate sum of the charges and fees and will be able to distribute to the different charging agencies and the landlords.
+
+
+
+## Project Overview :
+
+- Application will help both landlords and tenants to manage and pay the fees and charges on time using the direct payment method for the different billing services (for e.g: Electricity bill, Water tax of the house) and rent of the site to the accounts of the landlords directly through the application.
+- Maintaining record and analysing will become easier for the complete audience of the application.
+
+
+
+## Targeted Audience
+
+- Person who lend their land/flat/shop on rent.
+- People who use the rented site.
+- Society Maintenance manager.
+
+
+
+## Project Constraints
+
+- Third Parties API Integration for differrent agencies of electricity and water of different phase (initial phase), property tax and much more (future vision).
+- Managing sharing of the payments as soon as the tenant pay for it.
+
+
+## Tech Stack:
+
+**Client && Server**: Next.JS
+
+**Database**: MongoDB
+
+**Future needs**: Cloud to deploy the website.
+
+
+
+## Setting up the project:
+
+After cloning the project:
+
+Install the packages:
 ```bash
-npm run dev
-# or
-yarn dev
+  npm install
 ```
+Start the server:
+```bash
+  npm run dev
+```
+Open http://localhost:3000 with your browser to see the app running.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Documentation:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[Next.js](https://nextjs.org/docs)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+[NextAuth.js](https://next-auth.js.org/getting-started/introduction)
 
-## Learn More
+[Next.js Github repository](https://github.com/vercel/next.js/)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
