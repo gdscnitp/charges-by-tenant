@@ -2,6 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background-color: #b0d9db;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -14,3 +15,220 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.side{
+  background-color: white;
+  margin-left: 450px;
+  height: 100vh;
+  width:910px;
+  border-top-left-radius: 5%;
+  border-bottom-left-radius: 5%;
+}
+
+.disp{
+  font-weight: bold;
+  display: flex;
+  font-size: 35px;
+  justify-content: space-around;
+  padding-top:110px;
+  padding-left: 120px;
+}
+
+.disp1{
+  font-weight: bold;
+  display: flex;
+  font-size: 35px;
+  justify-content: space-around;
+  padding-top:110px;
+  padding-left: 150px;
+}
+
+.icon2{
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.icon{
+  font-weight:500;
+  display: flex;
+  font-size: 20px;
+  padding-top:50px;
+  padding-left: 400px;
+}
+
+.icon1{
+  display: flex;
+  padding-left: 30px;
+}
+
+.form-group{
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  padding-left: 150px;
+}
+
+input{
+  height:35px; width:300px;
+}
+
+input:focus{
+  outline: none;
+}
+
+    .fishes
+    {
+      position:absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+    }
+
+    .fish
+    {
+      position:absolute;
+      top: 11px;
+      left: 15px;
+      z-index: 2;
+    }
+.home{
+  position:absolute;
+  width:80px;
+  height:80px;
+  top:20px;
+  left:20px;
+}
+.img{
+  position:absolute;
+  width:450px;
+  height:400px;
+  top:110px;
+  left:195px;
+  z-index: 0;
+}
+
+
+.img1{
+  position:absolute;
+  width:450px;
+  height:400px;
+  top:110px;
+  left:177px;
+}
+
+.btn{
+  display: flex;
+  justify-content: space-around;
+  position: inherit;
+  padding-top: 50px;
+}
+
+#btn1{
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 7px;
+  background-color:#52C6C6;
+}
+
+
+i.fa-user{ position: relative; top: 10px; padding-right: 5px;}
+i.fa-envelope{ position: relative; top: 10px; padding-right: 5px; }
+i.fa-phone-square-alt{ position: relative; top: 10px; padding-right: 5px;}
+i.fa-lock{ position: relative; top: 10px; padding-right: 5px;}
+
+/*Total Charges Page*/
+.top_head{
+  display: flex;
+  justify-content: center;
+  width:100%;
+  height: 50px;
+  font-weight: bold;
+  font-size: 28px;
+  color: white;
+  background-color: #023C40;
+}
+.card{
+  margin: 20px;
+  width: 18rem;
+}
+.heading{
+  height: 100vh;
+  background-color: white;
+}
+
+.card1{
+  height:240px;
+  width:290px;
+  margin:20px;
+  background-color: #eff2f5;
+  border-radius: 7px;
+}
+
+.cardb{
+  padding: 20px;
+  margin: 5px;
+}
+.tc{
+  position:absolute;
+  width:450px;
+  height:400px;
+  top:161px;
+  left:900px;
+}
+
+/*Different charges page*/
+.label {
+    justify-content:space-around;
+    color: white;
+    width:200px;
+    font-size: 22px;
+    margin:15px 70px 15px 15px;
+    background-color: #ff9800;
+    padding: 8px 0px 8px 20px;
+    display:inline-block;
+    font-family: Arial;
+    border-radius:7px;
+  }
+  .charges{
+    margin:70px;
+    padding-left: 150px;
+  }
+  
+  .ip{ padding-left:58px; width:170px; height: 50px; background-color: #eff2f5; border-radius: 5px; border: 1px solid ;}
+  .dc{
+    position:absolute;
+    width:450px;
+    height:400px;
+    top:60px;
+    left:910px;
+  }
+
+  .btn2{
+    display: flex;
+    position: inherit;
+    padding-top: 80px;
+    padding-left: 150px;
+    
+  }
+
+  #btn2{
+    border: none;
+    width:200px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color:#009dae;
+  }
