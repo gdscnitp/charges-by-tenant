@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
 MyApp.getInitialProps = async (ctx) => {
   const areLogsEnabled = ctx?.router?.query?.debug || "";
   global.areLogsEnabled = areLogsEnabled === "true";
+  return {};
 };
 
 export default MyApp;
