@@ -16,7 +16,7 @@ function tenant_signin() {
             <div className='fishes'> 
             <Image src={Ellipse47} alt="sub"  /> 
             </div>
-            <div className='img'> 
+            <div className='p_img'> 
             <Image src={tenant} alt="tenant"  /> 
             </div>
             <div className='side' >
@@ -24,28 +24,28 @@ function tenant_signin() {
                 <div className='disp'>
                     Tenant Sign In
                 </div>
-                <div className='form-group'>
+                <div className='p_form-group'>
                 <i class="fas fa-user"></i>
-                    <input type="text" name="name" id="name" autocomplete="off" placeholder='Email Address' />
+                    <input className="p_input" type="text" name="name" id="name" autocomplete="off" placeholder='Email Address' />
                 </div>
-                <div className='form-group'>
+                <div className='p_form-group'>
                     <i class="fas fa-lock"></i>
-                    <input type="password" name="password" id="password" autocomplete="off" placeholder='Password'/>
+                    <input className="p_input" type="password" name="password" id="password" autocomplete="off" placeholder='Password'/>
                 </div>
-                <div className='btn'>
-                    <button id="btn1">Sign In</button>
+                <div className='p_btn1'>
+                    <button id="p_btn1">Sign In</button>
                 </div>
-                <div className='icon'>
-                        <div className='icon2'>
+                <div className='p_icon'>
+                        <div className='p_icon2'>
                             or signIn with
                         </div>
-                        <div className='icon1'>
+                        <div className='p_icon1'>
                             <Image src={Facebook} alt="sub" height={27} width={48} />
                         </div>
-                        <div className='icon1'>
+                        <div className='p_icon1'>
                             <Image src={Google} alt="sub" height={15} width={45} />
                         </div>
-                        <div className='icon1'>
+                        <div className='p_icon1'>
                             <Image src={Twitter} alt="sub"  height={27} width={48}/>
                         </div>
                 </div>
