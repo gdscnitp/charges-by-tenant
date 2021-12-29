@@ -12,7 +12,7 @@ function tenant_signup() {
             <div className='fishes'> 
             <Image src={Ellipse47} alt="sub"  /> 
             </div>
-            <div className='img'> 
+            <div className='p_img'> 
             <Image src={tenant} alt="tenant"  /> 
             </div>
             <div className='side' >
@@ -20,25 +20,25 @@ function tenant_signup() {
                 <div className='disp'>
                 Tenant Sign Up
                 </div>
-                <div className='form-group'>
+                <div className='p_form-group'>
                     <i class="fa fa-user"></i>
-                    <input type="text" name="name" id="name" autocomplete="off" placeholder='Full name' />
+                    <input  className="p_input" type="text" name="name" id="name" autocomplete="off" placeholder='Full name' />
 
                 </div>
-                <div className='form-group'>
+                <div className='p_form-group'>
                     <i class="fas fa-envelope"></i>
-                    <input type="text" name="email" id="email" autocomplete="off" placeholder='Email address'/>
+                    <input  className="p_input" type="text" name="email" id="email" autocomplete="off" placeholder='Email address'/>
                 </div>
-                <div className='form-group'>
+                <div className='p_form-group'>
                     <i class="fas fa-phone-square-alt"></i>
-                    <input type="text" name="contact" id="contact" autocomplete="off" placeholder='Contact No'/>
+                    <input  className="p_input" type="text" name="contact" id="contact" autocomplete="off" placeholder='Contact No'/>
                 </div>
-                <div className='form-group'>
+                <div className='p_form-group'>
                     <i class="fas fa-lock"></i>
-                    <input type="password" name="password" id="password" autocomplete="off" placeholder='Password'/>
+                    <input  className="p_input" type="password" name="password" id="password" autocomplete="off" placeholder='Password'/>
                 </div>
-                <div className='btn'>
-                    <button id="btn1">Sign Up</button>
+                <div className='p_btn1'>
+                    <button id="p_btn1">Sign Up</button>
                 </div>
                 
             </div>

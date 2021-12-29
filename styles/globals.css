@@ -43,12 +43,12 @@ a {
   padding-left: 150px;
 }
 
-.icon2{
+.p_icon2{
   display: flex;
   justify-content: center;
   padding-top: 20px;
 }
-.icon{
+.p_icon{
   font-weight:500;
   display: flex;
   font-size: 20px;
@@ -56,19 +56,19 @@ a {
   padding-left: 400px;
 }
 
-.icon1{
+.p_icon1{
   display: flex;
   padding-left: 30px;
 }
 
-.form-group{
+.p_form-group{
   display: flex;
   justify-content: center;
   padding-top: 50px;
   padding-left: 150px;
 }
 
-input{
+.p_input{
   height:35px; width:300px;
 }
 
@@ -98,7 +98,7 @@ input:focus{
   top:20px;
   left:20px;
 }
-.img{
+.p_img{
   position:absolute;
   width:450px;
   height:400px;
@@ -108,7 +108,7 @@ input:focus{
 }
 
 
-.img1{
+.p_img1{
   position:absolute;
   width:450px;
   height:400px;
@@ -116,14 +116,14 @@ input:focus{
   left:177px;
 }
 
-.btn{
+.p_btn1{
   display: flex;
   justify-content: space-around;
   position: inherit;
   padding-top: 50px;
 }
 
-#btn1{
+#p_btn1{
   border: none;
   color: white;
   padding: 15px 32px;
@@ -153,10 +153,6 @@ i.fa-lock{ position: relative; top: 10px; padding-right: 5px;}
   font-size: 28px;
   color: white;
   background-color: #023C40;
-}
-.card{
-  margin: 20px;
-  width: 18rem;
 }
 .heading{
   height: 100vh;
