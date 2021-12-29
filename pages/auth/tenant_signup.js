@@ -31,7 +31,7 @@ function tenant_signup() {
                 </div>
                 <div className='form-group'>
                     <i class="fas fa-phone-square-alt"></i>
-                    <input type="text" name="contact" id="contact" autocomplete="off" placeholder='Contact number'/>
+                    <input type="text" name="contact" id="contact" autocomplete="off" placeholder='Contact No'/>
                 </div>
                 <div className='form-group'>
                     <i class="fas fa-lock"></i>
