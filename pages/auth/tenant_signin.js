@@ -9,7 +9,7 @@ import Google from "../../public/images/Google.png";
 function tenant_signin() {
   return (
     <>
-      <section className="p_background-tenant-signin">
+      <section className="p_background-tenant">
         <div className="fish">
           <Image src={Home_fill} alt="sub" />
         </div>
@@ -49,8 +49,8 @@ function tenant_signin() {
               placeholder="Password"
             />
           </div>
-          <div className="p_btn1">
-            <button id="p_btn1">Sign In</button>
+          <div className="p_btn">
+            <button className="p_btn1 p_btr">Sign In</button>
           </div>
           <div className="p_icon">
             <div className="p_icon2">or signIn with</div>
