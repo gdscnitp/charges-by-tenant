@@ -33,11 +33,7 @@ const tenantSchema = new mongoose.Schema({
     },
     DOB:{
         type:Date,
-<<<<<<< HEAD
-        
-=======
         // required:true,
->>>>>>> 07cc5aab84437b5feab7d154897eb572f3905e30
         validate:[isDate,'Please enter a valid date']
     },
     address:[{
@@ -72,20 +68,12 @@ const tenantSchema = new mongoose.Schema({
 
     occupation:{
         type:String,
-<<<<<<< HEAD
         //required:[true,'Please enter your occupation']
-=======
-        // required:[true,'Please enter your occupation']
->>>>>>> 07cc5aab84437b5feab7d154897eb572f3905e30
     },
     verification:{
         type:String,
         enum:['Aadhar','VoterID','PanCard'],
-<<<<<<< HEAD
         //required:[true,'Please enter your verification id']
-=======
-        // required:[true,'Please enter your verification id']
->>>>>>> 07cc5aab84437b5feab7d154897eb572f3905e30
     },
     
     history:{
@@ -110,7 +98,7 @@ tenantSchema.pre('save',(next)=>{
             else if(user.password == hash){
                 return next("new password cannot be same as current password")
             }
-            
+
             user.password = hash;
             next();
         })
