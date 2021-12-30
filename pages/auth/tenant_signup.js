@@ -6,7 +6,7 @@ import Ellipse47 from "../../public/images/Ellipse47.png";
 function tenant_signup() {
   return (
     <>
-      <section className="p_background-tenant-signin">
+      <section className="p_background-tenant">
         <div className="fish">
           <Image src={Home_fill} alt="sub" />
         </div>
@@ -68,8 +68,8 @@ function tenant_signup() {
               placeholder="Password"
             />
           </div>
-          <div className="p_btn1">
-            <button id="p_btn1">Sign Up</button>
+          <div className="p_btn">
+            <button className="p_btn1 p_btr">Sign Up</button>
           </div>
         </div>
       </section>
