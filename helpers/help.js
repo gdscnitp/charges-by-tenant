@@ -1,5 +1,6 @@
 var error = require("./error");
 var constants  = require("./constants")
+import Moment from 'moment'
 
 module.exports = {
     sendError: function(res,err,status_code=500){
@@ -9,7 +10,8 @@ module.exports = {
         res.status(status_code).json({
             code: status_code,
             message: error[status_code] ? error[status_code] : "Server Error",
-            success:false
+            success:false,
+            time: Date.now()
         });
         return;
     },
@@ -17,7 +19,8 @@ module.exports = {
     sendSuccess: function(res,data){
         res.status(constants.OK).json({
             sucess:true,
-            data:data
+            data:data,
+            time: Date.now()
         });
 
     }
