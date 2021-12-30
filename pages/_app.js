@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "../styles/Profile.css";
+import "../styles/Landing.css"
 import logger from "../helpers/logger";
 import "bootstrap/dist/css/bootstrap.css";
 

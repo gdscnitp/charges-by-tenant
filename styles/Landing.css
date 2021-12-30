@@ -1,0 +1,58 @@
+.S_landing {
+  background-color: #023c40;
+  width: 15vw;
+  height: 100vh;
+  color: white;
+  font-size: 1.5vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.S_identity {
+  width: 12vw;
+  height: 20vh;
+  border-radius: 20px;
+  margin-left: 8%;
+  background: #009dae;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.S_profile {
+  width: 8vw !important;
+  height: 8vh !important;
+  min-width: 0 !important;
+}
+
+.S_menu {
+  width: 15vw;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.S_option {
+  text-align: left;
+  width: 15vw;
+  padding: 2%;
+  margin: 10% 10%;
+  margin-left: 40%;
+  font-weight: 500;
+}
+
+.S_option:hover {
+  background: white;
+  color: #023c40;
+  transform: scale(1.2);
+}
+
+.S_menu i {
+  padding: 2%;
+  margin: 0 3% 0 0;
+}
