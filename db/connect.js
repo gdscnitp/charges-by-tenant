@@ -12,7 +12,7 @@ var Database;
 
 mongoose.connection.on("error", function (err) {
 	console.trace("Mongodb connection failed ❌", err);
-	if (connectionAttempt == config.DB_CONNECTION_RETTEMPT_LIMIT_NODE) {
+	if (connectionAttempt == config.DB_CONNECTION_RETTEMPT_LIMIT_NODE || 1) {
 		//send a mail to admin
 		console.log("email has beeen sent");
 	} else {
@@ -29,7 +29,7 @@ mongoose.connection.on("connected", function (success) {
 function connectMongoDb() {
 	console.log(config.MONGO_URL)
 	mongoose.connect(
-		config.MONGO_URL,
+		config.MONGO_URL || "mongodb://localhost:27017/charges-by-tenants",
 		// {
 		// 	useUnifiedTopology: true,
 		// 	useNewUrlParser: true,
