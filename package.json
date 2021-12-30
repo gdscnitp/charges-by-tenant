@@ -15,14 +15,12 @@
     "moment": "^2.29.1",
     "mongoose": "^6.0.13",
     "next": "12.0.5",
+    "nodemailer": "^6.7.2",
     "react": "17.0.2",
     "react-bootstrap": "^2.0.4",
     "react-dom": "17.0.2",
-<<<<<<< HEAD
     "react-feather": "^2.0.9",
-=======
     "react-moment": "^1.1.1",
->>>>>>> 07cc5aab84437b5feab7d154897eb572f3905e30
     "validator": "^13.7.0"
   },
   "devDependencies": {

@@ -50,7 +50,7 @@ const tenantSchema = new mongoose.Schema({
                 type:String,
                 //required:[true,'Please enter your state']
             },
-            Country:{
+            country:{
                 type:String,
                 //required:[true,'Please enter your country']
             },
@@ -83,12 +83,12 @@ const tenantSchema = new mongoose.Schema({
 },{timestamps:true});
 
 //when tenant updates password
+/*
 tenantSchema.pre('save',(next)=>{
 
-    if(!this.isModified('password')){
-        return next();
-    }
-    const user = this;
+    var user = this;
+    console.log(user)
+    
     bcrypt.genSalt(10, function(err, salt){
         if (err){ return next(err) }
 
@@ -105,5 +105,6 @@ tenantSchema.pre('save',(next)=>{
     })
 
 });
+*/
 
-module.exports = mongoose.model("Tenant",tenantSchema);
+module.exports = mongoose.models.Tenant || mongoose.model("Tenant",tenantSchema);

@@ -143,3 +143,127 @@
   msg: 'Database_successfully_connected',
   body: 'success'
 }
+[2021-12-30T23:00:15.233] [ERROR] DataBase - {
+  r: 'mongodb',
+  msg: 'mongodb_connection_error',
+  body: MongoServerError: bad auth : Authentication failed.
+      at MessageStream.messageHandler (C:\Users\Ksiho\Desktop\web\charges-by-tenant\node_modules\mongodb\lib\cmap\connection.js:467:30)
+      at MessageStream.emit (events.js:400:28)
+      at MessageStream.emit (domain.js:470:12)
+      at processIncomingData (C:\Users\Ksiho\Desktop\web\charges-by-tenant\node_modules\mongodb\lib\cmap\message_stream.js:108:16)
+      at MessageStream._write (C:\Users\Ksiho\Desktop\web\charges-by-tenant\node_modules\mongodb\lib\cmap\message_stream.js:28:9)
+      at writeOrBuffer (internal/streams/writable.js:358:12)
+      at MessageStream.Writable.write (internal/streams/writable.js:303:10)
+      at TLSSocket.ondata (internal/streams/readable.js:726:22)
+      at TLSSocket.emit (events.js:400:28)
+      at TLSSocket.emit (domain.js:470:12) {
+    ok: 0,
+    code: 8000,
+    codeName: 'AtlasError'
+  }
+}
+[2021-12-30T23:16:57.438] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:22:00.699] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:23:12.554] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:23:41.380] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:23:41.410] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:24:17.578] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:24:17.584] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:25:23.398] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:25:23.401] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:26:26.794] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:26:26.796] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:29:26.551] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:29:26.555] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:30:06.276] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:30:06.294] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:31:43.755] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:31:43.763] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:33:01.254] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:33:01.258] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:33:39.003] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T23:33:39.061] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
