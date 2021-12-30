@@ -33,30 +33,30 @@ const tenantSchema = new mongoose.Schema({
     },
     DOB:{
         type:Date,
-        required:true,
+        
         validate:[isDate,'Please enter a valid date']
     },
     address:[{
             first_line:{
                 type:String,
-                required:[true,'Please enter your address'],
+                //required:[true,'Please enter your address'],
                 
             },
             city:{
                 type:String,
-                required:[true,'Please enter your city']
+                //required:[true,'Please enter your city']
             },
             state:{
                 type:String,
-                required:[true,'Please enter your state']
+                //required:[true,'Please enter your state']
             },
             Country:{
                 type:String,
-                required:[true,'Please enter your country']
+                //required:[true,'Please enter your country']
             },
             pincode:{
                 type:Number,
-                required:[true,'Please enter your pincode'],
+                //required:[true,'Please enter your pincode'],
                 validate:[isPostalCode,'Please enter proper pin code']
             },
             landmark:{
@@ -68,12 +68,12 @@ const tenantSchema = new mongoose.Schema({
 
     occupation:{
         type:String,
-        required:[true,'Please enter your occupation']
+        //required:[true,'Please enter your occupation']
     },
     verification:{
         type:String,
         enum:['Aadhar','VoterID','PanCard'],
-        required:[true,'Please enter your verification id']
+        //required:[true,'Please enter your verification id']
     },
     
     history:{
@@ -95,6 +95,10 @@ tenantSchema.pre('save',(next)=>{
         bcrypt.hash(user.password, salt, null, function(err, hash){
             if(err){return next(err)}
 
+            else if(user.password == hash){
+                return next("new password cannot be same as current password")
+            }
+            
             user.password = hash;
             next();
         })

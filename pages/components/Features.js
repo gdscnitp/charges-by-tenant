@@ -11,8 +11,8 @@ function Features() {
         </h1>
       </div>
 
-      <div class="container mt-5">
-        <div class="row  a-features-container">
+      <div className="container mt-5">
+        <div className="row  a-features-container">
           <FeatureCard />
           <FeatureCard />
           <FeatureCard />

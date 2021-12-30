@@ -24,28 +24,28 @@ function tenant_signin() {
             rel="stylesheet"
             href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
             integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-            crossorigin="anonymous"
+            
           />
           <div className="disp">Tenant Sign In</div>
           <div className="p_form-group">
-            <i class="fas fa-user"></i>
+            <i className="fas fa-user"></i>
             <input
               className="p_input"
               type="text"
               name="name"
               id="name"
-              autocomplete="off"
+              autoComplete="off"
               placeholder="Email Address"
             />
           </div>
           <div className="p_form-group">
-            <i class="fas fa-lock"></i>
+            <i className="fas fa-lock"></i>
             <input
               className="p_input"
               type="password"
               name="password"
               id="password"
-              autocomplete="off"
+              autoComplete="off"
               placeholder="Password"
             />
           </div>
