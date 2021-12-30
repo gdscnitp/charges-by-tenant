@@ -6,7 +6,7 @@ const Identity = () => {
         <div className="S_landing">
             <div className="S_leftbar">
                 <div className="S_identity">
-                    <Image className="S_profile" src={Profile} alt="Profile" />
+                    <img className="S_profile" src="/images/Profile.svg" alt="Profile" />
                     <div className="name">Shyam123</div>
                 </div>
                 <div className="S_menu">

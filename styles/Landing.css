@@ -3,7 +3,6 @@
   width: 15vw;
   height: 100vh;
   color: white;
-  font-size: 1.5vw;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -11,8 +10,9 @@
 
 .S_identity {
   width: 12vw;
-  height: 20vh;
+  height: 25vh;
   border-radius: 20px;
+  margin-top: 5%;
   margin-left: 8%;
   background: #009dae;
   display: flex;
@@ -20,11 +20,15 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  font-size: 1.4vw;
+}
+
+.name {
+  margin-top: 10%;
 }
 
 .S_profile {
-  width: 8vw !important;
-  height: 8vh !important;
+  height: 15vh !important;
   min-width: 0 !important;
 }
 
@@ -35,6 +39,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.2vw;
 }
 
 .S_option {
