@@ -33,7 +33,7 @@ const tenantSchema = new mongoose.Schema({
     },
     DOB:{
         type:Date,
-        required:true,
+        // required:true,
         validate:[isDate,'Please enter a valid date']
     },
     address:[{
@@ -68,12 +68,12 @@ const tenantSchema = new mongoose.Schema({
 
     occupation:{
         type:String,
-        required:[true,'Please enter your occupation']
+        // required:[true,'Please enter your occupation']
     },
     verification:{
         type:String,
         enum:['Aadhar','VoterID','PanCard'],
-        required:[true,'Please enter your verification id']
+        // required:[true,'Please enter your verification id']
     },
     
     history:{

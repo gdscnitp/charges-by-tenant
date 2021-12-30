@@ -1,0 +1,145 @@
+[2021-12-30T12:22:33.806] [ERROR] DataBase - {
+  r: 'mongodb',
+  msg: 'mongodb_connection_error',
+  body: MongoParseError: Invalid connection string ""
+      at new ConnectionString (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb-connection-string-url/lib/index.js:66:19)
+      at parseOptions (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/connection_string.js:210:17)
+      at new MongoClient (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/mongo_client.js:62:63)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:779:16
+      at new Promise (<anonymous>)
+      at NativeConnection.Connection.openUri (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:776:19)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/index.js:332:10
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:32:5
+      at new Promise (<anonymous>)
+      at promiseOrCallback (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:31:10)
+}
+[2021-12-30T12:22:33.819] [ERROR] DataBase - {
+  r: 'mongodb',
+  msg: 'mongodb_connection_error',
+  body: MongoParseError: Invalid connection string ""
+      at new ConnectionString (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb-connection-string-url/lib/index.js:66:19)
+      at parseOptions (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/connection_string.js:210:17)
+      at new MongoClient (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/mongo_client.js:62:63)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:779:16
+      at new Promise (<anonymous>)
+      at NativeConnection.Connection.openUri (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:776:19)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/index.js:332:10
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:32:5
+      at new Promise (<anonymous>)
+      at promiseOrCallback (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:31:10)
+}
+[2021-12-30T12:22:33.860] [ERROR] DataBase - {
+  r: 'mongodb',
+  msg: 'mongodb_connection_error',
+  body: MongoParseError: Invalid connection string ""
+      at new ConnectionString (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb-connection-string-url/lib/index.js:66:19)
+      at parseOptions (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/connection_string.js:210:17)
+      at new MongoClient (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/mongo_client.js:62:63)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:779:16
+      at new Promise (<anonymous>)
+      at NativeConnection.Connection.openUri (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:776:19)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/index.js:332:10
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:32:5
+      at new Promise (<anonymous>)
+      at promiseOrCallback (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:31:10)
+}
+[2021-12-30T12:22:33.896] [ERROR] DataBase - {
+  r: 'mongodb',
+  msg: 'mongodb_connection_error',
+  body: MongoParseError: Invalid connection string ""
+      at new ConnectionString (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb-connection-string-url/lib/index.js:66:19)
+      at parseOptions (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/connection_string.js:210:17)
+      at new MongoClient (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/mongo_client.js:62:63)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:779:16
+      at new Promise (<anonymous>)
+      at NativeConnection.Connection.openUri (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:776:19)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/index.js:332:10
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:32:5
+      at new Promise (<anonymous>)
+      at promiseOrCallback (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:31:10)
+}
+[2021-12-30T12:22:33.921] [ERROR] DataBase - {
+  r: 'mongodb',
+  msg: 'mongodb_connection_error',
+  body: MongoParseError: Invalid connection string ""
+      at new ConnectionString (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb-connection-string-url/lib/index.js:66:19)
+      at parseOptions (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/connection_string.js:210:17)
+      at new MongoClient (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/mongo_client.js:62:63)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:779:16
+      at new Promise (<anonymous>)
+      at NativeConnection.Connection.openUri (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:776:19)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/index.js:332:10
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:32:5
+      at new Promise (<anonymous>)
+      at promiseOrCallback (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:31:10)
+}
+[2021-12-30T12:22:33.927] [ERROR] DataBase - {
+  r: 'mongodb',
+  msg: 'mongodb_connection_error',
+  body: MongoParseError: Invalid connection string ""
+      at new ConnectionString (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb-connection-string-url/lib/index.js:66:19)
+      at parseOptions (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/connection_string.js:210:17)
+      at new MongoClient (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/mongo_client.js:62:63)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:779:16
+      at new Promise (<anonymous>)
+      at NativeConnection.Connection.openUri (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:776:19)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/index.js:332:10
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:32:5
+      at new Promise (<anonymous>)
+      at promiseOrCallback (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:31:10)
+}
+[2021-12-30T12:22:33.983] [ERROR] DataBase - {
+  r: 'mongodb',
+  msg: 'mongodb_connection_error',
+  body: MongoParseError: Invalid connection string ""
+      at new ConnectionString (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb-connection-string-url/lib/index.js:66:19)
+      at parseOptions (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/connection_string.js:210:17)
+      at new MongoClient (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongodb/lib/mongo_client.js:62:63)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:779:16
+      at new Promise (<anonymous>)
+      at NativeConnection.Connection.openUri (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/connection.js:776:19)
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/index.js:332:10
+      at /Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:32:5
+      at new Promise (<anonymous>)
+      at promiseOrCallback (/Users/rishabhmishra/Documents/GitHub/charges-by-tenant-forked/node_modules/mongoose/lib/helpers/promiseOrCallback.js:31:10)
+}
+[2021-12-30T12:24:13.632] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T12:24:13.641] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T12:28:03.503] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T12:28:03.506] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T12:29:22.987] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T12:29:39.825] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T12:30:45.105] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2021-12-30T12:32:11.352] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
