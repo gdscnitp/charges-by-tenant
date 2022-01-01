@@ -1,3 +1,7 @@
+.S_tenant {
+  display: flex;
+}
+
 .S_landing {
   background-color: #023c40;
   width: 15vw;
@@ -60,4 +64,102 @@
 .S_menu i {
   padding: 2%;
   margin: 0 3% 0 0;
+}
+
+.S_right {
+  display: flex;
+  align-items: center;
+}
+
+.a-card {
+  width: 80vw;
+}
+
+.a-card-body {
+  margin-left: 5%;
+}
+
+.a-landing-card {
+  background-color: #009dae;
+  border-radius: 20px;
+}
+
+.a-image-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.a-landing-card-image {
+  min-width: 130px !important;
+  height: 25vh;
+  object-fit: cover;
+  margin: 2px;
+  border-radius: 20px !important;
+}
+
+.a-button-container {
+  display: flex !important;
+  flex-direction: row;
+}
+
+.a-landing-card-button {
+  padding: 4px;
+}
+
+.a-margin-left {
+  margin-left: 5vw;
+}
+
+.a-landing-card-heading {
+  font-weight: bold;
+}
+
+.a-landing-card-data {
+  font-style: italic;
+}
+
+.a-pseudo-horizontal-line {
+  width: 70vw;
+  height: 0px;
+  border-bottom: 2px solid #023c40;
+  position: relative;
+}
+
+.a-pseudo-horizontal-line::before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  background: blue;
+  border-radius: 50%;
+  left: -1px;
+  top: -3.7px;
+}
+
+.a-pseudo-horizontal-line::after {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  background: blue;
+  border-radius: 50%;
+  right: -1px;
+  top: -3.7px;
+}
+
+@media (max-width: 800px) {
+  .a-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .a-landing-card-button .btn {
+    width: 25vw;
+  }
+
+  .a-margin-left {
+    margin-left: 0px;
+  }
 }
