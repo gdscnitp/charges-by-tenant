@@ -11,14 +11,14 @@ const RentersList = (props) => {
             />
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
             <div className='p_h2'>{props.head}</div>
-            <table class="table table-striped">
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">{props.flat}</th>
                         <th scope="col">{props.loc}</th>
                         <th scope="col">{props.rentedFrom}</th>
                         <th scope="col">{props.rentedTill}</th>
-                        <th scope="col">{props.deposit} ( <i class="fas fa-rupee-sign"></i> )</th>
+                        <th scope="col">{props.deposit} ( <i className="fas fa-rupee-sign"></i> )</th>
                     </tr>
                 </thead>
                 <tbody>

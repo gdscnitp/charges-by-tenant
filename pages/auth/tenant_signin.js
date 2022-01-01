@@ -28,7 +28,7 @@ function tenant_signin() {
           />
           <div className="disp">Tenant Sign In</div>
           <div className="p_form-group">
-            <i class="fas fa-user"></i>
+            <i className="fas fa-user"></i>
             <input
               className="p_input"
               type="text"
@@ -38,7 +38,7 @@ function tenant_signin() {
             />
           </div>
           <div className="p_form-group">
-            <i class="fas fa-lock"></i>
+            <i className="fas fa-lock"></i>
             <input
               className="p_input"
               type="password"

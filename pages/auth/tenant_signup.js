@@ -25,7 +25,7 @@ function tenant_signup() {
           />
           <div className="disp">Tenant Sign Up</div>
           <div className="p_form-group">
-            <i class="fa fa-user"></i>
+            <i className="fa fa-user"></i>
             <input
               className="p_input"
               type="text"
@@ -35,7 +35,7 @@ function tenant_signup() {
             />
           </div>
           <div className="p_form-group">
-            <i class="fas fa-envelope"></i>
+            <i className="fas fa-envelope"></i>
             <input
               className="p_input"
               type="text"
@@ -45,7 +45,7 @@ function tenant_signup() {
             />
           </div>
           <div className="p_form-group">
-            <i class="fas fa-phone-square-alt"></i>
+            <i className="fas fa-phone-square-alt"></i>
             <input
               className="p_input"
               type="text"
@@ -55,7 +55,7 @@ function tenant_signup() {
             />
           </div>
           <div className="p_form-group">
-            <i class="fas fa-lock"></i>
+            <i className="fas fa-lock"></i>
             <input
               className="p_input"
               type="password"
