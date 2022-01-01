@@ -56,6 +56,7 @@
   margin: 10% 10%;
   margin-left: 40%;
   font-weight: 500;
+  border-radius: 20px 0 0 20px;
 }
 
 .S_option:hover {
@@ -72,6 +73,7 @@
 .S_right {
   display: flex;
   align-items: center;
+  background: #f0f8ffc2;
 }
 
 .S_head {
