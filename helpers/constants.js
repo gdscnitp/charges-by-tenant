@@ -1,7 +1,8 @@
 var constants = {
 
 OK: 200,
-//Created: 201,
+SERVER_ERROR: 500,
+NOT_FOUND: 404
 //Accepted: 202
 
 }
