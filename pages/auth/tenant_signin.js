@@ -34,7 +34,6 @@ function tenant_signin() {
               type="text"
               name="name"
               id="name"
-              autocomplete="off"
               placeholder="Email Address"
             />
           </div>
@@ -45,7 +44,6 @@ function tenant_signin() {
               type="password"
               name="password"
               id="password"
-              autocomplete="off"
               placeholder="Password"
             />
           </div>
