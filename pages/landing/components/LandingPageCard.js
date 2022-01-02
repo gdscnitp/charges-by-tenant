@@ -5,17 +5,13 @@ import HorizontalLine from "./HorizontalLine";
 function LandingPageCard() {
   return (
     <section className="a-card">
-      <div
-        class="container shadow-lg text-white a-landing-card mt-5"
-        style={{ width: "65vw" }}
-      >
+      <div class="container shadow-lg text-white a-landing-card mt-5" style={{ width: "65vw" }}>
         <div class="row justify-content-md-center p-3">
           <div class="col col-lg-4 a-image-container">
             <img
               className="card-img-top a-landing-card-image"
               src="/images/homePage.png"
-              alt="Card image cap"
-            />
+              alt="Card image cap" />
           </div>
           <div class="col col-lg-8">
             <div className="card-body a-card-body">

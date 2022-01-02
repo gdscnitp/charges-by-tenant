@@ -11,7 +11,7 @@ export default function Home() {
       <div className="S_right">
         <Details email="Email1" detail1="Details" detail2="Details" detail3="Details" detail4="Details" />
         <hr />
-        <div className="right_bottom">
+        <div className="S_rightBottom">
           <Header head="Available Sites" />
           <TableList flat="Flat-402" loc="Near Road, XYZ Town, ABC" siteName="From: 04 Dec 2021" available="Residential" />
         </div>
