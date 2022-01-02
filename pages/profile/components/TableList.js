@@ -4,7 +4,7 @@ const TableList = (props) => {
     return (
         <div className="right_bottom">
             <div className='h2'>{props.head}</div>
-            <table class="table table-striped Stable">
+            <table className="table table-striped Stable">
                 <thead>
                     <tr>
                         <th scope="col">{props.flat}</th>
@@ -20,49 +20,49 @@ const TableList = (props) => {
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><button type="button" class="btn btn-outline-info">Info</button></td>
+                        <td><button type="button" className="btn btn-outline-info">Info</button></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><button type="button" class="btn btn-outline-info">Info</button></td>
+                        <td><button type="button" className="btn btn-outline-info">Info</button></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><button type="button" class="btn btn-outline-info">Info</button></td>
+                        <td><button type="button" className="btn btn-outline-info">Info</button></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><button type="button" class="btn btn-outline-info">Info</button></td>
+                        <td><button type="button" className="btn btn-outline-info">Info</button></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><button type="button" class="btn btn-outline-info">Info</button></td>
+                        <td><button type="button" className="btn btn-outline-info">Info</button></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><button type="button" class="btn btn-outline-info">Info</button></td>
+                        <td><button type="button" className="btn btn-outline-info">Info</button></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><button type="button" class="btn btn-outline-info">Info</button></td>
+                        <td><button type="button" className="btn btn-outline-info">Info</button></td>
                     </tr>
                 </tbody>
             </table>
