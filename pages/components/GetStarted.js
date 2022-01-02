@@ -13,12 +13,12 @@ function GetStarted() {
 
       <div className="container a-display-flex-cards mt-5 mb-5">
         <SignInCard
-          pathOfImage="images/Tenant.svg"
+          pathOfImage="/images/Tenant.svg"
           content="Sign in as a Tenant and use the helpful features from our website. Get notified for all the payments and history."
           name="Tenant"
         />
         <SignInCard
-          pathOfImage="images/Landlord.svg"
+          pathOfImage="/images/Landlord.svg"
           content="Sign in as a Landlord and use the helpful features from our website. Keep track of all the payments"
           name="Landlord"
         />
