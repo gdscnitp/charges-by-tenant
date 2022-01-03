@@ -34,19 +34,21 @@ function LandingPageCard() {
                 </div>
               </p>
               <div className="container">
-                <div className="a-button-container">
-                  <LandingCardButton
-                    classNameProp="btn-warning"
-                    name="Details"
-                  />
-                  <LandingCardButton
-                    classNameProp="btn-warning a-margin-left"
-                    name="History"
-                  />
-                  <LandingCardButton
-                    classNameProp="btn-success px-2"
-                    name="Paid"
-                  />
+                <div>
+                  <div className="a-button-container">
+                    <LandingCardButton
+                      classNameProp="btn-warning"
+                      name="Details"
+                    />
+                    <LandingCardButton
+                      classNameProp="btn-warning a-margin-left"
+                      name="History"
+                    />
+                    <LandingCardButton
+                      classNameProp="btn-success px-2"
+                      name="Paid"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
