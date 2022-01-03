@@ -27,7 +27,7 @@ mongoose.connection.on("connected", function (success) {
 });
 
 function connectMongoDb() {
-	console.log(config.MONGO_URL)
+	
 	mongoose.connect(
 		config.MONGO_URL || "mongodb://localhost:27017/charges-by-tenants",
 		// {

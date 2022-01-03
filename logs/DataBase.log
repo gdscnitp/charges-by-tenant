@@ -267,3 +267,633 @@
   msg: 'Database_successfully_connected',
   body: 'success'
 }
+[2022-01-01T19:20:21.629] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T19:20:21.643] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T19:30:27.280] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T19:30:27.285] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T19:31:17.247] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T19:31:17.249] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T19:42:27.713] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T19:42:27.725] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T19:42:52.660] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T19:42:52.662] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T21:54:39.295] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T21:54:39.310] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T22:19:43.470] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T22:27:45.871] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T22:32:30.221] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T22:34:29.869] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T22:34:29.873] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T22:35:42.622] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T22:35:42.625] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T22:38:27.019] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T22:38:27.023] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T22:38:59.866] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:02:07.015] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:02:07.018] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:02:41.618] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:02:41.621] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:07:41.762] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:07:41.765] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:10:29.270] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:10:29.273] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:14:02.317] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:14:02.320] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:14:25.726] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:14:25.729] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:15:22.990] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:18:57.430] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:18:57.434] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:20:07.360] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:20:07.363] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:25:22.412] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:25:22.415] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:26:05.945] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:26:05.948] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:26:32.880] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:26:32.883] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:28:00.655] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:28:00.660] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:28:28.540] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:28:28.543] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:28:47.294] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:28:47.296] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:29:03.439] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-01T23:29:03.444] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:19:33.523] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:19:33.547] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:20:23.998] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:20:24.003] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:21:23.298] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:27:03.352] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:27:03.356] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:29:07.325] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:29:07.327] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:29:27.739] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:29:27.741] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:30:42.452] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:30:42.469] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:32:25.315] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:32:25.318] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:41:01.856] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:41:01.859] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:44:05.883] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:44:05.887] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:45:00.362] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:45:00.365] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:45:34.958] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:45:34.961] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:46:40.828] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:46:40.837] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:48:52.101] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:48:52.105] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:52:33.386] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T21:52:33.389] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:25:22.991] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:25:23.008] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:28:18.210] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:28:18.217] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:30:18.383] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:30:18.387] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:31:04.816] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:31:04.819] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:39:15.703] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:39:15.707] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:39:56.552] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:39:56.554] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:40:37.033] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:40:37.036] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:41:37.444] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:41:37.461] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:43:50.623] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:43:50.627] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:44:16.291] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:44:16.295] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:46:19.984] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:46:19.989] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:47:57.134] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:48:53.157] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:48:53.165] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:49:41.746] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-02T23:49:41.749] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T00:02:39.337] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T00:02:39.339] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T00:04:00.857] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T00:04:00.860] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T00:05:34.295] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T00:05:34.307] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T00:06:04.726] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T00:06:04.732] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T00:07:10.491] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T00:07:10.494] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T12:48:23.960] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T12:48:23.989] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T12:58:00.271] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T12:58:00.302] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T12:59:33.442] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T12:59:33.446] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-03T13:00:57.607] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}

@@ -36,7 +36,7 @@ const tenantSchema = new mongoose.Schema({
         // required:true,
         validate:[isDate,'Please enter a valid date']
     },
-    address:[{
+    address:{
             first_line:{
                 type:String,
                 //required:[true,'Please enter your address'],
@@ -64,7 +64,7 @@ const tenantSchema = new mongoose.Schema({
                 //not setting required as true, keeping it optional
             }
 
-        }],
+        },
 
     occupation:{
         type:String,

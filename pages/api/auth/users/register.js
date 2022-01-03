@@ -2,6 +2,7 @@ import connectMongoDb from "../../../../db/connect";
 import { sendError } from "../../../../helpers/help";
 import { sendSuccess } from "../../../../helpers/help";
 var constants = require("../../../../helpers/constants")
+const bcrypt = require("bcrypt");
 var Tenant = require("../../../../models/tenant")
 const {isEmail} = require("validator");
 var nodemailer = require("nodemailer");
@@ -10,13 +11,15 @@ connectMongoDb()
 
 export default async function handler(req,res){
 
+    var PASSWORD = generatePassword()
+    console.log(PASSWORD)
     if(req.method === "POST"){
         const newUser = new Tenant({
             name: req.body.name,
             email:req.body.email,
             contact:req.body.contact,
             username:emailUsername(req.body.email),
-            password:"adadad"
+            password:PASSWORD,
         })
 
         var {email} = newUser;
@@ -35,26 +38,27 @@ export default async function handler(req,res){
 
         });
 
-        newUser.save(function(err,data){
-            if(err){
-                return sendError(res,err,constants.SERVER_ERROR)
-            }
-            else{
-                return sendSuccess(res,data)
-            }
-
+        bcrypt.genSalt(10,(err,salt) => {
+            bcrypt.hash(newUser.password,salt,(err,hash) => {
+                if(err)return sendError(res,err,constants.SERVER_ERROR)
+                newUser.password = hash;
+                newUser.save(function(err,data){
+                    if(err){
+                        return sendError(res,err,constants.SERVER_ERROR)
+                    }
+                    else{
+                        
+                        return sendSuccess(res,data)
+                    }
+                })
+            })
         })
-
-
-
-
-
     }
 }
 
-function generatePassword(account_id, email, name, cb) {
+function generatePassword() {
 	//create a function to create a password and send it to the registered mail
-    var randomPass = Math.random().toString(36).slice(-8);
+    return Math.random().toString(36).slice(-8);
     
 }
 
