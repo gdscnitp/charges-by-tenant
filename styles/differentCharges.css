@@ -1,0 +1,56 @@
+.p_label {
+    justify-content:space-around;
+    color: white;
+    width:14vw;
+    font-size: 1.6vw;
+    margin:15px 70px 15px 15px;
+    background-color: #ff9800;
+    padding: 8px 0px 8px 20px;
+    display:inline-block;
+    font-family: Arial;
+    border-radius:7px;
+  }
+  .charges{
+    margin:5%;
+    padding-left: 13%;
+  }
+  
+  .ip{ padding-left:4%; 
+    width:12vw;
+    height:6vh; 
+    background-color: #eff2f5; 
+    border-radius: 5px; 
+    border: 1px solid ;
+  }
+
+  .dc{
+    position:absolute;
+    width:30vw;
+    top:14vh;
+    left:66vw;
+  }
+
+  .btn2{
+    display: flex;
+    position: inherit;
+    padding-top: 80px;
+    padding-left: 150px;
+    
+  }
+
+  .p_btn2 {
+    border: none;
+    width: 200px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #009dae;
+  }
+
+  

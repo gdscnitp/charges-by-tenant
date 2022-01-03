@@ -31,7 +31,6 @@ function tenant_signup() {
               type="text"
               name="name"
               id="name"
-              autoComplete="off"
               placeholder="Full name"
             />
           </div>
@@ -42,7 +41,6 @@ function tenant_signup() {
               type="text"
               name="email"
               id="email"
-              autoComplete="off"
               placeholder="Email address"
             />
           </div>
@@ -53,7 +51,6 @@ function tenant_signup() {
               type="text"
               name="contact"
               id="contact"
-              autoComplete="off"
               placeholder="Contact No"
             />
           </div>
@@ -64,7 +61,6 @@ function tenant_signup() {
               type="password"
               name="password"
               id="password"
-              autoComplete="off"
               placeholder="Password"
             />
           </div>
