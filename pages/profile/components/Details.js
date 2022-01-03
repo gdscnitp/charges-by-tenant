@@ -2,7 +2,7 @@ const Details = (props) => {
   return (
     <div className="right_top">
       <div className="rightTop_profile">
-        <i class="fad fa-user-circle S_icon6"></i>
+        <i className="fad fa-user-circle S_icon6"></i>
       </div>
       <div className="rightTop_details">
         <div className="details_head">
@@ -10,7 +10,7 @@ const Details = (props) => {
             <h5>Hi Bot!!</h5>
             <div className="head_secondLine">Welcome to your profile page.</div>
           </div>
-          <i class="fas fa-user-edit S_icon7"></i>
+          <i className="fas fa-user-edit S_icon7"></i>
         </div>
         <div className="details">
           <div className="email">{props.email}</div>
