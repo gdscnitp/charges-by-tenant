@@ -5,7 +5,7 @@ function FeatureCard() {
         <h5 className="card-title m-2">Get Notified</h5>
         <div className="card-body">
           <p className="card-text">
-            Don't miss any Notifications and get updated.
+            Don&apos;t miss any Notifications and get updated.
           </p>
         </div>
       </div>
