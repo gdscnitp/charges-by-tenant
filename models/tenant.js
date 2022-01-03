@@ -3,9 +3,14 @@ const bcrypt = require("bcrypt");
 const {isEmail,isDate} = require("validator");
 const { default: isPostalCode } = require("validator/lib/isPostalCode");
 const tenantSchema = new mongoose.Schema({
-    name:{
+    firstName:{
         type:String,
-        required:[true,'Please enter a name'],
+        required:[true,'Please enter first name'],
+        max:25
+    },
+    lastName:{
+        type:String,
+        required:[true,'Please enter last name'],
         min:3,
         max:25
     },

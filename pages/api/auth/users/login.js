@@ -7,9 +7,11 @@ const {isEmail} = require("validator");
 const jwt = require("jsonwebtoken")
 var nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
+const config = require("../../../../config/config");
 
 
-export default async function handler(req,res,next){
+
+export default async function handler(req,res){
     if(req.method === "POST"){
     const bearerHeader = req.headers['authorization'];
     // Check if bearer is undefined
@@ -21,19 +23,14 @@ export default async function handler(req,res,next){
       // Set the token
       req.token = bearerToken;
       // Next middleware
-      jwt.verify(req.token, "qwert12345", (err,authData) => {
-        if(err)return sendError(res,err,constants.SERVER_ERROR)
-        else{
-            res.json({
-                message:'SUCCESS',
-                authData
-            });
-        }
+      jwt.verify(req.token, config.SECRET_KEY, (err,authData) => {
+        if(err)return sendError(res,err,constants.JWT_VERIFY)
+        return sendSuccess(res,authData)
     })
       
     } else {
       // Forbidden
-      res.sendStatus(403);
+      return sendError(res,"Token not provided",constants.NULL_TOKEN)
     }
 }
 }

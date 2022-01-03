@@ -1,15 +1,15 @@
 import { sendSuccess, sendError } from "../../../helpers/help";
 var constants = require("../../../helpers/constants")
 import connectMongoDb from "../../../db/connect";
+import { ApiError } from "next/dist/server/api-utils";
 var Tenant = require("../../../models/tenant")
 const {isEmail} = require("validator");
 const jwt = require("jsonwebtoken")
 var nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
+const config = require("../../../config/config")
 //const {isEmail} = require("validator");
 //var nodemailer = reuire("nodemailer");
-
-connectMongoDb()
 
 export default async function handler(req,res){
     if(req.method === "PUT"){
@@ -20,8 +20,8 @@ export default async function handler(req,res){
                 req.body.password =  await bcrypt.hash(req.body.password,salt);
             }
             catch(err){
-            //error beacuse new password was unable to has
-            return sendError(res,err,constants.SERVER_ERROR)
+            //error beacuse new password was unable to hash
+            return sendError(res,err,constants.HASH_PASSWORD)
             }
             
             }
@@ -35,12 +35,12 @@ export default async function handler(req,res){
       // Set the token
       req.token = bearerToken;
       // Next middleware
-      jwt.verify(req.token, "qwert12345", (err,authData) => {
-        if(err)return sendError(res,"verifying error",constants.SERVER_ERROR)
+      jwt.verify(req.token, config.SECRET_KEY, (err,authData) => {
+        if(err)return sendError(res,err,constants.JWT_VERIFY)
         else{
             
             Tenant.findByIdAndUpdate(authData.id,{$set:req.body,},function(err,data){
-                if(err)return sendError(res,err,constants.SERVER_ERROR)
+                if(err)return sendError(res,err,constants.UPDATE_ERROR)
                 else if(data)return sendSuccess(res,constants.OK)
             })
 
@@ -51,7 +51,7 @@ export default async function handler(req,res){
     } else {
       // Forbidden
       //currently not possible because we are loged in and token is available to us
-      res.sendStatus(403);
+      return sendError(res,"token not availanle",constants.NULL_TOKEN)
     }
 }
 }

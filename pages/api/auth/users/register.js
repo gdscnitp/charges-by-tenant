@@ -4,18 +4,42 @@ import { sendSuccess } from "../../../../helpers/help";
 var constants = require("../../../../helpers/constants")
 const bcrypt = require("bcrypt");
 var Tenant = require("../../../../models/tenant")
-const {isEmail} = require("validator");
-var nodemailer = require("nodemailer");
+const {isEmail, isAlpha, isNumeric} = require("validator");
+//var nodemailer = require("nodemailer");
 
-connectMongoDb()
+
 
 export default async function handler(req,res){
 
     var PASSWORD = generatePassword()
     console.log(PASSWORD)
+
     if(req.method === "POST"){
+
+        if(!req.body.email || !req.body.contact || !req.body.firstName || !req.body.lastName){
+            return sendError(res,"Missing fields",constants.MISSING_FIELD_I)
+        }
+
+        if(!isEmail(req.body.email)){
+            return sendError(res,"Email invalid",constants.INVALID_EMAIL);
+        }
+
+        if(!isAlpha(req.body.firstName)){
+            return sendError(res,"First Name invalid",constants.INVALID_FNAME);
+        }
+
+        
+        if(!isAlpha(req.body.lastName)){
+            return sendError(res,"Last Name invalid",constants.INVALID_LNAME);
+        }
+
+        if(!isNumeric(req.body.contact)){
+            return sendError(res,"Name invalid",constants.INVALID_CONTACT);
+        }
+
         const newUser = new Tenant({
-            name: req.body.name,
+            firstName: req.body.firstName,
+            lastName:req.body.lastName,
             email:req.body.email,
             contact:req.body.contact,
             username:emailUsername(req.body.email),
@@ -24,27 +48,25 @@ export default async function handler(req,res){
 
         var {email} = newUser;
 
-        if(!isEmail(email)){
-            return sendError(res,"Email invalid",constants.INVALID_EMAIL);
-        }
+        
 
         Tenant.findOne({email}, function(err,data){
             if(err){
-                return sendError(res,"Error",constants.SERVER_ERROR)
+                return sendError(res,"Email Error",constants.EMAIL_ERROR)
             }
             else if(data){
-                return sendError(res,"Account already exist",constants.BAD_REQUEST)
+                return sendError(res,"Account already exist",constants.ACCOUNT_EXIST)
             }
 
         });
 
         bcrypt.genSalt(10,(err,salt) => {
             bcrypt.hash(newUser.password,salt,(err,hash) => {
-                if(err)return sendError(res,err,constants.SERVER_ERROR)
+                if(err)return sendError(res,err,constants.HASH_PASSWORD)
                 newUser.password = hash;
                 newUser.save(function(err,data){
                     if(err){
-                        return sendError(res,err,constants.SERVER_ERROR)
+                        return sendError(res,err,constants.REGISTER_ERROR)
                     }
                     else{
                         
