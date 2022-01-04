@@ -10,8 +10,8 @@ const Identity = () => {
                     <div className="name">Shyam123</div>
                 </div>
                 <div className="S_menu">
-                    <div className="S_option S_option1"><i class="fas fa-tachometer-alt-fastest"></i><span>Your Sites</span></div>
-                    <div className="S_option S_option1"><i class="fab fa-buffer"></i><span>Requests</span></div>
+                    <div className="S_option S_option1"><i className="fas fa-tachometer-alt-fastest"></i><span>Your Sites</span></div>
+                    <div className="S_option S_option1"><i className="fab fa-buffer"></i><span>Requests</span></div>
                 </div>
             </div>
         </div>

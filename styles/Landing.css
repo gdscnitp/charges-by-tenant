@@ -64,6 +64,7 @@
   background: white;
   color: #023c40;
   transform: scale(1.2);
+  font-weight: 700;
 }
 
 .S_menu i {
@@ -98,7 +99,6 @@
 }
 
 .a-landing-card {
-  background-color: #009dae;
   border-radius: 20px;
 }
 
@@ -164,6 +164,14 @@
   border-radius: 50%;
   right: -1px;
   top: -3.7px;
+}
+
+.orange {
+  background: #ffa600d4;
+}
+
+.blue {
+  background: #009dae;
 }
 
 @media (max-width: 800px) {
