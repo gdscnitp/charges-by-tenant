@@ -35,28 +35,28 @@ const TableList = (props) => {
                     <td><button type="button" className="btn btn-outline-info">Info</button></td>
                 </tr>
                 <tr>
-                    <th scope="row">3</th>
+                    <th scope="row">4</th>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td><button type="button" className="btn btn-outline-info">Info</button></td>
                 </tr>
                 <tr>
-                    <th scope="row">3</th>
+                    <th scope="row">5</th>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td><button type="button" className="btn btn-outline-info">Info</button></td>
                 </tr>
                 <tr>
-                    <th scope="row">3</th>
+                    <th scope="row">6</th>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td><button type="button" className="btn btn-outline-info">Info</button></td>
                 </tr>
                 <tr>
-                    <th scope="row">3</th>
+                    <th scope="row">7</th>
                     <td></td>
                     <td></td>
                     <td></td>

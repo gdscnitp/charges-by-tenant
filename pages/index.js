@@ -4,12 +4,8 @@ import HomePage from "./homepage/HomePage";
 
 export default function Home() {
   return (
-    // <div className={styles.container}>
-    //   <Head>
-    //     <title>Page Title</title>
-    //   </Head>
-    //   <div className={styles.heading}>Charges By Tenants Home Page!!</div>
-    // </div>
-    <HomePage />
+    <div>
+      <HomePage />
+    </div>
   );
 }

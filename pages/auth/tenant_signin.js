@@ -24,7 +24,7 @@ function tenant_signin() {
             rel="stylesheet"
             href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
             integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           />
           <div className="disp">Tenant Sign In</div>
           <div className="p_form-group">
@@ -34,7 +34,6 @@ function tenant_signin() {
               type="text"
               name="name"
               id="name"
-              autocomplete="off"
               placeholder="Email Address"
             />
           </div>
@@ -45,7 +44,6 @@ function tenant_signin() {
               type="password"
               name="password"
               id="password"
-              autocomplete="off"
               placeholder="Password"
             />
           </div>
