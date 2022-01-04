@@ -4,7 +4,7 @@ const SignInCard = (props) => {
   return (
     <div className="a-signin-cards p-2">
       <div className="card a-signin-cards-width">
-        <img
+        <Image
           // height={"300px"}
           // width={"40px"}
           className="card-img-top a-signin-cards-image"
