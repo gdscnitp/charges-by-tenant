@@ -76,6 +76,9 @@ export default async function handler(req,res){
             })
         })
     }
+    else{
+        return sendError(res, "server error", 500)
+      }
 }
 
 function generatePassword() {
