@@ -1,74 +1,71 @@
 import Image from "next/image";
-import tenant from "../../public/images/tenant.png";
+import Tenant from "../../public/images/Tenant.png";
 import Home_fill from "../../public/images/Home_fill.png";
 import Ellipse47 from "../../public/images/Ellipse47.png";
 
 function tenant_signup() {
   return (
     <>
-      <section className="p_background-tenant">
-        <div className="fish">
-          <Image src={Home_fill} alt="sub" />
-        </div>
-        <div className="fishes">
-          <Image src={Ellipse47} alt="sub" />
-        </div>
-        <div className="p_img">
-          <Image src={tenant} alt="tenant" />
-        </div>
-        <div className="side">
+      <div className="main">
+        <section className="signup">
           <link
             rel="stylesheet"
             href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
             integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-            crossOrigin="anonymous"
+            crossorigin="anonymous" />
+          <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
           />
-          <div className="disp">Tenant Sign Up</div>
-          <div className="p_form-group">
-            <i className="fa fa-user"></i>
-            <input
-              className="p_input"
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Full name"
-            />
+          <div className="container pr_container praj">
+            <div className="fish">
+              <Image src={Home_fill} alt="sub" />
+            </div>
+            <div className="fishes">
+              <Image src={Ellipse47} alt="sub" />
+            </div>
+            <div className="signup-content">
+              <div className="signup-form">
+                <h2 className="form-title pr_form-title">Tenant Sign up</h2>
+                <form method="POST" className="register-form" id="register-form">
+                  <div className="form-group pr_form-group">
+                    <label for="name"><i className="fas fa-user"></i></label>
+                    <input type="text" name="name" id="name" placeholder="Your Name" />
+                  </div>
+                  <div className="form-group pr_form-group">
+                    <label for="email"><i className="fas fa-envelope"></i></label>
+                    <input type="text" name="email" id="email" placeholder="Your Email" />
+                  </div>
+                  <div className="form-group pr_form-group">
+                    <label for="contact"><i className="fas fa-phone-square-alt"></i></label>
+                    <input type="text" name="contact" id="contact" placeholder="Your Contact" />
+                  </div>
+                  <div className="form-group pr_form-group">
+                    <label for="pass"><i className="fas fa-lock"></i></label>
+                    <input type="password" name="pass" id="pass" placeholder="Password" />
+                  </div>
+                  <div className="form-group pr_form-group">
+                    <label for="re-pass"><i className="fas fa-lock"></i></label>
+                    <input type="password" name="re_pass" id="re_pass" placeholder="Re-enter password" />
+                  </div>
+                  <div className="custom-control custom-checkbox pt-5">
+                    <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                    <label className="custom-control-label p_agree" for="customCheck1">I agree to all <a href="#" className='terms'>Terms and Conditions</a></label>
+                  </div>
+                  <div className="form-group pr_form-group form-button pr_form-button">
+                    <input type="submit" name="signup" id="signup" className="form-submit" value="Sign Up" />
+                  </div>
+                </form>
+              </div>
+              <div className="signup-image">
+                <figure><Image src={Tenant} height={610} width={660} alt="tenant" /> </figure>
+              </div>
+            </div>
+
           </div>
-          <div className="p_form-group">
-            <i className="fas fa-envelope"></i>
-            <input
-              className="p_input"
-              type="text"
-              name="email"
-              id="email"
-              placeholder="Email address"
-            />
-          </div>
-          <div className="p_form-group">
-            <i className="fas fa-phone-square-alt"></i>
-            <input
-              className="p_input"
-              type="text"
-              name="contact"
-              id="contact"
-              placeholder="Contact No"
-            />
-          </div>
-          <div className="p_form-group">
-            <i className="fas fa-lock"></i>
-            <input
-              className="p_input"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
-          </div>
-          <div className="p_btn">
-            <button className="p_btn1 p_btr">Sign Up</button>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 }
