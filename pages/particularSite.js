@@ -14,7 +14,7 @@ export default function particular_site() {
                 <link rel="stylesheet" 
                     href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
                     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
-                    crossorigin="anonymous" 
+                    crossOrigin="anonymous" 
                 />
                 <div className="p_site">
                     <div className="p_sitecontainer">
@@ -25,7 +25,7 @@ export default function particular_site() {
                             <NameLabel label="Site Type"/>
                         </div>
                         <div>
-                            <span class="p_label">Address:</span>
+                            <span className="p_label">Address:</span>
                             <textarea className='p_textarea'  id="story" name="story" rows="5" cols="33">
                                 Street: 294, Maharaja Mansion, Sardar Vallabhbhai Patel Rd, Mumbai, Maharashtra</textarea>
                         </div>
