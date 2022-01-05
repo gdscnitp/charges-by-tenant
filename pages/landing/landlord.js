@@ -1,20 +1,31 @@
 import Identity from "./components/Identity"
-import LandingPageCard from "./components/LandingPageCard"
-import Heading from "./components/Heading"
-import HorizontalLine from "./components/HorizontalLine"
+import { useState } from "react"
+import LandLordSite from "./components/LandLordSite"
+import LandLordReq from "./components/LandLordReq"
 
 const landlord = () => {
+    const [siteState, setStateSite] = useState(true)
+    const [reqState, setStateReq] = useState(false)
+
+    const onHandle1 = () => {
+        if (reqState) {
+            setStateSite(true)
+            setStateReq(false)
+        }
+    }
+
+    const onHandle2 = () => {
+        if (siteState) {
+            setStateSite(false)
+            setStateReq(true)
+        }
+    }
     return (
         <div className='S_tenant'>
             <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossOrigin="anonymous" />
-            <Identity />
+            <Identity onShow1={onHandle1} onShow2={onHandle2} />
             <div className="S_right">
-                <Heading head="Alloted Sites" />
-                <HorizontalLine />
-                <LandingPageCard owner="Vivek Khan" rent="15000/-" address="Flat no. 108, Lakshmipuram Society" cclass="orange" class1="btn-primary" text1="Details" class2="btn-primary a-margin-left" text2="History" class3="btn-success px-2" text3="Generate Charges" />
-                <LandingPageCard owner="Vivek Khan" rent="15000/-" address="Flat no. 108, Lakshmipuram Society" cclass="orange" class1="btn-primary" text1="Details" class2="btn-primary a-margin-left" text2="History" class3="btn-success px-2" text3="Generate Charges" />
-                <LandingPageCard owner="Vivek Khan" rent="15000/-" address="Flat no. 108, Lakshmipuram Society" cclass="orange" class1="btn-primary" text1="Details" class2="btn-primary a-margin-left" text2="History" class3="btn-success px-2" text3="Generate Charges" />
-                <LandingPageCard owner="Vivek Khan" rent="15000/-" address="Flat no. 108, Lakshmipuram Society" cclass="orange" class1="btn-primary" text1="Details" class2="btn-primary a-margin-left" text2="History" class3="btn-success px-2" text3="Generate Charges" />
+                {siteState ? (<LandLordSite />) : <LandLordReq />}
             </div>
         </div>
     )

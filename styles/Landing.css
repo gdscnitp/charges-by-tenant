@@ -13,6 +13,7 @@
   position: sticky;
   top: 0;
   left: 0;
+  cursor: pointer;
 }
 
 .S_identity {
@@ -74,6 +75,7 @@
 
 .S_right {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -88,6 +90,10 @@
   padding: 5px;
   letter-spacing: 2px;
   margin: 2% 0 0 0;
+}
+
+.S_request {
+  margin-left: 18vw;
 }
 
 .a-card {
@@ -185,7 +191,8 @@
     width: 25vw;
   }
 
-  .a-margin-left {
-    margin-left: 0px;
+  .a-margin-left,
+  .S_request {
+    margin-left: 0;
   }
 }
