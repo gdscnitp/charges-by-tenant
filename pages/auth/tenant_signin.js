@@ -1,69 +1,67 @@
 import Image from "next/image";
-import tenant from "../../public/images/tenant.png";
+import Tenant from "../../public/images/tenant.png";
 import Home_fill from "../../public/images/Home_fill.png";
 import Ellipse47 from "../../public/images/Ellipse47.png";
-import Twitter from "../../public/images/Twitter.png";
-import Facebook from "../../public/images/Facebook.png";
-import Google from "../../public/images/Google.png";
 
 function tenant_signin() {
   return (
     <>
-      <section className="p_background-tenant">
-        <div className="fish">
-          <Image src={Home_fill} alt="sub" />
-        </div>
-        <div className="fishes">
-          <Image src={Ellipse47} alt="sub" />
-        </div>
-        <div className="p_img">
-          <Image src={tenant} alt="tenant" />
-        </div>
-        <div className="side">
-          <link
-            rel="stylesheet"
-            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-            crossOrigin="anonymous"
-          />
-          <div className="disp">Tenant Sign In</div>
-          <div className="p_form-group">
-            <i className="fas fa-user"></i>
-            <input
-              className="p_input"
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Email Address"
-            />
-          </div>
-          <div className="p_form-group">
-            <i className="fas fa-lock"></i>
-            <input
-              className="p_input"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
-          </div>
-          <div className="p_btn">
-            <button className="p_btn1 p_btr">Sign In</button>
-          </div>
-          <div className="p_icon">
-            <div className="p_icon2">or signIn with</div>
-            <div className="p_icon1">
-              <Image src={Facebook} alt="sub" height={27} width={48} />
+      <div className="main1">
+        <link
+          rel="stylesheet"
+          href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+          crossOrigin="anonymous" />
+        <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossOrigin="anonymous"
+        />
+        <section className="sign-in">
+          <div className="container pr_container prj">
+          <div className="fish1">
+              <Image src={Home_fill} alt="sub" />
             </div>
-            <div className="p_icon1">
-              <Image src={Google} alt="sub" height={15} width={45} />
+            <div className="fishes1">
+              <Image src={Ellipse47} alt="sub" />
             </div>
-            <div className="p_icon1">
-              <Image src={Twitter} alt="sub" height={27} width={48} />
+            <div className="signin-content">
+              <div className="signin-image">
+                <figure><Image src={Tenant} height={430} width={500} alt="sign up image" /></figure>
+              </div>
+              <div className="signin-form">
+                <h2 className="form-title pr_form-title">Tenant Sign In</h2>
+                <form method="POST" className="register-form" id="login-form">
+                  <div className="form-group pr_form-group">
+                    <label htmlFor="your_name"><i className="fas fa-user"></i></label>
+                    <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
+                  </div>
+                  <div className="form-group pr_form-group">
+                    <label htmlFor="your_pass"><i className="fas fa-lock"></i></label>
+                    <input type="password" name="your_pass" id="your_pass" placeholder="Password" />
+                  </div>
+                  <div className="custom-control custom-checkbox pt-5">
+                    <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                    <label className="custom-control-label p_remember" htmlFor="customCheck1">Remember Me</label>
+                  </div>
+                  <div className="form-group pr_form-group form-button pr_form-button">
+                    <input type="submit" name="signin" id="signin" className="form-submit" value="Sign In" />
+                  </div>
+                  <div className='p_mem'>Not a member? <a href='#'>Sign Up</a></div>
+                </form>
+                <div className="social-login">
+                  <span className="social-label">Or login with</span>
+                  <ul className="socials">
+                    <li><a href="#"><i className=" fab fa-facebook-square fa-3x "></i></a></li>
+                    <li><a href="#"><i className=" fab fa-twitter fa-3x"></i></a></li>
+                    <li><a href="#"><i className="zmdi-google fab fa-google fa-3x"></i></a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 }
