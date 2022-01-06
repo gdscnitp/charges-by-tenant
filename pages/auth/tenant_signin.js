@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Tenant from "../../public/images/Tenant.png";
+import Tenant from "../../public/images/tenant.png";
 import Home_fill from "../../public/images/Home_fill.png";
 import Ellipse47 from "../../public/images/Ellipse47.png";
 
