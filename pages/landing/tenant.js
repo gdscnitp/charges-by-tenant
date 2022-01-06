@@ -3,7 +3,7 @@ import TenantSite from "./components/TenantSite"
 import TenantReq from "./components/TenantReq"
 import { useState } from "react"
 
-const tenant = () => {
+const Tenant = () => {
     const [siteState, setStateSite] = useState(true)
     const [reqState, setStateReq] = useState(false)
 
@@ -31,4 +31,4 @@ const tenant = () => {
     )
 }
 
-export default tenant
+export default Tenant

@@ -3,7 +3,7 @@ import { useState } from "react"
 import LandLordSite from "./components/LandLordSite"
 import LandLordReq from "./components/LandLordReq"
 
-const landlord = () => {
+const Landlord = () => {
     const [siteState, setStateSite] = useState(true)
     const [reqState, setStateReq] = useState(false)
 
@@ -32,4 +32,4 @@ const landlord = () => {
     )
 }
 
-export default landlord
+export default Landlord

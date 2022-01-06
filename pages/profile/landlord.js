@@ -1,6 +1,7 @@
 import Details from "./components/Details"
 import TableList from "./components/TableList"
 import Taskbar from "./components/taskbar"
+import Header from "./components/Header"
 
 export default function Home() {
     return (
