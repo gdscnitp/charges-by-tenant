@@ -1082,3 +1082,8 @@
   msg: 'Database_successfully_connected',
   body: 'success'
 }
+[2022-01-03T19:28:00.687] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
