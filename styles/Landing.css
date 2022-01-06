@@ -1,4 +1,5 @@
-.S_tenant {
+.S_tenant,
+.S_landlord {
   display: flex;
 }
 
@@ -8,6 +9,7 @@
   height: 100vh;
   color: white;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   position: sticky;
@@ -52,12 +54,11 @@
 
 .S_option {
   text-align: left;
-  width: 15vw;
+  width: 12vw;
   padding: 2%;
-  margin: 10% 10%;
-  margin-left: 40%;
+  margin: 10% 0%;
   font-weight: 500;
-  border-radius: 20px 0 0 20px;
+  border-radius: 20px 10px 10px 20px;
   letter-spacing: 1.2px;
 }
 
@@ -77,6 +78,10 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background: url(../public/images/coverpage2.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+  margin-left: 0;
 }
 
 .S_head {
@@ -173,11 +178,11 @@
 }
 
 .orange {
-  background: #ffa600d4;
+  background: transparent;
 }
 
 .blue {
-  background: #009dae;
+  background: transparent;
 }
 
 @media (max-width: 800px) {
