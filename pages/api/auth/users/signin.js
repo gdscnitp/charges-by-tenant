@@ -47,4 +47,7 @@ Tenant.findOne({email}, function(err,data){
 })
 
 }
+else{
+    return sendError(res, "server error", 500)
+  }
 }

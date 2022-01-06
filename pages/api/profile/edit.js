@@ -54,4 +54,7 @@ export default async function handler(req,res){
       return sendError(res,"token not availanle",constants.NULL_TOKEN)
     }
 }
+else{
+  return sendError(res, "server error", 500)
+}
 }

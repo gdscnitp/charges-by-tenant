@@ -1,3 +1,4 @@
+import { Logger } from "log4js";
 import connectMongoDb from "../../../../db/connect";
 import { sendError } from "../../../../helpers/help";
 import { sendSuccess } from "../../../../helpers/help";
@@ -25,13 +26,28 @@ export default async function handler(req,res){
       // Next middleware
       jwt.verify(req.token, config.SECRET_KEY, (err,authData) => {
         if(err)return sendError(res,err,constants.JWT_VERIFY)
-        return sendSuccess(res,authData)
+        Tenant.findById(authData.id, function(err,data){
+          if(err){
+              return sendError(res,err,constants.SERVER_ERROR)
+          }
+          else if(!data){
+              return sendError(res,"No Account Exist",constants.ACCOUNT_NOT_EXIST)
+          }
+          authData.profile=data;
+          return sendSuccess(res, authData)
+          // authData['profile_details'] = data;
+      })
+        // return sendSuccess(res,authData)
     })
       
     } else {
       // Forbidden
+      Logger.error()
       return sendError(res,"Token not provided",constants.NULL_TOKEN)
     }
+}
+else{
+  return sendError(res, "server error", 500)
 }
 }
 
