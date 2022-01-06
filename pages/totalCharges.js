@@ -13,10 +13,10 @@ export default function total_charges() {
                     crossOrigin="anonymous"></link>
                 <div className="p_card1">
                     <div className="cardb">
-                        <table cellpadding="4" cellspacing="4" border="0">
+                        <table cellPadding="4" cellSpacing="4" border="0">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Monthly Charges</th>
+                                    <th colSpan="2">Monthly Charges</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,10 +41,10 @@ export default function total_charges() {
                 </div>
                 <div className="p_card1">
                     <div className="cardb">
-                        <table cellpadding="4" cellspacing="4" border="0">
+                        <table cellPadding="4" cellSpacing="4" border="0">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Monthly Charges</th>
+                                    <th colSpan="2">Monthly Charges</th>
                                 </tr>
                             </thead>
                             <tbody>
