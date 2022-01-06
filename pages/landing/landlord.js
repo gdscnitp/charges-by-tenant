@@ -24,7 +24,7 @@ const landlord = () => {
         <div className='S_landlord'>
             <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossOrigin="anonymous" />
             <Identity onShow1={onHandle1} onShow2={onHandle2} />
-            <div className="S_fright"></div>
+
             <div className="S_right">
                 {siteState ? (<LandLordSite />) : <LandLordReq />}
             </div>
