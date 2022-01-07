@@ -29,9 +29,9 @@ var errors = {
 914:"Token not available",
 915:"Unable to update profile",
 916:"fields from occupation, DOB, verification, address is missing",
-917:"Invalid Date"
-
-
+917:"Invalid Date",
+918:"No pending or approved request",
+919:"Use GET Method"
 
 }
 

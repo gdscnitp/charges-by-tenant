@@ -1222,3 +1222,98 @@
   msg: 'Database_successfully_connected',
   body: 'success'
 }
+[2022-01-07T22:45:58.723] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-07T23:56:02.643] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-07T23:56:43.853] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-07T23:57:43.042] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-07T23:59:08.591] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-07T23:59:32.846] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:00:05.916] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:05:31.616] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:06:12.278] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:07:29.233] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:08:02.332] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:08:29.650] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:11:50.507] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:12:14.890] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:20:03.438] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:20:38.913] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:21:05.317] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:26:10.921] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
+[2022-01-08T00:26:35.615] [INFO] DataBase - {
+  r: 'mongodb',
+  msg: 'Database_successfully_connected',
+  body: 'success'
+}
