@@ -1,6 +1,7 @@
 import connectMongoDb from "../../../../db/connect";
 import { sendError } from "../../../../helpers/help";
 import { sendSuccess } from "../../../../helpers/help";
+import { send } from "../../../../utility/sendMail";
 var constants = require("../../../../helpers/constants")
 const bcrypt = require("bcrypt");
 var Tenant = require("../../../../models/tenant")
@@ -70,7 +71,7 @@ export default async function handler(req,res){
                         return sendError(res,err,constants.REGISTER_ERROR)
                     }
                     else{
-                        
+                        send(data.email, "Password for Charges By tenants", `<h3>Your Password for tenant login for ${data.email} is <h1>${PASSWORD}</h1>.</h3><br>Please login with these credentials only.`)
                         return sendSuccess(res,data)
                     }
                 })

@@ -1,7 +1,7 @@
-import { Logger } from "log4js";
 import connectMongoDb from "../../../../db/connect";
 import { sendError } from "../../../../helpers/help";
 import { sendSuccess } from "../../../../helpers/help";
+import { send } from "../../../../utility/sendMail";
 var constants = require("../../../../helpers/constants")
 var Tenant = require("../../../../models/tenant")
 const {isEmail} = require("validator");
@@ -42,7 +42,6 @@ export default async function handler(req,res){
       
     } else {
       // Forbidden
-      Logger.error()
       return sendError(res,"Token not provided",constants.NULL_TOKEN)
     }
 }
