@@ -1,9 +1,9 @@
 import { sendSuccess, sendError } from "../../../helpers/help";
 var constants = require("../../../helpers/constants")
 import connectMongoDb from "../../../db/connect";
-import { ApiError } from "next/dist/server/api-utils";
+//import { ApiError } from "next/dist/server/api-utils";
 var Tenant = require("../../../models/tenant")
-const {isEmail} = require("validator");
+const {isEmail, isDate} = require("validator");
 const jwt = require("jsonwebtoken")
 var nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
@@ -38,13 +38,22 @@ export default async function handler(req,res){
       jwt.verify(req.token, config.SECRET_KEY, (err,authData) => {
         if(err)return sendError(res,err,constants.JWT_VERIFY)
         else{
-            
+          if(!req.body.DOB || !req.body.address || !req.body.verification || !req.body.occupation){
+            return sendError(res,"Missing fields",constants.MISSING_FIELD_III)
+           }
+
+           if(!isDate(req.body.DOB)){
+            return sendError(res,"Invalid Date",constants.BAD_REQUEST);
+          }
             Tenant.findByIdAndUpdate(authData.id,{$set:req.body,},function(err,data){
                 if(err)return sendError(res,err,constants.UPDATE_ERROR)
-                else if(data)return sendSuccess(res,constants.OK)
-            })
-
-            return sendSuccess(res,constants.OK)    
+                if(!data) return sendError(res, "Profile Not Found", constants.NOT_FOUND);
+                Tenant.findById(data._id, function(err, saved_data){
+                  if(err)return sendError(res,err,constants.UPDATE_ERROR)
+                if(!data) return sendError(res, "Profile Not Found", constants.NOT_FOUND);
+                 return sendSuccess(res, saved_data);
+                })
+            })  
         }
     })
       

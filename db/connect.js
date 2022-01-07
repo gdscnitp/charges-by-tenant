@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
-const log4jsLogger = require("../logger/log4js_module");
 const config = require("../config/config");
-var logger = log4jsLogger.getLogger("DataBase");
 
 // mongoose.set("useCreateIndex", true);
 
@@ -38,20 +36,12 @@ function connectMongoDb() {
 		// },
 		(err) => {
 			if (err) {
-				logger.error({
-					r: "mongodb",
-					msg: "mongodb_connection_error",
-					body: err,
-				});
+				
 				console.log(err);
 				return;
 			}
 
-			logger.info({
-				r: "mongodb",
-				msg: "Database_successfully_connected",
-				body: "success",
-			});
+			
 			console.log("Database successfully connected ✅");
 		}
 	);

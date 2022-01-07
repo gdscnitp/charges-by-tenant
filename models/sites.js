@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const {isDate} = require("validator")
+const {isDate,isPostalCode} = require("validator")
 const sitesSchema = new mongoose.Schema({
     landlord_id:{
         type:mongoose.Schema.Types.ObjectId,
@@ -11,7 +11,7 @@ const sitesSchema = new mongoose.Schema({
         required:true
     },
 
-    address:[{
+    address:{
         first_line:{
             type:String,
             required:[true,'Please enter your address'],
@@ -25,7 +25,7 @@ const sitesSchema = new mongoose.Schema({
             type:String,
             required:[true,'Please enter your state']
         },
-        Country:{
+        country:{
             type:String,
             required:[true,'Please enter your country']
         },
@@ -39,10 +39,10 @@ const sitesSchema = new mongoose.Schema({
             //not setting required as true, keeping it optional
         }
 
-    }],
+    },
 
     rent:{
-        required:Number,
+        type:Number,
         required:[true,'Please enter rent']
     },
 
@@ -51,30 +51,27 @@ const sitesSchema = new mongoose.Schema({
         required:[true,'Please enter deposit amount']
     },
 
-    isOcuupied:{
+    isOccupied:{
         type:Boolean,
     },
 
-    charges_param:[
+    charges_param:
         {
             electricity:{
                 type:Number,
-                required:Boolean
+                
             },
             water:{
                 type:Number,
-                required:Boolean
-            },
-            food:{
-                type:Number,
-                required:Boolean
-            },
+                
+            }
+            
         }
-    ],
+    ,
 
-    type:{
+    Type:{
         enum:['Room','Land','Shops'],
-        required:String,
+        type:String,
         required:true
     },
 
