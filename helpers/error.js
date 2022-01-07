@@ -27,7 +27,9 @@ var errors = {
 912:"You have entered wrong password",
 913:"Some error occur during jwt.verify",
 914:"Token not available",
-915:"Unable to update profile"
+915:"Unable to update profile",
+916:"fields from occupation, DOB, verification, address is missing",
+917:"Invalid Date"
 
 
 

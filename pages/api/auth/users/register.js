@@ -36,6 +36,7 @@ export default async function handler(req,res){
         if(!isNumeric(req.body.contact)){
             return sendError(res,"Name invalid",constants.INVALID_CONTACT);
         }
+        
 
         const newUser = new Tenant({
             firstName: req.body.firstName,
