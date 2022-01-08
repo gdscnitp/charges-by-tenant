@@ -14,22 +14,9 @@ a:focus, a:active {
   outline: none;
   transition: all 300ms ease 0s; }
 
-input {
-  outline: none;
-  appearance: unset !important; }
-
 figure {
-  margin: 0; }
-
-
-.pr_h2 {
-  line-height: 1.66;
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-  color: #222;
-  font-family: Poppins;
-  font-size: 36px; }
+  margin: 0; 
+}
 
 .main {
   background: #f8f8f8;
@@ -124,18 +111,19 @@ figure {
   margin-bottom: 50px;
   text-align: center; }
 
-.form-submit {
+.pr_form-submit {
   display: inline-block;
-  background: #6dabe4;
-  color: #fff;
-  border-bottom: none;
-  width: auto;
-  padding: 15px 39px;
-  border-radius: 5px;
-  margin-top: 25px;
-  cursor: pointer; }
-  .form-submit:hover {
-    background: #4292dc; }
+  background: #6dabe4 !important;
+  color: #fff !important;
+  padding: 15px 39px !important;
+  border-radius: 7px !important;
+  margin-top: 25px !important;
+  font-weight: 700 !important;
+  cursor: pointer; 
+}
+.pr_form-submit:hover {
+    background: #4292dc !important; 
+  }
 
 #signin {
   margin-top: 16px; }
@@ -168,23 +156,24 @@ figure {
   .pr_form-group:last-child {
     margin-bottom: 0px; }
 
-input 
+.pa_input 
 {
   width: 60%;
   display: block;
   border: none;
   border-bottom: 1px solid #999;
   padding: 6px 30px;
-  font-family: Poppins;
+  font-family: Poppins !important;
   box-sizing: border-box; 
+  outline: none;
+  appearance: unset !important;
 }
 
 
-input:focus 
+.pa_input:focus 
 {
   border-bottom: 1px solid #222; 
 }
-
 
 .agree-term {
   display: inline-block;
