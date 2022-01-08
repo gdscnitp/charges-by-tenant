@@ -8,7 +8,7 @@ function LandingPageCard(props) {
       <div className={`container shadow-lg text-white a-landing-card mt-5 ${props.cclass}`} style={{ width: "65vw" }}>
         <div className="row justify-content-md-center p-3">
           <div className="col col-lg-4 a-image-container">
-            <img
+            <Image
               className="card-img-top a-landing-card-image"
               src="/images/homePage.png"
               alt="Card image cap" />
