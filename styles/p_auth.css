@@ -43,6 +43,7 @@ figure {
 
 
 .pr_container {
+  position: relative;
   width: 900px;
   background: #b0d9db;
   box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
@@ -55,34 +56,36 @@ figure {
   .prj{
     padding-right: 0% !important;
   }
-  .fishes1 {
-    position: absolute;
-    top: 7vh;
-    left: 8.5vw;
-    z-index: 1;
-  }
-  
-  .fish1 {
-    position: absolute;
-    top: 7vh;
-    left: 8.8vw;
-    cursor: pointer;
-    z-index: 2;
-  }  
   .fishes {
     position: absolute;
-    top: 4vh;
-    left: 85vw;
+    /* top: 3vh;
+    left: 79vw; */
+    top: 1vh;
+    right: 0.5vw;
     z-index: 1;
   }
   
   .fish {
     position: absolute;
-    top: 4vh;
-    left: 85.3vw;
+    top: 1vh;
+    right: 0.8vw;
+    z-index: 2;
+  }
+  .fishes1 {
+    position: absolute;
+    top: 2vh;
+    left: 0.8vw;
+    z-index: 1;
+  }
+  
+  .fish1 {
+    position: absolute;
+    top: 2vh;
+    left: 1vw;
     cursor: pointer;
     z-index: 2;
   }
+
 .display-flex {
   justify-content: space-between;
   align-items: center; }
@@ -165,23 +168,29 @@ figure {
   .pr_form-group:last-child {
     margin-bottom: 0px; }
 
-input {
+input 
+{
   width: 60%;
   display: block;
   border: none;
   border-bottom: 1px solid #999;
   padding: 6px 30px;
   font-family: Poppins;
-  box-sizing: border-box; }
-  input:focus {
-    border-bottom: 1px solid #222; }
+  box-sizing: border-box; 
+}
+
+
+input:focus 
+{
+  border-bottom: 1px solid #222; 
+}
 
 
 .agree-term {
   display: inline-block;
   width: auto; }
 
-label {
+.pr_label {
   position: absolute;
   left: 0;
   top: 50%;
@@ -224,6 +233,9 @@ label.valid {
 }
 .p_remember{
   font-weight: 600;
+}
+.disable { 
+  user-select: none;
 }
 .p_agree{
   font-weight: 700;
@@ -286,7 +298,6 @@ label.valid {
     margin-left: 0px;
     margin-right: 0px;
     padding-left: 0px;
-    /* box-sizing: border-box; */
     padding: 0 30px; }
 
   .signin-image {
@@ -309,14 +320,9 @@ label.valid {
     padding: 0 30px; }
 
   .pr_form-title {
-    text-align: center; } }
-@media screen and (max-width: 400px) {
-  .social-login {
-    flex-direction: column; }
-
-  .social-label {
-    margin-right: 0px;
-    margin-bottom: 10px; } }
+    text-align: center; 
+  }
+}
 
     .fa-google {
       background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
@@ -339,5 +345,51 @@ label.valid {
   background-size: 55%;
   background-position: 70% 0;
   background-repeat: no-repeat;
+    }
+@media screen and (max-width: 400px) {
+  .social-login {
+    flex-direction: column; }
+
+  .social-label {
+    margin-right: 0px;
+    margin-bottom: 10px; } }
+
+    @media (max-width: 600px)
+    {
+      .signup-form {
+        width: 104%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        overflow: hidden; 
+      }
+    .signin-form{
+      width: 98%;
+      margin-left: 0 !important;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        overflow: hidden; 
+    }
+    .pr_container{
+      margin: 0;
+      padding: 0;
+    }
+    
+    .fish1{
+      top:0.7vh;
+      left: 84vw;
+    }
+    .fishes1{
+      top:1vh;
+      left: 84vw;
+    }
+    .fish{
+      top:0.7vh;
+      left: 85vw;
+    }
+    .fishes{
+      top:1vh;
+      left: 85vw;
+    }
+        
     }
 /*# sourceMappingURL=style.css.map */

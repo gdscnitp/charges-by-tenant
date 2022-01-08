@@ -27,22 +27,22 @@ function tenant_signin() {
             </div>
             <div className="signin-content">
               <div className="signin-image">
-                <figure><Image src={Tenant} height={430} width={500} alt="sign up image" /></figure>
+                <figure><Image src={Tenant} height={428} width={500} alt="sign up image" /></figure>
               </div>
               <div className="signin-form">
                 <h2 className="form-title pr_form-title">Tenant Sign In</h2>
                 <form method="POST" className="register-form" id="login-form">
                   <div className="form-group pr_form-group">
-                    <label htmlFor="your_name"><i className="fas fa-user"></i></label>
+                    <label className='pr_label' htmlFor="your_name"><i className="fas fa-user"></i></label>
                     <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
                   </div>
                   <div className="form-group pr_form-group">
-                    <label htmlFor="your_pass"><i className="fas fa-lock"></i></label>
+                    <label className='pr_label' htmlFor="your_pass"><i className="fas fa-lock"></i></label>
                     <input type="password" name="your_pass" id="your_pass" placeholder="Password" />
                   </div>
                   <div className="custom-control custom-checkbox pt-5">
                     <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                    <label className="custom-control-label p_remember" htmlFor="customCheck1">Remember Me</label>
+                    <label className="custom-control-label p_remember" htmlFor="customCheck1"><span className="disable">Remember Me</span></label>
                   </div>
                   <div className="form-group pr_form-group form-button pr_form-button">
                     <input type="submit" name="signin" id="signin" className="form-submit" value="Sign In" />
