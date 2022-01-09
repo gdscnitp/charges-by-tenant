@@ -128,7 +128,7 @@ const TenantHistory = () => {
             </div>
             <div className="col-lg-6 col-md-12">
               <div className="S_chartDetail S_table-content">
-                <Header headClass="S_chartHead" head="Available Sites" />
+                <Heading headClass="S_chartHead" head="Available Sites" />
                 <TableList
                   tableclass="S_ttable"
                   flat="Date"
