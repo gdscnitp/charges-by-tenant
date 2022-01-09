@@ -1,5 +1,4 @@
 import Heading from "../landing/components/Heading";
-import Header from "./components/Header";
 import Taskbar from "../profile/components/Taskbar";
 import TableList from "../profile/components/TableList";
 import {
@@ -83,7 +82,7 @@ const TenantHistory = () => {
         <Taskbar />
       </div>
       <div className="S_tright">
-        <Heading head="Your History" />
+        <Heading headClass="S_history" head="Your History" />
         <div className="S_cards">
           <div className="S_card S_card1">
             <div className="S_line1">Total Charges Paid</div>

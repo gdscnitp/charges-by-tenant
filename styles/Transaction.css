@@ -7,6 +7,11 @@
   background: white;
 }
 
+.S_history {
+  width: 80vw;
+  margin-top: 10px;
+}
+
 .S_cards {
   width: 100%;
   display: flex;

@@ -3,7 +3,6 @@ import "../styles/Profile.css";
 import "../styles/Landing.css"
 import "../styles/differentCharges.css";
 
-import "../styles/particularSite.css";
 import "../styles/Transaction.css"
 
 import "../styles/p_auth.css";
