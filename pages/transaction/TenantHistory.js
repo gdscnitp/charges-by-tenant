@@ -89,13 +89,13 @@ const TenantHistory = () => {
             <div className="S_line1">Total Charges Paid</div>
             <div className="S_line2">23,000/-</div>
           </div>
-          <div className="S_card S_card1">
-            <div className="S_line1">Total Charges Paid</div>
-            <div className="S_line2">23,000/-</div>
+          <div className="S_card S_card2">
+            <div className="S_line1">Changes</div>
+            <div className="S_line2">23,00/- <span>(+10%)</span></div>
           </div>
-          <div className="S_card S_card1">
-            <div className="S_line1">Total Charges Paid</div>
-            <div className="S_line2">23,000/-</div>
+          <div className="S_card S_card3">
+            <div className="S_line1">Total Sites</div>
+            <div className="S_line2">3</div>
           </div>
         </div>
 
