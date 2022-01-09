@@ -1,0 +1,111 @@
+.S_tright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100vw - 60px);
+  background: white;
+}
+
+.S_cards {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2%;
+}
+
+.S_card {
+  background: cadetblue;
+  border-radius: 10px;
+  padding: 2%;
+  margin: 2%;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.S_line1,
+.S_line2 {
+  padding: 5px;
+}
+
+.S_line1 {
+  font-size: 1.5vw;
+  font-weight: 700;
+}
+
+.S_line2 {
+  font-size: 1vw;
+}
+
+.S_charts {
+  width: 100%;
+  margin-top: 20vh;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.S_chart {
+  width: 40%;
+  padding: 2%;
+}
+
+.S_chartDetail {
+  width: 100% !important;
+}
+
+.S_chartHead {
+  background: #023c40;
+  font-size: 2vw;
+  color: white;
+  font-weight: 600;
+  width: 37vw;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  letter-spacing: 2px;
+  margin: 2% 0 0 0;
+}
+
+@media (max-width: 768px) {
+  .S_chartHead {
+    width: 70vw;
+    font-size: 20px;
+  }
+}
+
+.S_ttable {
+  width: 80% !important;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12),
+    0px 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin-top: 2%;
+}
+
+.S_centering-chart {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.S_all-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #fff !important;
+}
+
+.S_table-content {
+  display: flex;
+  flex-direction: column !important;
+
+  justify-content: center;
+  align-items: center;
+  width: 100% !important;
+}
