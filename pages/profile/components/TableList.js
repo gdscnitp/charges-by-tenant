@@ -2,14 +2,14 @@ import React from 'react'
 
 const TableList = (props) => {
     return (
-        <table className="table table-striped Stable">
+        <table className={`table table-striped ${props.tableclass}`}>
             <thead>
                 <tr>
                     <th scope="col">{props.flat}</th>
                     <th scope="col">{props.loc}</th>
                     <th scope="col">{props.siteName}</th>
                     <th scope="col">{props.available}</th>
-                    <th scope="col">View</th>
+                    <th scope="col">{props.view}</th>
                 </tr>
             </thead>
             <tbody>
