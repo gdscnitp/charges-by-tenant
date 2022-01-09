@@ -15,123 +15,6 @@ a {
   box-sizing: border-box;
 }
 
-.p_background-tenant {
-  background-color: #b0d9db;
-}
-
-.side {
-  position: relative;
-  right: 0px;
-  background-color: white;
-  margin-left: 450px;
-  height: 100vh;
-  width: 910px;
-  border-top-left-radius: 5%;
-  border-bottom-left-radius: 5%;
-  z-index: 1;
-}
-
-.disp {
-  font-weight: bold;
-  display: flex;
-  font-size: 35px;
-  justify-content: space-around;
-  padding-top: 110px;
-  padding-left: 120px;
-}
-
-.disp1 {
-  font-weight: bold;
-  display: flex;
-  font-size: 35px;
-  justify-content: space-around;
-  padding-top: 110px;
-  padding-left: 150px;
-}
-
-.p_icon2 {
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
-}
-.p_icon {
-  font-weight: 500;
-  display: flex;
-  font-size: 20px;
-  padding-top: 50px;
-  padding-left: 400px;
-}
-
-.p_icon1 {
-  display: flex;
-  padding-left: 30px;
-}
-
-.p_form-group {
-  display: flex;
-  justify-content: center;
-  padding-top: 50px;
-  padding-left: 150px;
-}
-
-.p_input {
-  height: 35px;
-  width: 300px;
-  box-shadow: 0 0 10px #bac3c3;
-}
-
-input:focus {
-  outline: none;
-}
-
-.fishes {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1;
-}
-
-.fish {
-  position: absolute;
-  top: 11px;
-  left: 15px;
-  z-index: 2;
-}
-.home {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  top: 20px;
-  left: 20px;
-}
-.p_img {
-  position: absolute;
-  width: 450px;
-  height: 400px;
-  top: 110px;
-  left: 195px;
-  z-index: 2;
-  animation: mymove 3s 1;
-  animation-timing-function: ease;
-}
-
-@keyframes mymove {
-  from {
-    left: 0px;
-  }
-  to {
-    left: 195px;
-  }
-}
-
-.p_img1 {
-  position: absolute;
-  width: 450px;
-  height: 400px;
-  top: 110px;
-  left: 177px;
-}
-
 .p_btn {
   display: flex;
   justify-content: space-around;
@@ -170,26 +53,6 @@ input:focus {
   transform: scale(1.1) perspective(1px)
 }
 
-i.fa-user {
-  position: relative;
-  top: 10px;
-  padding-right: 5px;
-}
-i.fa-envelope {
-  position: relative;
-  top: 10px;
-  padding-right: 5px;
-}
-i.fa-phone-square-alt {
-  position: relative;
-  top: 10px;
-  padding-right: 5px;
-}
-i.fa-lock {
-  position: relative;
-  top: 10px;
-  padding-right: 5px;
-}
 
 /*Total Charges Page*/
 .top_head {
@@ -206,24 +69,22 @@ i.fa-lock {
   background-color: white;
 }
 
-.card1 {
-  height: 240px;
-  width: 290px;
-  margin: 20px;
+.p_card1 {
+  width: 17vw;
+  margin: 3%;
+  padding: 1.5%;
   background-color: #eff2f5;
   border-radius: 7px;
 }
 
-.cardb {
-  padding: 20px;
-  margin: 5px;
+.p_tb{
+  padding-top:8%;
 }
 .tc {
   position: absolute;
-  width: 450px;
-  height: 400px;
-  top: 161px;
-  left: 900px;
+  width: 36vw;
+  top: 15vh;
+  left: 63vw;
 }
 
 /* Anuj Code */
