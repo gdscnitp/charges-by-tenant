@@ -43,14 +43,17 @@ export default async function handler(req,res){
            }
 
            if(!isDate(req.body.DOB)){
-            return sendError(res,"Email invalid",constants.INVALID_DATE);
+            return sendError(res,"Invalid Date",constants.BAD_REQUEST);
           }
             Tenant.findByIdAndUpdate(authData.id,{$set:req.body,},function(err,data){
                 if(err)return sendError(res,err,constants.UPDATE_ERROR)
-                else if(data)return sendSuccess(res,constants.OK)
-            })
-
-            return sendSuccess(res,constants.OK)    
+                if(!data) return sendError(res, "Profile Not Found", constants.NOT_FOUND);
+                Tenant.findById(data._id, function(err, saved_data){
+                  if(err)return sendError(res,err,constants.UPDATE_ERROR)
+                if(!data) return sendError(res, "Profile Not Found", constants.NOT_FOUND);
+                 return sendSuccess(res, saved_data);
+                })
+            })  
         }
     })
       
