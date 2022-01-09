@@ -39,6 +39,14 @@ export default async function handler(req,res){
                 }
         }) 
     }
+
+    else if(req.method === "PUT"){
+        var id = '61d8814794331617558a91a0'
+        Sites.findByIdAndUpdate(id,{$set:req.body}, function(err,data){
+                if(err)return sendError(res,err,constants.UPDATE_ERROR)
+                else if(data)return sendSuccess(res,constants.OK)
+        } )
+    }
     else{
         return sendError(res,"Use get method",constants.USE_GET)
     }
