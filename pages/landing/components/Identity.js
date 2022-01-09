@@ -7,7 +7,7 @@ const Identity = (props) => {
         <div className="S_landing">
             <div className="S_leftbar">
                 <div className="S_identity">
-                    <img className="S_profile img-fluid" src="/images/Profile.svg" alt="Profile" />
+                    <Image className="S_profile img-fluid" src="/images/Profile.svg" alt="Profile" />
                     <div className="name">Shyam123</div>
                 </div>
                 <div className="S_menu">
