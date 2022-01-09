@@ -15,7 +15,9 @@
     padding-left: 13%;
   }
   
-  .ip{ padding-left:4%; 
+  .ip{ 
+    display: inline-block;
+    padding-left:4%; 
     width:12vw;
     height:6vh; 
     background-color: #eff2f5; 

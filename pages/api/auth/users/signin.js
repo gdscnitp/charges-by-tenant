@@ -1,6 +1,7 @@
 import connectMongoDb from "../../../../db/connect";
 import { sendError } from "../../../../helpers/help";
 import { sendSuccess } from "../../../../helpers/help";
+import { send } from "../../../../utility/sendMail";
 var constants = require("../../../../helpers/constants")
 var Tenant = require("../../../../models/tenant")
 const {isEmail} = require("validator");
@@ -37,6 +38,7 @@ Tenant.findOne({email}, function(err,data){
 
             jwt.sign(payload,config.SECRET_KEY,(err,token) => {
                 if(err)return sendError(res,err,constants.JWT_ERROR)
+                send(email, "Login Alert", "<h3> You have logged in to the portal. </h3>")
                 return sendSuccess(res,{token})
             })
         }
