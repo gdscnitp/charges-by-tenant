@@ -58,23 +58,63 @@ a {
 .top_head {
   font-size: 2vw;
   font-weight: bold;
-  width: 100%;
+  width:100%;
   background: #023c40;
   text-align: center;
   padding: 1%;
   color: white;
 }
-.heading {
+
+.top_head1 {
+  font-size: 2vw;
+  font-weight: bold;
+  border-radius: 10px;
+  width: calc(96vw - 70px);
+  background: #023c40;
+  text-align: center;
+  padding: 1%;
+  margin-left: 1%;
+  color: white;
+}
+
+.p_left {
+  width: 70px;
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  border-radius: 0 20px 0 0;
+  background: #023c40;
+  height: 100vh;
+  align-items: center;
+}
+
+.p_right {
+  width: 100vw;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.p_heading {
   height: 100vh;
   background-color: white;
+  display: flex;
+  flex-direction: row;
 }
 
 .p_card1 {
   width: 17vw;
-  margin: 3%;
+  margin: 1%;
   padding: 1.5%;
   background-color: #eff2f5;
   border-radius: 7px;
+}
+
+.p_cardb {
+  padding: 8%;
+  margin: 0.5%;
 }
 
 .p_tb{
@@ -276,5 +316,11 @@ a {
 
   .a-signin-cards-image {
     height: 100px;
+  }
+}
+
+@media (max-width: 800px) {
+  .p_card1{
+    width: 35vw;
   }
 }
