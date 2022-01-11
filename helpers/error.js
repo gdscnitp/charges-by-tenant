@@ -31,7 +31,10 @@ var errors = {
 916:"fields from occupation, DOB, verification, address is missing",
 917:"Invalid Date",
 918:"No pending or approved request",
-919:"Use GET Method"
+919:"Use GET Method",
+920:"Error in finding data in History Collection",
+921:"Error in updating History and Sites Collection (ACCEPT SITE)",
+922:"Error in updating History and Sites Collection (LEAVE SITE)"
 
 }
 
