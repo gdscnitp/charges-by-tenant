@@ -1,10 +1,9 @@
 import "../styles/globals.css";
 import "../styles/Profile.css";
-import "../styles/Landing.css"
+import "../styles/Landing.css";
 import "../styles/differentCharges.css";
-
-import "../styles/Transaction.css"
-
+import "../styles/EditProfile.css";
+import "../styles/Transaction.css";
 import "../styles/p_auth.css";
 import "bootstrap/dist/css/bootstrap.css";
 
