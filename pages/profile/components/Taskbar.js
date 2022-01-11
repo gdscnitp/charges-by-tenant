@@ -3,6 +3,8 @@ import Icons from "./Icons"
 const Taskbar = () => {
     return (
         <div className="S_left">
+            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossOrigin="anonymous" />
+
             <Icons classprop="fad fa-user-circle S_icon S_icon0"></Icons>
             <Icons classprop="fal fa-home-lg-alt S_icon S_icon1"></Icons>
             <Icons classprop="fal fa-grip-lines-vertical S_icon S_icon2"></Icons>
