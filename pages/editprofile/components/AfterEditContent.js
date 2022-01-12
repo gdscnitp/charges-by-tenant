@@ -11,16 +11,25 @@ function AfterEditContent(props) {
               className="form-control"
               rows="3"
               placeholder="Your Address"
-              value={props.content}
+              defaultValue={props.content}
             ></textarea>
+          ) : props.title == "UID" ? (
+            <input
+              type="number"
+              className="form-control"
+              id=""
+              placeholder={`Your ${props.title}`}
+              style={{ width: "250px" }}
+              defaultValue={props.content}
+            />
           ) : (
             <input
               type="text"
               className="form-control"
               id=""
-              placeholder={props.title}
+              placeholder={`Your ${props.title}`}
               style={{ width: "250px" }}
-              value={props.content}
+              defaultValue={props.content}
             />
           )}
         </div>
