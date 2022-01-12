@@ -160,6 +160,13 @@ function EditTenant() {
       saveCLick: saveEmail,
     },
     {
+      toShow: show.Contact,
+      title: "Contact",
+      content: "Not Provided",
+      editButtonClick: editContact,
+      saveCLick: saveContact,
+    },
+    {
       toShow: show.Address,
       title: "Address",
       content:
