@@ -78,10 +78,12 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-left: 0;
+}
+.S_background_image {
   background: url(../public/images/coverpage2.jpg);
   background-size: 100% 100%;
   background-position: center;
-  margin-left: 0;
 }
 
 .S_head {
@@ -183,6 +185,7 @@
 
 .blue {
   background: transparent;
+  border: 2px solid rgb(39, 36, 36) !important;
 }
 
 @media (max-width: 800px) {

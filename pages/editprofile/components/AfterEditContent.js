@@ -13,18 +13,13 @@ function AfterEditContent(props) {
               placeholder="Your Address"
               defaultValue={props.content}
             ></textarea>
-          ) : props.title == "UID" || props.title == "Contact" ? (
-            <input
-              type="number"
-              className="form-control"
-              id=""
-              placeholder={`Your ${props.title}`}
-              style={{ width: "250px" }}
-              defaultValue={props.content}
-            />
           ) : (
             <input
-              type="text"
+              type={
+                props.title == "UID" || props.title == "Contact"
+                  ? "number"
+                  : "text"
+              }
               className="form-control"
               id=""
               placeholder={`Your ${props.title}`}

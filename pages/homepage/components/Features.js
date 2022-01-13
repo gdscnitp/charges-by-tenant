@@ -2,7 +2,7 @@ import FeatureCard from "./FeatureCard";
 
 function Features() {
   return (
-    <section>
+    <section id="features">
       <div className="a-psuedo-container">
         <h1 className="a-heading">
           Features

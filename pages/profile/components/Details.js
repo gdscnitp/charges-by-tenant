@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Details = (props) => {
   return (
     <div className="right_top">
@@ -10,7 +12,9 @@ const Details = (props) => {
             <h5>Hi Bot!!</h5>
             <div className="head_secondLine">Welcome to your profile page.</div>
           </div>
-          <i className="fas fa-user-edit S_icon7"></i>
+          <Link href="/editprofile/EditTenant">
+            <i className="fas fa-user-edit S_icon7"></i>
+          </Link>
         </div>
         <div className="details">
           <div className="email">{props.email}</div>
