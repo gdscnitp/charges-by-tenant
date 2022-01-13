@@ -17,7 +17,7 @@ const TableList = (props) => {
       <tbody>
         {props.tableData.map((data) => {
           return (
-            <tr>
+            <tr key={i++}>
               <th scope="row">{data.col1}</th>
               <td>{data.col2}</td>
               <td>{data.col3}</td>
@@ -30,7 +30,7 @@ const TableList = (props) => {
             </tr>
           );
         })}
-        {/* Awara */}
+        {/* Awara Code*/}
         {/* <tr>
           <th scope="row">1</th>
           <td></td>
