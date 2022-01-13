@@ -21,7 +21,11 @@ function EditBirthday(props) {
               {runCallback(() => {
                 const row = [];
                 for (var i = 1; i < 32; i++) {
-                  row.push(<option value={i}>{i}</option>);
+                  row.push(
+                    <option key={i} value={i}>
+                      {i}
+                    </option>
+                  );
                 }
                 return row;
               })}
@@ -50,7 +54,11 @@ function EditBirthday(props) {
                   "Decemeber",
                 ];
                 for (var i = 0; i < 12; i++) {
-                  row.push(<option value={months[i]}>{months[i]}</option>);
+                  row.push(
+                    <option key={months[i]} value={months[i]}>
+                      {months[i]}
+                    </option>
+                  );
                 }
                 return row;
               })}
@@ -64,8 +72,13 @@ function EditBirthday(props) {
             >
               {runCallback(() => {
                 const row = [];
+                var start = 1950;
                 for (var i = 1; i < 80; i++) {
-                  row.push(<option value={1950 + i}>{1950 + i}</option>);
+                  row.push(
+                    <option key={start + i} value={start + i}>
+                      {start + i}
+                    </option>
+                  );
                 }
                 return row;
               })}

@@ -202,7 +202,7 @@ function EditTenant() {
               <div className="container">
                 {allContent.map((data) => {
                   return (
-                    <div className="a-row-content">
+                    <div key={data.title} className="a-row-content">
                       {data.toShow ? (
                         <BeforeEditContent
                           title={data.title}

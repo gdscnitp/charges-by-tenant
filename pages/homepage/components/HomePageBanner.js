@@ -19,7 +19,7 @@ function HomePageBanner() {
       </a>
       <a href="#features">
         <div className="a-arrow">
-          <i class="fab fa-vuejs a-arrow-icon"></i>
+          <i className="fab fa-vuejs a-arrow-icon"></i>
         </div>
       </a>
     </section>
