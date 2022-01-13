@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import TotalchargesCard from "./components/totalChargesCard";
 import Taskbar from "../profile/components/Taskbar";
 
+var i = 0;
+
 const allTransactions = [
   {
     electricity: 1234,
@@ -53,6 +55,7 @@ export default function total_charges() {
               {allTransactions.map((data) => {
                 return (
                   <TotalchargesCard
+                    key={i++}
                     electricity={data.electricity}
                     internet={data.internet}
                     water={data.water}
