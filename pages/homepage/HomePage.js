@@ -1,13 +1,19 @@
 import HomePageBanner from "./components/HomePageBanner";
 import Features from "./components/Features";
 import GetStarted from "./components/GetStarted";
+import Taskbar from "../profile/components/Taskbar";
 
 function HomePage() {
   return (
     <>
       <HomePageBanner />
-      <Features />
-      <GetStarted />
+      <div className="Parent">
+        <Taskbar />
+        <div className="S_right">
+          <Features />
+          <GetStarted />
+        </div>
+      </div>
     </>
   );
 }
