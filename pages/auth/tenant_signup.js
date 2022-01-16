@@ -1,9 +1,40 @@
 import Image from "next/image";
+import React, { useContext, useEffect } from 'react';
 import Tenant from "../../public/images/tenant.png";
 import Home_fill from "../../public/images/Home_fill.png";
 import Ellipse47 from "../../public/images/Ellipse47.png";
+import { useSnackbar } from 'notistack';
+import { useRouter } from 'next/router';
+
 
 function tenant_signup() {
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const router = useRouter();
+  const { redirect } = router.query;
+
+  //just save the required field for the backend route and then just send it in the submit function
+
+  // enqueueSnackbar("Passwords don't match", { variant: 'error' });
+
+  // const submitHandler = async ({ name, email, password, confirmPassword }) => {
+  //   closeSnackbar();
+  //   if (password !== confirmPassword) {
+  //     enqueueSnackbar("Passwords don't match", { variant: 'error' });
+  //     return;
+  //   }
+  //   try {
+  //     const { data } = await axios.post('/api/auth/users/register', {
+  //       name,
+  //       email,
+  //       password,
+  //     });
+  //     dispatch({ type: 'USER_LOGIN', payload: data });
+  //     Cookies.set('userInfo', data);
+  //     router.push(redirect || '/profile/tenant');
+  //   } catch (err) {
+  //     enqueueSnackbar(getError(err), { variant: 'error' });
+  //   }
+  // };
   return (
     <>
       <div className="main">
@@ -20,10 +51,10 @@ function tenant_signup() {
           />
           <div className="container pr_container praj">
             <div className="fish">
-              <img src={Home_fill} alt="sub" />
+              <Image src={Home_fill} alt="sub" />
             </div>
             <div className="fishes">
-              <img src={Ellipse47} alt="sub" />
+              <Image src={Ellipse47} alt="sub" />
             </div>
             <div className="signup-content">
               <div className="signup-form">
@@ -61,7 +92,7 @@ function tenant_signup() {
                 </form>
               </div>
               <div className="signup-image">
-                <figure><img src={Tenant} height={610} width={660} alt="tenant" /> </figure>
+                <figure><Image src={Tenant} height={610} width={660} alt="tenant" /> </figure>
               </div>
             </div>
 
