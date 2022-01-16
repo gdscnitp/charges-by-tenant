@@ -1,0 +1,101 @@
+.a-edit-container {
+  width: 65vw;
+  margin: 4vw 0px;
+  background: white;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  font-size: 18px;
+}
+
+.a-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.a-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+  margin-left: 12px;
+  opacity: 70%;
+  font-weight: 700;
+}
+
+.a-edit-content {
+  padding: 5px;
+}
+
+.a-edit-left-title {
+  font-weight: 500;
+  opacity: 80%;
+}
+
+.a-edit {
+  all: unset;
+  color: blue;
+}
+
+.a-row-wrapper {
+  border-bottom: 1px solid #eeeeee;
+  padding: 12px 0px;
+}
+
+.a-not-provided {
+  opacity: 60%;
+}
+
+.a-flex-buttons {
+  padding-top: 12px;
+  padding-bottom: 6px;
+}
+
+.a-save-button {
+  width: 90px !important;
+  margin-left: 21vw;
+}
+
+.a-cancel-button {
+  width: 90px !important;
+  margin-left: 15px;
+  border: rgb(49, 168, 207) !important;
+  background-color: rgb(226, 248, 255);
+}
+
+.a-after-edit option {
+  color: #302a2a;
+  padding: 5px;
+}
+
+.a-flex-row {
+  display: flex;
+}
+
+.a-flex-row select {
+  margin: 0px 5px 5px 0px;
+}
+
+@media (max-width: 768px) {
+  .a-edit-right-content {
+    margin-left: 1vw;
+    padding: 5px !important;
+  }
+  .a-edit-container {
+    min-width: 90vw;
+  }
+  .a-save-button {
+    margin-left: 0px;
+  }
+  .a-after-edit .col-lg-8,
+  .a-after-edit .a-flex-buttons {
+    margin-left: 1vw;
+  }
+  .a-flex-row select {
+    margin: 8px 5px 5px 0px;
+  }
+}
+
+@media (max-width: 549px) {
+  .a-edit {
+    margin-left: 60vw;
+  }
+}
