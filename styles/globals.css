@@ -50,15 +50,14 @@ a {
 
 .p_btr:hover {
   background-color: #52c6c6;
-  transform: scale(1.1) perspective(1px)
+  transform: scale(1.1) perspective(1px);
 }
-
 
 /*Total Charges Page*/
 .top_head {
   font-size: 2vw;
   font-weight: bold;
-  width:100%;
+  width: 100%;
   background: #023c40;
   text-align: center;
   padding: 1%;
@@ -117,8 +116,8 @@ a {
   margin: 0.5%;
 }
 
-.p_tb{
-  padding-top:8%;
+.p_tb {
+  padding-top: 8%;
 }
 .tc {
   position: absolute;
@@ -320,7 +319,15 @@ a {
 }
 
 @media (max-width: 800px) {
-  .p_card1{
+  .p_card1 {
     width: 35vw;
   }
+}
+
+.a-arrow-icon {
+  font-size: 5vw;
+  color: rgb(45, 184, 27);
+  position: absolute;
+  left: 48%;
+  top: 45vw;
 }

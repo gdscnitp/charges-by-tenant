@@ -75,6 +75,69 @@ const pdata = [
   },
 ];
 
+const tableData = [
+  // {
+  //   date: "01/01/2020",
+  //   amount: 10000,
+  //   month: "February",
+  //   site: "Flat-402",
+  // },
+  {
+    col1: "01/01/2020",
+    col2: 10000,
+    col3: "February",
+    col4: "Flat-402",
+  },
+  {
+    col1: "01/01/2020",
+    col2: 10000,
+    col3: "February",
+    col4: "Flat-402",
+  },
+  {
+    col1: "01/01/2020",
+    col2: 10000,
+    col3: "February",
+    col4: "Flat-402",
+  },
+  {
+    col1: "01/01/2020",
+    col2: 10000,
+    col3: "February",
+    col4: "Flat-402",
+  },
+  {
+    col1: "01/01/2020",
+    col2: 10000,
+    col3: "February",
+    col4: "Flat-402",
+  },
+  {
+    col1: "01/01/2020",
+    col2: 10000,
+    col3: "February",
+    col4: "Flat-402",
+  },
+  {
+    col1: "01/01/2020",
+    col2: 10000,
+    col3: "February",
+    col4: "Flat-402",
+  },
+  {
+    col1: "01/01/2020",
+    col2: 10000,
+    col3: "February",
+    col4: "Flat-402",
+  },
+  {
+    col1: "01/01/2020",
+    col2: 10000,
+    col3: "February",
+    col4: "Flat-402",
+  },
+];
+
 const TenantHistory = () => {
   return (
     <div className="Parent">
@@ -90,7 +153,9 @@ const TenantHistory = () => {
           </div>
           <div className="S_card S_card2">
             <div className="S_line1">Changes</div>
-            <div className="S_line2">23,00/- <span>(+10%)</span></div>
+            <div className="S_line2">
+              23,00/- <span>(+10%)</span>
+            </div>
           </div>
           <div className="S_card S_card3">
             <div className="S_line1">Total Sites</div>
@@ -104,14 +169,7 @@ const TenantHistory = () => {
               <div className="S_chart">
                 <div>
                   <ResponsiveContainer width="250%" aspect={1.5}>
-                    <BarChart
-                      width={500}
-                      height={300}
-                      data={pdata}
-                      margin={{
-
-                      }}
-                    >
+                    <BarChart width={500} height={300} data={pdata} margin={{}}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="name" />
                       <YAxis />
@@ -127,7 +185,7 @@ const TenantHistory = () => {
             </div>
             <div className="col-lg-6 col-md-12">
               <div className="S_chartDetail S_table-content">
-                <Heading headClass="S_chartHead" head="Available Sites" />
+                <Heading headClass="S_chartHead" head="Site History" />
                 <TableList
                   tableclass="S_ttable"
                   flat="Date"
@@ -135,13 +193,12 @@ const TenantHistory = () => {
                   siteName="Month"
                   available="Site"
                   view="Name"
+                  tableData={tableData}
                 />
               </div>
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   );
