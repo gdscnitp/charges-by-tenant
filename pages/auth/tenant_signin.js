@@ -33,19 +33,21 @@ function tenant_signin() {
                 <h2 className="form-title pr_form-title">Tenant Sign In</h2>
                 <form method="POST" className="register-form" id="login-form">
                   <div className="form-group pr_form-group">
-                    <label htmlFor="your_name"><i className="fas fa-user"></i></label>
-                    <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
+                    <label className='pr_label' htmlFor="your_name"><i className="fas fa-user"></i></label>
+                    <input className="pa_input" type="text" name="your_name" id="your_name" placeholder="Your Name" />
                   </div>
                   <div className="form-group pr_form-group">
-                    <label htmlFor="your_pass"><i className="fas fa-lock"></i></label>
-                    <input type="password" name="your_pass" id="your_pass" placeholder="Password" />
+                    <label className='pr_label' htmlFor="your_pass"><i className="fas fa-lock"></i></label>
+                    <input className="pa_input" type="password" name="your_pass" id="your_pass" placeholder="Password" />
                   </div>
                   <div className="custom-control custom-checkbox pt-5">
                     <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                    <label className="custom-control-label p_remember" htmlFor="customCheck1">Remember Me</label>
+                    <label className="custom-control-label p_remember" htmlFor="customCheck1"><span className="disable">Remember Me</span></label>
                   </div>
-                  <div className="form-group pr_form-group form-button pr_form-button">
-                    <input type="submit" name="signin" id="signin" className="form-submit" value="Sign In" />
+                  <div>
+                    <div className="form-group pr_form-group form-button pr_form-button">
+                      <input type="submit" name="signin" className=" btn btn-primary pr_form-submit" value="Sign In" />
+                    </div>
                   </div>
                   <div className='p_mem'>Not a member? <a href='#'>Sign Up</a></div>
                 </form>
