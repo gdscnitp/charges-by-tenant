@@ -36,6 +36,7 @@ export default async function handler(req,res){
       req.token = bearerToken;
       // Next middleware
       jwt.verify(req.token, config.SECRET_KEY, (err,authData) => {
+        console.log(typeof(authData.id))
         if(err)return sendError(res,err,constants.JWT_VERIFY)
         else{
           if(!req.body.DOB || !req.body.address || !req.body.verification || !req.body.occupation){
