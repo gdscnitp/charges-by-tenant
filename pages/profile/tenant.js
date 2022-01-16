@@ -2,6 +2,9 @@ import Details from "./components/Details";
 import TableList from "./components/TableList";
 import Taskbar from "./components/Taskbar";
 import Header from "./components/Header";
+import React, { useContext, useEffect, useState } from 'react';
+import {Store} from "../../utility/Store"
+
 
 const tableData = [
   // Comment delete mat karna apshabd
@@ -62,13 +65,14 @@ const tableData = [
 ];
 
 export default function Home() {
+  const {dispatch, state} = useContext(Store)
   return (
     <div className="Parent">
       <Taskbar />
       <div className="S_right">
         <Details
-          email="Email1"
-          detail1="Details"
+          email={state.userInfo?.email}
+          detail1={state.userInfo?.contact}
           detail2="Details"
           detail3="Details"
           detail4="Details"

@@ -3,15 +3,15 @@ import { createContext, useReducer } from 'react';
 
 export const Store = createContext();
 const initialState = {
-  userInfo: Cookies.get('userInfo')
-    ? JSON.parse(Cookies.get('userInfo'))
-    : null,
+  userInfo:Cookies.get('userInfo') ? JSON.parse(Cookies.get('userInfo')).data : null
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case 'USER_LOGIN':
-      return { ...state, userInfo: action.payload };
+      return { ...state, userInfo: action.payload.data };
+    case 'USER_INFO_FETCHING':
+      return {...state, userInfo: action.payload.data}
     case 'USER_LOGOUT':
       return {
         ...state,

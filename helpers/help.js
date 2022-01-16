@@ -18,7 +18,7 @@ module.exports = {
 
     sendSuccess: function(res,data){
         res.status(constants.OK).json({
-            sucess:true,
+            success:true,
             data:data,
             time: Date.now()
         });

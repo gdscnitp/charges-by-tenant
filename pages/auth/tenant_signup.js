@@ -1,42 +1,53 @@
 import Image from "next/image";
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Tenant from "../../public/images/tenant.png";
 import Home_fill from "../../public/images/Home_fill.png";
 import Ellipse47 from "../../public/images/Ellipse47.png";
 import { useSnackbar } from 'notistack';
 import { useRouter } from 'next/router';
 import {Store} from "../../utility/Store"
+import axios from "axios"
+import Cookies from "js-cookie";
 
 
 function Tenant_Signup() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const router = useRouter();
+  const { redirect } = router.query;
   const {dispatch, state} = useContext(Store)
+  const [details, setDetails] = useState({
+    firstName: "",
+    lastName: "",
+    contact: "",
+    email: ""
+  })
   
+  const onChange = (e) => {
+     setDetails({...details, [e.target.name]: e.target.value})
+  }
 
-  //just save the required field for the backend route and then just send it in the submit function
+  const onSubmit = (e) => {
+    e.preventDefault();
+    submitHandler(details);
+  }
 
-  // enqueueSnackbar("Passwords don't match", { variant: 'error' });
+  if(state.userInfo)
+  {
+    router.push('/profile/tenant')
+  }
 
-  // const submitHandler = async ({ name, email, password, confirmPassword }) => {
-  //   closeSnackbar();
-  //   if (password !== confirmPassword) {
-  //     enqueueSnackbar("Passwords don't match", { variant: 'error' });
-  //     return;
-  //   }
-  //   try {
-  //     const { data } = await axios.post('/api/auth/users/register', {
-  //       name,
-  //       email,
-  //       password,
-  //     });
-  //     dispatch({ type: 'USER_LOGIN', payload: data });
-  //     Cookies.set('userInfo', data);
-  //     router.push(redirect || '/profile/tenant');
-  //   } catch (err) {
-  //     enqueueSnackbar(getError(err), { variant: 'error' });
-  //   }
-  // };
+  const submitHandler = async (details) => {
+    closeSnackbar();
+    try {
+      const { data } = await axios.post('/api/auth/users/register', details);
+      dispatch({ type: 'USER_LOGIN', payload: data });
+      Cookies.set('userInfo', JSON.stringify(data));
+      enqueueSnackbar("User Signed Up Successfully", {variant: 'success'})
+      router.push(redirect || '/profile/tenant');
+    } catch (err) {
+      enqueueSnackbar(err.message, { variant: 'error' });
+    }
+  };
   return (
     <>
       <div className="main">
@@ -63,32 +74,36 @@ function Tenant_Signup() {
                 <h2 className="form-title pr_form-title">Tenant Sign up</h2>
                 <form method="POST" className="register-form" id="register-form">
                   <div className="form-group pr_form-group">
-                    <label className='pr_label' htmlFor="name"><i className="fas fa-user"></i></label>
-                    <input className='pa_input' type="text" name="name" id="name" placeholder="Your Name" />
+                    <label className='pr_label' htmlFor="firstName"><i className="fas fa-user"></i></label>
+                    <input className='pa_input' type="text" name="firstName" id="firstName" onChange={(e) => onChange(e)} placeholder="Your First Name" />
+                  </div>
+                  <div className="form-group pr_form-group">
+                    <label className='pr_label' htmlFor="lastName"><i className="fas fa-user"></i></label>
+                    <input className='pa_input' type="text" name="lastName" id="lastName" onChange={(e) => onChange(e)} placeholder="Your Last Name" />
                   </div>
                   <div className="form-group pr_form-group">
                     <label className='pr_label' htmlFor="email"><i className="fas fa-envelope"></i></label>
-                    <input className='pa_input' type="text" name="email" id="email" placeholder="Your Email" />
+                    <input className='pa_input' type="text" name="email" id="email" onChange={(e) => onChange(e)} placeholder="Your Email" />
                   </div>
                   <div className="form-group pr_form-group">
                     <label className='pr_label' htmlFor="contact"><i className="fas fa-phone-square-alt"></i></label>
-                    <input className='pa_input' type="text" name="contact" id="contact" placeholder="Your Contact" />
+                    <input className='pa_input' type="text" name="contact" id="contact" onChange={(e) => onChange(e)} placeholder="Your Contact" />
                   </div>
-                  <div className="form-group pr_form-group">
+                  {/* <div className="form-group pr_form-group">
                     <label className='pr_label' htmlFor="pass"><i className="fas fa-lock"></i></label>
                     <input className='pa_input' type="password" name="pass" id="pass" placeholder="Password" />
                   </div>
                   <div className="form-group pr_form-group">
                     <label className='pr_label' htmlFor="re-pass"><i className="fas fa-lock"></i></label>
                     <input className='pa_input' type="password" name="re_pass" id="re_pass" placeholder="Re-enter password" />
-                  </div>
+                  </div> */}
                   <div className="custom-control custom-checkbox pt-5">
                     <input type="checkbox" className="custom-control-input" id="customCheck1" />
                     <label className="custom-control-label p_agree" htmlFor="customCheck1">I agree to all <a href="#" className='terms'>Terms and Conditions</a></label>
                   </div>
                   <div>
                     <div className="form-group pr_form-group form-button pr_form-button">
-                      <input type="submit" name="signup" onClick={(e)=> {e.preventDefault(); dispatch({ type: 'USER_LOGIN', payload: {name: "Rishabh Mishra", roll: "1906182"} });}} className=" btn btn-primary pr_form-submit" value="Sign Up" />
+                      <input type="submit" name="signup" onClick={(e)=> onSubmit(e)} className=" btn btn-primary pr_form-submit" value="Sign Up" />
                     </div>
                   </div>
                 </form>
