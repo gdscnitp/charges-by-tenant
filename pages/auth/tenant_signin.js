@@ -19,15 +19,15 @@ function tenant_signin() {
         />
         <section className="sign-in">
           <div className="container pr_container prj">
-          <div className="fish1">
-              <Image src={Home_fill} alt="sub" />
+            <div className="fish1">
+              <img src={Home_fill} alt="sub" />
             </div>
             <div className="fishes1">
-              <Image src={Ellipse47} alt="sub" />
+              <img src={Ellipse47} alt="sub" />
             </div>
             <div className="signin-content">
               <div className="signin-image">
-                <figure><Image src={Tenant} height={430} width={500} alt="sign up image" /></figure>
+                <figure><img src={Tenant} height={428} width={500} alt="sign up image" /></figure>
               </div>
               <div className="signin-form">
                 <h2 className="form-title pr_form-title">Tenant Sign In</h2>

@@ -20,10 +20,10 @@ function tenant_signup() {
           />
           <div className="container pr_container praj">
             <div className="fish">
-              <Image src={Home_fill} alt="sub" />
+              <img src={Home_fill} alt="sub" />
             </div>
             <div className="fishes">
-              <Image src={Ellipse47} alt="sub" />
+              <img src={Ellipse47} alt="sub" />
             </div>
             <div className="signup-content">
               <div className="signup-form">
@@ -59,7 +59,7 @@ function tenant_signup() {
                 </form>
               </div>
               <div className="signup-image">
-                <figure><Image src={Tenant} height={610} width={660} alt="tenant" /> </figure>
+                <figure><img src={Tenant} height={610} width={660} alt="tenant" /> </figure>
               </div>
             </div>
 
