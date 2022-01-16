@@ -17,7 +17,7 @@ export default async function handler(req,res) {
 if(req.method === "POST"){ 
 var email = req.body.email
 var password = req.body.password
-if(!email || !password){return sendError(res,"email or password is empty",constants.MISSING_FIELD_II)}
+if(!email || !password){return sendError(res,"Email or password field is empty",constants.MISSING_FIELD_II)}
 if(!isEmail(email)){
     return sendError(res,"Email invalid",constants.INVALID_EMAIL);
 }
@@ -50,6 +50,6 @@ Tenant.findOne({email}, function(err,data){
 
 }
 else{
-    return sendError(res, "server error", 500)
+    return sendError(res, "Page Not Found!", constants.NOT_FOUND)
   }
 }
