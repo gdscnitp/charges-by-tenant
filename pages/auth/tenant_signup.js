@@ -5,12 +5,14 @@ import Home_fill from "../../public/images/Home_fill.png";
 import Ellipse47 from "../../public/images/Ellipse47.png";
 import { useSnackbar } from 'notistack';
 import { useRouter } from 'next/router';
+import {Store} from "../../utility/Store"
 
 
-function tenant_signup() {
+function Tenant_Signup() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const router = useRouter();
-  const { redirect } = router.query;
+  const {dispatch, state} = useContext(Store)
+  
 
   //just save the required field for the backend route and then just send it in the submit function
 
@@ -86,7 +88,7 @@ function tenant_signup() {
                   </div>
                   <div>
                     <div className="form-group pr_form-group form-button pr_form-button">
-                      <input type="submit" name="signup" className=" btn btn-primary pr_form-submit" value="Sign Up" />
+                      <input type="submit" name="signup" onClick={(e)=> {e.preventDefault(); dispatch({ type: 'USER_LOGIN', payload: {name: "Rishabh Mishra", roll: "1906182"} });}} className=" btn btn-primary pr_form-submit" value="Sign Up" />
                     </div>
                   </div>
                 </form>
@@ -103,4 +105,4 @@ function tenant_signup() {
   );
 }
 
-export default tenant_signup;
+export default Tenant_Signup;

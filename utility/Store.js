@@ -16,11 +16,6 @@ function reducer(state, action) {
       return {
         ...state,
         userInfo: null,
-        cart: {
-          cartItems: [],
-          shippingAddress: { location: {} },
-          paymentMethod: '',
-        },
       };
     default:
       return state;
