@@ -11,7 +11,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useContext } from "react";
 
-function tenant_signin() {
+function Tenant_Signin() {
   // anujjadhav0215@gmail.com
   // 9ty1976t
 
@@ -189,4 +189,4 @@ function tenant_signin() {
   );
 }
 
-export default tenant_signin;
+export default Tenant_Signin;
