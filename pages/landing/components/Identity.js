@@ -28,4 +28,4 @@ const Identity = (props) => {
   );
 };
 
-export default Identity;
+export default Identity

@@ -35,7 +35,7 @@ export default async function handler(req,res){
         }
 
         if(!isNumeric(req.body.contact)){
-            return sendError(res,"Name invalid",constants.INVALID_CONTACT);
+            return sendError(res,"Contact invalid",constants.INVALID_CONTACT);
         }
         
 
@@ -57,14 +57,14 @@ export default async function handler(req,res){
                 return sendError(res,"Email Error",constants.EMAIL_ERROR)
             }
             else if(data){
-                return sendError(res,"Account already exist",constants.ACCOUNT_EXIST)
+                return sendError(res,"Account already exists",constants.ACCOUNT_EXIST)
             }
 
         });
 
         bcrypt.genSalt(10,(err,salt) => {
             bcrypt.hash(newUser.password,salt,(err,hash) => {
-                if(err)return sendError(res,err,constants.HASH_PASSWORD)
+                if(err) return sendError(res,err,constants.HASH_PASSWORD)
                 newUser.password = hash;
                 newUser.save(function(err,data){
                     if(err){
@@ -79,7 +79,7 @@ export default async function handler(req,res){
         })
     }
     else{
-        return sendError(res, "server error", 500)
+        return sendError(res, "Page Not Found!", constants.NOT_FOUND)
       }
 }
 
