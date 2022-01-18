@@ -5,6 +5,59 @@ import Ellipse47 from "../../public/images/Ellipse47.png";
 import Link from "next/link";
 
 function tenant_signin() {
+<<<<<<< Updated upstream
+=======
+  // anujjadhav0215@gmail.com
+  // 9ty1976t
+
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const router = useRouter();
+  const { redirect } = router.query;
+  const { dispatch, state } = useContext(Store);
+
+  const [details, setDetails] = useState({
+    email: "",
+    password: "",
+  });
+
+  const onChange = (e) => {
+    setDetails({ ...details, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    submitHandler(details);
+  };
+
+  const checkDetails = (details) => {
+    id(details.email.length == 0);
+  };
+
+  if (state.userInfo) {
+    router.push("/profile/tenant");
+  }
+
+  // const validateData = (details) => {
+  //   if (!details.email) {
+  //   }
+  // };
+
+  const submitHandler = async (details) => {
+    closeSnackbar();
+    // var correct = validateData(details);
+    try {
+      const res = await axios.post("/api/auth/users/signin", details);
+      dispatch({ type: "USER_LOGIN", payload: res.data });
+      Cookies.set("userInfo", JSON.stringify(res.data));
+      enqueueSnackbar("User Signed In Successfully", { variant: "success" });
+      router.push(redirect || "/profile/tenant");
+    } catch (err) {
+      console.log(err.response);
+      enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+    }
+  };
+
+>>>>>>> Stashed changes
   return (
     <>
       <div className="main1">
