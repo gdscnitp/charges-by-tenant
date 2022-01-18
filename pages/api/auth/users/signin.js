@@ -10,6 +10,7 @@ var nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
 const config = require("../../../../config/config");
 
+
 export default async function handler(req, res) {
   if (req.method === "POST") {
     var email = req.body.email;
@@ -20,6 +21,7 @@ export default async function handler(req, res) {
         "email or password is empty",
         constants.MISSING_FIELD_II
       );
+
     }
     if (!isEmail(email)) {
       return sendError(res, "Email invalid", constants.INVALID_EMAIL);
@@ -42,6 +44,7 @@ export default async function handler(req, res) {
             id: data._id,
           };
 
+
           jwt.sign(payload, config.SECRET_KEY, (err, token) => {
             if (err) return sendError(res, err, constants.JWT_ERROR);
             send(
@@ -60,7 +63,9 @@ export default async function handler(req, res) {
         }
       });
     });
-  } else {
-    return sendError(res, "server error", 500);
+  } 
+else{
+    return sendError(res, "Page Not Found!", constants.NOT_FOUND)
+
   }
 }
