@@ -15,16 +15,22 @@ const config = require("../../../config/config")
 export default async function handler(req,res){
 
 if(req.method === "PUT"){
-var id = '61dd55b9536a096f22fa8b23'  //history id   
-History.findByIdAndUpdate(id,{status:"2",left_at:Date.now()}).populate('site_id').exec(function(err,d){
-    d.site_id.status = "0" //status 0 means this site is empty now as tenant left
-    d.status = "2"
-    d.left_at = Date.now()
-    if(err)return sendError(res,"Error in updating History and Sites Collection (LEAVE SITE)",constants.HISTORY_ERROR_III)
-    else{return sendSuccess(res,{d})}
+var histId = '61e53b40259ba909fbe0bb14'  //history id   
 
-})
-//return sendError(res,"finding error",constants.SERVER_ERROR)
+var histData = await History.findByIdAndUpdate(histId,{$set:{status:"2",left_at:Date.now()}})
+if(histData){
+var siteData = await Sites.findByIdAndUpdate(histData.site_id,{$set:{status:"0"}}) 
+if(siteData){
+    return sendSuccess(res,{})
+}
+else{
+    return sendError(res,"no such site",500)
+}
+}
+else{
+    return sendError(res,"no such history",500)
+}
+
 }
 
 }
