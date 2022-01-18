@@ -5,9 +5,9 @@ const SignInCard = (props) => {
   return (
     <div className="a-signin-cards p-2">
       <div className="card a-signin-cards-width">
-        <img
-          // height={"300px"}
-          // width={"40px"}
+        <Image
+          height={"300px"}
+          width={"40px"}
           className="card-img-top a-signin-cards-image"
           src={props.pathOfImage}
           alt="Card image cap"

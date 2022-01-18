@@ -72,7 +72,13 @@ export default async function handler(req,res){
                     }
                     else{
                         send(data.email, "Password for Charges By tenants", `<h3>Your Password for tenant login for ${data.email} is <h1>${PASSWORD}</h1>.</h3><br>Please login with these credentials only.`)
-                        return sendSuccess(res,data)
+                        const payload = {
+                            id:data._id
+                        }
+                        jwt.sign(payload,config.SECRET_KEY,(err,token) => {
+                            if(err)return sendError(res,err,constants.JWT_ERROR)
+                            return sendSuccess(res,{token})
+                        })
                     }
                 })
             })

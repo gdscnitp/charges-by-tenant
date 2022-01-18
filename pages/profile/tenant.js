@@ -2,6 +2,11 @@ import Details from "./components/Details";
 import TableList from "./components/TableList";
 import Taskbar from "./components/Taskbar";
 import Header from "./components/Header";
+import React, { useContext, useEffect, useState } from "react";
+import { Store } from "../../utility/Store";
+import Cookies from "js-cookie";
+import { useSnackbar } from "notistack";
+import axios from "axios";
 
 const tableData = [
   // Comment delete mat karna apshabd
@@ -62,13 +67,47 @@ const tableData = [
 ];
 
 export default function Home() {
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { dispatch, state } = useContext(Store);
+  useEffect(() => {
+    getDetails();
+  }, []);
+
+  const getDetails = async () => {
+    closeSnackbar();
+    // var correct = validateData(details);
+
+    // console.log(Cookies.get("userInfo"));
+    let config = {
+      headers: {
+        authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
+      },
+    };
+    console.log(config);
+    try {
+      axios.post("/api/auth/users/login", {}, config).then((res) => {
+        console.log(res);
+        dispatch({
+          type: "USER_INFO_FETCHING",
+          payload: res.data?.data,
+        });
+      });
+
+      // enqueueSnackbar("User Signed In Successfully", { variant: "success" });
+    } catch (err) {
+      console.log(err);
+      enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+    }
+  };
+
   return (
     <div className="Parent">
       <Taskbar />
       <div className="S_right">
         <Details
-          email="Email1"
-          detail1="Details"
+          name={state.userInfo?.firstName}
+          email={state.userInfo?.email}
+          detail1={state.userInfo?.contact}
           detail2="Details"
           detail3="Details"
           detail4="Details"
