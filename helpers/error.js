@@ -13,7 +13,7 @@ var errors = {
 701: "Landlord name already taken",
 
 900: "Email you entered is not valid",
-901:"fields from contact, email and name is missing",
+901:"Field from contact, email or name is missing",
 902:"Some error occured while searching this email in our database",
 903:"Account already exist, try with another email",
 904:"Some error occured while hashing password",
@@ -25,7 +25,7 @@ var errors = {
 910:"Last name you entered is not valid",
 911:"Some error occur during jwt.sign",
 912:"You have entered wrong password",
-913:"Some error occur during jwt.verify",
+913:"Some error occured during jwt.verify",  
 914:"Token not available",
 915:"Unable to update profile",
 916:"fields from occupation, DOB, verification, address is missing",

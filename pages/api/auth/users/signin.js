@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     if (!email || !password) {
       return sendError(
         res,
-        "email or password is empty",
+        "Email or password field is empty",
         constants.MISSING_FIELD_II
       );
     }
@@ -61,6 +61,6 @@ export default async function handler(req, res) {
       });
     });
   } else {
-    return sendError(res, "server error", 500);
+    return sendError(res, "Page Not Found!", constants.NOT_FOUND);
   }
 }
