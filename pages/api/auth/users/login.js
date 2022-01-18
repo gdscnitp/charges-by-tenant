@@ -24,14 +24,15 @@ export default async function handler(req,res){
       // Set the token
       req.token = bearerToken;
       // Next middleware
-      jwt.verify(req.token, config.SECRET_KEY, (err,authData) => {
-        if(err)return sendError(res,err,constants.JWT_VERIFY)
-        Tenant.findById(authData.id, function(err,data){
+      jwt.verify(req.token, config.SECRET_KEY, (err, authData) => {
+        if(err)
+          return sendError(res,err,constants.JWT_VERIFY)
+        Tenant.findById(authData.id, function(err, data){
           if(err){
               return sendError(res,err,constants.SERVER_ERROR)
           }
           else if(!data){
-              return sendError(res,"No Account Exist",constants.ACCOUNT_NOT_EXIST)
+              return sendError(res,"No Account Exists!",constants.ACCOUNT_NOT_EXIST)
           }
           authData.profile=data;
           return sendSuccess(res, authData)
@@ -42,14 +43,10 @@ export default async function handler(req,res){
       
     } else {
       // Forbidden
-      return sendError(res,"Token not provided",constants.NULL_TOKEN)
+      return sendError(res,"Token not provided", constants.NULL_TOKEN)
     }
 }
 else{
-  return sendError(res, "server error", 500)
+  return sendError(res, "Page Not Found!", constants.NOT_FOUND)
 }
 }
-
-
-
-
