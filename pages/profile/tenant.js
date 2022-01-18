@@ -75,9 +75,6 @@ export default function Home() {
 
   const getDetails = async () => {
     closeSnackbar();
-    // var correct = validateData(details);
-
-    // console.log(Cookies.get("userInfo"));
     let config = {
       headers: {
         authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,

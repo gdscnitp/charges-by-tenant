@@ -157,7 +157,7 @@ function Tenant_Signin() {
                   </div>
                   <div className="p_mem">
                     Not a member?
-                    <Link href="/auth/tenant_signup">Sign Up</Link>
+                    <Link href="/auth/Tenant_signup">Sign Up</Link>
                   </div>
                 </form>
                 <div className="social-login">
