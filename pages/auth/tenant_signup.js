@@ -51,6 +51,7 @@ function Tenant_Signup() {
   }
 
   const submitHandler = async (details) => {
+    console.log(details);
     closeSnackbar();
     try {
       const { data } = await axios.post("/api/auth/users/register", details);

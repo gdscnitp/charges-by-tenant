@@ -11,7 +11,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useContext } from "react";
 
-function tenant_signin() {
+function Tenant_signin() {
   // anujjadhav0215@gmail.com
   // 9ty1976t
 
@@ -38,9 +38,9 @@ function tenant_signin() {
     id(details.email.length == 0);
   };
 
-  if (state.userInfo) {
-    router.push("/profile/tenant");
-  }
+  // if (state.userInfo) {
+  //   router.push("/profile/tenant");
+  // }
 
   const validateData = (details) => {
     if (!details.email) {
@@ -157,7 +157,7 @@ function tenant_signin() {
                   </div>
                   <div className="p_mem">
                     Not a member?
-                    <Link href="/auth/tenant_signup">Sign Up</Link>
+                    <Link href="/auth/Tenant_signup">Sign Up</Link>
                   </div>
                 </form>
                 <div className="social-login">
@@ -189,4 +189,4 @@ function tenant_signin() {
   );
 }
 
-export default tenant_signin;
+export default Tenant_signin;
