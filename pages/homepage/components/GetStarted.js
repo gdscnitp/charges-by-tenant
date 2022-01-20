@@ -22,6 +22,7 @@ function GetStarted() {
           pathOfImage="/images/Landlord.svg"
           content="Sign in as a Landlord and use the helpful features from our website. Keep track of all the payments"
           name="Landlord"
+          path="#"
         />
       </div>
     </section>

@@ -3,7 +3,7 @@ import { propTypes } from "react-bootstrap/esm/Image";
 import Profile from "../../../public/images/Profile.svg";
 
 const Identity = (props) => {
-  console.log(props.userDetails)
+  console.log(props.userDetails);
   return (
     <div className="S_landing">
       <div className="S_leftbar">
@@ -13,7 +13,7 @@ const Identity = (props) => {
             src="/images/Profile.svg"
             alt="Profile"
           />
-          <div className="name">{props.userDetails.firstName}</div>
+          <div className="name">{props.userDetails?.firstName}</div>
         </div>
         <div className="S_menu">
           <div className="S_option S_option1" onClick={() => props.onShow1()}>
@@ -30,4 +30,4 @@ const Identity = (props) => {
   );
 };
 
-export default Identity
+export default Identity;

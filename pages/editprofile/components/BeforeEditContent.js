@@ -6,13 +6,18 @@ function BeforeEditContent(props) {
           <span className="a-edit-left-title">{props.title}</span>
         </div>
         <div className="col-lg-7 col-sm-10">
-          <span
-            className={`a-edit-right-content ${
-              props.content == "Not Provided" ? "a-not-provided" : null
-            }`}
-          >
-            {props.content}
-          </span>
+          {props.content == undefined || props.content?.length == 0 ? (
+            <span
+              // className={`a-edit-right-content ${
+              //   props.content == "Not Provided" ? "a-not-provided" : null
+              // }`}
+              className="a-edit-right-content a-not-provided"
+            >
+              Not Provided
+            </span>
+          ) : (
+            <span className="a-edit-right-content">{props.content}</span>
+          )}
         </div>
         <div className="col-lg-1 col-sm-2">
           <button className="a-edit" onClick={props.editButtonClick}>

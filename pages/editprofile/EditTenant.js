@@ -1,14 +1,63 @@
-import { useState } from "react";
 import AfterEditContent from "./components/AfterEditContent";
 import BeforeEditContent from "./components/BeforeEditContent";
 import EditBirthday from "./components/EditBirthday";
 import Taskbar from "../profile/components/Taskbar";
 import Heading from "../landing/components/Heading";
+import React, { useContext, useEffect, useState } from "react";
+import { Store } from "../../utility/Store";
+import Cookies from "js-cookie";
+import { useSnackbar } from "notistack";
+import axios from "axios";
 
 function EditTenant() {
+  // Integration Code
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { dispatch, state } = useContext(Store);
+  useEffect(() => {
+    getDetails();
+  }, []);
+
+  const getDetails = async () => {
+    closeSnackbar();
+
+    let config = {
+      headers: {
+        authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
+      },
+    };
+    try {
+      axios.post("/api/auth/users/login", {}, config).then((res) => {
+        dispatch({
+          type: "USER_INFO_FETCHING",
+          payload: res.data?.data,
+        });
+      });
+      enqueueSnackbar("Data Retrieved", { variant: "success" });
+    } catch (err) {
+      console.log(err);
+      enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+    }
+  };
+  console.log(state.userInfo);
+
+  // Input Code
+  // const [details, setDetails] = useState({
+  //   username: ,
+  //   firstName: true,
+  //   lastName: true,
+  //   email: true,
+  //   contact: true,
+  //   address: true,
+  //   birthday: true,
+  //   uid: true,
+  //   occupation: true,
+  // });
+
+  // Normal page code
   const [show, setShow] = useState({
     Username: true,
-    Name: true,
+    FirstName: true,
+    LastName: true,
     Email: true,
     Contact: true,
     Address: true,
@@ -22,7 +71,8 @@ function EditTenant() {
       return {
         ...previousState,
         Username: true,
-        Name: true,
+        FirstName: true,
+        LastName: true,
         Email: true,
         Contact: true,
         Address: true,
@@ -39,10 +89,16 @@ function EditTenant() {
       return { ...previousState, Username: false };
     });
   };
-  const editName = () => {
+  const editFirstName = () => {
     allTrue();
     setShow((previousState) => {
-      return { ...previousState, Name: false };
+      return { ...previousState, FirstName: false };
+    });
+  };
+  const editLastName = () => {
+    allTrue();
+    setShow((previousState) => {
+      return { ...previousState, LastName: false };
     });
   };
   const editEmail = () => {
@@ -88,9 +144,14 @@ function EditTenant() {
       return { ...previousState, Username: true };
     });
   };
-  const saveName = () => {
+  const saveFirstName = () => {
     setShow((previousState) => {
-      return { ...previousState, Name: true };
+      return { ...previousState, FirstName: true };
+    });
+  };
+  const saveLastName = () => {
+    setShow((previousState) => {
+      return { ...previousState, LastName: true };
     });
   };
   const saveEmail = () => {
@@ -132,57 +193,67 @@ function EditTenant() {
     {
       toShow: show.Username,
       title: "Username",
-      content: "rakesh123",
+      content: state.userInfo?.username,
       editButtonClick: editUsername,
       saveCLick: saveUsername,
     },
     {
-      toShow: show.Name,
-      title: "Name",
-      content: "Rakesh Kumar",
-      editButtonClick: editName,
-      saveCLick: saveName,
+      toShow: show.FirstName,
+      title: "First Name",
+      content: state.userInfo?.firstName,
+      editButtonClick: editFirstName,
+      saveCLick: saveFirstName,
+    },
+    {
+      toShow: show.LastName,
+      title: "Last Name",
+      content: state.userInfo?.lastName,
+      editButtonClick: editLastName,
+      saveCLick: saveLastName,
     },
     {
       toShow: show.Email,
       title: "Email",
-      content: "rakesh@gmail.com",
+      content: state.userInfo?.email,
       editButtonClick: editEmail,
       saveCLick: saveEmail,
     },
     {
       toShow: show.Contact,
       title: "Contact",
-      content: "Not Provided",
+      content: state.userInfo?.contact,
       editButtonClick: editContact,
       saveCLick: saveContact,
     },
     {
       toShow: show.Address,
       title: "Address",
-      content:
-        "Flat-104, Vrundavan Apt., Near Gandhi Statue, Vikas Nagar, Pune",
+      // content:
+      //   "Flat-104, Vrundavan Apt., Near Gandhi Statue, Vikas Nagar, Pune",
+      content: state.userInfo?.address?.first_line,
       editButtonClick: editAddress,
       saveCLick: saveAddress,
     },
     {
       toShow: show.Birthday,
       title: "Birthday",
-      content: "January 9. 2000",
+      // content: "January 9. 2000",
+      content: state.userInfo?.DOB,
       editButtonClick: editBirthday,
       saveCLick: saveBirthday,
     },
     {
       toShow: show.UID,
       title: "UID",
-      content: "12345",
+      content: state.userInfo?.uid,
       editButtonClick: editUID,
       saveCLick: saveUID,
     },
     {
       toShow: show.Occupation,
       title: "Occupation",
-      content: "Doctor",
+      // content: "Doctor",
+      content: state.userInfo?.occupation,
       editButtonClick: editOccupation,
       saveCLick: saveOccupation,
     },

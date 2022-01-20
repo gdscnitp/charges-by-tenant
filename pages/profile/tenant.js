@@ -83,17 +83,15 @@ export default function Home() {
         authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
       },
     };
-    console.log(config);
     try {
       axios.post("/api/auth/users/login", {}, config).then((res) => {
-        console.log(res);
         dispatch({
           type: "USER_INFO_FETCHING",
           payload: res.data?.data,
         });
       });
 
-      // enqueueSnackbar("User Signed In Successfully", { variant: "success" });
+      enqueueSnackbar("Data Retrieved", { variant: "success" });
     } catch (err) {
       console.log(err);
       enqueueSnackbar(err.response?.data?.message, { variant: "error" });
@@ -102,15 +100,16 @@ export default function Home() {
 
   return (
     <div className="Parent">
+      {console.log(state.userInfo)}
       <Taskbar />
       <div className="S_right">
         <Details
           name={state.userInfo?.firstName}
           email={state.userInfo?.email}
           detail1={state.userInfo?.contact}
-          detail2="Details"
-          detail3="Details"
-          detail4="Details"
+          detail2={state.userInfo?.username}
+          detail3={state.userInfo?.email}
+          detail4={state.userInfo?.firstName + " " + state.userInfo?.lastName}
         />
         <hr />
         <div className="S_rightBottom">
