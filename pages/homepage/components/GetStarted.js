@@ -16,7 +16,7 @@ function GetStarted() {
           pathOfImage="/images/Tenant.svg"
           content="Sign in as a Tenant and use the helpful features from our website. Get notified for all the payments and history."
           name="Tenant"
-          path="/auth/Tenant_signin"
+          path="/auth/TenantSignIn"
         />
         <SignInCard
           pathOfImage="/images/Landlord.svg"

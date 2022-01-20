@@ -29,11 +29,11 @@ function Tenant_Signup() {
   });
 
   const handleChange = (e) => {
-    const value =
-      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    // const value =
+    //   e.target.type === "checkbox" ? e.target.checked : e.target.value;
     setCheck({
       ...check,
-      [e.target.name]: value,
+      [e.target.name]: e.target.checked,
     });
   };
 
@@ -165,7 +165,7 @@ function Tenant_Signup() {
                       className="custom-control-input"
                       id="customCheck1"
                       name="isChecked"
-                      checked={state.isChecked}
+                      // checked={state.isChecked}
                       onChange={handleChange}
                     />
                     <label
@@ -195,7 +195,7 @@ function Tenant_Signup() {
               </div>
               <div className="signup-image">
                 <figure>
-                  <Image src={Tenant} height={610} width={660} alt="tenant" />{" "}
+                  <Image src={Tenant} height={610} width={660} alt="tenant" />
                 </figure>
               </div>
             </div>
