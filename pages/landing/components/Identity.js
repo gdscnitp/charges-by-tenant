@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { propTypes } from "react-bootstrap/esm/Image";
 import Profile from "../../../public/images/Profile.svg";
 
 const Identity = (props) => {
