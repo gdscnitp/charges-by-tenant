@@ -1,9 +1,13 @@
 import "../styles/globals.css";
 import "../styles/Profile.css";
-import "../styles/EditProfile.css";
-import "../styles/Landing.css";
+import "../styles/Landing.css"
 import "../styles/differentCharges.css";
-import "../styles/Transaction.css";
+import { SnackbarProvider } from 'notistack';
+import { StoreProvider } from '../utility/Store';
+
+
+
+import "../styles/Transaction.css"
 import "../styles/p_auth.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { SnackbarProvider } from "notistack";
@@ -15,10 +19,10 @@ function MyApp({ Component, pageProps }) {
     import("bootstrap/dist/js/bootstrap");
   }, []);
   return (
-    <SnackbarProvider anchorOrigin={{ vertical: "top", horizontal: "center" }}>
+    <SnackbarProvider anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
       <StoreProvider>
         {/* <PayPalScriptProvider deferLoading={true}> */}
-        <Component {...pageProps} />
+          <Component {...pageProps} />
         {/* </PayPalScriptProvider> */}
       </StoreProvider>
     </SnackbarProvider>
