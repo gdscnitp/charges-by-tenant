@@ -56,9 +56,12 @@ function Tenant_Signup() {
     try {
       const { data } = await axios.post("/api/auth/users/register", details);
       dispatch({ type: "USER_LOGIN", payload: data });
-      Cookies.set("userInfo", JSON.stringify(data));
       enqueueSnackbar("User Signed Up Successfully", { variant: "success" });
       router.push(redirect || "/profile/tenant");
+      Cookies.set("userInfo", JSON.stringify(data));
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      // Cookies.set("userInfo", data);
+      // localStorage.setItem("userInfo", data);
     } catch (err) {
       enqueueSnackbar(err.message, { variant: "error" });
     }

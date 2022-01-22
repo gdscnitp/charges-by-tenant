@@ -4,7 +4,7 @@ import { createContext, useReducer } from "react";
 export const Store = createContext();
 const initialState = {
   userInfo: Cookies.get("userInfo")
-    ? JSON.parse(Cookies.get("userInfo")).data
+    ? JSON.parse(JSON.stringify(Cookies.get("userInfo"))).data
     : null,
 };
 
@@ -13,9 +13,15 @@ function reducer(state, action) {
     case "USER_LOGIN":
       return { ...state, userInfo: action.payload?.data };
     case "USER_INFO_FETCHING":
+      localStorage.setItem(
+        "TenantData",
+        JSON.stringify(action.payload?.profile)
+      );
       return { ...state, userInfo: action.payload?.profile };
     case "USER_LOGOUT":
       Cookies.remove("userInfo");
+      localStorage.removeItem("userInfo");
+      localStorage.removeItem("TenantData");
       return {
         ...state,
         userInfo: null,

@@ -13,31 +13,31 @@ function EditTenant() {
   // Integration Code
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
-  useEffect(() => {
-    getDetails();
-  }, []);
+  // useEffect(() => {
+  //   getDetails();
+  // }, []);
 
-  const getDetails = async () => {
-    closeSnackbar();
+  // const getDetails = async () => {
+  //   closeSnackbar();
 
-    let config = {
-      headers: {
-        authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
-      },
-    };
-    try {
-      axios.post("/api/auth/users/login", {}, config).then((res) => {
-        dispatch({
-          type: "USER_INFO_FETCHING",
-          payload: res.data?.data,
-        });
-      });
-      enqueueSnackbar("Data Retrieved", { variant: "success" });
-    } catch (err) {
-      // console.log(err);
-      enqueueSnackbar(err.response?.data?.message, { variant: "error" });
-    }
-  };
+  //   let config = {
+  //     headers: {
+  //       authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
+  //     },
+  //   };
+  //   try {
+  //     axios.post("/api/auth/users/login", {}, config).then((res) => {
+  //       dispatch({
+  //         type: "USER_INFO_FETCHING",
+  //         payload: res.data?.data,
+  //       });
+  //     });
+  //     enqueueSnackbar("Data Retrieved", { variant: "success" });
+  //   } catch (err) {
+  //     // console.log(err);
+  //     enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+  //   }
+  // };
 
   // Normal page code
   const [show, setShow] = useState({
@@ -187,19 +187,23 @@ function EditTenant() {
     uid: state.userInfo?.uid,
     occupation: state.userInfo?.occupation,
   };
+  const ISSERVER = typeof window === "undefined";
+  var tenantData;
+  if (!ISSERVER) {
+    tenantData = JSON.parse(localStorage.getItem("TenantData"));
+  }
 
-  // // console.log(detailsArray);
-  // const [details, setDetails] = useState({
-  //   username: "",
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   contact: "",
-  //   address: "",
-  //   birthday: "",
-  //   uid: "",
-  //   occupation: "",
-  // });
+  const [details, setDetails] = useState({
+    username: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    contact: "",
+    address: "",
+    birthday: "",
+    uid: "",
+    occupation: "",
+  });
 
   // const initialDetails = () => {
   //   setDetails((details) => {

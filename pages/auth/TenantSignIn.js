@@ -56,6 +56,9 @@ function Tenant_signin() {
       const res = await axios.post("/api/auth/users/signin", details);
       dispatch({ type: "USER_LOGIN", payload: res.data });
       Cookies.set("userInfo", JSON.stringify(res.data));
+      localStorage.setItem("userInfo", JSON.stringify(res.data));
+      // Cookies.set("userInfo", res.data);
+      // localStorage.setItem("userInfo", res.data);
       enqueueSnackbar("User Signed In Successfully", { variant: "success" });
       router.push(redirect || "/profile/tenant");
     } catch (err) {
