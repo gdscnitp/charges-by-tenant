@@ -10,8 +10,6 @@ import { StoreProvider } from '../utility/Store';
 import "../styles/Transaction.css"
 import "../styles/p_auth.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { SnackbarProvider } from "notistack";
-import { StoreProvider } from "../utility/Store";
 import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
