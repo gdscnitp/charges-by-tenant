@@ -22,7 +22,9 @@ function Tenant_Signup() {
     email: "",
   });
 
-  // temp comment
+  if (Cookies.get("userInfo")) {
+    router.push("/profile/tenant");
+  }
 
   const [check, setCheck] = useState({
     isChecked: false,

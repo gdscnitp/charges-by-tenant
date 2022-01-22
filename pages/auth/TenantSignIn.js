@@ -20,6 +20,10 @@ function Tenant_signin() {
   const { redirect } = router.query;
   const { dispatch, state } = useContext(Store);
 
+  if (Cookies.get("userInfo")) {
+    router.push("/profile/tenant");
+  }
+
   const [details, setDetails] = useState({
     email: "",
     password: "",
@@ -37,10 +41,6 @@ function Tenant_signin() {
   const checkDetails = (details) => {
     id(details.email.length == 0);
   };
-
-  // if (state.userInfo) {
-  //   router.push("/profile/tenant");
-  // }
 
   const validateData = (details) => {
     if (!details.email) {

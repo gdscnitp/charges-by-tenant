@@ -2,12 +2,20 @@ import HomePageBanner from "./components/HomePageBanner";
 import Features from "./components/Features";
 import GetStarted from "./components/GetStarted";
 import Taskbar from "../profile/components/Taskbar";
-import { Store } from '../../utility/Store';
-import { useContext } from 'react';
-
+import { Store } from "../../utility/Store";
+import { useContext } from "react";
+import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 function HomePage() {
-  const { state, dispatch } = useContext(Store);
+  const { dispatch, state } = useContext(Store);
+  const router = useRouter();
+
+  console.log(state);
+
+  if (Cookies.get("userInfo")) {
+    router.push("/profile/tenant");
+  }
   return (
     <>
       <HomePageBanner />
