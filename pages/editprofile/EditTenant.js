@@ -13,31 +13,47 @@ function EditTenant() {
   // Integration Code
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
-  // useEffect(() => {
-  //   getDetails();
-  // }, []);
+  useEffect(() => {
+    getDetails();
+  }, []);
 
-  // const getDetails = async () => {
-  //   closeSnackbar();
+  const getDetails = async () => {
+    closeSnackbar();
 
-  //   let config = {
-  //     headers: {
-  //       authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
-  //     },
-  //   };
-  //   try {
-  //     axios.post("/api/auth/users/login", {}, config).then((res) => {
-  //       dispatch({
-  //         type: "USER_INFO_FETCHING",
-  //         payload: res.data?.data,
-  //       });
-  //     });
-  //     enqueueSnackbar("Data Retrieved", { variant: "success" });
-  //   } catch (err) {
-  //     // console.log(err);
-  //     enqueueSnackbar(err.response?.data?.message, { variant: "error" });
-  //   }
-  // };
+    let config = {
+      headers: {
+        authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
+      },
+    };
+    try {
+      axios.post("/api/auth/users/login", {}, config).then((res) => {
+        dispatch({
+          type: "USER_INFO_FETCHING",
+          payload: res.data?.data,
+        });
+      });
+      enqueueSnackbar("Data Retrieved", { variant: "success" });
+    } catch (err) {
+      // console.log(err);
+      enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+    }
+  };
+
+  const [details, setDetails] = useState({
+    username: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    contact: "",
+    address: "",
+    DOB: "",
+    verification: "",
+    occupation: "",
+  });
+
+  const onChange = (e) => {
+    setDetails({ ...details, [e.target.name]: e.target.value });
+  };
 
   // Normal page code
   const [show, setShow] = useState({
@@ -193,23 +209,27 @@ function EditTenant() {
     tenantData = JSON.parse(localStorage.getItem("TenantData"));
   }
 
-  const [details, setDetails] = useState({
-    username: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    contact: "",
-    address: "",
-    birthday: "",
-    uid: "",
-    occupation: "",
-  });
+  // const [details, setDetails] = useState({
+  //   username: detailsArray.username,
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  //   contact: "",
+  //   address: "",
+  //   birthday: "",
+  //   uid: "",
+  //   occupation: "",
+  // });
+
+  // useEffect(() => {
+  //   initialDetails();
+  // }, []);
 
   // const initialDetails = () => {
   //   setDetails((details) => {
   //     return {
   //       ...details,
-  //       username: state.userInfo?.username,
+  //       username: detailsArray.username,
   //       firstName: state.userInfo?.firstName,
   //       lastName: state.userInfo?.lastName,
   //       email: state.userInfo?.email,
@@ -226,9 +246,10 @@ function EditTenant() {
     {
       toShow: show.Username,
       title: "Username",
-      content: detailsArray.username,
+      content: state.userInfo?.username,
       editButtonClick: editUsername,
       saveCLick: saveUsername,
+      name: "username",
     },
     {
       toShow: show.FirstName,
@@ -236,6 +257,7 @@ function EditTenant() {
       content: state.userInfo?.firstName,
       editButtonClick: editFirstName,
       saveCLick: saveFirstName,
+      name: "firstName",
     },
     {
       toShow: show.LastName,
@@ -243,6 +265,7 @@ function EditTenant() {
       content: state.userInfo?.lastName,
       editButtonClick: editLastName,
       saveCLick: saveLastName,
+      name: "lastName",
     },
     {
       toShow: show.Email,
@@ -250,6 +273,7 @@ function EditTenant() {
       content: state.userInfo?.email,
       editButtonClick: editEmail,
       saveCLick: saveEmail,
+      name: "email",
     },
     {
       toShow: show.Contact,
@@ -257,6 +281,7 @@ function EditTenant() {
       content: state.userInfo?.contact,
       editButtonClick: editContact,
       saveCLick: saveContact,
+      name: "contact",
     },
     {
       toShow: show.Address,
@@ -266,6 +291,7 @@ function EditTenant() {
       content: state.userInfo?.address?.first_line,
       editButtonClick: editAddress,
       saveCLick: saveAddress,
+      name: "address",
     },
     {
       toShow: show.Birthday,
@@ -274,13 +300,15 @@ function EditTenant() {
       content: state.userInfo?.DOB,
       editButtonClick: editBirthday,
       saveCLick: saveBirthday,
+      name: "DOB",
     },
     {
       toShow: show.UID,
-      title: "UID",
+      title: "Verification",
       content: state.userInfo?.uid,
       editButtonClick: editUID,
       saveCLick: saveUID,
+      name: "verification",
     },
     {
       toShow: show.Occupation,
@@ -289,6 +317,7 @@ function EditTenant() {
       content: state.userInfo?.occupation,
       editButtonClick: editOccupation,
       saveCLick: saveOccupation,
+      name: "occupation",
     },
   ];
 
@@ -325,6 +354,8 @@ function EditTenant() {
                           content={data.content}
                           saveClick={data.saveCLick}
                           cancelClick={cancel}
+                          name={data.name}
+                          onChangee={onChange(e)}
                         />
                       )}
                     </div>
