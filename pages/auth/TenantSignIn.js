@@ -3,8 +3,70 @@ import Tenant from "../../public/images/tenant.png";
 import Home_fill from "../../public/images/Home_fill.png";
 import Ellipse47 from "../../public/images/Ellipse47.png";
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { useSnackbar } from "notistack";
+import { Store } from "../../utility/Store";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { useContext } from "react";
 
-function tenant_signin() {
+function Tenant_signin() {
+  // anujjadhav0215@gmail.com
+  // 9ty1976t
+
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const router = useRouter();
+  const { redirect } = router.query;
+  const { dispatch, state } = useContext(Store);
+
+  if (Cookies.get("userInfo")) {
+    router.push("/profile/tenant");
+  }
+
+  const [details, setDetails] = useState({
+    email: "",
+    password: "",
+  });
+
+  const onChange = (e) => {
+    setDetails({ ...details, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    submitHandler(details);
+  };
+
+  const checkDetails = (details) => {
+    id(details.email.length == 0);
+  };
+
+  const validateData = (details) => {
+    if (!details.email) {
+    }
+  };
+
+  // temp comment
+
+  const submitHandler = async (details) => {
+    closeSnackbar();
+    // var correct = validateData(details);
+    try {
+      const res = await axios.post("/api/auth/users/signin", details);
+      dispatch({ type: "USER_LOGIN", payload: res.data });
+      Cookies.set("userInfo", JSON.stringify(res.data));
+      localStorage.setItem("userInfo", JSON.stringify(res.data));
+      // Cookies.set("userInfo", res.data);
+      // localStorage.setItem("userInfo", res.data);
+      enqueueSnackbar("User Signed In Successfully", { variant: "success" });
+      router.push(redirect || "/profile/tenant");
+    } catch (err) {
+      console.log(err.response);
+      enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+    }
+  };
+
   return (
     <>
       <div className="main1">
@@ -22,12 +84,16 @@ function tenant_signin() {
         />
         <section className="sign-in">
           <div className="container pr_container prj">
-            <div className="fish1">
-              <Image src={Home_fill} alt="sub" />
-            </div>
-            <div className="fishes1">
-              <Image src={Ellipse47} alt="sub" />
-            </div>
+            <Link href="/homepage/HomePage">
+              <div className="returnHome">
+                <div className="fish1">
+                  <Image src={Home_fill} alt="sub" />
+                </div>
+                <div className="fishes1">
+                  <Image src={Ellipse47} alt="sub" />
+                </div>
+              </div>
+            </Link>
             <div className="signin-content">
               <div className="signin-image">
                 <figure>
@@ -49,8 +115,8 @@ function tenant_signin() {
                     <input
                       className="pa_input"
                       type="text"
-                      name="your_name"
-                      id="your_name"
+                      name="email"
+                      onChange={(e) => onChange(e)}
                       placeholder="Your Name"
                     />
                   </div>
@@ -61,9 +127,9 @@ function tenant_signin() {
                     <input
                       className="pa_input"
                       type="password"
-                      name="your_pass"
-                      id="your_pass"
+                      name="password"
                       placeholder="Password"
+                      onChange={(e) => onChange(e)}
                     />
                   </div>
                   <div className="custom-control custom-checkbox pt-5">
@@ -81,21 +147,20 @@ function tenant_signin() {
                   </div>
                   <div>
                     <div className="form-group pr_form-group form-button pr_form-button">
-                      <Link href="/landing/tenant">
-                        <button
-                          type="submit"
-                          name="signin"
-                          className=" btn btn-primary pr_form-submit"
-                          value="Sign In"
-                        >
-                          Sign In
-                        </button>
-                      </Link>
+                      <button
+                        type="submit"
+                        name="signin"
+                        className=" btn btn-primary pr_form-submit"
+                        value="Sign In"
+                        onClick={(e) => onSubmit(e)}
+                      >
+                        Sign In
+                      </button>
                     </div>
                   </div>
                   <div className="p_mem">
                     Not a member?
-                    <Link href="/auth/tenant_signup">Sign Up</Link>
+                    <Link href="/auth/TenantSignUp">Sign Up</Link>
                   </div>
                 </form>
                 <div className="social-login">
@@ -127,4 +192,4 @@ function tenant_signin() {
   );
 }
 
-export default tenant_signin;
+export default Tenant_signin;

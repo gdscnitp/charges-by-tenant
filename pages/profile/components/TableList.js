@@ -15,7 +15,7 @@ const TableList = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.tableData.map((data) => {
+        {props.tableData?.map((data) => {
           return (
             <tr key={i++}>
               <th scope="row">{data.col1}</th>

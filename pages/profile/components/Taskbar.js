@@ -1,5 +1,6 @@
 import Icons from "./Icons";
 import Link from "next/link";
+import LogOut from "./LogOut";
 
 const Taskbar = () => {
   return (
@@ -27,8 +28,7 @@ const Taskbar = () => {
         classprop="fal fa-rupee-sign S_icon S_icon3"
         path="/transaction/TenantHistory"
       ></Icons>
-      <Icons classprop="fad fa-snowman S_icon S_icon4" path="#"></Icons>
-      <Icons classprop="fal fa-sign-out S_icon S_icon5" path="/"></Icons>
+      <LogOut classprop="fal fa-sign-out S_icon S_icon5"></LogOut>
     </div>
   );
 };

@@ -75,70 +75,70 @@ const pdata = [
   },
 ];
 
-const tableData = [
-  // {
-  //   date: "01/01/2020",
-  //   amount: 10000,
-  //   month: "February",
-  //   site: "Flat-402",
-  // },
-  {
-    col1: "01/01/2020",
-    col2: 10000,
-    col3: "February",
-    col4: "Flat-402",
-  },
-  {
-    col1: "01/01/2020",
-    col2: 10000,
-    col3: "February",
-    col4: "Flat-402",
-  },
-  {
-    col1: "01/01/2020",
-    col2: 10000,
-    col3: "February",
-    col4: "Flat-402",
-  },
-  {
-    col1: "01/01/2020",
-    col2: 10000,
-    col3: "February",
-    col4: "Flat-402",
-  },
-  {
-    col1: "01/01/2020",
-    col2: 10000,
-    col3: "February",
-    col4: "Flat-402",
-  },
-  {
-    col1: "01/01/2020",
-    col2: 10000,
-    col3: "February",
-    col4: "Flat-402",
-  },
-  {
-    col1: "01/01/2020",
-    col2: 10000,
-    col3: "February",
-    col4: "Flat-402",
-  },
-  {
-    col1: "01/01/2020",
-    col2: 10000,
-    col3: "February",
-    col4: "Flat-402",
-  },
-  {
-    col1: "01/01/2020",
-    col2: 10000,
-    col3: "February",
-    col4: "Flat-402",
-  },
-];
-
 const TenantHistory = () => {
+  const tableData = [
+    // {
+    //   date: "01/01/2020",
+    //   amount: 10000,
+    //   month: "February",
+    //   site: "Flat-402",
+    // },
+    {
+      col1: "01/01/2020",
+      col2: 10000,
+      col3: "February",
+      col4: "Flat-402",
+    },
+    {
+      col1: "01/01/2020",
+      col2: 10000,
+      col3: "February",
+      col4: "Flat-402",
+    },
+    {
+      col1: "01/01/2020",
+      col2: 10000,
+      col3: "February",
+      col4: "Flat-402",
+    },
+    {
+      col1: "01/01/2020",
+      col2: 10000,
+      col3: "February",
+      col4: "Flat-402",
+    },
+    {
+      col1: "01/01/2020",
+      col2: 10000,
+      col3: "February",
+      col4: "Flat-402",
+    },
+    {
+      col1: "01/01/2020",
+      col2: 10000,
+      col3: "February",
+      col4: "Flat-402",
+    },
+    {
+      col1: "01/01/2020",
+      col2: 10000,
+      col3: "February",
+      col4: "Flat-402",
+    },
+    {
+      col1: "01/01/2020",
+      col2: 10000,
+      col3: "February",
+      col4: "Flat-402",
+    },
+    {
+      col1: "01/01/2020",
+      col2: 10000,
+      col3: "February",
+      col4: "Flat-402",
+    },
+  ];
+
   return (
     <div className="Parent">
       <div className="S_left">

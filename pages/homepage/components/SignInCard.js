@@ -1,13 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const SignInCard = (props) => {
   return (
     <div className="a-signin-cards p-2">
       <div className="card a-signin-cards-width">
-        <img
-          // height={"300px"}
-          // width={"40px"}
+        <Image
+          height={"300px"}
+          width={"40px"}
           className="card-img-top a-signin-cards-image"
           src={props.pathOfImage}
           alt="Card image cap"
@@ -17,11 +16,11 @@ const SignInCard = (props) => {
             {props.content}
           </p>
           <div className="a-make-center mt-4">
-            <Link href={props.path}>
+            <a href={props?.path}>
               <button className="btn a-signin-card-button">
-                <span>{props.name}</span>
+                <span>{props?.name}</span>
               </button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -16,11 +16,13 @@ function GetStarted() {
           pathOfImage="/images/Tenant.svg"
           content="Sign in as a Tenant and use the helpful features from our website. Get notified for all the payments and history."
           name="Tenant"
+          path="/auth/TenantSignIn"
         />
         <SignInCard
-           pathOfImage="/images/Landlord.svg"
+          pathOfImage="/images/Landlord.svg"
           content="Sign in as a Landlord and use the helpful features from our website. Keep track of all the payments"
           name="Landlord"
+          path="#"
         />
       </div>
     </section>

@@ -34,26 +34,11 @@ function EditTenant() {
       });
       enqueueSnackbar("Data Retrieved", { variant: "success" });
     } catch (err) {
-      // console.log(err);
+      console.log(err);
       enqueueSnackbar(err.response?.data?.message, { variant: "error" });
     }
   };
-
-  const [details, setDetails] = useState({
-    username: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    contact: "",
-    address: "",
-    DOB: "",
-    verification: "",
-    occupation: "",
-  });
-
-  const onChange = (e) => {
-    setDetails({ ...details, [e.target.name]: e.target.value });
-  };
+  console.log(state.userInfo);
 
   // Normal page code
   const [show, setShow] = useState({
@@ -192,132 +177,88 @@ function EditTenant() {
   };
 
   // Input Code
-  var detailsArray = {
+  const [details, setDetails] = useState({
     username: state.userInfo?.username,
     firstName: state.userInfo?.firstName,
-    llastName: state.userInfo?.lastName,
+    lastName: state.userInfo?.lastName,
     email: state.userInfo?.email,
     contact: state.userInfo?.contact,
-    address: state.userInfo?.address?.first_line,
+    address: state.userInfo?.address,
     birthday: state.userInfo?.birthday,
     uid: state.userInfo?.uid,
     occupation: state.userInfo?.occupation,
-  };
-  const ISSERVER = typeof window === "undefined";
-  var tenantData;
-  if (!ISSERVER) {
-    tenantData = JSON.parse(localStorage.getItem("TenantData"));
-  }
+  });
 
-  // const [details, setDetails] = useState({
-  //   username: detailsArray.username,
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   contact: "",
-  //   address: "",
-  //   birthday: "",
-  //   uid: "",
-  //   occupation: "",
-  // });
-
-  // useEffect(() => {
-  //   initialDetails();
-  // }, []);
-
-  // const initialDetails = () => {
-  //   setDetails((details) => {
-  //     return {
-  //       ...details,
-  //       username: detailsArray.username,
-  //       firstName: state.userInfo?.firstName,
-  //       lastName: state.userInfo?.lastName,
-  //       email: state.userInfo?.email,
-  //       contact: state.userInfo?.contact,
-  //       address: state.userInfo?.address?.first_line,
-  //       birthday: state.userInfo?.birthday,
-  //       uid: state.userInfo?.uid,
-  //       occupation: state.userInfo?.occupation,
-  //     };
-  //   });
-  // };
+  console.log(state.userInfo);
+  console.log(details);
 
   const allContent = [
     {
       toShow: show.Username,
       title: "Username",
-      content: state.userInfo?.username,
+      content: details.username,
       editButtonClick: editUsername,
       saveCLick: saveUsername,
-      name: "username",
     },
     {
       toShow: show.FirstName,
       title: "First Name",
-      content: state.userInfo?.firstName,
+      content: details.firstName,
       editButtonClick: editFirstName,
       saveCLick: saveFirstName,
-      name: "firstName",
     },
     {
       toShow: show.LastName,
       title: "Last Name",
-      content: state.userInfo?.lastName,
+      content: details.lastName,
       editButtonClick: editLastName,
       saveCLick: saveLastName,
-      name: "lastName",
     },
     {
       toShow: show.Email,
       title: "Email",
-      content: state.userInfo?.email,
+      content: details.email,
       editButtonClick: editEmail,
       saveCLick: saveEmail,
-      name: "email",
     },
     {
       toShow: show.Contact,
       title: "Contact",
-      content: state.userInfo?.contact,
+      content: details.contact,
       editButtonClick: editContact,
       saveCLick: saveContact,
-      name: "contact",
     },
     {
       toShow: show.Address,
       title: "Address",
       // content:
       //   "Flat-104, Vrundavan Apt., Near Gandhi Statue, Vikas Nagar, Pune",
-      content: state.userInfo?.address?.first_line,
+      content: details.address?.first_line,
       editButtonClick: editAddress,
       saveCLick: saveAddress,
-      name: "address",
     },
     {
       toShow: show.Birthday,
       title: "Birthday",
       // content: "January 9. 2000",
-      content: state.userInfo?.DOB,
+      content: details.DOB,
       editButtonClick: editBirthday,
       saveCLick: saveBirthday,
-      name: "DOB",
     },
     {
       toShow: show.UID,
-      title: "Verification",
-      content: state.userInfo?.uid,
+      title: "UID",
+      content: details.uid,
       editButtonClick: editUID,
       saveCLick: saveUID,
-      name: "verification",
     },
     {
       toShow: show.Occupation,
       title: "Occupation",
       // content: "Doctor",
-      content: state.userInfo?.occupation,
+      content: details.occupation,
       editButtonClick: editOccupation,
       saveCLick: saveOccupation,
-      name: "occupation",
     },
   ];
 
@@ -354,8 +295,6 @@ function EditTenant() {
                           content={data.content}
                           saveClick={data.saveCLick}
                           cancelClick={cancel}
-                          name={data.name}
-                          onChangee={onChange(e)}
                         />
                       )}
                     </div>
