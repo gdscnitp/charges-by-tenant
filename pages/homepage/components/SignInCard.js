@@ -17,9 +17,9 @@ const SignInCard = (props) => {
             {props.content}
           </p>
           <div className="a-make-center mt-4">
-            <Link href={props.path}>
+            <Link href={props?.path}>
               <button className="btn a-signin-card-button">
-                <span>{props.name}</span>
+                <span>{props?.name}</span>
               </button>
             </Link>
           </div>
