@@ -21,7 +21,9 @@ const Tenant = () => {
       setStateReq(true);
     }
   };
+
   const { dispatch, state } = useContext(Store);
+  console.log(state);
   return (
     <div className="S_tenant">
       <link

@@ -34,10 +34,11 @@ function EditTenant() {
       });
       enqueueSnackbar("Data Retrieved", { variant: "success" });
     } catch (err) {
-      // console.log(err);
+      console.log(err);
       enqueueSnackbar(err.response?.data?.message, { variant: "error" });
     }
   };
+  console.log(state.userInfo);
 
   // Normal page code
   const [show, setShow] = useState({
@@ -176,81 +177,54 @@ function EditTenant() {
   };
 
   // Input Code
-  var detailsArray = {
+  const [details, setDetails] = useState({
     username: state.userInfo?.username,
     firstName: state.userInfo?.firstName,
-    llastName: state.userInfo?.lastName,
+    lastName: state.userInfo?.lastName,
     email: state.userInfo?.email,
     contact: state.userInfo?.contact,
-    address: state.userInfo?.address?.first_line,
+    address: state.userInfo?.address,
     birthday: state.userInfo?.birthday,
     uid: state.userInfo?.uid,
     occupation: state.userInfo?.occupation,
-  };
+  });
 
-  // // console.log(detailsArray);
-  // const [details, setDetails] = useState({
-  //   username: "",
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   contact: "",
-  //   address: "",
-  //   birthday: "",
-  //   uid: "",
-  //   occupation: "",
-  // });
-
-  // const initialDetails = () => {
-  //   setDetails((details) => {
-  //     return {
-  //       ...details,
-  //       username: state.userInfo?.username,
-  //       firstName: state.userInfo?.firstName,
-  //       lastName: state.userInfo?.lastName,
-  //       email: state.userInfo?.email,
-  //       contact: state.userInfo?.contact,
-  //       address: state.userInfo?.address?.first_line,
-  //       birthday: state.userInfo?.birthday,
-  //       uid: state.userInfo?.uid,
-  //       occupation: state.userInfo?.occupation,
-  //     };
-  //   });
-  // };
+  console.log(state.userInfo);
+  console.log(details);
 
   const allContent = [
     {
       toShow: show.Username,
       title: "Username",
-      content: detailsArray.username,
+      content: details.username,
       editButtonClick: editUsername,
       saveCLick: saveUsername,
     },
     {
       toShow: show.FirstName,
       title: "First Name",
-      content: state.userInfo?.firstName,
+      content: details.firstName,
       editButtonClick: editFirstName,
       saveCLick: saveFirstName,
     },
     {
       toShow: show.LastName,
       title: "Last Name",
-      content: state.userInfo?.lastName,
+      content: details.lastName,
       editButtonClick: editLastName,
       saveCLick: saveLastName,
     },
     {
       toShow: show.Email,
       title: "Email",
-      content: state.userInfo?.email,
+      content: details.email,
       editButtonClick: editEmail,
       saveCLick: saveEmail,
     },
     {
       toShow: show.Contact,
       title: "Contact",
-      content: state.userInfo?.contact,
+      content: details.contact,
       editButtonClick: editContact,
       saveCLick: saveContact,
     },
@@ -259,7 +233,7 @@ function EditTenant() {
       title: "Address",
       // content:
       //   "Flat-104, Vrundavan Apt., Near Gandhi Statue, Vikas Nagar, Pune",
-      content: state.userInfo?.address?.first_line,
+      content: details.address?.first_line,
       editButtonClick: editAddress,
       saveCLick: saveAddress,
     },
@@ -267,14 +241,14 @@ function EditTenant() {
       toShow: show.Birthday,
       title: "Birthday",
       // content: "January 9. 2000",
-      content: state.userInfo?.DOB,
+      content: details.DOB,
       editButtonClick: editBirthday,
       saveCLick: saveBirthday,
     },
     {
       toShow: show.UID,
       title: "UID",
-      content: state.userInfo?.uid,
+      content: details.uid,
       editButtonClick: editUID,
       saveCLick: saveUID,
     },
@@ -282,7 +256,7 @@ function EditTenant() {
       toShow: show.Occupation,
       title: "Occupation",
       // content: "Doctor",
-      content: state.userInfo?.occupation,
+      content: details.occupation,
       editButtonClick: editOccupation,
       saveCLick: saveOccupation,
     },
