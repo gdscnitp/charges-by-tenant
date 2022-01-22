@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const SignInCard = (props) => {
   return (
@@ -17,11 +16,11 @@ const SignInCard = (props) => {
             {props.content}
           </p>
           <div className="a-make-center mt-4">
-            <Link href={props?.path}>
+            <a href={props?.path}>
               <button className="btn a-signin-card-button">
                 <span>{props?.name}</span>
               </button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
