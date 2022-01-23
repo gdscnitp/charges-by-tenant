@@ -18,6 +18,8 @@ function reducer(state, action) {
         JSON.stringify(action.payload?.profile)
       );
       return { ...state, userInfo: action.payload?.profile };
+    case "USER_INFO_UPDATING":
+      return { ...state, userInfo: action.payload?.profile };
     case "USER_LOGOUT":
       Cookies.remove("userInfo");
       localStorage.removeItem("userInfo");

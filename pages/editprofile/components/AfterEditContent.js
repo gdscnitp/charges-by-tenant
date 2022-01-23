@@ -12,6 +12,8 @@ function AfterEditContent(props) {
               rows="3"
               placeholder="Your Address"
               defaultValue={props.content}
+              name={props.name}
+              onChange={props.onChange}
             ></textarea>
           ) : (
             <input
@@ -25,6 +27,8 @@ function AfterEditContent(props) {
               placeholder={`Your ${props.title}`}
               style={{ width: "250px" }}
               defaultValue={props.content}
+              name={props.name}
+              onChange={props.onChange}
             />
           )}
         </div>

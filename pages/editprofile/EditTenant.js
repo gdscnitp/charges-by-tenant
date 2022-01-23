@@ -39,22 +39,6 @@ function EditTenant() {
     }
   };
 
-  const [details, setDetails] = useState({
-    username: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    contact: "",
-    address: "",
-    DOB: "",
-    verification: "",
-    occupation: "",
-  });
-
-  const onChange = (e) => {
-    setDetails({ ...details, [e.target.name]: e.target.value });
-  };
-
   // Normal page code
   const [show, setShow] = useState({
     Username: true,
@@ -69,6 +53,26 @@ function EditTenant() {
   });
 
   const allTrue = () => {
+    //  if cancelled, then update the data to original
+    setDetails({
+      ...details,
+      username: state.userInfo?.username ? state.userInfo.username : undefined,
+      firstName: state.userInfo?.firstName
+        ? state.userInfo.firstName
+        : undefined,
+      lastName: state.userInfo?.lastName ? state.userInfo.lastName : undefined,
+      email: state.userInfo?.email ? state.userInfo.email : undefined,
+      contact: state.userInfo?.contact ? state.userInfo.contact : undefined,
+      address: state.userInfo?.address?.first_line
+        ? state.userInfo.address.first_line
+        : undefined,
+      birthday: state.userInfo?.DOB ? state.userInfo.DOB : undefined,
+      uid: state.userInfo?.uid ? state.userInfo.uid : undefined,
+      occupation: state.userInfo?.occupation
+        ? state.userInfo.occupation
+        : undefined,
+    });
+    // closing all the input fields
     setShow((previousState) => {
       return {
         ...previousState,
@@ -142,6 +146,7 @@ function EditTenant() {
 
   // Save Buttons
   const saveUsername = () => {
+    editHandler();
     setShow((previousState) => {
       return { ...previousState, Username: true };
     });
@@ -191,62 +196,91 @@ function EditTenant() {
     allTrue();
   };
 
-  // Input Code
-  var detailsArray = {
-    username: state.userInfo?.username,
-    firstName: state.userInfo?.firstName,
-    llastName: state.userInfo?.lastName,
-    email: state.userInfo?.email,
-    contact: state.userInfo?.contact,
-    address: state.userInfo?.address?.first_line,
-    birthday: state.userInfo?.birthday,
-    uid: state.userInfo?.uid,
-    occupation: state.userInfo?.occupation,
+  // const ISSERVER = typeof window === "undefined";
+  // var tenantData;
+  // if (!ISSERVER) {
+  //   tenantData = JSON.parse(localStorage.getItem("TenantData"));
+  // }
+
+  // Initialising details
+  const [details, setDetails] = useState({
+    username: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    contact: "",
+    address: "",
+    // address: {
+    //   firstline: "",
+    // },
+    birthday: "",
+    uid: "",
+    occupation: "",
+  });
+  console.log(details);
+
+  useEffect(() => {
+    setDetails({
+      ...details,
+      username: state.userInfo?.username ? state.userInfo.username : undefined,
+      firstName: state.userInfo?.firstName
+        ? state.userInfo.firstName
+        : undefined,
+      lastName: state.userInfo?.lastName ? state.userInfo.lastName : undefined,
+      email: state.userInfo?.email ? state.userInfo.email : undefined,
+      contact: state.userInfo?.contact ? state.userInfo.contact : undefined,
+      address: state.userInfo?.address?.first_line
+        ? state.userInfo.address.first_line
+        : undefined,
+      birthday: state.userInfo?.DOB ? state.userInfo.DOB : undefined,
+      uid: state.userInfo?.uid ? state.userInfo.uid : undefined,
+      occupation: state.userInfo?.occupation
+        ? state.userInfo.occupation
+        : undefined,
+    });
+  }, [state.userInfo]);
+
+  // Taking input from users
+  const handleInput = (e) => {
+    setDetails({
+      ...details,
+      [e.target.name]: e.target.value,
+    });
   };
-  const ISSERVER = typeof window === "undefined";
-  var tenantData;
-  if (!ISSERVER) {
-    tenantData = JSON.parse(localStorage.getItem("TenantData"));
+
+  // Edit details backend route
+  const editHandler = async () => {
+    closeSnackbar();
+    let config = {
+      headers: {
+        authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
+      },
+    };
+    try {
+      axios.post("/api/profile/edit", details, config).then((res) => {
+        dispatch({
+          type: "USER_INFO_UPDATING",
+          payload: res.data?.data,
+        });
+        localStorage.setItem("userInfo", JSON.stringify(res.data));
+      });
+      enqueueSnackbar("Details Editted", { variant: "success" });
+    } catch (err) {
+      // console.log(err);
+      enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+    }
+  };
+
+  function printDetails() {
+    console.log(details);
   }
 
-  // const [details, setDetails] = useState({
-  //   username: detailsArray.username,
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   contact: "",
-  //   address: "",
-  //   birthday: "",
-  //   uid: "",
-  //   occupation: "",
-  // });
-
-  // useEffect(() => {
-  //   initialDetails();
-  // }, []);
-
-  // const initialDetails = () => {
-  //   setDetails((details) => {
-  //     return {
-  //       ...details,
-  //       username: detailsArray.username,
-  //       firstName: state.userInfo?.firstName,
-  //       lastName: state.userInfo?.lastName,
-  //       email: state.userInfo?.email,
-  //       contact: state.userInfo?.contact,
-  //       address: state.userInfo?.address?.first_line,
-  //       birthday: state.userInfo?.birthday,
-  //       uid: state.userInfo?.uid,
-  //       occupation: state.userInfo?.occupation,
-  //     };
-  //   });
-  // };
-
+  // Mapped data
   const allContent = [
     {
       toShow: show.Username,
       title: "Username",
-      content: state.userInfo?.username,
+      content: details.username,
       editButtonClick: editUsername,
       saveCLick: saveUsername,
       name: "username",
@@ -254,7 +288,7 @@ function EditTenant() {
     {
       toShow: show.FirstName,
       title: "First Name",
-      content: state.userInfo?.firstName,
+      content: details.firstName,
       editButtonClick: editFirstName,
       saveCLick: saveFirstName,
       name: "firstName",
@@ -262,7 +296,7 @@ function EditTenant() {
     {
       toShow: show.LastName,
       title: "Last Name",
-      content: state.userInfo?.lastName,
+      content: details.lastName,
       editButtonClick: editLastName,
       saveCLick: saveLastName,
       name: "lastName",
@@ -270,7 +304,7 @@ function EditTenant() {
     {
       toShow: show.Email,
       title: "Email",
-      content: state.userInfo?.email,
+      content: details.email,
       editButtonClick: editEmail,
       saveCLick: saveEmail,
       name: "email",
@@ -278,7 +312,7 @@ function EditTenant() {
     {
       toShow: show.Contact,
       title: "Contact",
-      content: state.userInfo?.contact,
+      content: details.contact,
       editButtonClick: editContact,
       saveCLick: saveContact,
       name: "contact",
@@ -288,7 +322,7 @@ function EditTenant() {
       title: "Address",
       // content:
       //   "Flat-104, Vrundavan Apt., Near Gandhi Statue, Vikas Nagar, Pune",
-      content: state.userInfo?.address?.first_line,
+      content: details.address?.first_line,
       editButtonClick: editAddress,
       saveCLick: saveAddress,
       name: "address",
@@ -297,7 +331,7 @@ function EditTenant() {
       toShow: show.Birthday,
       title: "Birthday",
       // content: "January 9. 2000",
-      content: state.userInfo?.DOB,
+      content: details.birthday,
       editButtonClick: editBirthday,
       saveCLick: saveBirthday,
       name: "DOB",
@@ -305,7 +339,7 @@ function EditTenant() {
     {
       toShow: show.UID,
       title: "Verification",
-      content: state.userInfo?.uid,
+      content: details.uid,
       editButtonClick: editUID,
       saveCLick: saveUID,
       name: "verification",
@@ -313,8 +347,7 @@ function EditTenant() {
     {
       toShow: show.Occupation,
       title: "Occupation",
-      // content: "Doctor",
-      content: state.userInfo?.occupation,
+      content: details.occupation,
       editButtonClick: editOccupation,
       saveCLick: saveOccupation,
       name: "occupation",
@@ -355,7 +388,7 @@ function EditTenant() {
                           saveClick={data.saveCLick}
                           cancelClick={cancel}
                           name={data.name}
-                          onChangee={onChange(e)}
+                          onChange={handleInput}
                         />
                       )}
                     </div>
@@ -382,8 +415,20 @@ function EditTenant() {
           </div>
         </div>
       </div>
+      <button onClick={printDetails}>Hello</button>
     </section>
   );
 }
 
 export default EditTenant;
+
+/* {
+	"password":"anuj",
+	"DOB": "2022-01-07",
+	"occupation": "Professional",
+	"verification": "ajbfisdbcs",
+	"address": {
+		"first_line": "jsdbcb"
+	}
+
+} */
