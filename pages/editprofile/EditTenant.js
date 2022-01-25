@@ -54,24 +54,7 @@ function EditTenant() {
 
   const allTrue = () => {
     //  if cancelled, then update the data to original
-    setDetails({
-      ...details,
-      username: state.userInfo?.username ? state.userInfo.username : undefined,
-      firstName: state.userInfo?.firstName
-        ? state.userInfo.firstName
-        : undefined,
-      lastName: state.userInfo?.lastName ? state.userInfo.lastName : undefined,
-      email: state.userInfo?.email ? state.userInfo.email : undefined,
-      contact: state.userInfo?.contact ? state.userInfo.contact : undefined,
-      address: state.userInfo?.address?.first_line
-        ? state.userInfo.address.first_line
-        : undefined,
-      birthday: state.userInfo?.DOB ? state.userInfo.DOB : undefined,
-      uid: state.userInfo?.uid ? state.userInfo.uid : undefined,
-      occupation: state.userInfo?.occupation
-        ? state.userInfo.occupation
-        : undefined,
-    });
+    initialiseDetails();
     // closing all the input fields
     setShow((previousState) => {
       return {
@@ -152,21 +135,25 @@ function EditTenant() {
     });
   };
   const saveFirstName = () => {
+    editHandler();
     setShow((previousState) => {
       return { ...previousState, FirstName: true };
     });
   };
   const saveLastName = () => {
+    editHandler();
     setShow((previousState) => {
       return { ...previousState, LastName: true };
     });
   };
   const saveEmail = () => {
+    editHandler();
     setShow((previousState) => {
       return { ...previousState, Email: true };
     });
   };
   const saveContact = () => {
+    editHandler();
     setShow((previousState) => {
       return { ...previousState, Contact: true };
     });
@@ -207,19 +194,18 @@ function EditTenant() {
     username: "",
     firstName: "",
     lastName: "",
-    email: "",
     contact: "",
-    address: "",
-    // address: {
-    //   firstline: "",
-    // },
-    birthday: "",
-    uid: "",
+    address: {
+      first_line: "first_line",
+    },
+    DOB: "",
     occupation: "",
+    verification: "",
   });
-  console.log(details);
+  // console.log(details);
 
-  useEffect(() => {
+  function initialiseDetails() {
+    console.log(state.userInfo?.DOB.split("T")[0]);
     setDetails({
       ...details,
       username: state.userInfo?.username ? state.userInfo.username : undefined,
@@ -227,17 +213,23 @@ function EditTenant() {
         ? state.userInfo.firstName
         : undefined,
       lastName: state.userInfo?.lastName ? state.userInfo.lastName : undefined,
-      email: state.userInfo?.email ? state.userInfo.email : undefined,
       contact: state.userInfo?.contact ? state.userInfo.contact : undefined,
-      address: state.userInfo?.address?.first_line
-        ? state.userInfo.address.first_line
-        : undefined,
-      birthday: state.userInfo?.DOB ? state.userInfo.DOB : undefined,
+      // address: state.userInfo?.address?.first_line
+      //   ? state.userInfo.address.first_line
+      //   : undefined,
+      address: {
+        first_line: "first_line",
+      },
+      DOB: state.userInfo?.DOB ? state.userInfo.DOB.split("T")[0] : undefined,
       uid: state.userInfo?.uid ? state.userInfo.uid : undefined,
       occupation: state.userInfo?.occupation
         ? state.userInfo.occupation
         : undefined,
     });
+  }
+
+  useEffect(() => {
+    initialiseDetails();
   }, [state.userInfo]);
 
   // Taking input from users
@@ -257,21 +249,32 @@ function EditTenant() {
       },
     };
     try {
-      axios.post("/api/profile/edit", details, config).then((res) => {
-        dispatch({
-          type: "USER_INFO_UPDATING",
-          payload: res.data?.data,
+      axios
+        .put("/api/profile/edit", details, config)
+        .then((res) => {
+          console.log(res);
+          dispatch({
+            type: "USER_INFO_UPDATING",
+            payload: res.data?.data,
+          });
+          initialiseDetails();
+          enqueueSnackbar("Details Editted", { variant: "success" });
+          getDetails();
+        })
+        .catch((err) => {
+          console.log("helllo " + JSON.stringify(details));
+          enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+          console.log(err);
         });
-        localStorage.setItem("userInfo", JSON.stringify(res.data));
-      });
-      enqueueSnackbar("Details Editted", { variant: "success" });
     } catch (err) {
       // console.log(err);
-      enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+      enqueueSnackbar(err.message, { variant: "error" });
     }
   };
 
   function printDetails() {
+    console.log("state: " + state.userInfo.username);
+    console.log("details: " + details.username);
     console.log(details);
   }
 
@@ -302,14 +305,6 @@ function EditTenant() {
       name: "lastName",
     },
     {
-      toShow: show.Email,
-      title: "Email",
-      content: details.email,
-      editButtonClick: editEmail,
-      saveCLick: saveEmail,
-      name: "email",
-    },
-    {
       toShow: show.Contact,
       title: "Contact",
       content: details.contact,
@@ -322,7 +317,8 @@ function EditTenant() {
       title: "Address",
       // content:
       //   "Flat-104, Vrundavan Apt., Near Gandhi Statue, Vikas Nagar, Pune",
-      content: details.address?.first_line,
+      // content: details.address?.first_line,
+      content: "NULL",
       editButtonClick: editAddress,
       saveCLick: saveAddress,
       name: "address",
@@ -331,7 +327,7 @@ function EditTenant() {
       toShow: show.Birthday,
       title: "Birthday",
       // content: "January 9. 2000",
-      content: details.birthday,
+      content: details.DOB?.split("T")[0],
       editButtonClick: editBirthday,
       saveCLick: saveBirthday,
       name: "DOB",
@@ -339,7 +335,7 @@ function EditTenant() {
     {
       toShow: show.UID,
       title: "Verification",
-      content: details.uid,
+      content: details.verification,
       editButtonClick: editUID,
       saveCLick: saveUID,
       name: "verification",
@@ -432,3 +428,30 @@ export default EditTenant;
 	}
 
 } */
+
+/* {
+	"address": {
+		"first_line": "jsdbcb"
+	},
+    "username": "anujJadhav",
+    "firstName": "Anuj",
+    "lastName": "Jadhav",
+    "email": "anujanuj@gmail.com",
+    "contact": "1234512345",
+    "DOB": "2002-11-15",
+    "verification": "none",
+    "occupation" : "King",
+    "uid": "123"
+} */
+
+// {
+//   "username":"adsdfgdfaffgh121",
+//   "firstName":"Ansdfsduj",
+//   "lastName":"Jadhav",
+//   "email":"anujjadhavsfsdfsd@gmail.com",
+//   "contact":8767924554,
+//   "address":"dsfg",
+//   "DOB":"2002-11-15T00:00:00.000Z",
+//   "occupation":"King",
+//   "verification":"verified"
+// }
