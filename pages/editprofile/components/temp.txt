@@ -1,0 +1,51 @@
+// Save Buttons
+  // const saveUsername = () => {
+  //   editHandler();
+  //   setShow((previousState) => {
+  //     return { ...previousState, Username: true };
+  //   });
+  // };
+  // const saveFirstName = () => {
+  //   editHandler();
+  //   setShow((previousState) => {
+  //     return { ...previousState, FirstName: true };
+  //   });
+  // };
+  // const saveLastName = () => {
+  //   editHandler();
+  //   setShow((previousState) => {
+  //     return { ...previousState, LastName: true };
+  //   });
+  // };
+  // const saveEmail = () => {
+  //   editHandler();
+  //   setShow((previousState) => {
+  //     return { ...previousState, Email: true };
+  //   });
+  // };
+  // const saveContact = () => {
+  //   editHandler();
+  //   setShow((previousState) => {
+  //     return { ...previousState, Contact: true };
+  //   });
+  // };
+  // const saveAddress = () => {
+  //   setShow((previousState) => {
+  //     return { ...previousState, Address: true };
+  //   });
+  // };
+  // const saveBirthday = () => {
+  //   setShow((previousState) => {
+  //     return { ...previousState, Birthday: true };
+  //   });
+  // };
+  // const saveUID = () => {
+  //   setShow((previousState) => {
+  //     return { ...previousState, UID: true };
+  //   });
+  // };
+  // const saveOccupation = () => {
+  //   setShow((previousState) => {
+  //     return { ...previousState, Occupation: true };
+  //   });
+  // };

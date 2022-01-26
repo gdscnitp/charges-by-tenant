@@ -37,7 +37,6 @@ function EditTenant() {
       });
       enqueueSnackbar("Data Retrieved", { variant: "success" });
     } catch (err) {
-      // console.log(err);
       enqueueSnackbar(err.response?.data?.message, { variant: "error" });
     }
   };
@@ -123,58 +122,6 @@ function EditTenant() {
     });
   };
 
-  // Save Buttons
-  // const saveUsername = () => {
-  //   editHandler();
-  //   setShow((previousState) => {
-  //     return { ...previousState, Username: true };
-  //   });
-  // };
-  // const saveFirstName = () => {
-  //   editHandler();
-  //   setShow((previousState) => {
-  //     return { ...previousState, FirstName: true };
-  //   });
-  // };
-  // const saveLastName = () => {
-  //   editHandler();
-  //   setShow((previousState) => {
-  //     return { ...previousState, LastName: true };
-  //   });
-  // };
-  // const saveEmail = () => {
-  //   editHandler();
-  //   setShow((previousState) => {
-  //     return { ...previousState, Email: true };
-  //   });
-  // };
-  // const saveContact = () => {
-  //   editHandler();
-  //   setShow((previousState) => {
-  //     return { ...previousState, Contact: true };
-  //   });
-  // };
-  // const saveAddress = () => {
-  //   setShow((previousState) => {
-  //     return { ...previousState, Address: true };
-  //   });
-  // };
-  // const saveBirthday = () => {
-  //   setShow((previousState) => {
-  //     return { ...previousState, Birthday: true };
-  //   });
-  // };
-  // const saveUID = () => {
-  //   setShow((previousState) => {
-  //     return { ...previousState, UID: true };
-  //   });
-  // };
-  // const saveOccupation = () => {
-  //   setShow((previousState) => {
-  //     return { ...previousState, Occupation: true };
-  //   });
-  // };
-
   const cancel = () => {
     allTrue();
   };
@@ -201,33 +148,70 @@ function EditTenant() {
     occupation: "",
     verification: "",
   });
-  // console.log(details);
 
   function initialiseDetails() {
-    // console.log(state.userInfo?.DOB?.split("T")[0]);
+    var notProvided = "Not Provided";
     setDetails({
       ...details,
-      username: state.userInfo?.username ? state.userInfo.username : undefined,
+      username: state.userInfo?.username
+        ? state.userInfo.username.length
+          ? state.userInfo.username
+          : notProvided
+        : notProvided,
       firstName: state.userInfo?.firstName
-        ? state.userInfo.firstName
-        : undefined,
-      lastName: state.userInfo?.lastName ? state.userInfo.lastName : undefined,
-      contact: state.userInfo?.contact ? state.userInfo.contact : undefined,
+        ? state.userInfo.firstName.length
+          ? state.userInfo.firstName
+          : notProvided
+        : notProvided,
+      lastName: state.userInfo?.lastName
+        ? state.userInfo.lastName.length
+          ? state.userInfo.lastName
+          : notProvided
+        : notProvided,
+      contact: state.userInfo?.contact ? state.userInfo.contact : 0,
       address: {
-        first_line: state.userInfo?.address?.first_line,
-        landmark: state.userInfo?.address?.landmark,
-        city: state.userInfo?.address?.city,
-        state: state.userInfo?.address?.state,
-        country: state.userInfo?.address?.country,
-        pincode: state.userInfo?.address?.pincode,
+        first_line: state.userInfo?.address?.first_line
+          ? state.userInfo?.address?.first_line.length
+            ? state.userInfo?.address?.first_line
+            : notProvided
+          : notProvided,
+        landmark: state.userInfo?.address?.landmark
+          ? state.userInfo?.address?.landmark.length
+            ? state.userInfo?.address?.landmark
+            : notProvided
+          : notProvided,
+        city: state.userInfo?.address?.city
+          ? state.userInfo?.address?.city.length
+            ? state.userInfo?.address?.city
+            : notProvided
+          : notProvided,
+        state: state.userInfo?.address?.state
+          ? state.userInfo?.address?.state.length
+            ? state.userInfo?.address?.state
+            : notProvided
+          : notProvided,
+        country: state.userInfo?.address?.country
+          ? state.userInfo?.address?.country.length
+            ? state.userInfo?.address?.country
+            : notProvided
+          : notProvided,
+        pincode: state.userInfo?.address?.pincode
+          ? state.userInfo?.address?.pincode
+          : 0,
       },
-      DOB: state.userInfo?.DOB ? state.userInfo.DOB.split("T")[0] : undefined,
+      DOB: state.userInfo?.DOB
+        ? state.userInfo.DOB.split("T")[0]
+        : "1111-11-11",
       verification: state.userInfo?.verification
-        ? state.userInfo.verification
-        : undefined,
+        ? state.userInfo.verification.length
+          ? state.userInfo.verification
+          : notProvided
+        : notProvided,
       occupation: state.userInfo?.occupation
-        ? state.userInfo.occupation
-        : undefined,
+        ? state.userInfo.occupation.length
+          ? state.userInfo.occupation
+          : notProvided
+        : notProvided,
     });
   }
 
@@ -241,12 +225,10 @@ function EditTenant() {
       ...details,
       [e.target.name]: e.target.value,
     });
-    console.log(details);
   };
 
   // Edit details backend route
   const editHandler = async () => {
-    // console.log("edithandler" + JSON.stringify(details));
     closeSnackbar();
     let config = {
       headers: {
@@ -257,7 +239,6 @@ function EditTenant() {
       axios
         .put("/api/profile/edit", details, config)
         .then((res) => {
-          // console.log(res);
           dispatch({
             type: "USER_INFO_UPDATING",
             payload: res.data?.data,
@@ -267,12 +248,9 @@ function EditTenant() {
           getDetails();
         })
         .catch((err) => {
-          console.log("helllo " + JSON.stringify(details));
           enqueueSnackbar(err.response?.data?.message, { variant: "error" });
-          console.log(err);
         });
     } catch (err) {
-      // console.log(err);
       enqueueSnackbar(err.message, { variant: "error" });
     }
   };
@@ -291,13 +269,9 @@ function EditTenant() {
     if (details.DOB == birthdayInput) {
       save();
     } else {
-      enqueueSnackbar("Click Again", { variant: "success" });
+      enqueueSnackbar("Click Again", { variant: "warning" });
     }
   };
-
-  function printDetails() {
-    console.log(details);
-  }
 
   // Mapped data
   const allContent = [
@@ -306,7 +280,6 @@ function EditTenant() {
       title: "Username",
       content: details.username,
       editButtonClick: editUsername,
-      //saveClick: saveUsername,
       name: "username",
     },
     {
@@ -314,7 +287,6 @@ function EditTenant() {
       title: "First Name",
       content: details.firstName,
       editButtonClick: editFirstName,
-      //saveClick: saveFirstName,
       name: "firstName",
     },
     {
@@ -322,7 +294,6 @@ function EditTenant() {
       title: "Last Name",
       content: details.lastName,
       editButtonClick: editLastName,
-      //saveClick: saveLastName,
       name: "lastName",
     },
     {
@@ -330,7 +301,6 @@ function EditTenant() {
       title: "Contact",
       content: details.contact,
       editButtonClick: editContact,
-      //saveClick: saveContact,
       name: "contact",
     },
     {
@@ -345,16 +315,13 @@ function EditTenant() {
         pincode: details.address.pincode,
       },
       editButtonClick: editAddress,
-      //saveClick: saveAddress,
       name: "address",
     },
     {
       toShow: show.Birthday,
       title: "Birthday",
-      // content: "January 9. 2000",
-      content: details.DOB?.split("T")[0],
+      content: details.DOB,
       editButtonClick: editBirthday,
-      //saveClick: saveBirthday,
       name: "DOB",
     },
     {
@@ -362,7 +329,6 @@ function EditTenant() {
       title: "Verification",
       content: details.verification,
       editButtonClick: editVerification,
-      //saveClick: saveUID,
       name: "verification",
     },
     {
@@ -370,7 +336,6 @@ function EditTenant() {
       title: "Occupation",
       content: details.occupation,
       editButtonClick: editOccupation,
-      //saveClick: saveOccupation,
       name: "occupation",
     },
   ];
@@ -486,7 +451,6 @@ function EditTenant() {
           </div>
         </div>
       </div>
-      <button onClick={printDetails}>Hello</button>
     </section>
   );
 }

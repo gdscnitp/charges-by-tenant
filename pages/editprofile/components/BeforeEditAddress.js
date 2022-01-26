@@ -6,7 +6,10 @@ function BeforeEditAddress(props) {
           <span className="a-edit-left-title">{props.title}</span>
         </div>
         <div className="col-lg-8 col-sm-12">
-          {props.content == undefined || props.content?.length == 0 ? (
+          {props.content == undefined ||
+          props.content?.length == 0 ||
+          props.content == "Not Provided" ||
+          props.content == 0 ? (
             <span className="a-edit-right-content a-not-provided">
               Not Provided
             </span>

@@ -17,7 +17,7 @@ function AfterEditAddress(props) {
             ></textarea>
           ) : (
             <input
-              type="text"
+              type={props.title == "Pincode" ? "number" : "text"}
               className="form-control"
               placeholder={`Your ${props.title}`}
               style={{ width: "250px" }}

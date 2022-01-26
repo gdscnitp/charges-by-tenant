@@ -39,10 +39,25 @@ function EditBirthday(props) {
     setBirthday({ ...birthday, [e.target.name]: e.target.value });
   };
 
+  const formatDate = (date) => {
+    var intDate = parseInt(date);
+    var result;
+    if (intDate <= 9) {
+      result = "0" + date;
+    } else {
+      result = date;
+    }
+    return result;
+  };
+
   const submitHandler = () => {
-    props.pushBirthday(
-      birthday.year + "-" + monthToNum(birthday.month) + "-" + birthday.date
-    );
+    var resultString =
+      birthday.year +
+      "-" +
+      formatDate(monthToNum(birthday.month)) +
+      "-" +
+      formatDate(birthday.date);
+    props.pushBirthday(resultString);
   };
 
   return (

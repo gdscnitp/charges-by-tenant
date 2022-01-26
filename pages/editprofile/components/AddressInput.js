@@ -33,37 +33,61 @@ function AddressInput(props) {
         <AfterEditAddress
           title="First Line"
           name="first_line"
-          content={props.details?.content?.first_line}
+          content={
+            props.details?.content?.first_line == "Not Provided"
+              ? ""
+              : props.details?.content?.first_line
+          }
           onChange={handleInput}
         />
         <AfterEditAddress
           title="Landmark"
           name="landmark"
-          content={props.details?.content?.landmark}
+          content={
+            props.details?.content?.landmark == "Not Provided"
+              ? ""
+              : props.details?.content?.landmark
+          }
           onChange={handleInput}
         />
         <AfterEditAddress
           title="City"
           name="city"
-          content={props.details?.content?.city}
+          content={
+            props.details?.content?.city == "Not Provided"
+              ? ""
+              : props.details?.content?.city
+          }
           onChange={handleInput}
         />
         <AfterEditAddress
           title="State"
           name="state"
-          content={props.details?.content?.state}
+          content={
+            props.details?.content?.state == "Not Provided"
+              ? ""
+              : props.details?.content?.state
+          }
           onChange={handleInput}
         />
         <AfterEditAddress
           title="Country"
           name="country"
-          content={props.details?.content?.country}
+          content={
+            props.details?.content?.country == "Not Provided"
+              ? ""
+              : props.details?.content?.country
+          }
           onChange={handleInput}
         />
         <AfterEditAddress
           title="Pincode"
           name="pincode"
-          content={props.details?.content?.pincode}
+          content={
+            props.details?.content?.pincode == 0
+              ? ""
+              : props.details?.content?.pincode
+          }
           onChange={handleInput}
         />
       </div>
