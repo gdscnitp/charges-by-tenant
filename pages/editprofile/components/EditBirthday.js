@@ -3,6 +3,10 @@ function EditBirthday(props) {
     return cb();
   };
 
+  const submitHandler = () => {
+    props.saveClick();
+  };
+
   return (
     <div className="a-after-edit">
       <div className="row a-edit-content a-row-wrapper">
@@ -88,7 +92,7 @@ function EditBirthday(props) {
         <div className="a-flex-buttons">
           <button
             className="btn btn-primary a-save-button"
-            onClick={props.saveClick}
+            onClick={submitHandler}
           >
             Save
           </button>

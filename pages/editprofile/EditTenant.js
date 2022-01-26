@@ -3,11 +3,14 @@ import BeforeEditContent from "./components/BeforeEditContent";
 import EditBirthday from "./components/EditBirthday";
 import Taskbar from "../profile/components/Taskbar";
 import Heading from "../landing/components/Heading";
+import BeforeEditAddress from "./components/BeforeEditAddress";
+import AfterEditAddress from "./components/AfterEditAddress";
 import React, { useContext, useEffect, useState } from "react";
 import { Store } from "../../utility/Store";
 import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import axios from "axios";
+import AddressInput from "./components/AddressInput";
 
 function EditTenant() {
   // Integration Code
@@ -44,11 +47,10 @@ function EditTenant() {
     Username: true,
     FirstName: true,
     LastName: true,
-    Email: true,
     Contact: true,
     Address: true,
     Birthday: true,
-    UID: true,
+    Verification: true,
     Occupation: true,
   });
 
@@ -62,12 +64,12 @@ function EditTenant() {
         Username: true,
         FirstName: true,
         LastName: true,
-        Email: true,
         Contact: true,
         Address: true,
         Birthday: true,
-        UID: true,
+        Verification: true,
         Occupation: true,
+        Address: true,
       };
     });
   };
@@ -90,12 +92,6 @@ function EditTenant() {
       return { ...previousState, LastName: false };
     });
   };
-  const editEmail = () => {
-    allTrue();
-    setShow((previousState) => {
-      return { ...previousState, Email: false };
-    });
-  };
   const editContact = () => {
     allTrue();
     setShow((previousState) => {
@@ -114,10 +110,10 @@ function EditTenant() {
       return { ...previousState, Birthday: false };
     });
   };
-  const editUID = () => {
+  const editVerification = () => {
     allTrue();
     setShow((previousState) => {
-      return { ...previousState, UID: false };
+      return { ...previousState, Verification: false };
     });
   };
   const editOccupation = () => {
@@ -194,7 +190,12 @@ function EditTenant() {
     lastName: "",
     contact: "",
     address: {
-      first_line: "first_line",
+      first_line: "",
+      landmark: "",
+      city: "",
+      state: "",
+      country: "",
+      pincode: "",
     },
     DOB: "",
     occupation: "",
@@ -214,9 +215,16 @@ function EditTenant() {
       contact: state.userInfo?.contact ? state.userInfo.contact : undefined,
       address: {
         first_line: state.userInfo?.address?.first_line,
-      }
+        landmark: state.userInfo?.address?.landmark,
+        city: state.userInfo?.address?.city,
+        state: state.userInfo?.address?.state,
+        country: state.userInfo?.address?.country,
+        pincode: state.userInfo?.address?.pincode,
+      },
       DOB: state.userInfo?.DOB ? state.userInfo.DOB.split("T")[0] : undefined,
-      uid: state.userInfo?.uid ? state.userInfo.uid : undefined,
+      verification: state.userInfo?.verification
+        ? state.userInfo.verification
+        : undefined,
       occupation: state.userInfo?.occupation
         ? state.userInfo.occupation
         : undefined,
@@ -233,10 +241,12 @@ function EditTenant() {
       ...details,
       [e.target.name]: e.target.value,
     });
+    console.log(details);
   };
 
   // Edit details backend route
   const editHandler = async () => {
+    console.log("edithandler" + JSON.stringify(details));
     closeSnackbar();
     let config = {
       headers: {
@@ -247,7 +257,7 @@ function EditTenant() {
       axios
         .put("/api/profile/edit", details, config)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           dispatch({
             type: "USER_INFO_UPDATING",
             payload: res.data?.data,
@@ -267,9 +277,16 @@ function EditTenant() {
     }
   };
 
+  const pushAddress = async (addressInput) => {
+    setDetails({ ...details, address: addressInput });
+    if (details.address == addressInput) {
+      save();
+    } else {
+      enqueueSnackbar("Click Again", { variant: "success" });
+    }
+  };
+
   function printDetails() {
-    console.log("state: " + state.userInfo.username);
-    console.log("details: " + details.username);
     console.log(details);
   }
 
@@ -310,10 +327,14 @@ function EditTenant() {
     {
       toShow: show.Address,
       title: "Address",
-      // content:
-      //   "Flat-104, Vrundavan Apt., Near Gandhi Statue, Vikas Nagar, Pune",
-      // content: details.address?.first_line,
-      content: details.address.first_line,
+      content: {
+        first_line: details.address.first_line,
+        landmark: details.address.landmark,
+        city: details.address.city,
+        state: details.address.state,
+        country: details.address.country,
+        pincode: details.address.pincode,
+      },
       editButtonClick: editAddress,
       //saveClick: saveAddress,
       name: "address",
@@ -328,10 +349,10 @@ function EditTenant() {
       name: "DOB",
     },
     {
-      toShow: show.UID,
+      toShow: show.Verification,
       title: "Verification",
       content: details.verification,
-      editButtonClick: editUID,
+      editButtonClick: editVerification,
       //saveClick: saveUID,
       name: "verification",
     },
@@ -361,10 +382,63 @@ function EditTenant() {
                   return (
                     <div key={data.title} className="a-row-content">
                       {data.toShow ? (
-                        <BeforeEditContent
-                          title={data.title}
-                          content={data.content}
-                          editButtonClick={data.editButtonClick}
+                        data.title == "Address" ? (
+                          // Address Before Editing
+                          <div>
+                            <div className="row a-edit-content a-row-wrapper">
+                              <div className="col-lg-11 col-sm-10">
+                                <div className="a-title-small">Address</div>
+                              </div>
+                              <div className="col-lg-1 col-sm-2">
+                                <button
+                                  className="a-edit"
+                                  onClick={editAddress}
+                                >
+                                  Edit
+                                </button>
+                              </div>
+                            </div>
+                            <div className="container">
+                              <BeforeEditAddress
+                                title="First Line"
+                                content={data.content.first_line}
+                              />
+                              <BeforeEditAddress
+                                title="Landmark"
+                                content={data.content.landmark}
+                              />
+                              <BeforeEditAddress
+                                title="City"
+                                content={data.content.city}
+                              />
+                              <BeforeEditAddress
+                                title="State"
+                                content={data.content.state}
+                              />
+                              <BeforeEditAddress
+                                title="Pincode"
+                                content={data.content.pincode}
+                              />
+                              <BeforeEditAddress
+                                title="Country"
+                                content={data.content.country}
+                                editButtonClick={data.editButtonClick}
+                              />
+                            </div>
+                          </div>
+                        ) : (
+                          <BeforeEditContent
+                            title={data.title}
+                            content={data.content}
+                            editButtonClick={data.editButtonClick}
+                          />
+                        )
+                      ) : data.title == "Address" ? (
+                        // Address while editing
+                        <AddressInput
+                          details={data}
+                          pushAddress={pushAddress}
+                          cancelClick={cancel}
                         />
                       ) : data.title == "Birthday" ? (
                         <EditBirthday
@@ -392,14 +466,11 @@ function EditTenant() {
                   <div className="col-lg-4 col-sm-12">
                     <span className="a-edit-left-title">History</span>
                   </div>
-                  <div className="col-lg-7 col-sm-10">
+                  <div className="col-lg-8 col-sm-12">
                     <span className="a-edit-right-content a-not-provided">
                       No History
                     </span>
                   </div>
-                  {/* <div className="col-lg-1 col-sm-2">
-                <button className="a-edit">Edit</button>
-              </div> */}
                 </div>
               </div>
             </div>
@@ -412,41 +483,3 @@ function EditTenant() {
 }
 
 export default EditTenant;
-
-/* {
-	"password":"anuj",
-	"DOB": "2022-01-07",
-	"occupation": "Professional",
-	"verification": "ajbfisdbcs",
-	"address": {
-		"first_line": "jsdbcb"
-	}
-
-} */
-
-/* {
-	"address": {
-		"first_line": "jsdbcb"
-	},
-    "username": "anujJadhav",
-    "firstName": "Anuj",
-    "lastName": "Jadhav",
-    "email": "anujanuj@gmail.com",
-    "contact": "1234512345",
-    "DOB": "2002-11-15",
-    "verification": "none",
-    "occupation" : "King",
-    "uid": "123"
-} */
-
-// {
-//   "username":"adsdfgdfaffgh121",
-//   "firstName":"Ansdfsduj",
-//   "lastName":"Jadhav",
-//   "email":"anujjadhavsfsdfsd@gmail.com",
-//   "contact":8767924554,
-//   "address":"dsfg",
-//   "DOB":"2002-11-15T00:00:00.000Z",
-//   "occupation":"King",
-//   "verification":"verified"
-// }
