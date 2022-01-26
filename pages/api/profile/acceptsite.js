@@ -1,8 +1,8 @@
 import { sendSuccess, sendError } from "../../../helpers/help";
 var constants = require("../../../helpers/constants")
 import connectMongoDb from "../../../db/connect";
-var Sites = require("../../../models/sites")
-var History = require("../../../models/history")
+var Sites = require("../../../models/Sites")
+var History = require("../../../models/History")
 
 export default async function handler(req,res){
 

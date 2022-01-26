@@ -1,8 +1,6 @@
 import { sendSuccess, sendError } from "../../../helpers/help";
 var constants = require("../../../helpers/constants")
 import connectMongoDb from "../../../db/connect";
-var Tenant = require("../../../models/Tenant")
-var Site = require("../../../models/Sites")
 var History = require("../../../models/History")
 const {isEmail, isDate} = require("validator");
 const jwt = require("jsonwebtoken")
