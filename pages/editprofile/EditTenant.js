@@ -128,66 +128,64 @@ function EditTenant() {
   };
 
   // Save Buttons
-  const saveUsername = () => {
-    editHandler();
-    setShow((previousState) => {
-      return { ...previousState, Username: true };
-    });
-  };
-  const saveFirstName = () => {
-    editHandler();
-    setShow((previousState) => {
-      return { ...previousState, FirstName: true };
-    });
-  };
-  const saveLastName = () => {
-    editHandler();
-    setShow((previousState) => {
-      return { ...previousState, LastName: true };
-    });
-  };
-  const saveEmail = () => {
-    editHandler();
-    setShow((previousState) => {
-      return { ...previousState, Email: true };
-    });
-  };
-  const saveContact = () => {
-    editHandler();
-    setShow((previousState) => {
-      return { ...previousState, Contact: true };
-    });
-  };
-  const saveAddress = () => {
-    setShow((previousState) => {
-      return { ...previousState, Address: true };
-    });
-  };
-  const saveBirthday = () => {
-    setShow((previousState) => {
-      return { ...previousState, Birthday: true };
-    });
-  };
-  const saveUID = () => {
-    setShow((previousState) => {
-      return { ...previousState, UID: true };
-    });
-  };
-  const saveOccupation = () => {
-    setShow((previousState) => {
-      return { ...previousState, Occupation: true };
-    });
-  };
+  // const saveUsername = () => {
+  //   editHandler();
+  //   setShow((previousState) => {
+  //     return { ...previousState, Username: true };
+  //   });
+  // };
+  // const saveFirstName = () => {
+  //   editHandler();
+  //   setShow((previousState) => {
+  //     return { ...previousState, FirstName: true };
+  //   });
+  // };
+  // const saveLastName = () => {
+  //   editHandler();
+  //   setShow((previousState) => {
+  //     return { ...previousState, LastName: true };
+  //   });
+  // };
+  // const saveEmail = () => {
+  //   editHandler();
+  //   setShow((previousState) => {
+  //     return { ...previousState, Email: true };
+  //   });
+  // };
+  // const saveContact = () => {
+  //   editHandler();
+  //   setShow((previousState) => {
+  //     return { ...previousState, Contact: true };
+  //   });
+  // };
+  // const saveAddress = () => {
+  //   setShow((previousState) => {
+  //     return { ...previousState, Address: true };
+  //   });
+  // };
+  // const saveBirthday = () => {
+  //   setShow((previousState) => {
+  //     return { ...previousState, Birthday: true };
+  //   });
+  // };
+  // const saveUID = () => {
+  //   setShow((previousState) => {
+  //     return { ...previousState, UID: true };
+  //   });
+  // };
+  // const saveOccupation = () => {
+  //   setShow((previousState) => {
+  //     return { ...previousState, Occupation: true };
+  //   });
+  // };
 
   const cancel = () => {
     allTrue();
   };
 
-  // const ISSERVER = typeof window === "undefined";
-  // var tenantData;
-  // if (!ISSERVER) {
-  //   tenantData = JSON.parse(localStorage.getItem("TenantData"));
-  // }
+  const save = () => {
+    editHandler().then(allTrue());
+  };
 
   // Initialising details
   const [details, setDetails] = useState({
@@ -214,12 +212,9 @@ function EditTenant() {
         : undefined,
       lastName: state.userInfo?.lastName ? state.userInfo.lastName : undefined,
       contact: state.userInfo?.contact ? state.userInfo.contact : undefined,
-      // address: state.userInfo?.address?.first_line
-      //   ? state.userInfo.address.first_line
-      //   : undefined,
       address: {
-        first_line: "first_line",
-      },
+        first_line: state.userInfo?.address?.first_line,
+      }
       DOB: state.userInfo?.DOB ? state.userInfo.DOB.split("T")[0] : undefined,
       uid: state.userInfo?.uid ? state.userInfo.uid : undefined,
       occupation: state.userInfo?.occupation
@@ -285,7 +280,7 @@ function EditTenant() {
       title: "Username",
       content: details.username,
       editButtonClick: editUsername,
-      saveCLick: saveUsername,
+      //saveClick: saveUsername,
       name: "username",
     },
     {
@@ -293,7 +288,7 @@ function EditTenant() {
       title: "First Name",
       content: details.firstName,
       editButtonClick: editFirstName,
-      saveCLick: saveFirstName,
+      //saveClick: saveFirstName,
       name: "firstName",
     },
     {
@@ -301,7 +296,7 @@ function EditTenant() {
       title: "Last Name",
       content: details.lastName,
       editButtonClick: editLastName,
-      saveCLick: saveLastName,
+      //saveClick: saveLastName,
       name: "lastName",
     },
     {
@@ -309,7 +304,7 @@ function EditTenant() {
       title: "Contact",
       content: details.contact,
       editButtonClick: editContact,
-      saveCLick: saveContact,
+      //saveClick: saveContact,
       name: "contact",
     },
     {
@@ -318,9 +313,9 @@ function EditTenant() {
       // content:
       //   "Flat-104, Vrundavan Apt., Near Gandhi Statue, Vikas Nagar, Pune",
       // content: details.address?.first_line,
-      content: "NULL",
+      content: details.address.first_line,
       editButtonClick: editAddress,
-      saveCLick: saveAddress,
+      //saveClick: saveAddress,
       name: "address",
     },
     {
@@ -329,7 +324,7 @@ function EditTenant() {
       // content: "January 9. 2000",
       content: details.DOB?.split("T")[0],
       editButtonClick: editBirthday,
-      saveCLick: saveBirthday,
+      //saveClick: saveBirthday,
       name: "DOB",
     },
     {
@@ -337,7 +332,7 @@ function EditTenant() {
       title: "Verification",
       content: details.verification,
       editButtonClick: editUID,
-      saveCLick: saveUID,
+      //saveClick: saveUID,
       name: "verification",
     },
     {
@@ -345,7 +340,7 @@ function EditTenant() {
       title: "Occupation",
       content: details.occupation,
       editButtonClick: editOccupation,
-      saveCLick: saveOccupation,
+      //saveClick: saveOccupation,
       name: "occupation",
     },
   ];
@@ -374,14 +369,14 @@ function EditTenant() {
                       ) : data.title == "Birthday" ? (
                         <EditBirthday
                           title={data.title}
-                          saveClick={data.saveCLick}
+                          saveClick={save}
                           cancelClick={cancel}
                         />
                       ) : (
                         <AfterEditContent
                           title={data.title}
                           content={data.content}
-                          saveClick={data.saveCLick}
+                          saveClick={save}
                           cancelClick={cancel}
                           name={data.name}
                           onChange={handleInput}
