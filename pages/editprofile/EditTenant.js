@@ -246,7 +246,7 @@ function EditTenant() {
 
   // Edit details backend route
   const editHandler = async () => {
-    console.log("edithandler" + JSON.stringify(details));
+    // console.log("edithandler" + JSON.stringify(details));
     closeSnackbar();
     let config = {
       headers: {
@@ -280,6 +280,15 @@ function EditTenant() {
   const pushAddress = async (addressInput) => {
     setDetails({ ...details, address: addressInput });
     if (details.address == addressInput) {
+      save();
+    } else {
+      enqueueSnackbar("Click Again", { variant: "success" });
+    }
+  };
+
+  const pushBirthday = async (birthdayInput) => {
+    setDetails({ ...details, DOB: birthdayInput });
+    if (details.DOB == birthdayInput) {
       save();
     } else {
       enqueueSnackbar("Click Again", { variant: "success" });
@@ -443,8 +452,8 @@ function EditTenant() {
                       ) : data.title == "Birthday" ? (
                         <EditBirthday
                           title={data.title}
-                          saveClick={save}
                           cancelClick={cancel}
+                          pushBirthday={pushBirthday}
                         />
                       ) : (
                         <AfterEditContent

@@ -1,10 +1,48 @@
+import { useState } from "react";
+
 function EditBirthday(props) {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "Decemeber",
+  ];
+
+  const monthToNum = (month) => {
+    for (var i = 0; i < 12; i++) {
+      if (month == months[i]) {
+        return i + 1;
+      }
+    }
+    return -1;
+  };
+
   const runCallback = (cb) => {
     return cb();
   };
 
+  const [birthday, setBirthday] = useState({
+    date: "",
+    month: "",
+    year: "",
+  });
+
+  const onChange = (e) => {
+    setBirthday({ ...birthday, [e.target.name]: e.target.value });
+  };
+
   const submitHandler = () => {
-    props.saveClick();
+    props.pushBirthday(
+      birthday.year + "-" + monthToNum(birthday.month) + "-" + birthday.date
+    );
   };
 
   return (
@@ -18,12 +56,19 @@ function EditBirthday(props) {
           <div className="a-flex-row">
             {/* Day */}
             <select
+              name="date"
               className="form-select form-select-sm"
               aria-label="form-select"
               style={{ width: "80px" }}
+              onChange={onChange}
             >
               {runCallback(() => {
                 const row = [];
+                row.push(
+                  <option key="date" selected value={-1}>
+                    Choose
+                  </option>
+                );
                 for (var i = 1; i < 32; i++) {
                   row.push(
                     <option key={i} value={i}>
@@ -37,26 +82,19 @@ function EditBirthday(props) {
 
             {/* Month */}
             <select
+              name="month"
               className="form-select form-select-sm"
               aria-label="form-select"
               style={{ width: "120px" }}
+              onChange={onChange}
             >
               {runCallback(() => {
                 const row = [];
-                const months = [
-                  "January",
-                  "February",
-                  "March",
-                  "April",
-                  "May",
-                  "June",
-                  "July",
-                  "August",
-                  "September",
-                  "October",
-                  "November",
-                  "Decemeber",
-                ];
+                row.push(
+                  <option key="month" selected value={-1}>
+                    Choose
+                  </option>
+                );
                 for (var i = 0; i < 12; i++) {
                   row.push(
                     <option key={months[i]} value={months[i]}>
@@ -70,12 +108,19 @@ function EditBirthday(props) {
 
             {/* Year */}
             <select
+              name="year"
               className="form-select form-select-sm"
               aria-label="form-select"
               style={{ width: "80px" }}
+              onChange={onChange}
             >
               {runCallback(() => {
                 const row = [];
+                row.push(
+                  <option key="Year" selected value={-1}>
+                    Choose
+                  </option>
+                );
                 var start = 1950;
                 for (var i = 1; i < 80; i++) {
                   row.push(
