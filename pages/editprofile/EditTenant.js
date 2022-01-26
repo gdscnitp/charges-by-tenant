@@ -203,7 +203,7 @@ function EditTenant() {
   // console.log(details);
 
   function initialiseDetails() {
-    console.log(state.userInfo?.DOB.split("T")[0]);
+    // console.log(state.userInfo?.DOB?.split("T")[0]);
     setDetails({
       ...details,
       username: state.userInfo?.username ? state.userInfo.username : undefined,

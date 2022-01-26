@@ -91,4 +91,4 @@ const sitesSchema = new mongoose.Schema({
 
 },{timestamps:true});
 
-module.exports = mongoose.model("Sites",sitesSchema)
+module.exports = mongoose.models.Site || mongoose.model("Sites",sitesSchema)
