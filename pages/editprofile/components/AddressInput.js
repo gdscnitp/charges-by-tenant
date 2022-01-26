@@ -3,12 +3,12 @@ import { useState } from "react";
 
 function AddressInput(props) {
   const [address, setAddress] = useState({
-    first_line: props.details.content.first_line,
-    landmark: props.details.content.landmark,
-    city: props.details.content.city,
-    state: props.details.content.state,
-    country: props.details.content.country,
-    pincode: props.details.content.pincode,
+    first_line: props.details?.content?.first_line,
+    landmark: props.details?.content?.landmark,
+    city: props.details?.content?.city,
+    state: props.details?.content?.state,
+    country: props.details?.content?.country,
+    pincode: props.details?.content?.pincode,
   });
 
   const handleInput = (e) => {
@@ -33,37 +33,37 @@ function AddressInput(props) {
         <AfterEditAddress
           title="First Line"
           name="first_line"
-          content={props.details.content.first_line}
+          content={props.details?.content?.first_line}
           onChange={handleInput}
         />
         <AfterEditAddress
           title="Landmark"
           name="landmark"
-          content={props.details.content.landmark}
+          content={props.details?.content?.landmark}
           onChange={handleInput}
         />
         <AfterEditAddress
           title="City"
           name="city"
-          content={props.details.content.city}
+          content={props.details?.content?.city}
           onChange={handleInput}
         />
         <AfterEditAddress
           title="State"
           name="state"
-          content={props.details.content.state}
+          content={props.details?.content?.state}
           onChange={handleInput}
         />
         <AfterEditAddress
           title="Country"
           name="country"
-          content={props.details.content.country}
+          content={props.details?.content?.country}
           onChange={handleInput}
         />
         <AfterEditAddress
           title="Pincode"
           name="pincode"
-          content={props.details.content.pincode}
+          content={props.details?.content?.pincode}
           onChange={handleInput}
         />
       </div>
