@@ -21,7 +21,7 @@ function LandingPageCard(props) {
             <div className="card-body a-card-body">
               <h5 className="card-title a-landing-card-title">
                 <span className="a-landing-card-heading"> Alias Name: </span>
-                <span className="a-landing-card-data">{props.alias}</span>
+                <span className="a-landing-card-data">{props.owner}</span>
               </h5>
               <div className="card-text">
                 <div className="container">

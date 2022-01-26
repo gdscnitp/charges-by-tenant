@@ -22,4 +22,5 @@ const chargeSchema = new mongoose.Schema({
     
 },{timestamps:true});
 
+
 module.exports = mongoose.model("Charges",chargeSchema)

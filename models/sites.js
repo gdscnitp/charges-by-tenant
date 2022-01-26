@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const {isDate,isPostalCode} = require("validator")
+mongoose.Promise = global.Promise;
+
 const sitesSchema = new mongoose.Schema({
     landlord_id:{
         type:mongoose.Schema.Types.ObjectId,
@@ -91,4 +93,4 @@ const sitesSchema = new mongoose.Schema({
 
 },{timestamps:true});
 
-module.exports = mongoose.models.Site || mongoose.model("Sites",sitesSchema)
+module.exports = mongoose.models.Site || mongoose.model("Site",sitesSchema)
