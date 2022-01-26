@@ -214,7 +214,7 @@ function EditTenant() {
       contact: state.userInfo?.contact ? state.userInfo.contact : undefined,
       address: {
         first_line: state.userInfo?.address?.first_line,
-      }
+      },
       DOB: state.userInfo?.DOB ? state.userInfo.DOB.split("T")[0] : undefined,
       uid: state.userInfo?.uid ? state.userInfo.uid : undefined,
       occupation: state.userInfo?.occupation
