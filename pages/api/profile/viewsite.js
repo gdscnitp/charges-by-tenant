@@ -1,11 +1,9 @@
 import { sendSuccess, sendError } from "../../../helpers/help";
 var constants = require("../../../helpers/constants")
 import connectMongoDb from "../../../db/connect";
-//import sites from "../../../models/sites";
-//import { ApiError } from "next/dist/server/api-utils";
-var Tenant = require("../../../models/tenant")
-var Sites = require("../../../models/sites")
-var History = require("../../../models/history")
+var Tenant = require("../../../models/Tenant")
+var Site = require("../../../models/Sites")
+var History = require("../../../models/History")
 const {isEmail, isDate} = require("validator");
 const jwt = require("jsonwebtoken")
 var nodemailer = require("nodemailer");
@@ -14,7 +12,6 @@ const config = require("../../../config/config")
 
 //const {isEmail} = require("validator");
 //var nodemailer = reuire("nodemailer");
-connectMongoDb()
 export default async function handler(req,res){
     if(req.method === "GET"){
         const bearerHeader = req.headers['authorization'];
@@ -32,7 +29,7 @@ export default async function handler(req,res){
             if(err)return sendError(res,err,constants.JWT_VERIFY)
             else{
                 History.find({tenant_id:authData.id}).populate('site_id').exec(function(err,data){
-                  if(err) return sendError(res,"History.find Error",constants.HISTORY_ERROR_I)
+                  if(err) return sendError(res,err.message,constants.HISTORY_ERROR_I)
                   else return sendSuccess(res,{data})
               })
             }
