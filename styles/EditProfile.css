@@ -21,6 +21,12 @@
   font-weight: 700;
 }
 
+.a-title-small {
+  font-size: 18px;
+  opacity: 70%;
+  font-weight: 700;
+}
+
 .a-edit-content {
   padding: 5px;
 }

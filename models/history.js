@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
 
 const {isEmail,isDate} = require("validator");
 
@@ -10,7 +11,7 @@ const historySchema = new mongoose.Schema({
     },
     site_id:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"Sites",
+        ref:"Site",
         required:true
     },
     status:{
@@ -33,7 +34,7 @@ const historySchema = new mongoose.Schema({
 
 },{timestamps:true})
 
-module.exports = mongoose.model("History",historySchema)
+module.exports = mongoose.models.History || mongoose.model("History",historySchema)
 /*historySchema.pre("save",(next) => {
 
 if(this.requested('requested_at')){

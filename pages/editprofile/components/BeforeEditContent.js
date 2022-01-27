@@ -6,13 +6,18 @@ function BeforeEditContent(props) {
           <span className="a-edit-left-title">{props.title}</span>
         </div>
         <div className="col-lg-7 col-sm-10">
-          {props.content == undefined || props.content?.length == 0 ? (
-            <span
-              // className={`a-edit-right-content ${
-              //   props.content == "Not Provided" ? "a-not-provided" : null
-              // }`}
-              className="a-edit-right-content a-not-provided"
-            >
+          {props.title == "Contact" || props.title == "Pincode" ? (
+            props.content == undefined || props.content == 0 ? (
+              <span className="a-edit-right-content a-not-provided">
+                Not Provided
+              </span>
+            ) : (
+              <span className="a-edit-right-content">{props.content}</span>
+            )
+          ) : props.content == undefined ||
+            props.content == "Not Provided" ||
+            props.content == "1111-11-11" ? (
+            <span className="a-edit-right-content a-not-provided">
               Not Provided
             </span>
           ) : (
