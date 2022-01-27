@@ -27,6 +27,9 @@ const historySchema = new mongoose.Schema({
         type:Date,
         
     },
+    rejected_at: {
+        type: Date,
+    },
     left_at:{
         type:Date,
         
