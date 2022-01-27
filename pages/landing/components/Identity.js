@@ -1,7 +1,4 @@
-
-
 const Identity = (props) => {
-  console.log(props.userDetails);
   return (
     <div className="S_landing">
       <div className="S_leftbar">

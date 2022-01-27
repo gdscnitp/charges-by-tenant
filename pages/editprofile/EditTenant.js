@@ -128,7 +128,7 @@ function EditTenant() {
   };
 
   const save = () => {
-    editHandler().then(allTrue());
+    editHandler(details).then(allTrue());
   };
 
   // Initialising details
@@ -229,7 +229,7 @@ function EditTenant() {
   };
 
   // Edit details backend route
-  const editHandler = async () => {
+  const editHandler = async (details) => {
     closeSnackbar();
     let config = {
       headers: {
@@ -450,7 +450,7 @@ function EditTenant() {
                 {/* Change Password */}
                 <div className="row a-edit-content a-row-wrapper">
                   <div className="col-lg-4 col-sm-12">
-                    <MyModal buttonName="Change Password" />
+                    <MyModal buttonName="Change Password" details={details} />
                   </div>
                 </div>
               </div>

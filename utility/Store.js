@@ -6,7 +6,8 @@ const initialState = {
   userInfo: Cookies.get("userInfo")
     ? JSON.parse(JSON.stringify(Cookies.get("userInfo"))).data
     : null,
-    siteDetail: []
+  siteDetail: [],
+  requestDetail: {},
 };
 
 function reducer(state, action) {
@@ -22,7 +23,9 @@ function reducer(state, action) {
     case "USER_INFO_UPDATING":
       return { ...state, userInfo: action.payload?.profile };
     case "VIEW_REQUESTS":
-      return {...state, siteDetail: action.payload?.data.data}
+      return { ...state, siteDetail: action.payload?.data.data };
+    case "ACCEPT_REQUEST":
+      return { ...state, requestDetail: action.payload?.data };
     case "USER_LOGOUT":
       Cookies.remove("userInfo");
       localStorage.removeItem("userInfo");

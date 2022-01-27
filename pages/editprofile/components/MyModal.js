@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { useSnackbar } from "notistack";
-import { flushSync } from "react-dom";
 
 function MyModal(props) {
   const MIN_LENGTH_OF_PASSWORD = 4;
@@ -19,6 +18,42 @@ function MyModal(props) {
     newPassword: "",
     confirmPassword: "",
   });
+
+  console.log(JSON.stringify(props.details));
+
+  var details = props.details;
+  const [detailsWithPassword, setDetailsWithPassword] = useState(props.details);
+
+  // const initialiseDetails = async () => {
+  //   var details = props.details;
+  //   var username = props.details.username;
+  //   console.log(
+  //     "initialising: " +
+  //       JSON.stringify(details) +
+  //       "  lskjfls : sdjf : " +
+  //       username
+  //   );
+
+  //   setDetailsWithPassword({
+  //     ...detailsWithPassword,
+  //     username: props.details.username,
+  //     firstName: details.firstName,
+  //     lastName: details.lastName,
+  //     contact: details.contact,
+  //     address: {
+  //       first_line: details.address.first_line,
+  //       landmark: details.address.landmark,
+  //       city: details.address.city,
+  //       state: details.address.state,
+  //       country: details.address.country,
+  //       pincode: details.address.pincode,
+  //     },
+  //     DOB: details.DOB,
+  //     occupation: details.occupation,
+  //     verification: details.verification,
+  //     password: "",
+  //   });
+  // };
 
   const validatePassword = (newPassword, confirmPassword) => {
     if (newPassword.length == 0) {
@@ -51,10 +86,21 @@ function MyModal(props) {
     }
   };
 
+  const setPasswordInState = async (newPassword) => {
+    setDetailsWithPassword({ ...detailsWithPassword, password: newPassword });
+  };
+
   const handleSubmit = () => {
     if (validatePassword(password.newPassword, password.confirmPassword)) {
-      console.log(password);
+      // initialiseDetails().then(
+      setPasswordInState(password.newPassword).then(
+        // console.log(detailsWithPassword)
+        console.log(detailsWithPassword)
+      );
+      // );
       handleClose();
+      console.log(password);
+      console.log("handlesubmit " + JSON.stringify(details));
     }
   };
 

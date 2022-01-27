@@ -6,9 +6,16 @@ import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { Store } from "../../../utility/Store";
 
-function LandingPageCard(props) {
+function RequestPageCard(props) {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { dispatch, state } = useContext(Store);
+
+  const [acceptDetails, setAcceptDetails] = useState({
+    histId: props.details._id,
+    accept: true,
+  });
 
   const acceptSite = async () => {
     closeSnackbar();
@@ -17,24 +24,48 @@ function LandingPageCard(props) {
         authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
       },
     };
+    console.log("acceptdetails: " + JSON.stringify(acceptDetails));
     try {
-      axios.post("/api/profile/acceptsite", {}, config).then((res) => {
-        dispatch({
-          type: "ACCEPT_REQUEST",
-          payload: res.data?.data,
+      axios
+        .post("/api/profile/acceptsite", acceptDetails, config)
+        .then((res) => {
+          dispatch({
+            type: "ACCEPT_REQUEST",
+            payload: res.data?.data,
+          });
+          if (acceptDetails.accept) {
+            enqueueSnackbar("Site Accepted", { variant: "success" });
+          } else {
+            enqueueSnackbar("Site Rejected", { variant: "success" });
+          }
         });
-      });
-      enqueueSnackbar("Data Retrieved", { variant: "success" });
     } catch (err) {
       enqueueSnackbar(err.response?.data?.message, { variant: "error" });
     }
   };
 
+  // const setAcceptHelper = async (bool) => {
+  //   setAcceptDetails({ ...acceptDetails, accept: bool });
+  // };
+
   const acceptHandler = () => {
-    console.log("accepted");
+    setAcceptDetails({ ...acceptDetails, accept: true });
+    if (acceptDetails.accept == true) {
+      acceptSite();
+      // console.log(acceptDetails);
+    } else {
+      enqueueSnackbar("Click Again", { variant: "warning" });
+    }
   };
+
   const rejectHandler = () => {
-    console.log("rejected");
+    setAcceptDetails({ ...acceptDetails, accept: false });
+    if (acceptDetails.accept == false) {
+      // console.log(acceptDetails);
+      acceptSite();
+    } else {
+      enqueueSnackbar("Click Again", { variant: "warning" });
+    }
   };
 
   return (
@@ -55,7 +86,7 @@ function LandingPageCard(props) {
             <div className="card-body a-card-body">
               <h5 className="card-title a-landing-card-title">
                 <span className="a-landing-card-heading"> Alias Name: </span>
-                <span className="a-landing-card-data">{props.alias}</span>
+                <span className="a-landing-card-data">{props.owner}</span>
               </h5>
               <div className="card-text">
                 <div className="container">
@@ -73,41 +104,22 @@ function LandingPageCard(props) {
               <div className="container">
                 <div>
                   <div className="a-button-container">
-                    {props.fromPage == "request" ? (
-                      <div>
-                        <div className="a-landing-card-button">
-                          <button
-                            className="btn btn-success"
-                            onClick={acceptHandler}
-                          >
-                            Accept
-                          </button>
-                        </div>
-                        <div className="a-landing-card-button">
-                          <button
-                            className="btn btn-danger a-landing-card-button"
-                            onClick={rejectHandler}
-                          >
-                            Reject
-                          </button>
-                        </div>
-                      </div>
-                    ) : (
-                      <div>
-                        <LandingCardButton
-                          classNameProp={props.class1}
-                          name={props.text1}
-                        />
-                        <LandingCardButton
-                          classNameProp={props.class2}
-                          name={props.text2}
-                        />
-                        <LandingCardButton
-                          classNameProp={props.class3}
-                          name={props.text3}
-                        />
-                      </div>
-                    )}
+                    <div className="a-landing-card-button">
+                      <button
+                        className="btn btn-success"
+                        onClick={acceptHandler}
+                      >
+                        Accept
+                      </button>
+                    </div>
+                    <div className="a-landing-card-button">
+                      <button
+                        className="btn btn-danger a-landing-card-button"
+                        onClick={rejectHandler}
+                      >
+                        Reject
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -119,4 +131,4 @@ function LandingPageCard(props) {
   );
 }
 
-export default LandingPageCard;
+export default RequestPageCard;
