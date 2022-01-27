@@ -11,6 +11,7 @@ import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import axios from "axios";
 import AddressInput from "./components/AddressInput";
+import MyModal from "./components/MyModal";
 
 function EditTenant() {
   // Integration Code
@@ -435,7 +436,6 @@ function EditTenant() {
                 })}
 
                 {/* History */}
-
                 <div className="row a-edit-content a-row-wrapper">
                   <div className="col-lg-4 col-sm-12">
                     <span className="a-edit-left-title">History</span>
@@ -444,6 +444,13 @@ function EditTenant() {
                     <span className="a-edit-right-content a-not-provided">
                       No History
                     </span>
+                  </div>
+                </div>
+
+                {/* Change Password */}
+                <div className="row a-edit-content a-row-wrapper">
+                  <div className="col-lg-4 col-sm-12">
+                    <MyModal buttonName="Change Password" />
                   </div>
                 </div>
               </div>
