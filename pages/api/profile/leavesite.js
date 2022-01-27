@@ -3,9 +3,9 @@ var constants = require("../../../helpers/constants")
 import connectMongoDb from "../../../db/connect";
 //import sites from "../../../models/sites";
 //import { ApiError } from "next/dist/server/api-utils";
-var Tenant = require("../../../models/tenant")
-var Sites = require("../../../models/sites")
-var History = require("../../../models/history")
+var Tenant = require("../../../models/Tenant")
+var Site = require("../../../models/Site")
+var History = require("../../../models/History")
 const {isEmail, isDate} = require("validator");
 const jwt = require("jsonwebtoken")
 var nodemailer = require("nodemailer");
@@ -19,7 +19,7 @@ var histId = '61e53b40259ba909fbe0bb14'  //history id
 
 var histData = await History.findByIdAndUpdate(histId,{$set:{status:"2",left_at:Date.now()}})
 if(histData){
-var siteData = await Sites.findByIdAndUpdate(histData.site_id,{$set:{status:"0"}}) 
+var siteData = await Site.findByIdAndUpdate(histData.site_id,{$set:{status:"0"}}) 
 if(siteData){
     return sendSuccess(res,{})
 }

@@ -1,7 +1,7 @@
 import { sendSuccess, sendError } from "../../../helpers/help";
 var constants = require("../../../helpers/constants");
 import connectMongoDb from "../../../db/connect";
-var Sites = require("../../../models/sites");
+var Site = require("../../../models/Site");
 var History = require("../../../models/history");
 
 export default async function handler(req, res) {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
       $set: { status: "1", joined_at: Date.now() },
     });
     if (histData) {
-      var siteData = await Sites.findByIdAndUpdate(histData.site_id, {
+      var siteData = await Site.findByIdAndUpdate(histData.site_id, {
         $set: { status: "2", tenant: histData.tenant_id },
       });
       if (siteData) {
