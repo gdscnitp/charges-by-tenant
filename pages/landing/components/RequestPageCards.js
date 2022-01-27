@@ -13,7 +13,7 @@ function RequestPageCard(props) {
   const { dispatch, state } = useContext(Store);
   const router = useRouter();
   const [acceptDetails, setAcceptDetails] = useState({
-    histId: props.details._id,
+    histId: props.details?._id,
     accept: true,
   });
 
@@ -29,7 +29,7 @@ function RequestPageCard(props) {
       axios
         .post(
           "/api/profile/acceptsite",
-          { histId: props.details._id, accept: isAccepted },
+          { histId: props.details?._id, accept: isAccepted },
           config
         )
         .then((res) => {
