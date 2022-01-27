@@ -19,8 +19,6 @@ function MyModal(props) {
     confirmPassword: "",
   });
 
-  console.log(JSON.stringify(props.details));
-
   var details = props.details;
   const [detailsWithPassword, setDetailsWithPassword] = useState({
     username: "",
@@ -39,18 +37,24 @@ function MyModal(props) {
     occupation: "",
     verification: "",
     password: "",
+    // username: props.details.username,
+    // firstName: details.firstName,
+    // lastName: details.lastName,
+    // contact: details.contact,
+    // address: {
+    //   first_line: details.address.first_line,
+    //   landmark: details.address.landmark,
+    //   city: details.address.city,
+    //   state: details.address.state,
+    //   country: details.address.country,
+    //   pincode: details.address.pincode,
+    // },
+    // DOB: details.DOB,
+    // occupation: details.occupation,
+    // verification: details.verification,
   });
 
   // const initialiseDetails = async () => {
-  //   var details = props.details;
-  //   var username = props.details.username;
-  //   console.log(
-  //     "initialising: " +
-  //       JSON.stringify(details) +
-  //       "  lskjfls : sdjf : " +
-  //       username
-  //   );
-
   //   setDetailsWithPassword({
   //     ...detailsWithPassword,
   //     username: props.details.username,
@@ -71,6 +75,9 @@ function MyModal(props) {
   //     password: "",
   //   });
   // };
+  // useEffect(() => {
+  //   setPasswordInState();
+  // }, [detailsWithPassword]);
 
   const validatePassword = (newPassword, confirmPassword) => {
     if (newPassword.length == 0) {
@@ -103,10 +110,6 @@ function MyModal(props) {
     }
   };
 
-  // const setPasswordInState = async (newPassword) => {
-  //   setDetailsWithPassword({ ...detailsWithPassword, password: newPassword });
-  // };
-
   const setPasswordInState = async (newPassword) => {
     setDetailsWithPassword({
       ...detailsWithPassword,
@@ -136,15 +139,19 @@ function MyModal(props) {
 
   const handleSubmit = () => {
     if (validatePassword(password.newPassword, password.confirmPassword)) {
-      // initialiseDetails().then(
-      setPasswordInState(password.newPassword).then(
-        // console.log(detailsWithPassword)
-        console.log(detailsWithPassword)
-      );
+      // setPasswordInState(password.newPassword).then(
+      //   console.log("dwp " + JSON.stringify(detailsWithPassword))
       // );
-      handleClose();
-      console.log(password);
-      console.log("handlesubmit " + JSON.stringify(details));
+      // handleClose();
+      // console.log(password);
+      if (setPasswordInState(password.newPassword)) {
+        props.updatePassword(detailsWithPassword);
+      } else {
+        closeSnackbar();
+        enqueueSnackbar("CLick Again", {
+          variant: "warning",
+        });
+      }
     }
   };
 
@@ -166,36 +173,31 @@ function MyModal(props) {
           <Modal.Title>Change Password</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="container">
-            <Form>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label className="a-edit-left-title">
-                  New Password
-                </Form.Label>
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Enter your new password"
-                  onChange={onChange}
-                  required
-                  name="newPassword"
-                />
-                <Form.Label className="a-edit-left-title">
-                  Confirm Password
-                </Form.Label>
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Re-enter your new password"
-                  onChange={onChange}
-                  required
-                  name="confirmPassword"
-                />
-              </Form.Group>
-            </Form>
-          </div>
+          <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label className="a-edit-left-title">
+                New Password
+              </Form.Label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter your new password"
+                onChange={onChange}
+                name="newPassword"
+              />
+              <Form.Label className="a-edit-left-title">
+                Confirm Password
+              </Form.Label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Re-enter your new password"
+                onChange={onChange}
+                name="confirmPassword"
+              />
+            </Form.Group>
+          </Form>
         </Modal.Body>
-
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

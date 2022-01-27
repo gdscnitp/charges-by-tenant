@@ -18,7 +18,6 @@ const TenantReq = () => {
 
   const getDetails = async () => {
     closeSnackbar();
-
     let config = {
       headers: {
         authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
@@ -43,6 +42,7 @@ const TenantReq = () => {
   }, []);
 
   const ViewReq = async () => {
+    console.log("called view req");
     closeSnackbar();
     let config = {
       headers: {
@@ -63,12 +63,17 @@ const TenantReq = () => {
     }
   };
 
+  var allSiteDetails = state.siteDetail;
+  useEffect(() => {
+    allSiteDetails = state.siteDetail;
+  }, [state.siteDetail]);
+
   return (
     <>
       <Heading head="Your Requests" />
       <HorizontalLine />
-      {state.siteDetail
-        ? state.siteDetail?.map((data) => {
+      {allSiteDetails
+        ? allSiteDetails?.map((data) => {
             if (data.site_id?.status == "1") {
               return (
                 <RequestPageCard
@@ -79,6 +84,7 @@ const TenantReq = () => {
                   class2="btn-danger px-2 S_request"
                   details={data}
                   fromPage="request"
+                  viewReq={ViewReq}
                 />
               );
             }

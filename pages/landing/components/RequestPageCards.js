@@ -11,13 +11,13 @@ import { Store } from "../../../utility/Store";
 function RequestPageCard(props) {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
-
+  const router = useRouter();
   const [acceptDetails, setAcceptDetails] = useState({
     histId: props.details._id,
     accept: true,
   });
 
-  const acceptSite = async () => {
+  const acceptSite = async (isAccepted) => {
     closeSnackbar();
     let config = {
       headers: {
@@ -27,16 +27,22 @@ function RequestPageCard(props) {
     console.log("acceptdetails: " + JSON.stringify(acceptDetails));
     try {
       axios
-        .post("/api/profile/acceptsite", acceptDetails, config)
+        .post(
+          "/api/profile/acceptsite",
+          { histId: props.details._id, accept: isAccepted },
+          config
+        )
         .then((res) => {
           dispatch({
             type: "ACCEPT_REQUEST",
             payload: res.data?.data,
           });
-          if (acceptDetails.accept) {
+          if (res?.data?.data?.status == "1") {
             enqueueSnackbar("Site Accepted", { variant: "success" });
-          } else {
+            return 1;
+          } else if (res?.data?.data?.status == "3") {
             enqueueSnackbar("Site Rejected", { variant: "success" });
+            return 1;
           }
         });
     } catch (err) {
@@ -44,28 +50,14 @@ function RequestPageCard(props) {
     }
   };
 
-  // const setAcceptHelper = async (bool) => {
-  //   setAcceptDetails({ ...acceptDetails, accept: bool });
-  // };
-
-  const acceptHandler = () => {
-    setAcceptDetails({ ...acceptDetails, accept: true });
-    if (acceptDetails.accept == true) {
-      acceptSite();
-      // console.log(acceptDetails);
-    } else {
-      enqueueSnackbar("Click Again", { variant: "warning" });
-    }
+  const acceptHandler = async () => {
+    var response = await acceptSite(true);
+    router.push("/profile/tenant");
   };
 
   const rejectHandler = () => {
-    setAcceptDetails({ ...acceptDetails, accept: false });
-    if (acceptDetails.accept == false) {
-      // console.log(acceptDetails);
-      acceptSite();
-    } else {
-      enqueueSnackbar("Click Again", { variant: "warning" });
-    }
+    acceptSite(false);
+    router.push("/profile/tenant");
   };
 
   return (
