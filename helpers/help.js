@@ -3,13 +3,13 @@ var constants  = require("./constants")
 import Moment from 'moment'
 
 module.exports = {
-    sendError: function(res,err,status_code=500){
-        console.trace(err);
+    sendError: function(res,msg,status_code=500){
+        console.trace(msg);
         
         status_code=String(status_code);
         res.status(status_code).json({
             code: status_code,
-            message: error[status_code] ? error[status_code] : "Server Error",
+            message: msg ? msg : "Contact adminstator",
             success:false,
             time: Date.now()
         });
