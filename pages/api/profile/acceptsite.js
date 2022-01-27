@@ -31,7 +31,7 @@ export default async function handler(req, res) {
                 tenantId = Data.id
             })
 
-            if(tenantId === histData.tenant_id){
+            if(tenantId == histData.tenant_id){
                 if(histData.status === "0"){
                     History.findByIdAndUpdate(histId, {$set: {joined_at: Date.now(), status: "1"}}, function(err, histNewData){
                         if(err) return sendError(res, err.message, 500)
