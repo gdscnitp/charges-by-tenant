@@ -274,6 +274,10 @@ function EditTenant() {
     }
   };
 
+  const updatePassword = async (detailsWithPasswordInput) => {
+    editHandler(detailsWithPasswordInput);
+  };
+
   // Mapped data
   const allContent = [
     {
@@ -450,7 +454,11 @@ function EditTenant() {
                 {/* Change Password */}
                 <div className="row a-edit-content a-row-wrapper">
                   <div className="col-lg-4 col-sm-12">
-                    <MyModal buttonName="Change Password" details={details} />
+                    <MyModal
+                      buttonName="Change Password"
+                      details={details}
+                      updatePassword={updatePassword}
+                    />
                   </div>
                 </div>
               </div>
