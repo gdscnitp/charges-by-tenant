@@ -16,18 +16,20 @@ const TableList = (props) => {
       </thead>
       <tbody>
         {detailsArray?.map((data) => {
-          return (
-            <tr key={i++}>
-              <th scope="row">{data.site_id?.alias_name}</th>
-              <td>{data.site_id?.address?.first_line}</td>
-              <td>{data.site_id?.Type}</td>
-              <td>
-                <button type="button" className="btn btn-outline-info">
-                  Info
-                </button>
-              </td>
-            </tr>
-          );
+          if (data.status == "1") {
+            return (
+              <tr key={i++}>
+                <th scope="row">{data.site_id?.alias_name}</th>
+                <td>{data.site_id?.address?.first_line}</td>
+                <td>{data.site_id?.Type}</td>
+                <td>
+                  <button type="button" className="btn btn-outline-info">
+                    Info
+                  </button>
+                </td>
+              </tr>
+            );
+          }
         })}
         {/* Awara Code*/}
         {/* <tr>

@@ -72,10 +72,8 @@ const TenantSite = () => {
           type: "VIEW_REQUESTS",
           payload: res.data,
         });
-        console.log(res);
       });
     } catch (err) {
-      // console.log(err);
       enqueueSnackbar(err.message, { variant: "error" });
     }
   };
@@ -87,7 +85,6 @@ const TenantSite = () => {
 
       {state.siteDetail?.map((data) => {
         if (data.status == "1") {
-          console.log(data);
           count++;
           return (
             <div key={i++}>

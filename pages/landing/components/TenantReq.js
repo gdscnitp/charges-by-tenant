@@ -55,7 +55,6 @@ const TenantReq = () => {
           type: "VIEW_REQUESTS",
           payload: res.data,
         });
-        console.log(res);
       });
     } catch (err) {
       // console.log(err);
