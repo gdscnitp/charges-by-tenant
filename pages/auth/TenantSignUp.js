@@ -23,7 +23,7 @@ function Tenant_Signup() {
   });
 
   if (Cookies.get("userInfo")) {
-    router.push("/auth/TenantSignIn");
+    router.push("/profile/tenant");
   }
 
   const [check, setCheck] = useState({

@@ -24,45 +24,6 @@ const cardContents = [
     class3: "btn-success px-2",
     text3: "Paid",
   },
-  {
-    aliasName: "Dummy",
-    owner: "Vivek Khan",
-    rent: "15000/-",
-    address: "room no. 108, Lakshmipuram Society",
-    cclass: "blue",
-    class1: "btn-warning",
-    text1: "Details",
-    class2: "btn-warning a-margin-left",
-    text2: "History",
-    class3: "btn-success px-2",
-    text3: "Paid",
-  },
-  {
-    aliasName: "Dummy",
-    owner: "Vivek Khan",
-    rent: "15000/-",
-    address: "room no. 108, Lakshmipuram Society",
-    cclass: "blue",
-    class1: "btn-warning",
-    text1: "Details",
-    class2: "btn-warning a-margin-left",
-    text2: "History",
-    class3: "btn-success px-2",
-    text3: "Paid",
-  },
-  {
-    aliasName: "Dummy",
-    owner: "Vivek Khan",
-    rent: "15000/-",
-    address: "room no. 108, Lakshmipuram Society",
-    cclass: "blue",
-    class1: "btn-warning",
-    text1: "Details",
-    class2: "btn-warning a-margin-left",
-    text2: "History",
-    class3: "btn-success px-2",
-    text3: "Paid",
-  },
 ];
 
 const TenantSite = () => {
@@ -126,6 +87,7 @@ const TenantSite = () => {
 
       {state.siteDetail?.map((data) => {
         if (data.status == "1") {
+          console.log(data);
           count++;
           return (
             <div key={i++}>
