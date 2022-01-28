@@ -12,6 +12,7 @@ const tranSchema = new mongoose.Schema({
     },
     description:{
         type:String,
+        default: "",
         required:true
     },
     landlord_id:{
@@ -24,4 +25,4 @@ const tranSchema = new mongoose.Schema({
     }
 },{timestamps:true});
 
-module.exports = mongoose.model("Transaction",tranSchema)
+module.exports = mongoose.models.Transaction || mongoose.model("Transaction",tranSchema)
