@@ -64,6 +64,7 @@ export default async function handler(req, res) {
         //before saving the new transaction we have to verify that the tenant sending request to pay 
         //is registered against that site or not
 
+        
         if(Data.tenant_id != tenantId) return sendError(res, "UnAuth Access", constants.FORBIDDEN)
         else{
             if(Data.isPaid) return sendError(res, "Already Paid", constants.CAHRGES_SCHEMA_ERROR);
