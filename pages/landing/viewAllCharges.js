@@ -10,7 +10,7 @@ import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-export default function viewAllCharges() {
+export default function ViewAllCharges() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const router = useRouter();
   const { dispatch, state } = useContext(Store);
