@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Total_Charges from "../../public/images/Total_Charges.png";
 import Header from "./components/Header";
+import NameLabel from "../components/NameLabel";
 import TotalchargesCard from "./components/totalChargesCard";
 import Taskbar from "../profile/components/Taskbar";
 import { useRouter } from "next/router";
@@ -9,40 +10,41 @@ import { Store } from "../../utility/Store";
 import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import axios from "axios";
-var i = 0;
-
-const allTransactions = [
-  {
-    electricity: 1234,
-    internet: 4567,
-    water: 789,
-  },
-  {
-    electricity: 8767,
-    internet: 9245,
-    water: 54876,
-  },
-  {
-    electricity: 1234,
-    internet: 4567,
-    water: 789,
-  },
-  {
-    electricity: 8767,
-    internet: 9245,
-    water: 54876,
-  },
-];
 
 export default function ParticularSiteCharges() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const router = useRouter();
   const { dispatch, state } = useContext(Store);
   // console.log(router.query?.site_id);
+  // var address =
+  //   state.?.site_id?.address?.first_line +
+  //   ", " +
+  //   data?.site_id?.address?.landmark +
+  //   ", " +
+  //   data?.site_id?.address?.city +
+  //   ", " +
+  //   data?.site_id?.address?.state;
 
   useEffect(() => {
     getCharges();
   }, []);
+
+  const getAddress = () => {
+    var address =
+      state.particularSiteCharges[0]?.site_id?.address?.first_line +
+      ", " +
+      state.particularSiteCharges[0]?.site_id?.address?.landmark +
+      ", " +
+      state.particularSiteCharges[0]?.site_id?.address?.city +
+      ", " +
+      state.particularSiteCharges[0]?.site_id?.address?.state +
+      ", " +
+      state.particularSiteCharges[0]?.site_id?.address?.country +
+      ", Pincode: " +
+      state.particularSiteCharges[0]?.site_id?.address?.pincode;
+
+    return address;
+  };
 
   const getCharges = async () => {
     closeSnackbar();
@@ -99,13 +101,23 @@ export default function ParticularSiteCharges() {
             <div className="p_right">
               <Header header="Total Charges" />
 
-              {allTransactions.map((data) => {
+              <NameLabel
+                label="Alias Name"
+                details={state.particularSiteCharges[0]?.site_id?.alias_name}
+              />
+              <NameLabel
+                label="Type"
+                details={state.particularSiteCharges[0]?.site_id?.Type}
+              />
+              <NameLabel label="Address" details={getAddress()} />
+
+              {state.particularSiteCharges.map((data, index) => {
+                console.log(data);
                 return (
                   <TotalchargesCard
-                    key={i++}
-                    electricity={data.electricity}
-                    internet={data.internet}
-                    water={data.water}
+                    key={index}
+                    description={data.description}
+                    siteDetails={data.site_id}
                   />
                 );
               })}
