@@ -1,0 +1,156 @@
+.p_particular{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.p_btn3{
+  display: flex;
+  position: inherit;
+  padding-top: 4%;
+  padding-left: 74%;
+}
+.p_site{
+  margin:2%;
+  padding-left: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.p_psite{
+  width:40vw;
+}
+
+.p_textarea{ 
+    vertical-align: top; 
+    width: 21vw;
+}
+
+.p_btr{
+  box-shadow: 3px 5px 5px #888888;
+  border-radius: 2px;
+  transition: all 1s ease;
+  transform: scale(1);
+}
+
+.p_btr:hover {
+  background-color: #52c6c6;
+  transform: scale(1.1) perspective(1px)
+}
+
+.p_ip{ padding-left:5%; 
+  width:5vw;
+  height:4vh; 
+  background-color: #eff2f5; 
+  border-radius: 5px; 
+  border: 1px solid ;
+}
+
+.p_h2{
+    font-size: 2vw;
+    width: 80vw;
+    background: #52c6c6;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 1%;
+    color: white;
+  }
+
+  .top_head {
+    font-size: 2vw;
+    font-weight: bold;
+    width:100%;
+    background: #023c40;
+    text-align: center;
+    padding: 1%;
+    color: white;
+  }
+  
+  .top_head1 {
+    font-size: 2vw;
+    font-weight: bold;
+    border-radius: 10px;
+    width: calc(96vw - 70px);
+    background: #023c40;
+    text-align: center;
+    padding: 1%;
+    margin-left: 1%;
+    color: white;
+  }
+
+  .p_btn1 {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 7px;
+    background-color: #52c6c6;
+  }
+  
+  .p_btn1:active {
+    transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+  }
+  
+
+  .p_mlabel1{
+    font-size: medium;
+    font-weight: 600;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 2% 0;
+  }
+  
+    .p_allotlabel{
+      margin: 3% 0;
+      display: flex;
+      justify-content: center;
+    }
+    .p_mradio{
+      margin: 5% 0;
+      display: flex;
+      justify-content: space-around;
+    } 
+
+    .p_mlabel{
+      /* color: white;
+      width:30vw;
+      font-size: 1.6vw;
+      margin:1% 2% 1% 4%;
+      background-color: #023c40;
+      padding: 2% 2%;
+      text-align: center;
+      font-family: Arial;
+      border-radius:15px; */
+      text-align: center;
+      text-decoration:underline;
+      font-size: x-large;
+      font-weight: 700;
+    }
+   
+  .p_mrlabel{
+    color: white;
+      width:15vw;
+      font-size: 1.5vw;
+      margin:2% 2% 1% 1%;
+      background-color: #ff9800;
+      padding: 15% ;
+      text-align: center;
+      font-family: Arial;
+      border-radius:7px;
+  }
+
+  @media (max-width: 800px){
+    .p_textarea{
+      vertical-align: top;
+      display: flex;
+      flex-direction: column;
+      width: 18vw;
+    }
+  }
