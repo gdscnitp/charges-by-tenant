@@ -13,32 +13,24 @@ var Tenant  = require("../../../models/tenant")
 
 export default async function handler(req, res){
 
-    if(req.method == "POST"){
-        var siteId = req.body.siteId
+    if(req.method == "GET"){
         var tenantId
-        if(!siteId){
-            return sendError(res, "siteId is not provided", 500)
-        }
-
-        if(!isMongoId(siteId)){
-            return sendError(res, "invalid siteId", 500)
-        }
-
         auth(req, res, (err, authData) => {
             if(err) return sendError(res, err.message, 500)
             tenantId = authData.id
         })
 
-        Charge.find({site_id: siteId, tenant_id: tenantId}).populate('site_id').exec(function(err,data){
+
+        Charge.find({tenant_id: tenantId}).populate('site_id').exec(function(err,data){
             if(err) return sendError(res, err.message, 500)
-            else{
-                return sendSuccess(res, data)
+            else{ 
+                    return sendSuccess(res, data)
             }
         })
           
     }
     else{
-        return sendError(res, "ROUTE NOT FOUN", constants.NOT_FOUND)
+        return sendError(res, "ROUTE NOT FOUND", constants.NOT_FOUND)
     }
 
 }
