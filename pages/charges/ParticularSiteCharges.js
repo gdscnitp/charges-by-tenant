@@ -3,7 +3,12 @@ import Total_Charges from "../../public/images/Total_Charges.png";
 import Header from "./components/Header";
 import TotalchargesCard from "./components/totalChargesCard";
 import Taskbar from "../profile/components/Taskbar";
-
+import { useRouter } from "next/router";
+import React, { useContext, useEffect, useState } from "react";
+import { Store } from "../../utility/Store";
+import Cookies from "js-cookie";
+import { useSnackbar } from "notistack";
+import axios from "axios";
 var i = 0;
 
 const allTransactions = [
@@ -29,7 +34,49 @@ const allTransactions = [
   },
 ];
 
-export default function total_charges() {
+export default function ParticularSiteCharges() {
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const router = useRouter();
+  const { dispatch, state } = useContext(Store);
+  // console.log(router.query?.site_id);
+
+  useEffect(() => {
+    getCharges();
+  }, []);
+
+  const getCharges = async () => {
+    closeSnackbar();
+    let config = {
+      headers: {
+        authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
+      },
+    };
+    try {
+      axios
+        .post(
+          "/api/charges/view",
+          {
+            siteId: router.query?.site_id,
+          },
+          config
+        )
+        .then((res) => {
+          dispatch({
+            type: "PARTICULAR_SITE_CHARGES",
+            payload: res.data,
+          });
+          console.log(res);
+          if (res.data?.success) {
+            enqueueSnackbar("Got Charges", { variant: "success" });
+          }
+        });
+    } catch (err) {
+      enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+    }
+  };
+
+  console.log(state.particularSiteCharges);
+
   return (
     <>
       <div className="Parent">
