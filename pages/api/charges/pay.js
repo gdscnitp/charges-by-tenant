@@ -13,7 +13,7 @@ var Transaction = require("../../../models/Transaction")
 export default async function handler(req, res) {
     if(req.method === "POST"){
         
-        var chargeId = req.body.chargeId
+        var chargeId = req.body.chargeId;
         var landlordId;
         var tenantId;
 
@@ -30,30 +30,52 @@ export default async function handler(req, res) {
             tenantId = authData.id
         })
 
-        Charge.findById(chargeId).populate("site_id").exec(function(err, Data){
+        // Charge.findById(chargeId).populate("site_id").exec(function(err, Data){
             
-            if(err) return sendError(res, err.message, 500)
-            else if(Data === null){return sendError(res, "No such ChargeId exist", 500)}
-            else{
-                landlordId = Data.site_id.landlord_id
-            }
-        })
+        //     if(err) return sendError(res, err.message, 500)
+        //     else if(Data === null){return sendError(res, "No such ChargeId exist", 500)}
+        //     else{
+        //         landlordId = Data.site_id.landlord_id.toString()
+        //         console.log(Data.site_id.landlord_id.toString())
+                
+        //     }
+        // })
+        
+        var Data = await Charge.findById(chargeId).populate("site_id")
+        if(Data===null){
+            return sendError(res, "No such chargeID exist")
+        }
+        else if(Data){
+            landlordId = Data.site_id.landlord_id
+        }
+        else{
+            return sendError(res, "error occur  while finding charges data", 500)
+        }
 
+        
         var newTrans = new Transaction({
-            charges_id: chargeId,
+            charge_id: chargeId,
             tenant_id: tenantId,
             landlord_id: landlordId
         })
+        
+        // console.log(newTrans)
 
         newTrans.save(function(err, TransData){
+            
             if(err) return sendError(res, err.message, 500)
             else{
-                Charge.findByIdAndUpdate(chargeId, {$set: {isPaid: true}}, function(err, data){
+                Charge.findByIdAndUpdate(chargeId, {$set: {isPaid: true}}, function(err, Data){
                     if(err){
                         return sendError(res, err.message, 500)
                     }
                     else{
-                        return sendSuccess(res, data)
+                        Transaction.findById(TransData._id).populate('charge_id').exec(function(err,data){
+                            if(err)return sendError(res, err.message, 500)
+                            else{
+                                return sendSuccess(res,data)
+                            }
+                        })
                     }
                 })
             }
@@ -61,7 +83,5 @@ export default async function handler(req, res) {
 
 
     }
-    else{
-        return sendError(res, "Please use POST method", 500)
-    }
+    
 }
