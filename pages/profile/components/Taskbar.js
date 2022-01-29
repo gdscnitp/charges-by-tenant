@@ -28,6 +28,7 @@ const Taskbar = () => {
         classprop="fal fa-rupee-sign S_icon S_icon3"
         path="/transaction/TenantHistory"
       ></Icons>
+      <Link href="/landing/particularSite">Particular Site</Link>
       <LogOut classprop="fal fa-sign-out S_icon S_icon5"></LogOut>
     </div>
   );

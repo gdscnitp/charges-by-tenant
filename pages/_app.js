@@ -3,6 +3,7 @@ import "../styles/Profile.css";
 import "../styles/Landing.css";
 import "../styles/differentCharges.css";
 import "../styles/EditProfile.css";
+import "../styles/particularSite.css";
 import { SnackbarProvider } from "notistack";
 import { StoreProvider } from "../utility/Store";
 
