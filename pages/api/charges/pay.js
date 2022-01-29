@@ -42,7 +42,7 @@ export default async function handler(req, res) {
         // })
         
         var Data = await Charge.findById(chargeId).populate("site_id")
-        if(Data===null){
+        if(Data==null){
             return sendError(res, "No such chargeID exist")
         }
         else if(Data){
@@ -61,27 +61,38 @@ export default async function handler(req, res) {
         
         // console.log(newTrans)
 
-        newTrans.save(function(err, TransData){
-            
-            if(err) return sendError(res, err.message, 500)
+        //before saving the new transaction we have to verify that the tenant sending request to pay 
+        //is registered against that site or not
+
+        
+        if(Data.tenant_id != tenantId) return sendError(res, "UnAuth Access", constants.FORBIDDEN)
+        else{
+            if(Data.isPaid) return sendError(res, "Already Paid", constants.CAHRGES_SCHEMA_ERROR);
             else{
-                Charge.findByIdAndUpdate(chargeId, {$set: {isPaid: true}}, function(err, Data){
-                    if(err){
-                        return sendError(res, err.message, 500)
-                    }
+                newTrans.save(function(err, TransData){
+            
+                    if(err) return sendError(res, err.message, 500)
                     else{
-                        Transaction.findById(TransData._id).populate('charge_id').exec(function(err,data){
-                            if(err)return sendError(res, err.message, 500)
+                        Charge.findByIdAndUpdate(chargeId, {$set: {isPaid: true}}, function(err, Data){
+                            if(err){
+                                return sendError(res, err.message, 500)
+                            }
                             else{
-                                return sendSuccess(res,data)
+                                Transaction.findById(TransData._id).populate('charge_id').exec(function(err,data){
+                                    if(err)return sendError(res, err.message, 500)
+                                    else{
+                                        return sendSuccess(res,data)
+                                    }
+                                })
                             }
                         })
                     }
                 })
             }
-        })
-
-
+        }
+    }
+    else{
+        return sendError(res, "ROUTE NOT FOUND", constants.NOT_FOUND)
     }
     
 }
