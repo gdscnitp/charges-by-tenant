@@ -108,4 +108,7 @@ export default async function handler(req, res) {
     })
     }
   }
+  else{
+      return sendError(res, "Please select POST method", 500)
+  }
 }
