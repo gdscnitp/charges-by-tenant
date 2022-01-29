@@ -11,6 +11,7 @@ import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import axios from "axios";
 import AddressInput from "./components/AddressInput";
+import MyModal from "./components/MyModal";
 
 function EditTenant() {
   // Integration Code
@@ -127,7 +128,7 @@ function EditTenant() {
   };
 
   const save = () => {
-    editHandler().then(allTrue());
+    editHandler(details).then(allTrue());
   };
 
   // Initialising details
@@ -228,7 +229,7 @@ function EditTenant() {
   };
 
   // Edit details backend route
-  const editHandler = async () => {
+  const editHandler = async (details) => {
     closeSnackbar();
     let config = {
       headers: {
@@ -271,6 +272,10 @@ function EditTenant() {
     } else {
       enqueueSnackbar("Click Again", { variant: "warning" });
     }
+  };
+
+  const updatePassword = async (detailsWithPasswordInput) => {
+    editHandler(detailsWithPasswordInput);
   };
 
   // Mapped data
@@ -435,7 +440,6 @@ function EditTenant() {
                 })}
 
                 {/* History */}
-
                 <div className="row a-edit-content a-row-wrapper">
                   <div className="col-lg-4 col-sm-12">
                     <span className="a-edit-left-title">History</span>
@@ -444,6 +448,17 @@ function EditTenant() {
                     <span className="a-edit-right-content a-not-provided">
                       No History
                     </span>
+                  </div>
+                </div>
+
+                {/* Change Password */}
+                <div className="row a-edit-content a-row-wrapper">
+                  <div className="col-lg-4 col-sm-12">
+                    <MyModal
+                      buttonName="Change Password"
+                      details={details}
+                      updatePassword={updatePassword}
+                    />
                   </div>
                 </div>
               </div>

@@ -69,9 +69,32 @@ const tableData = [
 export default function Home() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
+
   useEffect(() => {
     getDetails();
+    ViewReq();
   }, []);
+  const ViewReq = async () => {
+    console.log("called view req");
+    closeSnackbar();
+    let config = {
+      headers: {
+        authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
+      },
+    };
+    try {
+      await axios.get("/api/profile/viewsite", config).then((res) => {
+        dispatch({
+          type: "VIEW_REQUESTS",
+          payload: res.data,
+        });
+        console.log(res);
+      });
+    } catch (err) {
+      // console.log(err);
+      enqueueSnackbar(err.message, { variant: "error" });
+    }
+  };
 
   const getDetails = async () => {
     closeSnackbar();
@@ -113,7 +136,7 @@ export default function Home() {
         />
         <hr />
         <div className="S_rightBottom">
-          <Header head="Available Sites" />
+          <Header head="Your Sites" />
 
           <TableList
             tableclass="table-striped Stable"
@@ -123,6 +146,7 @@ export default function Home() {
             available="Type"
             view="View"
             tableData={tableData}
+            allDetails={state.siteDetail}
           />
 
           {/* <TableList
