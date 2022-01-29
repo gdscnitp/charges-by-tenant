@@ -3,11 +3,15 @@ import BeforeEditContent from "./components/BeforeEditContent";
 import EditBirthday from "./components/EditBirthday";
 import Taskbar from "../profile/components/Taskbar";
 import Heading from "../landing/components/Heading";
+import BeforeEditAddress from "./components/BeforeEditAddress";
+import AfterEditAddress from "./components/AfterEditAddress";
 import React, { useContext, useEffect, useState } from "react";
 import { Store } from "../../utility/Store";
 import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import axios from "axios";
+import AddressInput from "./components/AddressInput";
+import MyModal from "./components/MyModal";
 
 function EditTenant() {
   // Integration Code
@@ -34,25 +38,8 @@ function EditTenant() {
       });
       enqueueSnackbar("Data Retrieved", { variant: "success" });
     } catch (err) {
-      // console.log(err);
       enqueueSnackbar(err.response?.data?.message, { variant: "error" });
     }
-  };
-
-  const [details, setDetails] = useState({
-    username: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    contact: "",
-    address: "",
-    DOB: "",
-    verification: "",
-    occupation: "",
-  });
-
-  const onChange = (e) => {
-    setDetails({ ...details, [e.target.name]: e.target.value });
   };
 
   // Normal page code
@@ -60,27 +47,29 @@ function EditTenant() {
     Username: true,
     FirstName: true,
     LastName: true,
-    Email: true,
     Contact: true,
     Address: true,
     Birthday: true,
-    UID: true,
+    Verification: true,
     Occupation: true,
   });
 
   const allTrue = () => {
+    //  if cancelled, then update the data to original
+    initialiseDetails();
+    // closing all the input fields
     setShow((previousState) => {
       return {
         ...previousState,
         Username: true,
         FirstName: true,
         LastName: true,
-        Email: true,
         Contact: true,
         Address: true,
         Birthday: true,
-        UID: true,
+        Verification: true,
         Occupation: true,
+        Address: true,
       };
     });
   };
@@ -103,12 +92,6 @@ function EditTenant() {
       return { ...previousState, LastName: false };
     });
   };
-  const editEmail = () => {
-    allTrue();
-    setShow((previousState) => {
-      return { ...previousState, Email: false };
-    });
-  };
   const editContact = () => {
     allTrue();
     setShow((previousState) => {
@@ -127,10 +110,10 @@ function EditTenant() {
       return { ...previousState, Birthday: false };
     });
   };
-  const editUID = () => {
+  const editVerification = () => {
     allTrue();
     setShow((previousState) => {
-      return { ...previousState, UID: false };
+      return { ...previousState, Verification: false };
     });
   };
   const editOccupation = () => {
@@ -140,183 +123,224 @@ function EditTenant() {
     });
   };
 
-  // Save Buttons
-  const saveUsername = () => {
-    setShow((previousState) => {
-      return { ...previousState, Username: true };
-    });
-  };
-  const saveFirstName = () => {
-    setShow((previousState) => {
-      return { ...previousState, FirstName: true };
-    });
-  };
-  const saveLastName = () => {
-    setShow((previousState) => {
-      return { ...previousState, LastName: true };
-    });
-  };
-  const saveEmail = () => {
-    setShow((previousState) => {
-      return { ...previousState, Email: true };
-    });
-  };
-  const saveContact = () => {
-    setShow((previousState) => {
-      return { ...previousState, Contact: true };
-    });
-  };
-  const saveAddress = () => {
-    setShow((previousState) => {
-      return { ...previousState, Address: true };
-    });
-  };
-  const saveBirthday = () => {
-    setShow((previousState) => {
-      return { ...previousState, Birthday: true };
-    });
-  };
-  const saveUID = () => {
-    setShow((previousState) => {
-      return { ...previousState, UID: true };
-    });
-  };
-  const saveOccupation = () => {
-    setShow((previousState) => {
-      return { ...previousState, Occupation: true };
-    });
-  };
-
   const cancel = () => {
     allTrue();
   };
 
-  // Input Code
-  var detailsArray = {
-    username: state.userInfo?.username,
-    firstName: state.userInfo?.firstName,
-    llastName: state.userInfo?.lastName,
-    email: state.userInfo?.email,
-    contact: state.userInfo?.contact,
-    address: state.userInfo?.address?.first_line,
-    birthday: state.userInfo?.birthday,
-    uid: state.userInfo?.uid,
-    occupation: state.userInfo?.occupation,
+  const save = () => {
+    editHandler(details).then(allTrue());
   };
-  const ISSERVER = typeof window === "undefined";
-  var tenantData;
-  if (!ISSERVER) {
-    tenantData = JSON.parse(localStorage.getItem("TenantData"));
+
+  // Initialising details
+  const [details, setDetails] = useState({
+    username: "",
+    firstName: "",
+    lastName: "",
+    contact: "",
+    address: {
+      first_line: "",
+      landmark: "",
+      city: "",
+      state: "",
+      country: "",
+      pincode: "",
+    },
+    DOB: "",
+    occupation: "",
+    verification: "",
+  });
+
+  function initialiseDetails() {
+    var notProvided = "Not Provided";
+    setDetails({
+      ...details,
+      username: state.userInfo?.username
+        ? state.userInfo.username.length
+          ? state.userInfo.username
+          : notProvided
+        : notProvided,
+      firstName: state.userInfo?.firstName
+        ? state.userInfo.firstName.length
+          ? state.userInfo.firstName
+          : notProvided
+        : notProvided,
+      lastName: state.userInfo?.lastName
+        ? state.userInfo.lastName.length
+          ? state.userInfo.lastName
+          : notProvided
+        : notProvided,
+      contact: state.userInfo?.contact ? state.userInfo.contact : 0,
+      address: {
+        first_line: state.userInfo?.address?.first_line
+          ? state.userInfo?.address?.first_line.length
+            ? state.userInfo?.address?.first_line
+            : notProvided
+          : notProvided,
+        landmark: state.userInfo?.address?.landmark
+          ? state.userInfo?.address?.landmark.length
+            ? state.userInfo?.address?.landmark
+            : notProvided
+          : notProvided,
+        city: state.userInfo?.address?.city
+          ? state.userInfo?.address?.city.length
+            ? state.userInfo?.address?.city
+            : notProvided
+          : notProvided,
+        state: state.userInfo?.address?.state
+          ? state.userInfo?.address?.state.length
+            ? state.userInfo?.address?.state
+            : notProvided
+          : notProvided,
+        country: state.userInfo?.address?.country
+          ? state.userInfo?.address?.country.length
+            ? state.userInfo?.address?.country
+            : notProvided
+          : notProvided,
+        pincode: state.userInfo?.address?.pincode
+          ? state.userInfo?.address?.pincode
+          : 0,
+      },
+      DOB: state.userInfo?.DOB
+        ? state.userInfo.DOB.split("T")[0]
+        : "1111-11-11",
+      verification: state.userInfo?.verification
+        ? state.userInfo.verification.length
+          ? state.userInfo.verification
+          : notProvided
+        : notProvided,
+      occupation: state.userInfo?.occupation
+        ? state.userInfo.occupation.length
+          ? state.userInfo.occupation
+          : notProvided
+        : notProvided,
+    });
   }
 
-  // const [details, setDetails] = useState({
-  //   username: detailsArray.username,
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   contact: "",
-  //   address: "",
-  //   birthday: "",
-  //   uid: "",
-  //   occupation: "",
-  // });
+  useEffect(() => {
+    initialiseDetails();
+  }, [state.userInfo]);
 
-  // useEffect(() => {
-  //   initialDetails();
-  // }, []);
+  // Taking input from users
+  const handleInput = (e) => {
+    setDetails({
+      ...details,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  // const initialDetails = () => {
-  //   setDetails((details) => {
-  //     return {
-  //       ...details,
-  //       username: detailsArray.username,
-  //       firstName: state.userInfo?.firstName,
-  //       lastName: state.userInfo?.lastName,
-  //       email: state.userInfo?.email,
-  //       contact: state.userInfo?.contact,
-  //       address: state.userInfo?.address?.first_line,
-  //       birthday: state.userInfo?.birthday,
-  //       uid: state.userInfo?.uid,
-  //       occupation: state.userInfo?.occupation,
-  //     };
-  //   });
-  // };
+  // Edit details backend route
+  const editHandler = async (details) => {
+    closeSnackbar();
+    let config = {
+      headers: {
+        authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
+      },
+    };
+    try {
+      axios
+        .put("/api/profile/edit", details, config)
+        .then((res) => {
+          dispatch({
+            type: "USER_INFO_UPDATING",
+            payload: res.data?.data,
+          });
+          initialiseDetails();
+          enqueueSnackbar("Details Editted", { variant: "success" });
+          getDetails();
+        })
+        .catch((err) => {
+          enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+        });
+    } catch (err) {
+      enqueueSnackbar(err.message, { variant: "error" });
+    }
+  };
 
+  const pushAddress = async (addressInput) => {
+    setDetails({ ...details, address: addressInput });
+    if (details.address == addressInput) {
+      save();
+    } else {
+      enqueueSnackbar("Click Again", { variant: "success" });
+    }
+  };
+
+  const pushBirthday = async (birthdayInput) => {
+    setDetails({ ...details, DOB: birthdayInput });
+    if (details.DOB == birthdayInput) {
+      save();
+    } else {
+      enqueueSnackbar("Click Again", { variant: "warning" });
+    }
+  };
+
+  const updatePassword = async (detailsWithPasswordInput) => {
+    editHandler(detailsWithPasswordInput);
+  };
+
+  // Mapped data
   const allContent = [
     {
       toShow: show.Username,
       title: "Username",
-      content: state.userInfo?.username,
+      content: details.username,
       editButtonClick: editUsername,
-      saveCLick: saveUsername,
       name: "username",
     },
     {
       toShow: show.FirstName,
       title: "First Name",
-      content: state.userInfo?.firstName,
+      content: details.firstName,
       editButtonClick: editFirstName,
-      saveCLick: saveFirstName,
       name: "firstName",
     },
     {
       toShow: show.LastName,
       title: "Last Name",
-      content: state.userInfo?.lastName,
+      content: details.lastName,
       editButtonClick: editLastName,
-      saveCLick: saveLastName,
       name: "lastName",
-    },
-    {
-      toShow: show.Email,
-      title: "Email",
-      content: state.userInfo?.email,
-      editButtonClick: editEmail,
-      saveCLick: saveEmail,
-      name: "email",
     },
     {
       toShow: show.Contact,
       title: "Contact",
-      content: state.userInfo?.contact,
+      content: details.contact,
       editButtonClick: editContact,
-      saveCLick: saveContact,
       name: "contact",
     },
     {
       toShow: show.Address,
       title: "Address",
-      // content:
-      //   "Flat-104, Vrundavan Apt., Near Gandhi Statue, Vikas Nagar, Pune",
-      content: state.userInfo?.address?.first_line,
+      content: {
+        first_line: details.address.first_line,
+        landmark: details.address.landmark,
+        city: details.address.city,
+        state: details.address.state,
+        country: details.address.country,
+        pincode: details.address.pincode,
+      },
       editButtonClick: editAddress,
-      saveCLick: saveAddress,
       name: "address",
     },
     {
       toShow: show.Birthday,
       title: "Birthday",
-      // content: "January 9. 2000",
-      content: state.userInfo?.DOB,
+      content: details.DOB,
       editButtonClick: editBirthday,
-      saveCLick: saveBirthday,
       name: "DOB",
     },
     {
-      toShow: show.UID,
+      toShow: show.Verification,
       title: "Verification",
-      content: state.userInfo?.uid,
-      editButtonClick: editUID,
-      saveCLick: saveUID,
+      content: details.verification,
+      editButtonClick: editVerification,
       name: "verification",
     },
     {
       toShow: show.Occupation,
       title: "Occupation",
-      // content: "Doctor",
-      content: state.userInfo?.occupation,
+      content: details.occupation,
       editButtonClick: editOccupation,
-      saveCLick: saveOccupation,
       name: "occupation",
     },
   ];
@@ -337,25 +361,78 @@ function EditTenant() {
                   return (
                     <div key={data.title} className="a-row-content">
                       {data.toShow ? (
-                        <BeforeEditContent
-                          title={data.title}
-                          content={data.content}
-                          editButtonClick={data.editButtonClick}
+                        data.title == "Address" ? (
+                          // Address Before Editing
+                          <div>
+                            <div className="row a-edit-content a-row-wrapper">
+                              <div className="col-lg-11 col-sm-10">
+                                <div className="a-title-small">Address</div>
+                              </div>
+                              <div className="col-lg-1 col-sm-2">
+                                <button
+                                  className="a-edit"
+                                  onClick={editAddress}
+                                >
+                                  Edit
+                                </button>
+                              </div>
+                            </div>
+                            <div className="container">
+                              <BeforeEditAddress
+                                title="First Line"
+                                content={data.content.first_line}
+                              />
+                              <BeforeEditAddress
+                                title="Landmark"
+                                content={data.content.landmark}
+                              />
+                              <BeforeEditAddress
+                                title="City"
+                                content={data.content.city}
+                              />
+                              <BeforeEditAddress
+                                title="State"
+                                content={data.content.state}
+                              />
+                              <BeforeEditAddress
+                                title="Pincode"
+                                content={data.content.pincode}
+                              />
+                              <BeforeEditAddress
+                                title="Country"
+                                content={data.content.country}
+                                editButtonClick={data.editButtonClick}
+                              />
+                            </div>
+                          </div>
+                        ) : (
+                          <BeforeEditContent
+                            title={data.title}
+                            content={data.content}
+                            editButtonClick={data.editButtonClick}
+                          />
+                        )
+                      ) : data.title == "Address" ? (
+                        // Address while editing
+                        <AddressInput
+                          details={data}
+                          pushAddress={pushAddress}
+                          cancelClick={cancel}
                         />
                       ) : data.title == "Birthday" ? (
                         <EditBirthday
                           title={data.title}
-                          saveClick={data.saveCLick}
                           cancelClick={cancel}
+                          pushBirthday={pushBirthday}
                         />
                       ) : (
                         <AfterEditContent
                           title={data.title}
                           content={data.content}
-                          saveClick={data.saveCLick}
+                          saveClick={save}
                           cancelClick={cancel}
                           name={data.name}
-                          onChangee={onChange(e)}
+                          onChange={handleInput}
                         />
                       )}
                     </div>
@@ -363,19 +440,26 @@ function EditTenant() {
                 })}
 
                 {/* History */}
-
                 <div className="row a-edit-content a-row-wrapper">
                   <div className="col-lg-4 col-sm-12">
                     <span className="a-edit-left-title">History</span>
                   </div>
-                  <div className="col-lg-7 col-sm-10">
+                  <div className="col-lg-8 col-sm-12">
                     <span className="a-edit-right-content a-not-provided">
                       No History
                     </span>
                   </div>
-                  {/* <div className="col-lg-1 col-sm-2">
-                <button className="a-edit">Edit</button>
-              </div> */}
+                </div>
+
+                {/* Change Password */}
+                <div className="row a-edit-content a-row-wrapper">
+                  <div className="col-lg-4 col-sm-12">
+                    <MyModal
+                      buttonName="Change Password"
+                      details={details}
+                      updatePassword={updatePassword}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

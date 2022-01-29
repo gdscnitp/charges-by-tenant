@@ -11,20 +11,30 @@ function AfterEditContent(props) {
               className="form-control"
               rows="3"
               placeholder="Your Address"
-              defaultValue={props.content}
+              defaultValue={
+                props.content == "Not Provided" ? "" : props.content
+              }
+              name={props.name}
+              onChange={props.onChange}
             ></textarea>
           ) : (
             <input
-              type={
-                props.title == "UID" || props.title == "Contact"
-                  ? "number"
-                  : "text"
-              }
+              type={props.title == "Contact" ? "number" : "text"}
               className="form-control"
               id=""
               placeholder={`Your ${props.title}`}
               style={{ width: "250px" }}
-              defaultValue={props.content}
+              defaultValue={
+                props.title == "Contact"
+                  ? props.content == 0
+                    ? ""
+                    : props.content
+                  : props.content == "Not Provided"
+                  ? ""
+                  : props.content
+              }
+              name={props.name}
+              onChange={props.onChange}
             />
           )}
         </div>

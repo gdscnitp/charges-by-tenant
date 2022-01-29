@@ -312,9 +312,6 @@ function EditTenant() {
                       No History
                     </span>
                   </div>
-                  {/* <div className="col-lg-1 col-sm-2">
-                <button className="a-edit">Edit</button>
-              </div> */}
                 </div>
               </div>
             </div>

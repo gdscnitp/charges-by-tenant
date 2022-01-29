@@ -1,6 +1,5 @@
 import LandingCardButton from "./LandingCardButton";
 import LandingCardContent from "./LandingCardContent";
-import HorizontalLine from "./HorizontalLine";
 
 function LandingPageCard(props) {
   return (
@@ -29,7 +28,10 @@ function LandingPageCard(props) {
                     leftHeading="Owner"
                     rightdata={props.owner}
                   />
-                  <LandingCardContent leftHeading="Rent" rightdata="15000/-" />
+                  <LandingCardContent
+                    leftHeading="Rent"
+                    rightdata={props.rent}
+                  />
                   <LandingCardContent
                     leftHeading="Address"
                     rightdata={props.address}
@@ -39,18 +41,20 @@ function LandingPageCard(props) {
               <div className="container">
                 <div>
                   <div className="a-button-container">
-                    <LandingCardButton
-                      classNameProp={props.class1}
-                      name={props.text1}
-                    />
-                    <LandingCardButton
-                      classNameProp={props.class2}
-                      name={props.text2}
-                    />
-                    <LandingCardButton
-                      classNameProp={props.class3}
-                      name={props.text3}
-                    />
+                    <div>
+                      <LandingCardButton
+                        classNameProp={props.class1}
+                        name={props.text1}
+                      />
+                      <LandingCardButton
+                        classNameProp={props.class2}
+                        name={props.text2}
+                      />
+                      <LandingCardButton
+                        classNameProp={props.class3}
+                        name={props.text3}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

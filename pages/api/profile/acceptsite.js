@@ -1,10 +1,18 @@
 import { sendSuccess, sendError } from "../../../helpers/help";
-var constants = require("../../../helpers/constants")
+var constants = require("../../../helpers/constants");
 import connectMongoDb from "../../../db/connect";
-var Sites = require("../../../models/sites")
-var History = require("../../../models/history")
+var config = require("../../../config/config")
+import {auth} from "../../../utility/auth"
+var Site = require("../../../models/Site");
+const {isEmail, isMongoId} = require("validator")
+var History = require("../../../models/history");
+var Sites  = require("../../../models/Site")
 
-export default async function handler(req,res){
+export default async function handler(req, res) {
+  if (req.method === "POST") {
+    var histId = req.body.histId; //history id
+    var accept = true;
+    accept = req.body.accept; //by default setting the route to accept this
 
     if(req.method === "PUT"){
         var histId = req.body.histId  //history id

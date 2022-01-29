@@ -1,16 +1,20 @@
 const mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
 
 const chargeSchema = new mongoose.Schema({
     site_id:{
         type:mongoose.Schema.Types.ObjectId,
-        requred:true
+        required:true,
+        ref:"Site",
     },
     tenant_id:{
         type:mongoose.Schema.Types.ObjectId,
-        requred:true
+        required:true,
+        ref:"Tenant"
     },
     isPaid:{
         type:Boolean,
+        default:false,
         required:true
     },
     description:{
@@ -22,4 +26,5 @@ const chargeSchema = new mongoose.Schema({
     
 },{timestamps:true});
 
-module.exports = mongoose.model("Charges",chargeSchema)
+
+module.exports = mongoose.models.Charge ||  mongoose.model("Charge",chargeSchema)

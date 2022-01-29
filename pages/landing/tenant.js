@@ -63,7 +63,6 @@ const Tenant = () => {
     }
   };
 
-  console.log(state);
   return (
     <div className="S_tenant">
       <link
