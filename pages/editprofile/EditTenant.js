@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import AfterEditContent from "./components/AfterEditContent";
 import BeforeEditContent from "./components/BeforeEditContent";
 import EditBirthday from "./components/EditBirthday";
@@ -12,11 +13,14 @@ import { useSnackbar } from "notistack";
 import axios from "axios";
 import AddressInput from "./components/AddressInput";
 import MyModal from "./components/MyModal";
+import * as ReactBootStrap from 'react-bootstrap'
 
 function EditTenant() {
   // Integration Code
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     getDetails();
   }, []);
@@ -35,6 +39,7 @@ function EditTenant() {
           type: "USER_INFO_FETCHING",
           payload: res.data?.data,
         });
+        setLoading(true);
       });
       enqueueSnackbar("Data Retrieved", { variant: "success" });
     } catch (err) {
@@ -244,6 +249,7 @@ function EditTenant() {
             type: "USER_INFO_UPDATING",
             payload: res.data?.data,
           });
+          setLoading(true);
           initialiseDetails();
           enqueueSnackbar("Details Editted", { variant: "success" });
           getDetails();
@@ -346,127 +352,139 @@ function EditTenant() {
   ];
 
   return (
-    <section>
-      <div className="Parent">
-        <Taskbar />
-        <div className="S_right">
-          <Heading head="Edit Profile Page" />
-          <div className="a-center">
-            <div className="a-edit-container shadow-lg rounded p-3 bg-white">
-              <strong>
-                <div className="a-title">Your Information</div>
-              </strong>
-              <div className="container">
-                {allContent.map((data) => {
-                  return (
-                    <div key={data.title} className="a-row-content">
-                      {data.toShow ? (
-                        data.title == "Address" ? (
-                          // Address Before Editing
-                          <div>
-                            <div className="row a-edit-content a-row-wrapper">
-                              <div className="col-lg-11 col-sm-10">
-                                <div className="a-title-small">Address</div>
+    <>
+      <Head>
+        <title>Edit Profile</title>
+      </Head>
+      {loading ? (
+        <section>
+          <div className="Parent">
+            <Taskbar />
+            <div className="S_right">
+              <Heading head="Edit Profile Page" />
+              <div className="a-center">
+                <div className="a-edit-container shadow-lg rounded p-3 bg-white">
+                  <strong>
+                    <div className="a-title">Your Information</div>
+                  </strong>
+                  <div className="container">
+                    {allContent.map((data) => {
+                      return (
+                        <div key={data.title} className="a-row-content">
+                          {data.toShow ? (
+                            data.title == "Address" ? (
+                              // Address Before Editing
+                              <div>
+                                <div className="row a-edit-content a-row-wrapper">
+                                  <div className="col-lg-11 col-sm-10">
+                                    <div className="a-title-small">Address</div>
+                                  </div>
+                                  <div className="col-lg-1 col-sm-2">
+                                    <button
+                                      className="a-edit"
+                                      onClick={editAddress}
+                                    >
+                                      Edit
+                                    </button>
+                                  </div>
+                                </div>
+                                <div className="container">
+                                  <BeforeEditAddress
+                                    title="First Line"
+                                    content={data.content.first_line}
+                                  />
+                                  <BeforeEditAddress
+                                    title="Landmark"
+                                    content={data.content.landmark}
+                                  />
+                                  <BeforeEditAddress
+                                    title="City"
+                                    content={data.content.city}
+                                  />
+                                  <BeforeEditAddress
+                                    title="State"
+                                    content={data.content.state}
+                                  />
+                                  <BeforeEditAddress
+                                    title="Pincode"
+                                    content={data.content.pincode}
+                                  />
+                                  <BeforeEditAddress
+                                    title="Country"
+                                    content={data.content.country}
+                                    editButtonClick={data.editButtonClick}
+                                  />
+                                </div>
                               </div>
-                              <div className="col-lg-1 col-sm-2">
-                                <button
-                                  className="a-edit"
-                                  onClick={editAddress}
-                                >
-                                  Edit
-                                </button>
-                              </div>
-                            </div>
-                            <div className="container">
-                              <BeforeEditAddress
-                                title="First Line"
-                                content={data.content.first_line}
-                              />
-                              <BeforeEditAddress
-                                title="Landmark"
-                                content={data.content.landmark}
-                              />
-                              <BeforeEditAddress
-                                title="City"
-                                content={data.content.city}
-                              />
-                              <BeforeEditAddress
-                                title="State"
-                                content={data.content.state}
-                              />
-                              <BeforeEditAddress
-                                title="Pincode"
-                                content={data.content.pincode}
-                              />
-                              <BeforeEditAddress
-                                title="Country"
-                                content={data.content.country}
+                            ) : (
+                              <BeforeEditContent
+                                title={data.title}
+                                content={data.content}
                                 editButtonClick={data.editButtonClick}
                               />
-                            </div>
-                          </div>
-                        ) : (
-                          <BeforeEditContent
-                            title={data.title}
-                            content={data.content}
-                            editButtonClick={data.editButtonClick}
-                          />
-                        )
-                      ) : data.title == "Address" ? (
-                        // Address while editing
-                        <AddressInput
-                          details={data}
-                          pushAddress={pushAddress}
-                          cancelClick={cancel}
-                        />
-                      ) : data.title == "Birthday" ? (
-                        <EditBirthday
-                          title={data.title}
-                          cancelClick={cancel}
-                          pushBirthday={pushBirthday}
-                        />
-                      ) : (
-                        <AfterEditContent
-                          title={data.title}
-                          content={data.content}
-                          saveClick={save}
-                          cancelClick={cancel}
-                          name={data.name}
-                          onChange={handleInput}
-                        />
-                      )}
+                            )
+                          ) : data.title == "Address" ? (
+                            // Address while editing
+                            <AddressInput
+                              details={data}
+                              pushAddress={pushAddress}
+                              cancelClick={cancel}
+                            />
+                          ) : data.title == "Birthday" ? (
+                            <EditBirthday
+                              title={data.title}
+                              cancelClick={cancel}
+                              pushBirthday={pushBirthday}
+                            />
+                          ) : (
+                            <AfterEditContent
+                              title={data.title}
+                              content={data.content}
+                              saveClick={save}
+                              cancelClick={cancel}
+                              name={data.name}
+                              onChange={handleInput}
+                            />
+                          )}
+                        </div>
+                      );
+                    })}
+
+                    {/* History */}
+                    <div className="row a-edit-content a-row-wrapper">
+                      <div className="col-lg-4 col-sm-12">
+                        <span className="a-edit-left-title">History</span>
+                      </div>
+                      <div className="col-lg-8 col-sm-12">
+                        <span className="a-edit-right-content a-not-provided">
+                          No History
+                        </span>
+                      </div>
                     </div>
-                  );
-                })}
 
-                {/* History */}
-                <div className="row a-edit-content a-row-wrapper">
-                  <div className="col-lg-4 col-sm-12">
-                    <span className="a-edit-left-title">History</span>
-                  </div>
-                  <div className="col-lg-8 col-sm-12">
-                    <span className="a-edit-right-content a-not-provided">
-                      No History
-                    </span>
-                  </div>
-                </div>
-
-                {/* Change Password */}
-                <div className="row a-edit-content a-row-wrapper">
-                  <div className="col-lg-4 col-sm-12">
-                    <MyModal
-                      buttonName="Change Password"
-                      details={details}
-                      updatePassword={updatePassword}
-                    />
+                    {/* Change Password */}
+                    <div className="row a-edit-content a-row-wrapper">
+                      <div className="col-lg-4 col-sm-12">
+                        <MyModal
+                          buttonName="Change Password"
+                          details={details}
+                          updatePassword={updatePassword}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </section>
+
+      ) : (
+        <div className="p_spinner">
+          <ReactBootStrap.Spinner animation="border" />
         </div>
-      </div>
-    </section>
+      )}
+    </>
   );
 }
 
