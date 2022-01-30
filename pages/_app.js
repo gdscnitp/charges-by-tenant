@@ -6,11 +6,11 @@ import "../styles/EditProfile.css";
 import "../styles/particularSite.css";
 import { SnackbarProvider } from "notistack";
 import { StoreProvider } from "../utility/Store";
-
 import "../styles/Transaction.css";
 import "../styles/p_auth.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {

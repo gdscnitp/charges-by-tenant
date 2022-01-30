@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Image from "next/image";
 import Total_Charges from "../../public/images/Total_Charges.png";
 import Header from "./components/Header";
@@ -10,11 +11,14 @@ import { Store } from "../../utility/Store";
 import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import axios from "axios";
+import * as ReactBootStrap from 'react-bootstrap'
 
 export default function ParticularSiteCharges() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const router = useRouter();
   const { dispatch, state } = useContext(Store);
+  const [loading, setLoading] = useState(false);
+
   // console.log(router.query?.site_id);
   // var address =
   //   state.?.site_id?.address?.first_line +
@@ -54,25 +58,26 @@ export default function ParticularSiteCharges() {
       },
     };
     try {
-      if(router.query?.site_id){
+      if (router.query?.site_id) {
         axios
-        .post(
-          "/api/charges/view",
-          {
-            siteId: router.query?.site_id,
-          },
-          config
-        )
-        .then((res) => {
-          dispatch({
-            type: "PARTICULAR_SITE_CHARGES",
-            payload: res.data,
+          .post(
+            "/api/charges/view",
+            {
+              siteId: router.query?.site_id,
+            },
+            config
+          )
+          .then((res) => {
+            dispatch({
+              type: "PARTICULAR_SITE_CHARGES",
+              payload: res.data,
+            });
+            setLoading(true);
+            console.log(res);
+            if (res.data?.success) {
+              enqueueSnackbar("Got Charges", { variant: "success" });
+            }
           });
-          console.log(res);
-          if (res.data?.success) {
-            enqueueSnackbar("Got Charges", { variant: "success" });
-          }
-        });
 
       }
     } catch (err) {
@@ -84,7 +89,12 @@ export default function ParticularSiteCharges() {
 
   return (
     <>
-      <div className="Parent">
+    <Head>
+        <title>Site Charges</title>
+    </Head>
+    {loading ? (
+      <>
+        <div className="Parent">
         <Taskbar />
         <div className="S_right">
           <div>
@@ -131,6 +141,13 @@ export default function ParticularSiteCharges() {
           </div>
         </div>
       </div>
+      </>
+    ):(
+      <div className="p_spinner">
+        <ReactBootStrap.Spinner animation="border" />
+      </div>
+    )}
+      
     </>
   );
 }

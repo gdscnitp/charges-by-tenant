@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Details from "./components/Details";
 import TableList from "./components/TableList";
 import Taskbar from "./components/Taskbar";
@@ -7,7 +8,7 @@ import { Store } from "../../utility/Store";
 import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import axios from "axios";
-
+import * as ReactBootStrap from 'react-bootstrap'
 const tableData = [
   // Comment delete mat karna apshabd
   // {
@@ -69,6 +70,7 @@ const tableData = [
 export default function Home() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getDetails();
@@ -88,6 +90,7 @@ export default function Home() {
           type: "VIEW_REQUESTS",
           payload: res.data,
         });
+        setLoading(true);
         console.log(res);
       });
     } catch (err) {
@@ -122,44 +125,57 @@ export default function Home() {
   };
 
   return (
-    <div className="Parent">
-      {console.log(state.userInfo)}
-      <Taskbar />
-      <div className="S_right">
-        <Details
-          name={state.userInfo?.firstName}
-          email={state.userInfo?.email}
-          detail1={state.userInfo?.contact}
-          detail2={state.userInfo?.username}
-          detail3={state.userInfo?.email}
-          detail4={state.userInfo?.firstName + " " + state.userInfo?.lastName}
-        />
-        <hr />
-        <div className="S_rightBottom">
-          <Header head="Your Sites" />
+    <>
+    <Head>
+        <title>Profile</title>
+    </Head>
+      {loading ? (
+        <div className="Parent">
+          {console.log(state.userInfo)}
+          <Taskbar />
+          <div className="S_right">
+            <Details
+              name={state.userInfo?.firstName}
+              email={state.userInfo?.email}
+              detail1={state.userInfo?.contact}
+              detail2={state.userInfo?.username}
+              detail3={state.userInfo?.email}
+              detail4={state.userInfo?.firstName + " " + state.userInfo?.lastName}
+            />
+            <hr />
+            <div className="S_rightBottom">
+              <Header head="Your Sites" />
 
-          <TableList
-            tableclass="table-striped Stable"
-            flat="Flat No."
-            loc="Address"
-            siteName="Site Name"
-            available="Type"
-            view="View"
-            tableData={tableData}
-            allDetails={state.siteDetail}
-          />
+              <TableList
+                tableclass="table-striped Stable"
+                flat="Flat No."
+                loc="Address"
+                siteName="Site Name"
+                available="Type"
+                view="View"
+                tableData={tableData}
+                allDetails={state.siteDetail}
+              />
 
-          {/* <TableList
-            tableclass="table-striped Stable"
-            flat="Flat-402"
-            loc="Near Road, XYZ Town, ABC"
-            siteName="From: 04 Dec 2021"
-            available="Residential"
-            view="View"
-            tableData={tableData}
-          /> */}
+              {/* <TableList
+                  tableclass="table-striped Stable"
+                  flat="Flat-402"
+                  loc="Near Road, XYZ Town, ABC"
+                  siteName="From: 04 Dec 2021"
+                  available="Residential"
+                  view="View"
+                  tableData={tableData}
+                /> */}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <div className="p_spinner">
+            <ReactBootStrap.Spinner animation="border"/>
+        </div>
+        )
+      }
+    </>
+
   );
 }

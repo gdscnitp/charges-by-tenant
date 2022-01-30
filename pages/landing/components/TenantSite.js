@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import LandingPageCard from "./LandingPageCard";
 import Heading from "./Heading";
 import HorizontalLine from "./HorizontalLine";
@@ -7,6 +8,7 @@ import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import axios from "axios";
+import * as ReactBootStrap from 'react-bootstrap'
 
 var i = 0;
 
@@ -29,6 +31,8 @@ const cardContents = [
 const TenantSite = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     getDetails();
   }, []);
@@ -72,6 +76,7 @@ const TenantSite = () => {
           type: "VIEW_REQUESTS",
           payload: res.data,
         });
+        setLoading(true);
       });
     } catch (err) {
       enqueueSnackbar(err.message, { variant: "error" });
@@ -80,10 +85,14 @@ const TenantSite = () => {
   var count = 0;
   return (
     <>
-      <Heading head="Your Sites" />
-      <HorizontalLine />
-
-      {state.siteDetail?.map((data) => {
+    <Head>
+        <title>Your Sites</title>
+    </Head>
+      {loading ? (
+      <>
+       <Heading head="Your Sites" />
+       <HorizontalLine />
+       {state.siteDetail?.map((data) => {
         if (data.status == "1") {
           count++;
           return (
@@ -107,6 +116,12 @@ const TenantSite = () => {
         }
       })}
       {count == 0 ? "NO ACCEPTED SITES" : ""}
+      </>
+      ):(
+      <div className="p_spinner">
+        <ReactBootStrap.Spinner animation="border" variant="light"/>
+      </div>
+    )}
     </>
   );
 };

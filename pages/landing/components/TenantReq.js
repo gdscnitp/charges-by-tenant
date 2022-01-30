@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import LandingPageCard from "./LandingPageCard";
 import Heading from "./Heading";
 import HorizontalLine from "./HorizontalLine";
@@ -8,10 +9,13 @@ import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import axios from "axios";
+import * as ReactBootStrap from 'react-bootstrap'
 
 const TenantReq = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     getDetails();
   }, []);
@@ -55,6 +59,7 @@ const TenantReq = () => {
           type: "VIEW_REQUESTS",
           payload: res.data,
         });
+        setLoading(true);
       });
     } catch (err) {
       // console.log(err);
@@ -69,7 +74,12 @@ const TenantReq = () => {
 
   return (
     <>
-      <Heading head="Your Requests" />
+    <Head>
+        <title>Requests</title>
+    </Head>
+    {loading ? (
+      <>
+          <Heading head="Your Requests" />
       <HorizontalLine />
       {allSiteDetails
         ? allSiteDetails?.map((data) => {
@@ -89,6 +99,13 @@ const TenantReq = () => {
             }
           })
         : "There are curently no requests."}
+      </>
+    ):(
+      <div className="p_spinner">
+        <ReactBootStrap.Spinner animation="border" variant="light"/>
+      </div>
+    )}
+      
     </>
   );
 };
