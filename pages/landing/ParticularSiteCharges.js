@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import RentersList from "./components/RentersList";
+import ChargesList from "./components/ChargesList";
 import Image from "next/image";
 import ParticularSite from "../../public/images/ParticularSite.png";
 import NameLabel from "../components/NameLabel";
@@ -10,74 +10,42 @@ import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-export default function ParticularSiteComponent() {
+export default function ParticularSiteC() {
   const router = useRouter();
 
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
-  // useEffect(async () => {
-  //   await getDetails();
-  // }, []);
 
-  const getDetails = async () => {
-    if (state.userInfo?.token) {
-      closeSnackbar();
-      let config = {
-        headers: {
-          authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
-        },
-      };
-      try {
-        axios.post("/api/auth/users/login", {}, config).then((res) => {
-          dispatch({
-            type: "USER_INFO_FETCHING",
-            payload: res.data?.data,
-          });
+  
+
+  const getAllCharges = async () => {
+    console.log("get all called");
+    closeSnackbar();
+    let config = {
+      headers: {
+        authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
+      },
+    };
+    try {
+      await axios.get("/api/charges/viewAll", config).then((res) => {
+        dispatch({
+          type: "ALL_CHARGES",
+          payload: res.data,
         });
-
-        enqueueSnackbar("Data Retrieved", { variant: "success" });
-      } catch (err) {
-        enqueueSnackbar(err.response?.data?.message, { variant: "error" });
-      }
-    } else {
-      enqueueSnackbar("Login/Signup required", { varient: "success" });
+      });
+    } catch (err) {
+      enqueueSnackbar(err.message, { variant: "error" });
     }
   };
 
-  // useEffect(() => {
-  //   getSite();
-  // }, []);
-
-  const getSite = async () => {
-    if (Cookies.get("userInfo")) {
-      closeSnackbar();
-
-      let config = {
-        headers: {
-          authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
-        },
-      };
-
-      try {
-        await axios.get(`/api/site/${router.query.id}`, config).then((res) => {
-          dispatch({
-            type: "GET_PARTICULAR_SITE",
-            payload: res.data,
-          });
-        });
-
-        // enqueueSnackbar("Site Loaded", { variant: "success" });
-      } catch (err) {
-        enqueueSnackbar(err.response?.data?.message, { variant: "error" });
-      }
-    } else {
-      enqueueSnackbar("Signup/signin Required", { varient: "success" });
-    }
-  };
+  useEffect(() => {
+    getAllCharges();
+  }, []);
+  console.log(state.allCharges);
 
   return (
     <>
-      <div className="p_sitepage">
+      {/* <div className="p_sitepage">
         <Header header="Site Status" />
         <link
           rel="stylesheet"
@@ -112,9 +80,10 @@ export default function ParticularSiteComponent() {
             <Image src={ParticularSite} alt="sub" />
           </div>
         </div>
+
         <div className="p_particular">
           {state.siteDetail.current_tenant?.length > 0 ? (
-            <RentersList
+            <ChargesList
               head="Renters Alloted"
               tenantDetails={state.siteDetail?.current_tenant[0]}
               historyDetail={state.siteDetail?.history[0]}
@@ -129,10 +98,7 @@ export default function ParticularSiteComponent() {
             "There no Tenant for this site"
           )}
         </div>
-        {/* <div className='btn3'>
-                    <button className='btn1 p_btr'>Add New Tenant</button>
-                </div> */}
-      </div>
+      </div> */}
     </>
   );
 }

@@ -86,7 +86,10 @@ function RequestPageCard(props) {
                     leftHeading="Owner"
                     rightdata={props.owner}
                   />
-                  <LandingCardContent leftHeading="Rent" rightdata="15000/-" />
+                  <LandingCardContent
+                    leftHeading="Rent"
+                    rightdata={props.rent}
+                  />
                   <LandingCardContent
                     leftHeading="Address"
                     rightdata={props.address}
