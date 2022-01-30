@@ -39,7 +39,7 @@ const ChargesList = (props) => {
   const totalExtraCharges = (description) => {
     var descriptionKeys = Object.keys(description);
     var totalCharges = 0;
-    descriptionKeys.map((data, index) => {
+    descriptionKeys?.map((data, index) => {
       totalCharges = totalCharges + parseInt(description[data]);
     });
     return totalCharges;
@@ -77,7 +77,7 @@ const ChargesList = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.allCharges.map((data, index) => {
+          {props.allCharges?.map((data, index) => {
             var totalCharges = totalExtraCharges(data.description);
             var rent = data.site_id?.rent;
             var address =
