@@ -1,7 +1,7 @@
 import constants from "../../../helpers/constants";
 import { sendSuccess, sendError } from "../../../helpers/help";
 // var constants = require("../../../helpers/constants");
-// import connectMongoDb from "../../../db/connect";
+import connectMongoDb from "../../../db/connect";
 // var config = require("../../../config/config")
 import {auth} from "../../../utility/auth"
 var Site = require("../../../models/Site");
