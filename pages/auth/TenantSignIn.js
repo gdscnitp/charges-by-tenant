@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Image from "next/image";
 import Tenant from "../../public/images/tenant.png";
 import Home_fill from "../../public/images/Home_fill.png";
@@ -67,6 +68,9 @@ function Tenant_signin() {
 
   return (
     <>
+      <Head>
+        <title>Tenant SignIn</title>
+      </Head>
       <div className="main1">
         <link
           rel="stylesheet"

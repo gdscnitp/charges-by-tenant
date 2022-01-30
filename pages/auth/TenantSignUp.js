@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import Tenant from "../../public/images/tenant.png";
@@ -71,6 +72,9 @@ function Tenant_Signup() {
 
   return (
     <>
+      <Head>
+        <title>Tenant SignUp</title>
+      </Head>
       <div className="main">
         <section className="signup">
           <link
