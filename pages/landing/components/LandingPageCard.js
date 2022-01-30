@@ -45,6 +45,7 @@ function LandingPageCard(props) {
                       <LandingCardButton
                         classNameProp={props.class1}
                         name={props.text1}
+                        link={`/charges/ParticularSiteCharges?site_id=${props.site_id}`}
                       />
                       <LandingCardButton
                         classNameProp={props.class2}

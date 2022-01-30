@@ -16,6 +16,8 @@ export default function ParticularSiteC() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
 
+  
+
   const getAllCharges = async () => {
     console.log("get all called");
     closeSnackbar();

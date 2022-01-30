@@ -89,6 +89,7 @@ const TenantSite = () => {
           return (
             <div key={i++}>
               <LandingPageCard
+                site_id={data.site_id?._id}
                 alias={data.site_id?.alias_name}
                 owner={data.site_id?.owner}
                 rent={data.site_id?.rent}

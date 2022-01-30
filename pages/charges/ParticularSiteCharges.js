@@ -27,7 +27,7 @@ export default function ParticularSiteCharges() {
 
   useEffect(() => {
     getCharges();
-  }, []);
+  }, [router.query?.site_id]);
 
   const getAddress = () => {
     var address =
@@ -54,7 +54,8 @@ export default function ParticularSiteCharges() {
       },
     };
     try {
-      axios
+      if(router.query?.site_id){
+        axios
         .post(
           "/api/charges/view",
           {
@@ -72,6 +73,8 @@ export default function ParticularSiteCharges() {
             enqueueSnackbar("Got Charges", { variant: "success" });
           }
         });
+
+      }
     } catch (err) {
       enqueueSnackbar(err.response?.data?.message, { variant: "error" });
     }
