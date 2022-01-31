@@ -10,7 +10,6 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
 import { TitleCaseFormatter } from "../../functions/Formatters/TitleCaseFormatter";
-import { SentenceCaseFormatter } from "../../functions/Formatters/SentenceCaseFormatter";
 
 var i = 0;
 
@@ -98,16 +97,29 @@ const TenantSite = () => {
           {state.siteDetail?.map((data) => {
             if (data.status == "1") {
               count++;
+              var address =
+                data?.site_id?.address?.first_line +
+                ", " +
+                data?.site_id?.address?.landmark +
+                ", " +
+                data?.site_id?.address?.city +
+                ", " +
+                data?.site_id?.address?.state +
+                ", " +
+                data?.site_id?.address?.country +
+                ", " +
+                "Pincode: " +
+                data?.site_id?.address?.pincode;
+
               return (
                 <div key={i++}>
                   <LandingPageCard
                     site_id={data.site_id?._id}
+                    leave_id={data._id}
                     alias={TitleCaseFormatter(data.site_id?.alias_name)}
                     owner={TitleCaseFormatter(data.site_id?.owner)}
                     rent={data.site_id?.rent}
-                    address={TitleCaseFormatter(
-                      `${data?.site_id?.address?.first_line}, ${data?.site_id?.address?.landmark}, ${data?.site_id?.address?.city}, ${data?.site_id?.address?.state}, ${data?.site_id?.address?.country} P.O: ${data?.site_id?.address?.pincode}`
-                    )}
+                    address={TitleCaseFormatter(address)}
                     cclass="a-panel"
                     class1="btn-warning"
                     text1="Details"

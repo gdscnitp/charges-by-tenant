@@ -1,7 +1,40 @@
 import LandingCardButton from "./LandingCardButton";
 import LandingCardContent from "./LandingCardContent";
+import Cookies from "js-cookie";
+import { useSnackbar } from "notistack";
+import { useRouter } from "next/router";
+import axios from "axios";
 
 function LandingPageCard(props) {
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const router = useRouter();
+
+  const leaveSite = async () => {
+    console.log();
+    closeSnackbar();
+    let config = {
+      headers: {
+        authorization: "b " + JSON.parse(Cookies.get("userInfo")).data.token,
+      },
+    };
+    try {
+      var leaveObject = { histId: props.leave_id };
+      console.log(leaveObject);
+      axios.post("/api/profile/leavesite", leaveObject, config).then((res) => {
+        console.log(res);
+        if (res.data?.success) {
+          enqueueSnackbar("Site left", { variant: "success" });
+          router.push("/profile/tenant"); 
+        }
+      });
+    } catch (err) {
+      enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+    }
+  };
+
+  const leaveHandler = () => {
+    leaveSite();
+  };
   return (
     <section className="a-card">
       <div
@@ -55,6 +88,14 @@ function LandingPageCard(props) {
                         classNameProp={props.class3}
                         name={props.text3}
                       />
+                      <div className="a-landing-card-button">
+                      <button
+                        className="btn btn-danger a-landing-card-button"
+                        onClick={leaveHandler}
+                      >
+                        Leave
+                      </button>
+                    </div>
                     </div>
                   </div>
                 </div>
