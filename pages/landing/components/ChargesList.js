@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { TitleCaseFormatter } from "../../functions/Formatters/TitleCaseFormatter";
 
 const ChargesList = (props) => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -90,8 +91,8 @@ const ChargesList = (props) => {
               data?.site_id?.address?.state;
             return (
               <tr key={index}>
-                <td>{data.site_id?.alias_name}</td>
-                <td>{address}</td>
+                <td>{TitleCaseFormatter(data.site_id?.alias_name)}</td>
+                <td>{TitleCaseFormatter(address)}</td>
                 <td>{rent}</td>
                 <td>{totalCharges}</td>
                 <td>{rent + totalCharges}</td>

@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 import Details from "./components/Details";
 import TableList from "./components/TableList";
 import Taskbar from "./components/Taskbar";
@@ -8,64 +8,8 @@ import { Store } from "../../utility/Store";
 import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import axios from "axios";
-import * as ReactBootStrap from 'react-bootstrap'
-const tableData = [
-  // Comment delete mat karna apshabd
-  // {
-  //   FlatNo:
-  //   Addres:
-  //   AliasName:
-  //   PataNahi:
-  // },
-  {
-    col1: "Flat-402",
-    col2: "Near Road, XYZ Town, ABC",
-    col3: "Dummy",
-    col4: "Residential",
-  },
-  {
-    col1: "Flat-402",
-    col2: "Near Road, XYZ Town, ABC",
-    col3: "Dummy",
-    col4: "Residential",
-  },
-  {
-    col1: "Flat-402",
-    col2: "Near Road, XYZ Town, ABC",
-    col3: "Dummy",
-    col4: "Residential",
-  },
-  {
-    col1: "Flat-402",
-    col2: "Near Road, XYZ Town, ABC",
-    col3: "Dummy",
-    col4: "Residential",
-  },
-  {
-    col1: "Flat-402",
-    col2: "Near Road, XYZ Town, ABC",
-    col3: "Dummy",
-    col4: "Residential",
-  },
-  {
-    col1: "Flat-402",
-    col2: "Near Road, XYZ Town, ABC",
-    col3: "Dummy",
-    col4: "Residential",
-  },
-  {
-    col1: "Flat-402",
-    col2: "Near Road, XYZ Town, ABC",
-    col3: "Dummy",
-    col4: "Residential",
-  },
-  {
-    col1: "Flat-402",
-    col2: "Near Road, XYZ Town, ABC",
-    col3: "Dummy",
-    col4: "Residential",
-  },
-];
+import * as ReactBootStrap from "react-bootstrap";
+import { TitleCaseFormatter } from "../functions/Formatters/TitleCaseFormatter";
 
 export default function Home() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -126,21 +70,24 @@ export default function Home() {
 
   return (
     <>
-    <Head>
+      <Head>
         <title>Profile</title>
-    </Head>
+      </Head>
       {loading ? (
         <div className="Parent">
-          {console.log(state.userInfo)}
           <Taskbar />
           <div className="S_right">
             <Details
-              name={state.userInfo?.firstName}
+              name={TitleCaseFormatter(state.userInfo?.firstName)}
               email={state.userInfo?.email}
               detail1={state.userInfo?.contact}
               detail2={state.userInfo?.username}
               detail3={state.userInfo?.email}
-              detail4={state.userInfo?.firstName + " " + state.userInfo?.lastName}
+              detail4={
+                TitleCaseFormatter(state.userInfo?.firstName) +
+                " " +
+                TitleCaseFormatter(state.userInfo?.lastName)
+              }
             />
             <hr />
             <div className="S_rightBottom">
@@ -153,7 +100,6 @@ export default function Home() {
                 siteName="Site Name"
                 available="Type"
                 view="View"
-                tableData={tableData}
                 allDetails={state.siteDetail}
               />
 
@@ -171,11 +117,9 @@ export default function Home() {
         </div>
       ) : (
         <div className="p_spinner">
-            <ReactBootStrap.Spinner animation="border"/>
+          <ReactBootStrap.Spinner animation="border" />
         </div>
-        )
-      }
+      )}
     </>
-
   );
 }

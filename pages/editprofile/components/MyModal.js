@@ -98,6 +98,7 @@ function MyModal(props) {
   const handleSubmit = () => {
     if (validatePassword(password.newPassword, password.confirmPassword)) {
       props.updatePassword(detailsWithPassword);
+      handleClose();
     }
   };
 

@@ -1,3 +1,5 @@
+import { TitleCaseFormatter } from "../../functions/Formatters/TitleCaseFormatter";
+
 const Identity = (props) => {
   return (
     <div className="S_landing">
@@ -8,7 +10,9 @@ const Identity = (props) => {
             src="/images/Profile.svg"
             alt="Profile"
           />
-          <div className="name">{props.userDetails?.firstName}</div>
+          <div className="name">
+            {TitleCaseFormatter(props.userDetails?.firstName)}
+          </div>
         </div>
         <div className="S_menu">
           <div className="S_option S_option1" onClick={() => props.onShow1()}>
