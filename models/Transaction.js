@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+import { sendError } from "/helpers/help";
+var Charge  = require("/Charge")
 mongoose.Promise = global.Promise;
 
 const tranSchema = new mongoose.Schema({
@@ -26,5 +28,21 @@ const tranSchema = new mongoose.Schema({
         ref: 'Tenant'
     }
 },{timestamps:true});
+
+tranSchema.pre('save', (next) => {
+    var chargeId = this.charge_id;
+
+    Charge.findById(chargeId, function(err, chargeData){
+        if(err) return sendError(res,err.message,500)
+        else{
+            if(chargeData.isPaid==true){
+                return next();
+            }
+            else{
+                return next("Tenant has not completed the transaction");
+            }
+        }
+    })
+})
 
 module.exports = mongoose.models.Transaction || mongoose.model("Transaction",tranSchema)

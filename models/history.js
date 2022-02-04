@@ -38,26 +38,19 @@ const historySchema = new mongoose.Schema({
 },{timestamps:true})
 
 module.exports = mongoose.models.History || mongoose.model("History",historySchema)
-/*historySchema.pre("save",(next) => {
+historySchema.pre("save",(next) => {
 
-if(this.requested('requested_at')){
-   this.requested_at = Date.now;
-   next(); 
-}
+    var tenantId = this.tenant_id;
+    var siteId = this.site_id;
 
-else if(this.joined('joined_at')){
-    this.joined_at = Date.now;
-    next(); 
-}
-
-else if(this.left('leave_at')){
-    this.leave_at = Date.now;
-    next(); 
-}
-
-else{
-    return next();
-}
+    if(tenantId && siteId){
+        if(this.status<2){
+            return Promise.reject('New document cannot be created');
+        }
+            else{
+                return next();
+        }
+    }
 
 })
-*/
+

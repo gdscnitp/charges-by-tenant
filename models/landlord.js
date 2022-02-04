@@ -63,6 +63,7 @@ const landlordSchema = new mongoose.Schema(
     verification: {
       type: String,
       enum: ["Aadhar", "VoterID", "PanCard"],
+      trim: true
     },
     account: {
       acc_num: {
@@ -80,28 +81,28 @@ const landlordSchema = new mongoose.Schema(
 );
 
 //when landlord updates password
-// landlordSchema.pre('save',(next)=>{
+landlordSchema.pre('save',(next)=>{
 
-//     if(!this.isModified('password')){
-//         return next();
-//     }
-//     const user = this;
-//     bcrypt.genSalt(10, function(err, salt){
-//         if (err){ return next(err) }
+    if(!this.isModified('password')){
+        return next();
+    }
+    const user = this;
+    bcrypt.genSalt(10, function(err, salt){
+        if (err){ return next(err) }
 
-//         bcrypt.hash(user.password, salt, null, function(err, hash){
-//             if(err){return next(err)}
+        bcrypt.hash(user.password, salt, null, function(err, hash){
+            if(err){return next(err)}
 
-//             else if(user.password == hash){
-//                 return next("new password cannot be same as previous password")
-//             }
+            else if(user.password == hash){
+                return next("new password cannot be same as previous password")
+            }
 
-//             user.password = hash;
-//             next();
-//         })
-//     })
+            user.password = hash;
+            next();
+        })
+    })
 
-// });
+});
 
 module.exports =
   mongoose.models.Landlord || mongoose.model("Landlord", landlordSchema);
