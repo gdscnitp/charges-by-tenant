@@ -17,7 +17,7 @@ const historySchema = new mongoose.Schema({
     status:{
         type:String,
         default:"0"
-        // 0 means requested, 1 means joined and 2 means lefted    
+        // 0 means requested, 1 means joined and 2 means left   
     },
     requested_at:{
         type:Date
@@ -38,26 +38,19 @@ const historySchema = new mongoose.Schema({
 },{timestamps:true})
 
 module.exports = mongoose.models.History || mongoose.model("History",historySchema)
-/*historySchema.pre("save",(next) => {
 
-if(this.requested('requested_at')){
-   this.requested_at = Date.now;
-   next(); 
-}
+historySchema.pre("save",(next) => {
 
-else if(this.joined('joined_at')){
-    this.joined_at = Date.now;
-    next(); 
-}
+    var tenantId = this.tenant_id;
+    var siteId = this.site_id;
 
-else if(this.left('leave_at')){
-    this.leave_at = Date.now;
-    next(); 
-}
-
-else{
-    return next();
-}
+    if(tenantId && siteId){
+        if(this.status<2){
+            return Promise.reject('New document cannot be created');
+        }
+        else{
+            return next();
+        }
+    }
 
 })
-*/

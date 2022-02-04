@@ -68,3 +68,4 @@ export default async function handler(req, res) {
         return sendError(res, err.message, 500)
     }
 }
+}
