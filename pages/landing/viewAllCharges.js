@@ -1,16 +1,13 @@
-import Head from 'next/head'
+import Head from "next/head";
 import Header from "../components/Header";
 import ChargesList from "./components/ChargesList";
-import Image from "next/image";
-import ParticularSite from "../../public/images/ParticularSite.png";
-import NameLabel from "../components/NameLabel";
 import React, { useContext, useEffect, useState } from "react";
 import { Store } from "../../utility/Store";
 import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import axios from "axios";
-import * as ReactBootStrap from 'react-bootstrap'
+import * as ReactBootStrap from "react-bootstrap";
 
 export default function ViewAllCharges() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -44,33 +41,32 @@ export default function ViewAllCharges() {
 
   return (
     <>
-    <Head>
+      <Head>
         <title>All Charges</title>
-    </Head>
-    {loading ? (
-      <div className="p_sitepage">
-      <Header header="All Charges for Your Site" />
-      <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossOrigin="anonymous"
-      />
+      </Head>
+      {loading ? (
+        <div className="p_sitepage">
+          <Header header="All Charges for Your Site" />
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossOrigin="anonymous"
+          />
 
-      <div className="p_particular mt-5">
-        {state.allCharges?.length > 0 ? (
-          <ChargesList head="All Charges" allCharges={state.allCharges} />
-        ) : (
-          "There are no charges to display"
-        )}
-      </div>
-    </div>
-    ):(
-      <div className="p_spinner">
-        <ReactBootStrap.Spinner animation="border" variant="light"/>
-      </div>
-    )}
-      
+          <div className="p_particular mt-5">
+            {state.allCharges?.length > 0 ? (
+              <ChargesList head="All Charges" allCharges={state.allCharges} />
+            ) : (
+              "There are no charges to display"
+            )}
+          </div>
+        </div>
+      ) : (
+        <div className="p_spinner">
+          <ReactBootStrap.Spinner animation="border" variant="light" />
+        </div>
+      )}
     </>
   );
 }

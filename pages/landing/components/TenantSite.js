@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 import LandingPageCard from "./LandingPageCard";
 import Heading from "./Heading";
 import HorizontalLine from "./HorizontalLine";
@@ -8,7 +8,8 @@ import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import axios from "axios";
-import * as ReactBootStrap from 'react-bootstrap'
+import * as ReactBootStrap from "react-bootstrap";
+import { TitleCaseFormatter } from "../../../utility/functions/Formatters/TitleCaseFormatter";
 
 var i = 0;
 
@@ -82,47 +83,62 @@ const TenantSite = () => {
       enqueueSnackbar(err.message, { variant: "error" });
     }
   };
+
   var count = 0;
   return (
     <>
-    <Head>
+      <Head>
         <title>Your Sites</title>
-    </Head>
+      </Head>
       {loading ? (
-      <>
-       <Heading head="Your Sites" />
-       <HorizontalLine />
-       {state.siteDetail?.map((data) => {
-        if (data.status == "1") {
-          count++;
-          return (
-            <div key={i++}>
-              <LandingPageCard
-                site_id={data.site_id?._id}
-                leave_id={data._id}
-                alias={data.site_id?.alias_name}
-                owner={data.site_id?.owner}
-                rent={data.site_id?.rent}
-                address={`${data?.site_id?.address?.first_line}, ${data?.site_id?.address?.landmark}, ${data?.site_id?.address?.city}, ${data?.site_id?.address?.state}, ${data?.site_id?.address?.country} P.O: ${data?.site_id?.address?.pincode}`}
-                cclass="a-panel"
-                class1="btn-warning"
-                text1="Details"
-                class2="btn-warning a-margin-left"
-                text2="History"
-                class3="btn-success px-2"
-                text3="Paid"
-              />
-            </div>
-          );
-        }
-      })}
-      {count == 0 ? "NO ACCEPTED SITES" : ""}
-      </>
-      ):(
-      <div className="p_spinner">
-        <ReactBootStrap.Spinner animation="border" variant="light"/>
-      </div>
-    )}
+        <>
+          <Heading head="Your Sites" />
+          <HorizontalLine />
+          {state.siteDetail?.map((data) => {
+            if (data.status == "1") {
+              count++;
+              var address =
+                data?.site_id?.address?.first_line +
+                ", " +
+                data?.site_id?.address?.landmark +
+                ", " +
+                data?.site_id?.address?.city +
+                ", " +
+                data?.site_id?.address?.state +
+                ", " +
+                data?.site_id?.address?.country +
+                ", " +
+                "Pincode: " +
+                data?.site_id?.address?.pincode;
+
+              return (
+                <div key={i++}>
+                  <LandingPageCard
+                    site_id={data.site_id?._id}
+                    leave_id={data._id}
+                    alias={TitleCaseFormatter(data.site_id?.alias_name)}
+                    owner={TitleCaseFormatter(data.site_id?.owner)}
+                    rent={data.site_id?.rent}
+                    address={TitleCaseFormatter(address)}
+                    cclass="a-panel"
+                    class1="btn-warning"
+                    text1="Details"
+                    class2="btn-warning a-margin-left"
+                    text2="History"
+                    class3="btn-success px-2"
+                    text3="Paid"
+                  />
+                </div>
+              );
+            }
+          })}
+          {count == 0 ? "NO ACCEPTED SITES" : ""}
+        </>
+      ) : (
+        <div className="p_spinner">
+          <ReactBootStrap.Spinner animation="border" variant="light" />
+        </div>
+      )}
     </>
   );
 };

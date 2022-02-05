@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 import Image from "next/image";
 import Total_Charges from "../../public/images/Total_Charges.png";
 import Header from "./components/Header";
@@ -11,7 +11,7 @@ import { Store } from "../../utility/Store";
 import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import axios from "axios";
-import * as ReactBootStrap from 'react-bootstrap'
+import * as ReactBootStrap from "react-bootstrap";
 
 export default function ParticularSiteCharges() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -78,7 +78,6 @@ export default function ParticularSiteCharges() {
               enqueueSnackbar("Got Charges", { variant: "success" });
             }
           });
-
       }
     } catch (err) {
       enqueueSnackbar(err.response?.data?.message, { variant: "error" });
@@ -89,65 +88,72 @@ export default function ParticularSiteCharges() {
 
   return (
     <>
-    <Head>
+      <Head>
         <title>Site Charges</title>
-    </Head>
-    {loading ? (
-      <>
-        <div className="Parent">
-        <Taskbar />
-        <div className="S_right">
-          <div>
-            <link
-              rel="stylesheet"
-              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-              crossOrigin="anonymous"
-            ></link>
-            <link
-              rel="stylesheet"
-              href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-              integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-              crossOrigin="anonymous"
-            />
+      </Head>
+      {loading ? (
+        <>
+          <div className="Parent">
+            <Taskbar />
+            <div className="S_right">
+              <div>
+                <link
+                  rel="stylesheet"
+                  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+                  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+                  crossOrigin="anonymous"
+                ></link>
+                <link
+                  rel="stylesheet"
+                  href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+                  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+                  crossOrigin="anonymous"
+                />
+                {state.particularSiteCharges?.length <= 0 ? (
+                  <div>
+                    <Header header="Total Charges" />
+                    No charges to display
+                  </div>
+                ) : (
+                  <div className="p_right">
+                    <Header header="Total Charges" />
 
-            <div className="p_right">
-              <Header header="Total Charges" />
+                    <NameLabel
+                      label="Alias Name"
+                      details={
+                        state.particularSiteCharges[0]?.site_id?.alias_name
+                      }
+                    />
+                    <NameLabel
+                      label="Type"
+                      details={state.particularSiteCharges[0]?.site_id?.Type}
+                    />
+                    <NameLabel label="Address" details={getAddress()} />
 
-              <NameLabel
-                label="Alias Name"
-                details={state.particularSiteCharges[0]?.site_id?.alias_name}
-              />
-              <NameLabel
-                label="Type"
-                details={state.particularSiteCharges[0]?.site_id?.Type}
-              />
-              <NameLabel label="Address" details={getAddress()} />
-
-              {state.particularSiteCharges.map((data, index) => {
-                console.log(data);
-                return (
-                  <TotalchargesCard
-                    key={index}
-                    description={data.description}
-                    siteDetails={data.site_id}
-                  />
-                );
-              })}
-            </div>
-            <div className="tc">
-              <Image src={Total_Charges} alt="TC" />
+                    {state.particularSiteCharges.map((data, index) => {
+                      console.log(data);
+                      return (
+                        <TotalchargesCard
+                          key={index}
+                          description={data.description}
+                          siteDetails={data.site_id}
+                        />
+                      );
+                    })}
+                  </div>
+                )}
+                <div className="tc">
+                  <Image src={Total_Charges} alt="TC" />
+                </div>
+              </div>
             </div>
           </div>
+        </>
+      ) : (
+        <div className="p_spinner">
+          <ReactBootStrap.Spinner animation="border" />
         </div>
-      </div>
-      </>
-    ):(
-      <div className="p_spinner">
-        <ReactBootStrap.Spinner animation="border" />
-      </div>
-    )}
-      
+      )}
     </>
   );
 }
