@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 import { sendError } from "/helpers/help";
-var Charge  = require("/Charge")
+var Charge  = require("../models/Charge")
 mongoose.Promise = global.Promise;
 
 const tranSchema = new mongoose.Schema({
