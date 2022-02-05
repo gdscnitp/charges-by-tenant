@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 import AfterEditContent from "./components/AfterEditContent";
 import BeforeEditContent from "./components/BeforeEditContent";
 import EditBirthday from "./components/EditBirthday";
@@ -13,7 +13,8 @@ import { useSnackbar } from "notistack";
 import axios from "axios";
 import AddressInput from "./components/AddressInput";
 import MyModal from "./components/MyModal";
-import * as ReactBootStrap from 'react-bootstrap'
+import { AllFormatter } from "../../utility/functions/Formatters/AllFormatter";
+import * as ReactBootStrap from "react-bootstrap";
 
 function EditTenant() {
   // Integration Code
@@ -166,39 +167,39 @@ function EditTenant() {
         : notProvided,
       firstName: state.userInfo?.firstName
         ? state.userInfo.firstName.length
-          ? state.userInfo.firstName
+          ? AllFormatter(state.userInfo.firstName, 4)
           : notProvided
         : notProvided,
       lastName: state.userInfo?.lastName
         ? state.userInfo.lastName.length
-          ? state.userInfo.lastName
+          ? AllFormatter(state.userInfo.lastName, 4)
           : notProvided
         : notProvided,
       contact: state.userInfo?.contact ? state.userInfo.contact : 0,
       address: {
         first_line: state.userInfo?.address?.first_line
           ? state.userInfo?.address?.first_line.length
-            ? state.userInfo?.address?.first_line
+            ? AllFormatter(state.userInfo?.address?.first_line, 4)
             : notProvided
           : notProvided,
         landmark: state.userInfo?.address?.landmark
           ? state.userInfo?.address?.landmark.length
-            ? state.userInfo?.address?.landmark
+            ? AllFormatter(state.userInfo?.address?.landmark, 4)
             : notProvided
           : notProvided,
         city: state.userInfo?.address?.city
           ? state.userInfo?.address?.city.length
-            ? state.userInfo?.address?.city
+            ? AllFormatter(state.userInfo?.address?.city, 4)
             : notProvided
           : notProvided,
         state: state.userInfo?.address?.state
           ? state.userInfo?.address?.state.length
-            ? state.userInfo?.address?.state
+            ? AllFormatter(state.userInfo?.address?.state, 4)
             : notProvided
           : notProvided,
         country: state.userInfo?.address?.country
           ? state.userInfo?.address?.country.length
-            ? state.userInfo?.address?.country
+            ? AllFormatter(state.userInfo?.address?.country, 4)
             : notProvided
           : notProvided,
         pincode: state.userInfo?.address?.pincode
@@ -215,7 +216,7 @@ function EditTenant() {
         : notProvided,
       occupation: state.userInfo?.occupation
         ? state.userInfo.occupation.length
-          ? state.userInfo.occupation
+          ? AllFormatter(state.userInfo.occupation, 4)
           : notProvided
         : notProvided,
     });
@@ -478,7 +479,6 @@ function EditTenant() {
             </div>
           </div>
         </section>
-
       ) : (
         <div className="p_spinner">
           <ReactBootStrap.Spinner animation="border" />

@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 import LandingPageCard from "./LandingPageCard";
 import Heading from "./Heading";
 import HorizontalLine from "./HorizontalLine";
@@ -9,7 +9,8 @@ import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import axios from "axios";
-import * as ReactBootStrap from 'react-bootstrap'
+import * as ReactBootStrap from "react-bootstrap";
+import { TitleCaseFormatter } from "../../../utility/functions/Formatters/TitleCaseFormatter";
 
 const TenantReq = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -74,38 +75,37 @@ const TenantReq = () => {
 
   return (
     <>
-    <Head>
+      <Head>
         <title>Requests</title>
-    </Head>
-    {loading ? (
-      <>
+      </Head>
+      {loading ? (
+        <>
           <Heading head="Your Requests" />
-      <HorizontalLine />
-      {allSiteDetails
-        ? allSiteDetails?.map((data) => {
-            if (data.site_id?.status == "1") {
-              return (
-                <RequestPageCard
-                  owner={data.site_id?.alias_name}
-                  rent={data.rent}
-                  address={`${data?.site_id?.address?.first_line}, ${data?.site_id?.address?.landmark}, ${data?.site_id?.address?.city}, ${data?.site_id?.address?.state}, ${data?.site_id?.address?.country} P.O: ${data?.site_id?.address?.pincode}`}
-                  cclass="blue"
-                  class2="btn-danger px-2 S_request"
-                  details={data}
-                  fromPage="request"
-                  viewReq={ViewReq}
-                />
-              );
-            }
-          })
-        : "There are curently no requests."}
-      </>
-    ):(
-      <div className="p_spinner">
-        <ReactBootStrap.Spinner animation="border" variant="light"/>
-      </div>
-    )}
-      
+          <HorizontalLine />
+          {allSiteDetails
+            ? allSiteDetails?.map((data) => {
+                if (data.site_id?.status == "1") {
+                  return (
+                    <RequestPageCard
+                      owner={TitleCaseFormatter(data.site_id?.alias_name)}
+                      rent={data.rent}
+                      address={`${data?.site_id?.address?.first_line}, ${data?.site_id?.address?.landmark}, ${data?.site_id?.address?.city}, ${data?.site_id?.address?.state}, ${data?.site_id?.address?.country} P.O: ${data?.site_id?.address?.pincode}`}
+                      cclass="blue"
+                      class2="btn-danger px-2 S_request"
+                      details={data}
+                      fromPage="request"
+                      viewReq={ViewReq}
+                    />
+                  );
+                }
+              })
+            : "There are curently no requests."}
+        </>
+      ) : (
+        <div className="p_spinner">
+          <ReactBootStrap.Spinner animation="border" variant="light" />
+        </div>
+      )}
     </>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { TitleCaseFormatter } from "../../../utility/functions/Formatters/TitleCaseFormatter";
 
 var i = 0;
 
@@ -19,9 +20,11 @@ const TableList = (props) => {
           if (data.status == "1") {
             return (
               <tr key={i++}>
-                <th scope="row">{data.site_id?.alias_name}</th>
-                <td>{data.site_id?.address?.first_line}</td>
-                <td>{data.site_id?.Type}</td>
+                <th scope="row">
+                  {TitleCaseFormatter(data.site_id?.alias_name)}
+                </th>
+                <td>{TitleCaseFormatter(data.site_id?.address?.first_line)}</td>
+                <td>{TitleCaseFormatter(data.site_id?.Type)}</td>
                 <td>
                   <button type="button" className="btn btn-outline-info">
                     Info
