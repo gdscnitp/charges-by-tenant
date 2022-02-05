@@ -98,7 +98,7 @@ export default async function handler(req, res) {
                     })
                 }
                 else{
-                    return sendError(res,"can't send as status is not 0 for this history",500)
+                    return sendError(res,"Can't send as status is not 0 for this history",500)
                 }
             }
             else{
