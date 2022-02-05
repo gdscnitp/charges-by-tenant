@@ -1,4 +1,4 @@
-import { TitleCaseFormatter } from "../../functions/Formatters/TitleCaseFormatter";
+import { TitleCaseFormatter } from "../../../utility/functions/Formatters/TitleCaseFormatter";
 
 const Identity = (props) => {
   return (

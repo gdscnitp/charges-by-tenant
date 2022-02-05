@@ -9,8 +9,7 @@ import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
-import { TitleCaseFormatter } from "../functions/Formatters/TitleCaseFormatter";
-
+import { TitleCaseFormatter } from "../../utility/functions/Formatters/TitleCaseFormatter";
 export default function Home() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);

@@ -1,5 +1,5 @@
 import React from "react";
-import { TitleCaseFormatter } from "../../functions/Formatters/TitleCaseFormatter";
+import { TitleCaseFormatter } from "../../../utility/functions/Formatters/TitleCaseFormatter";
 
 var i = 0;
 

@@ -1,9 +1,6 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import ChargesList from "./components/ChargesList";
-import Image from "next/image";
-import ParticularSite from "../../public/images/ParticularSite.png";
-import NameLabel from "../components/NameLabel";
 import React, { useContext, useEffect, useState } from "react";
 import { Store } from "../../utility/Store";
 import Cookies from "js-cookie";

@@ -10,8 +10,7 @@ import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
-import { TitleCaseFormatter } from "../../functions/Formatters/TitleCaseFormatter";
-import { SentenceCaseFormatter } from "../../functions/Formatters/SentenceCaseFormatter";
+import { TitleCaseFormatter } from "../../../utility/functions/Formatters/TitleCaseFormatter";
 
 const TenantReq = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
