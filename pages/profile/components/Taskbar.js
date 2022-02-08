@@ -1,6 +1,7 @@
 import Icons from "./Icons";
 import Link from "next/link";
 import LogOut from "./LogOut";
+import Cookies from "js-cookie";
 
 const Taskbar = () => {
   return (
@@ -29,7 +30,11 @@ const Taskbar = () => {
         path="/transaction/TenantHistory"
       ></Icons>
       <Link href="/landing/viewAllCharges">View Charges</Link>
-      <LogOut classprop="fal fa-sign-out S_icon S_icon5"></LogOut>
+      {Cookies.get("userInfo") ? (
+        <LogOut classprop="fal fa-sign-out S_icon S_icon5"></LogOut>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
