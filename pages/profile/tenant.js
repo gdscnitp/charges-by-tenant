@@ -10,8 +10,6 @@ import { useSnackbar } from "notistack";
 import axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
 import { TitleCaseFormatter } from "../../utility/functions/Formatters/TitleCaseFormatter";
-import NotLoggedIn from "../notLoggedIn/NotLoggedIn";
-
 export default function Home() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
@@ -71,45 +69,40 @@ export default function Home() {
 
   return (
     <>
-      {!Cookies.get("userInfo") ? (
-        // <NotLoggedIn />
-        <span>You are not logged in</span>
-      ) : (
-        <div>
-          <Head>
-            <title>Profile</title>
-          </Head>
-          {loading ? (
-            <div className="Parent">
-              <Taskbar />
-              <div className="S_right">
-                <Details
-                  name={TitleCaseFormatter(state.userInfo?.firstName)}
-                  email={state.userInfo?.email}
-                  detail1={state.userInfo?.contact}
-                  detail2={state.userInfo?.username}
-                  detail3={state.userInfo?.email}
-                  detail4={
-                    TitleCaseFormatter(state.userInfo?.firstName) +
-                    " " +
-                    TitleCaseFormatter(state.userInfo?.lastName)
-                  }
-                />
-                <hr />
-                <div className="S_rightBottom">
-                  <Header head="Your Sites" />
+      <Head>
+        <title>Profile</title>
+      </Head>
+      {loading ? (
+        <div className="Parent">
+          <Taskbar />
+          <div className="S_right">
+            <Details
+              name={TitleCaseFormatter(state.userInfo?.firstName)}
+              email={state.userInfo?.email}
+              detail1={state.userInfo?.contact}
+              detail2={state.userInfo?.username}
+              detail3={state.userInfo?.email}
+              detail4={
+                TitleCaseFormatter(state.userInfo?.firstName) +
+                " " +
+                TitleCaseFormatter(state.userInfo?.lastName)
+              }
+            />
+            <hr />
+            <div className="S_rightBottom">
+              <Header head="Your Sites" />
 
-                  <TableList
-                    tableclass="table-striped Stable"
-                    flat="Flat No."
-                    loc="Address"
-                    siteName="Site Name"
-                    available="Type"
-                    view="View"
-                    allDetails={state.siteDetail}
-                  />
+              <TableList
+                tableclass="table-striped Stable"
+                flat="Flat No."
+                loc="Address"
+                siteName="Site Name"
+                available="Type"
+                view="View"
+                allDetails={state.siteDetail}
+              />
 
-                  {/* <TableList
+              {/* <TableList
                   tableclass="table-striped Stable"
                   flat="Flat-402"
                   loc="Near Road, XYZ Town, ABC"
@@ -118,14 +111,12 @@ export default function Home() {
                   view="View"
                   tableData={tableData}
                 /> */}
-                </div>
-              </div>
             </div>
-          ) : (
-            <div className="p_spinner">
-              <ReactBootStrap.Spinner animation="border" />
-            </div>
-          )}
+          </div>
+        </div>
+      ) : (
+        <div className="p_spinner">
+          <ReactBootStrap.Spinner animation="border" />
         </div>
       )}
     </>

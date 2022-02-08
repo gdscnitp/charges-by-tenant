@@ -238,23 +238,3 @@
   );
   pointer-events: none;
 }
-
-.a-make-absolute {
-  position: absolute;
-}
-
-.a-set-icon {
-  position: relative;
-  left: -5px;
-  top: -5px;
-  color: rgb(55, 215, 255);
-  font-size: larger;
-}
-
-.a-set-count {
-  position: relative;
-  left: -23px !important;
-  top: -2px !important;
-  color: white;
-  z-index: 100;
-}
