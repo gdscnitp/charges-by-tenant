@@ -97,7 +97,7 @@ const Tenant = () => {
               onShow1={onHandle1}
               onShow2={onHandle2}
               userDetails={tenantData}
-              getCount={getCount}
+              getCount={getCount()}
             />
             <div className="S_right S_background_image">
               {siteState ? <TenantSite /> : <TenantReq />}

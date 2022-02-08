@@ -3,11 +3,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const Identity = (props) => {
-  const [req, setReq] = useState(0);
-  useEffect(() => {
-    setReq(props.getCount());
-  }, [props.getCount()]);
-
   return (
     <div className="S_landing">
       <div className="S_leftbar">
@@ -30,7 +25,7 @@ const Identity = (props) => {
             <i className="fab fa-buffer"></i>
             <span>Requests</span>
             <i className="fas fa-bell a-set-icon">
-              <span className="a-set-count"> {req}</span>
+              <span className="a-set-count"> {props.getCount}</span>
             </i>
           </div>
         </div>
