@@ -8,8 +8,13 @@ import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
+import NotLoggedIn from "../notLoggedIn/NotLoggedIn";
 
 export default function ViewAllCharges() {
+  if (!Cookies.get("userInfo")) {
+    return <NotLoggedIn />;
+  }
+
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const router = useRouter();
   const { dispatch, state } = useContext(Store);

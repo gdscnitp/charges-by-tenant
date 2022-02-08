@@ -10,7 +10,13 @@ import { useSnackbar } from "notistack";
 import axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
 import { TitleCaseFormatter } from "../../utility/functions/Formatters/TitleCaseFormatter";
+import NotLoggedIn from "../notLoggedIn/NotLoggedIn";
+
 export default function Home() {
+  if (!Cookies.get("userInfo")) {
+    return <NotLoggedIn />;
+  }
+
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
   const [loading, setLoading] = useState(false);

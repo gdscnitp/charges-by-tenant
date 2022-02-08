@@ -1,6 +1,13 @@
 import { TitleCaseFormatter } from "../../../utility/functions/Formatters/TitleCaseFormatter";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Identity = (props) => {
+  const [req, setReq] = useState(0);
+  useEffect(() => {
+    setReq(props.getCount());
+  }, [props.getCount()]);
+
   return (
     <div className="S_landing">
       <div className="S_leftbar">
@@ -22,6 +29,9 @@ const Identity = (props) => {
           <div className="S_option S_option1" onClick={() => props.onShow2()}>
             <i className="fab fa-buffer"></i>
             <span>Requests</span>
+            <i class="fas fa-bell a-set-icon">
+              <span className="a-set-count"> {req}</span>
+            </i>
           </div>
         </div>
       </div>

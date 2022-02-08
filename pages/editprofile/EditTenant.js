@@ -15,8 +15,13 @@ import AddressInput from "./components/AddressInput";
 import MyModal from "./components/MyModal";
 import { AllFormatter } from "../../utility/functions/Formatters/AllFormatter";
 import * as ReactBootStrap from "react-bootstrap";
+import NotLoggedIn from "../notLoggedIn/NotLoggedIn";
 
 function EditTenant() {
+  if (!Cookies.get("userInfo")) {
+    return <NotLoggedIn />;
+  }
+
   // Integration Code
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);

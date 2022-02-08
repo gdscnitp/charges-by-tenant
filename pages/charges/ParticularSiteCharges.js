@@ -12,12 +12,17 @@ import Cookies from "js-cookie";
 import { useSnackbar } from "notistack";
 import axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
+import NotLoggedIn from "../notLoggedIn/NotLoggedIn";
 
 export default function ParticularSiteCharges() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const router = useRouter();
   const { dispatch, state } = useContext(Store);
   const [loading, setLoading] = useState(false);
+
+  if (!Cookies.get("userInfo")) {
+    return <NotLoggedIn />;
+  }
 
   // console.log(router.query?.site_id);
   // var address =
@@ -109,10 +114,19 @@ export default function ParticularSiteCharges() {
                   integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
                   crossOrigin="anonymous"
                 />
-                {state.particularSiteCharges?.length <= 0 ? (
+                {!router.query?.site_id ? (
                   <div>
                     <Header header="Total Charges" />
-                    No charges to display
+                    <div className="container shadow text-center p-5 mt-5">
+                      <strong>Site Not Found</strong>
+                    </div>
+                  </div>
+                ) : state.particularSiteCharges?.length <= 0 ? (
+                  <div>
+                    <Header header="Total Charges" />
+                    <div className="container shadow text-center p-5 mt-5">
+                      <strong>No charges to display</strong>
+                    </div>
                   </div>
                 ) : (
                   <div className="p_right">

@@ -1,7 +1,9 @@
-import Head from 'next/head'
+import Head from "next/head";
 import Heading from "../landing/components/Heading";
 import Taskbar from "../profile/components/Taskbar";
 import TableList from "../profile/components/TableList";
+import NotLoggedIn from "../notLoggedIn/NotLoggedIn";
+
 import {
   XAxis,
   YAxis,
@@ -77,69 +79,9 @@ const pdata = [
 ];
 
 const TenantHistory = () => {
-  const tableData = [
-    // {
-    //   date: "01/01/2020",
-    //   amount: 10000,
-    //   month: "February",
-    //   site: "Flat-402",
-    // },
-    {
-      col1: "01/01/2020",
-      col2: 10000,
-      col3: "February",
-      col4: "Flat-402",
-    },
-    {
-      col1: "01/01/2020",
-      col2: 10000,
-      col3: "February",
-      col4: "Flat-402",
-    },
-    {
-      col1: "01/01/2020",
-      col2: 10000,
-      col3: "February",
-      col4: "Flat-402",
-    },
-    {
-      col1: "01/01/2020",
-      col2: 10000,
-      col3: "February",
-      col4: "Flat-402",
-    },
-    {
-      col1: "01/01/2020",
-      col2: 10000,
-      col3: "February",
-      col4: "Flat-402",
-    },
-    {
-      col1: "01/01/2020",
-      col2: 10000,
-      col3: "February",
-      col4: "Flat-402",
-    },
-    {
-      col1: "01/01/2020",
-      col2: 10000,
-      col3: "February",
-      col4: "Flat-402",
-    },
-    {
-      col1: "01/01/2020",
-      col2: 10000,
-      col3: "February",
-      col4: "Flat-402",
-    },
-    {
-      col1: "01/01/2020",
-      col2: 10000,
-      col3: "February",
-      col4: "Flat-402",
-    },
-  ];
-
+  if (!Cookies.get("userInfo")) {
+    return <NotLoggedIn />;
+  }
   return (
     <>
       <Head>
@@ -174,7 +116,12 @@ const TenantHistory = () => {
                 <div className="S_chart">
                   <div>
                     <ResponsiveContainer width="250%" aspect={1.5}>
-                      <BarChart width={500} height={300} data={pdata} margin={{}}>
+                      <BarChart
+                        width={500}
+                        height={300}
+                        data={pdata}
+                        margin={{}}
+                      >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
                         <YAxis />
@@ -198,7 +145,6 @@ const TenantHistory = () => {
                     siteName="Month"
                     available="Site"
                     view="Name"
-                    tableData={tableData}
                   />
                 </div>
               </div>
@@ -207,7 +153,6 @@ const TenantHistory = () => {
         </div>
       </div>
     </>
-
   );
 };
 
