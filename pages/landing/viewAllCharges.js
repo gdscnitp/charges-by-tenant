@@ -43,7 +43,8 @@ export default function ViewAllCharges() {
   return (
     <>
       {!Cookies.get("userInfo") ? (
-        <NotLoggedIn />
+        // <NotLoggedIn />
+        <span>You are not logged in</span>
       ) : (
         <div>
           <Head>

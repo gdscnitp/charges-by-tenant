@@ -356,7 +356,8 @@ function EditTenant() {
   return (
     <>
       {!Cookies.get("userInfo") ? (
-        <NotLoggedIn />
+        // <NotLoggedIn />
+        <span>You are not logged in</span>
       ) : (
         <div>
           <Head>

@@ -3,6 +3,7 @@ import Heading from "../landing/components/Heading";
 import Taskbar from "../profile/components/Taskbar";
 import TableList from "../profile/components/TableList";
 import NotLoggedIn from "../notLoggedIn/NotLoggedIn";
+import Cookies from "js-cookie";
 
 import {
   XAxis,
@@ -82,7 +83,8 @@ const TenantHistory = () => {
   return (
     <>
       {!Cookies.get("userInfo") ? (
-        <NotLoggedIn />
+        // <NotLoggedIn />
+        <span>You are not logged in</span>
       ) : (
         <div>
           <Head>

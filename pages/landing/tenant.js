@@ -82,7 +82,8 @@ const Tenant = () => {
   return (
     <>
       {!Cookies.get("userInfo") ? (
-        <NotLoggedIn />
+        // <NotLoggedIn />
+        <span>You are not logged in</span>
       ) : (
         <div>
           <div className="S_tenant">
