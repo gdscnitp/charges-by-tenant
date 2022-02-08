@@ -1,6 +1,4 @@
 import { TitleCaseFormatter } from "../../../utility/functions/Formatters/TitleCaseFormatter";
-import { useState } from "react";
-import { useEffect } from "react";
 
 const Identity = (props) => {
   return (
@@ -24,9 +22,6 @@ const Identity = (props) => {
           <div className="S_option S_option1" onClick={() => props.onShow2()}>
             <i className="fab fa-buffer"></i>
             <span>Requests</span>
-            <i className="fas fa-bell a-set-icon">
-              <span className="a-set-count"> {props.getCount}</span>
-            </i>
           </div>
         </div>
       </div>

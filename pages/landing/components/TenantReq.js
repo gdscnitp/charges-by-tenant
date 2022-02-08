@@ -83,7 +83,7 @@ const TenantReq = () => {
           <Heading head="Your Requests" />
           <HorizontalLine />
           {allSiteDetails
-            ? allSiteDetails?.map((data, index) => {
+            ? allSiteDetails?.map((data) => {
                 if (data.site_id?.status == "1") {
                   return (
                     <RequestPageCard
@@ -95,7 +95,6 @@ const TenantReq = () => {
                       details={data}
                       fromPage="request"
                       viewReq={ViewReq}
-                      key={index}
                     />
                   );
                 }
