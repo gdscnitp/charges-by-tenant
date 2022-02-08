@@ -9,10 +9,6 @@ import axios from "axios";
 import NotLoggedIn from "../notLoggedIn/NotLoggedIn";
 
 const Tenant = () => {
-  if (!Cookies.get("userInfo")) {
-    return <NotLoggedIn />;
-  }
-
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { dispatch, state } = useContext(Store);
 
@@ -84,23 +80,31 @@ const Tenant = () => {
   }, [state.siteDetail]);
 
   return (
-    <div className="S_tenant">
-      <link
-        rel="stylesheet"
-        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-        crossOrigin="anonymous"
-      />
-      <Identity
-        onShow1={onHandle1}
-        onShow2={onHandle2}
-        userDetails={tenantData}
-        getCount={getCount}
-      />
-      <div className="S_right S_background_image">
-        {siteState ? <TenantSite /> : <TenantReq />}
-      </div>
-    </div>
+    <>
+      {!Cookies.get("userInfo") ? (
+        <NotLoggedIn />
+      ) : (
+        <div>
+          <div className="S_tenant">
+            <link
+              rel="stylesheet"
+              href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+              integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+              crossOrigin="anonymous"
+            />
+            <Identity
+              onShow1={onHandle1}
+              onShow2={onHandle2}
+              userDetails={tenantData}
+              getCount={getCount}
+            />
+            <div className="S_right S_background_image">
+              {siteState ? <TenantSite /> : <TenantReq />}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
