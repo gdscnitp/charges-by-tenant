@@ -84,7 +84,7 @@ const TenantReq = () => {
           <HorizontalLine />
           {allSiteDetails
             ? allSiteDetails?.map((data) => {
-                if (data.site_id?.status == "1") {
+                if (data.status == "0") {
                   return (
                     <RequestPageCard
                       owner={TitleCaseFormatter(data.site_id?.alias_name)}
