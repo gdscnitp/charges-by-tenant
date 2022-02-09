@@ -3,6 +3,7 @@ var constants = require("../../../helpers/constants");
 import connectMongoDb from "../../../db/connect";
 const Site = require("../../../models/Site")
 var History = require("../../../models/history");
+var Landlord = require("../../../models/landlord");
 const { isEmail, isDate } = require("validator");
 const jwt = require("jsonwebtoken");
 var nodemailer = require("nodemailer");
@@ -26,8 +27,16 @@ export default async function handler(req, res) {
       jwt.verify(req.token, config.SECRET_KEY, (err, authData) => {
         if (err) return sendError(res, err, constants.JWT_VERIFY);
         else {
-          History.find({ tenant_id: authData.id })
-            .populate("site_id")
+          History.find({ tenant_id: authData.id, status: {$lt: 2}})
+            .populate({
+              path: 'site_id',
+              populate: {
+                path: 'landlord_id',
+                model: 'Landlord',
+                select: 'name contact -_id '
+              },
+              select: '-history -status'
+            })
             .exec(function (err, data) {
               if (err)
                 return sendError(res, err.message, constants.HISTORY_ERROR_I);
