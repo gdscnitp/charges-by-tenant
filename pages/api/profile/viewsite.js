@@ -27,13 +27,13 @@ export default async function handler(req, res) {
       jwt.verify(req.token, config.SECRET_KEY, (err, authData) => {
         if (err) return sendError(res, err, constants.JWT_VERIFY);
         else {
-          History.find({ tenant_id: authData.id })
+          History.find({ tenant_id: authData.id, status: {$lt: 2}})
             .populate({
               path: 'site_id',
               populate: {
                 path: 'landlord_id',
                 model: 'Landlord',
-                select: 'name contact '
+                select: 'name contact -_id '
               },
               select: '-history -status'
             })
