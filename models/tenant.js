@@ -88,11 +88,19 @@ const tenantSchema = new mongoose.Schema({
 },{timestamps:true});
 
 //when tenant updates password
-/*
+
 tenantSchema.pre('save',(next)=>{
 
     var user = this;
-    console.log(user)
+    //console.log(user)
+
+    var num = user.contact.toString();
+    if(num.length>=10){
+        next();
+    }
+    else{
+        return next("Contact number should have at least 10 digits.")
+    }
     
     bcrypt.genSalt(10, function(err, salt){
         if (err){ return next(err) }
@@ -110,6 +118,6 @@ tenantSchema.pre('save',(next)=>{
     })
 
 });
-*/
+
 
 module.exports = mongoose.models.Tenant || mongoose.model("Tenant",tenantSchema);

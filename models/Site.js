@@ -16,7 +16,7 @@ const sitesSchema = new mongoose.Schema({
     address:{
         first_line:{
             type:String,
-            required:[true,'Please enter your address'],
+            required:[true,'Please enter your address']
             
         },
         city:{
@@ -61,11 +61,11 @@ const sitesSchema = new mongoose.Schema({
     charges_param:
         {
             electricity:{
-                type:Number,
+                type:Number
                 
             },
             water:{
-                type:Number,
+                type:Number
                 
             }
             
@@ -75,7 +75,8 @@ const sitesSchema = new mongoose.Schema({
     Type:{
         enum:['Room','Land','Shops'],
         type:String,
-        required:true
+        required:true,
+        trim: true
     },
 
     alloted_tenant:{
@@ -92,5 +93,14 @@ const sitesSchema = new mongoose.Schema({
     
 
 },{timestamps:true});
+
+sitesSchema.pre("save", (next) => {
+    if(this.status<2){
+        return Promise.reject("This site is not empty.")
+    }
+    else{
+        return next();
+    }
+})
 
 module.exports = mongoose.models.Site || mongoose.model("Site",sitesSchema)
