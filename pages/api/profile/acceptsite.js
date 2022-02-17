@@ -14,101 +14,58 @@ export default async function handler(req, res) {
     var accept = true;
     accept = req.body.accept; //by default setting the route to accept this
 
-    if(!histId){
-        return sendError(res,"histId not provided")
-    }
+    if(req.method === "PUT"){
+        var histId = req.body.histId  //history id
+        //var siteId=req.body.siteId;
 
-    if(!isMongoId(histId)){
-        return sendError(res,"invalid histId",500)
-    }
-
-
-    //if the request is accepeted
-    if(accept){
-      History.findById(histId, function(err,histData){
-        console.log(histData)
-        if(err) return sendError(res,err.message,500)
-        else if(histData === null)return sendError(res,"the history you are looking for dosen't exist",500)
-        else{
-            var tenantId;
-            auth(req,res,(err,Data) => {
-                if(err) return sendError(res,err.message,500)
-                tenantId = Data.id
-            })
-
-            if(tenantId == histData.tenant_id){
-                if(histData.status === "0"){
-                    History.findByIdAndUpdate(histId, {$set: {joined_at: Date.now(), status: "1"}}, function(err, histNewData){
-                        if(err) return sendError(res, err.message, 500)
-                        else{
-                            Sites.findByIdAndUpdate(histData.site_id, {$set: {status:"2"}}, function(err, d){
-                                if(err) return sendError(res, err.message, 500)
-                                else{
-                                    History.findById(histId, function(err, data ){
-                                        if(err) return sendError(res, err.message, 500)
-                                        else{
-                                            return sendSuccess(res, data)
-                                        }
-                                    })
-                                }
-                            })
-                        }
-                    })
-                }
-                else{
-                    return sendError(res,"can't send as status is not 0 for this history",500)
-                }
-            }
+        History.findById(histId, function(err, histData){
+            if(err) return sendError(res, err.message, 500)
             else{
-                return sendError(res,"Unauthorized",500)
+                const bearerHeader = req.headers['authorization'];
+                if(typeof bearerHeader !== 'undefined') {
+                const bearer = bearerHeader.split(' ');
+                const bearerToken = bearer[1];
+                req.token = bearerToken;
+                
+                jwt.verify(req.token, config.SECRET_KEY, (err, authData) => {
+                    if(err)
+                    return sendError(res,err,constants.JWT_VERIFY)
+                    else{
+                        if(histData.tenant_id == tenant._id){
+                            if(histData.status==="0"){
+                                var histData = await History.findByIdAndUpdate(histId,{$set:{status:"1",joined_at:Date.now()}})
+                                if(histData){
+                                    var siteData = await Sites.findByIdAndUpdate(histData.site_id,{$set:{status:"2",tenant:histData.tenant_id}}) 
+                                    if(siteData){
+                                        return sendSuccess(res,{})
+                                    }else{
+                                        return sendError(res,"No such site",500)
+                                    }
+                                }else{
+                                    return sendError(res,"No such history",500)
+                                }
+                               
+                            }else{
+                                return sendError(res,err.message,500)
+                            }
+                        }
+                        else{
+                            return sendError(res, "Unauthorized Access", 500)
+                        }
+                    }
+                })
+                
+                } else {
+                // Forbidden
+                return sendError(res,"Token not provided", constants.NULL_TOKEN)
+                }
+
+            
             }
-        }
-    })
-    }
-    //elese if accept is false then just reject the request
+        })
+    } 
     else{
-      History.findById(histId, function(err,histData){
-        console.log(histData)
-        if(err) return sendError(res,err.message,500)
-        else if(histData === null)return sendError(res,"the history you are looking for dosen't exist",500)
-        else{
-            var tenantId;
-            auth(req,res,(err,Data) => {
-                if(err) return sendError(res,err.message,500)
-                tenantId = Data.id
-            })
-
-            if(tenantId == histData.tenant_id){
-                if(histData.status === "0"){
-                    History.findByIdAndUpdate(histId, {$set: {status: "3", rejected_at:  Date.now()}}, function(err, histNewData){
-                        if(err) return sendError(res, err.message, 500)
-                        else{
-                            Sites.findByIdAndUpdate(histData.site_id, {$set: {status:"0"}}, function(err, d){
-                                if(err) return sendError(res, err.message, 500)
-                                else{
-                                    History.findById(histId, function(err, data ){
-                                        if(err) return sendError(res, err.message, 500)
-                                        else{
-                                            return sendSuccess(res, data)
-                                        }
-                                    })
-                                }
-                            })
-                        }
-                    })
-                }
-                else{
-                    return sendError(res,"can't send as status is not 0 for this history",500)
-                }
-            }
-            else{
-                return sendError(res,"Unauthorized",500)
-            }
-        }
-    })
+        return sendError(res, err.message, 500)
     }
-  }
-  else{
-      return sendError(res, "Please select POST method", 500)
-  }
+}
 }
