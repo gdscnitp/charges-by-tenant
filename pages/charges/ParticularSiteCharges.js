@@ -115,7 +115,7 @@ export default function ParticularSiteCharges() {
                     No charges to display
                   </div>
                 ) : (
-                  <div className="p_right">
+                  <div>
                     <Header header="Total Charges" />
 
                     <NameLabel

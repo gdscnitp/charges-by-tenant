@@ -24,7 +24,7 @@ function LandingPageCard(props) {
         console.log(res);
         if (res.data?.success) {
           enqueueSnackbar("Site left", { variant: "success" });
-          router.push("/profile/tenant"); 
+          router.push("/profile/tenant");
         }
       });
     } catch (err) {
@@ -38,7 +38,7 @@ function LandingPageCard(props) {
   return (
     <section className="a-card">
       <div
-        className={`container shadow-lg text-white a-landing-card mt-5 ${props.cclass}`}
+        className={`container shadow-lg a-landing-card mt-5 ${props.cclass}`}
         style={{ width: "65vw" }}
       >
         <div className="row justify-content-md-center p-3">
@@ -75,7 +75,36 @@ function LandingPageCard(props) {
                 <div>
                   <div className="a-button-container">
                     <div>
-                      <LandingCardButton
+                      <div className="row">
+                        <div className="col">
+                          <LandingCardButton
+                            classNameProp={props.class1}
+                            name={props.text1}
+                            link={`/charges/ParticularSiteCharges?site_id=${props.site_id}`}
+                          />
+                        </div>
+                        <div className="col">
+                          <LandingCardButton
+                            classNameProp={props.class2}
+                            name={props.text2}
+                          />
+                        </div>
+                        <div className="col">
+                          <LandingCardButton
+                            classNameProp={props.class3}
+                            name={props.text3}
+                          />
+                        </div>
+                        <div className="col">
+                          <button
+                            className="btn btn-danger a-landing-card-button"
+                            onClick={leaveHandler}
+                          >
+                            Leave
+                          </button>
+                        </div>
+                      </div>
+                      {/* <LandingCardButton
                         classNameProp={props.class1}
                         name={props.text1}
                         link={`/charges/ParticularSiteCharges?site_id=${props.site_id}`}
@@ -89,13 +118,13 @@ function LandingPageCard(props) {
                         name={props.text3}
                       />
                       <div className="a-landing-card-button">
-                      <button
-                        className="btn btn-danger a-landing-card-button"
-                        onClick={leaveHandler}
-                      >
-                        Leave
-                      </button>
-                    </div>
+                        <button
+                          className="btn btn-danger a-landing-card-button"
+                          onClick={leaveHandler}
+                        >
+                          Leave
+                        </button>
+                      </div> */}
                     </div>
                   </div>
                 </div>

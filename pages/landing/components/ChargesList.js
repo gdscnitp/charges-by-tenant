@@ -29,6 +29,7 @@ const ChargesList = (props) => {
         // });
         console.log(res);
         if (res.data?.success) {
+          props.refreshPage();
           enqueueSnackbar("Paid Successfully", { variant: "success" });
         }
       });

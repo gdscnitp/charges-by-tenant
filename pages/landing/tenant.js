@@ -76,7 +76,7 @@ const Tenant = () => {
         onShow2={onHandle2}
         userDetails={tenantData}
       />
-      <div className="S_right S_background_image">
+      <div className="S_right">
         {siteState ? <TenantSite /> : <TenantReq />}
       </div>
     </div>
