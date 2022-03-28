@@ -62,7 +62,7 @@ const Identity = (props) => {
           <div className="S_option S_option1" onClick={() => props.onShow2()}>
             <i className="fab fa-buffer"></i>
             <span>Requests</span>
-            <i class="fas fa-bell a-set-icon">
+            <i className="fas fa-bell a-set-icon">
               <span className="a-set-count"> {req}</span>
             </i>
           </div>
