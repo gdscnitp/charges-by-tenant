@@ -112,7 +112,18 @@ export default function ParticularSiteCharges() {
                 {state.particularSiteCharges?.length <= 0 ? (
                   <div>
                     <Header header="Total Charges" />
-                    No charges to display
+                    <NameLabel
+                      label="Alias Name"
+                      details={router.query?.name}
+                    />
+                    <div
+                      style={({ width: "500px" }, { margin: "500px" })}
+                      className="m-5"
+                    >
+                      <strong className="shadow-lg p-5 m-5 a-center">
+                        No charges to display
+                      </strong>
+                    </div>
                   </div>
                 ) : (
                   <div>
@@ -129,22 +140,40 @@ export default function ParticularSiteCharges() {
                       details={state.particularSiteCharges[0]?.site_id?.Type}
                     />
                     <NameLabel label="Address" details={getAddress()} />
-
-                    {state.particularSiteCharges.map((data, index) => {
-                      console.log(data);
-                      return (
-                        <TotalchargesCard
-                          key={index}
-                          description={data.description}
-                          siteDetails={data.site_id}
-                        />
-                      );
-                    })}
+                    <div className="row">
+                      {state.particularSiteCharges.map((data, index) => {
+                        if (data.isPaid) {
+                          return (
+                            <div className="col-3 text-white">
+                              <TotalchargesCard
+                                key={index}
+                                date={data.createdAt}
+                                description={data.description}
+                                siteDetails={data.site_id}
+                                color="bg-success"
+                              />
+                            </div>
+                          );
+                        } else {
+                          return (
+                            <div className="col-3 text-white">
+                              <TotalchargesCard
+                                key={index}
+                                date={data.createdAt}
+                                description={data.description}
+                                siteDetails={data.site_id}
+                                color="bg-warning"
+                              />
+                            </div>
+                          );
+                        }
+                      })}
+                    </div>
                   </div>
                 )}
-                <div className="tc">
+                {/* <div className="tc">
                   <Image src={Total_Charges} alt="TC" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

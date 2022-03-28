@@ -1,3 +1,244 @@
+/* .S_tenant,
+.S_landlord {
+  display: flex;
+}
+
+.S_landing {
+  background-color: #023c40;
+  width: 15vw;
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.S_identity {
+  width: 12vw;
+  height: 25vh;
+  border-radius: 20px;
+  margin-top: 5%;
+  margin-left: 8%;
+  background: #009dae;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.4vw;
+}
+
+.name {
+  margin-top: 10%;
+}
+
+.S_profile {
+  height: 15vh !important;
+  min-width: 0 !important;
+}
+
+.S_menu {
+  width: 15vw;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2vw;
+}
+
+.S_option {
+  text-align: left;
+  width: 12vw;
+  padding: 2%;
+  margin: 10% 0%;
+  font-weight: 500;
+  border-radius: 20px 10px 10px 20px;
+  letter-spacing: 1.2px;
+}
+
+.S_option:hover {
+  background: white;
+  color: #023c40;
+  transform: scale(1.2);
+  font-weight: 700;
+}
+
+.S_menu i {
+  padding: 2%;
+  margin: 0 3% 0 0;
+}
+
+.S_right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 0;
+}
+.S_background_image {
+  background: url(../public/images/coverpage2.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.S_head {
+  background: #023c40;
+  font-size: 2vw;
+  color: white;
+  font-weight: 600;
+  width: 60vw;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  letter-spacing: 2px;
+  margin: 2% 0 0 0;
+}
+
+.S_request {
+  margin-left: 18vw;
+}
+
+.a-card {
+  width: 80vw;
+}
+
+.a-card-body {
+  margin-left: 5%;
+}
+
+.a-landing-card {
+  border-radius: 20px;
+}
+
+.a-image-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.a-landing-card-image {
+  min-width: 130px !important;
+  height: 25vh;
+  object-fit: cover;
+  margin: 2px;
+  border-radius: 20px !important;
+}
+
+.a-button-container {
+  display: flex !important;
+  flex-direction: row;
+}
+
+.a-landing-card-button {
+  padding: 4px;
+}
+
+.a-margin-left {
+  margin-left: 5vw;
+}
+
+.a-landing-card-heading {
+  font-weight: bold;
+}
+
+.a-landing-card-data {
+  font-style: italic;
+}
+
+.a-pseudo-horizontal-line {
+  width: 70vw;
+  height: 0px;
+  border-bottom: 2px solid #023c40;
+  position: relative;
+}
+
+.a-pseudo-horizontal-line::before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  background: blue;
+  border-radius: 50%;
+  left: -1px;
+  top: -3.7px;
+}
+
+.a-pseudo-horizontal-line::after {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  background: blue;
+  border-radius: 50%;
+  right: -1px;
+  top: -3.7px;
+}
+
+.orange {
+  background: transparent;
+}
+
+.blue {
+  background: transparent;
+  border: 2px solid rgb(39, 36, 36) !important;
+}
+
+@media (max-width: 800px) {
+  .a-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .a-landing-card-button .btn {
+    width: 25vw;
+  }
+
+  .a-margin-left,
+  .S_request {
+    margin-left: 0;
+  }
+}
+
+.a-panel {
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  width: 320px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 60px;
+  box-shadow: rgba(255, 255, 255, 0.5) -20px -20px 45px inset,
+    rgba(0, 0, 0, 0.1) 10px 10px 20px, rgba(0, 0, 0, 0.06) 5px 5px 10px;
+  position: relative;
+}
+
+.a-panel::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0) 40%
+  );
+  pointer-events: none;
+} */
+
 .S_tenant,
 .S_landlord {
   display: flex;
@@ -237,4 +478,24 @@
     rgba(255, 255, 255, 0) 40%
   );
   pointer-events: none;
+}
+
+.a-make-absolute {
+  position: absolute;
+}
+
+.a-set-icon {
+  position: relative;
+  left: -5px;
+  top: -5px;
+  color: rgb(236, 69, 63);
+  font-size: larger;
+}
+
+.a-set-count {
+  position: relative;
+  left: -23px !important;
+  top: -2px !important;
+  color: white;
+  z-index: 100;
 }

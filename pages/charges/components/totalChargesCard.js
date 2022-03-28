@@ -1,10 +1,15 @@
 import React from "react";
+import Moment from "react-moment";
 
 const TotalchargesCard = (props) => {
   var totalCharges = 0;
 
   return (
-    <div className="p_card1">
+    // return <button className={`btn ${props.classNameProp}`}>{props.name}</button>;
+
+    // <div className="p_card1 `${props.color}`">
+  
+    <div className={`p_card1 ${props.color}`}>
       <div className="p_cardb">
         <table cellPadding="4" cellSpacing="4" border="0">
           <thead>
@@ -16,6 +21,10 @@ const TotalchargesCard = (props) => {
             <tr>
               <td>Rent:</td>
               <td>{props.siteDetails?.rent}</td>
+            </tr>
+            <tr>
+              <td>Created on:</td>
+              <td><Moment format="MMMM Do YYYY">{props.date}</Moment></td>
             </tr>
             {props.description
               ? Object.keys(props.description).map((data, index) => {

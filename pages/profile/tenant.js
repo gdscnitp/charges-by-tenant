@@ -105,6 +105,7 @@ export default function Home() {
                   available="Type"
                   view="View"
                   allDetails={state.siteDetail}
+                  
                 />
               )}
 

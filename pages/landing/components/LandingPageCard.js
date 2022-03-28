@@ -52,7 +52,7 @@ function LandingPageCard(props) {
           <div className="col col-lg-8">
             <div className="card-body a-card-body">
               <h5 className="card-title a-landing-card-title">
-                <span className="a-landing-card-heading"> Alias Name: </span>
+                <span className="a-landing-card-heading"> Site Name: </span>
                 <span className="a-landing-card-data">{props.alias}</span>
               </h5>
               <div className="card-text">
@@ -80,7 +80,7 @@ function LandingPageCard(props) {
                           <LandingCardButton
                             classNameProp={props.class1}
                             name={props.text1}
-                            link={`/charges/ParticularSiteCharges?site_id=${props.site_id}`}
+                            link={`/charges/ParticularSiteCharges?site_id=${props.site_id}&name=${props.alias}`}
                           />
                         </div>
                         <div className="col">
@@ -90,10 +90,10 @@ function LandingPageCard(props) {
                           />
                         </div>
                         <div className="col">
-                          <LandingCardButton
+                          {/* <LandingCardButton
                             classNameProp={props.class3}
                             name={props.text3}
-                          />
+                          /> */}
                         </div>
                         <div className="col">
                           <button
