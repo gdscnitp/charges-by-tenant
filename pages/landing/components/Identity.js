@@ -39,7 +39,8 @@ const Identity = (props) => {
   const [req, setReq] = useState(0);
   useEffect(() => {
     setReq(props.getCount());
-  }, [props.getCount()]);
+  }, []);
+  // }, [props.getCount()]);
 
   return (
     <div className="S_landing">

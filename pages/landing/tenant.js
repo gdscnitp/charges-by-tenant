@@ -153,7 +153,6 @@ const Tenant = () => {
   };
 
   const getCount = () => {
-    console.log("hello");
     var count = 0;
     if (state.siteDetail) {
       for (var i = 0; i < state.siteDetail?.length; i++) {
