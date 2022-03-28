@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import Tenant from "../../public/images/tenant.png";
@@ -46,7 +46,11 @@ function Tenant_Signup() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    submitHandler(details);
+    if (!details.contact.match(`[0-9]{10}`)) {
+      alert("Please provide valid phone number");
+    } else {
+      submitHandler(details);
+    }
   };
 
   if (state.userInfo) {
