@@ -452,7 +452,7 @@ function EditTenant() {
                     })}
 
                     {/* History */}
-                    <div className="row a-edit-content a-row-wrapper">
+                    {/* <div className="row a-edit-content a-row-wrapper">
                       <div className="col-lg-4 col-sm-12">
                         <span className="a-edit-left-title">History</span>
                       </div>
@@ -461,7 +461,7 @@ function EditTenant() {
                           No History
                         </span>
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* Change Password */}
                     <div className="row a-edit-content a-row-wrapper">

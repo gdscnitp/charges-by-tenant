@@ -39,6 +39,10 @@ export default function ViewAllCharges() {
     getAllCharges();
   }, []);
 
+  function refreshPage() {
+    getAllCharges();
+  }
+
   return (
     <>
       <Head>
@@ -56,7 +60,11 @@ export default function ViewAllCharges() {
 
           <div className="p_particular mt-5">
             {state.allCharges?.length > 0 ? (
-              <ChargesList head="All Charges" allCharges={state.allCharges} />
+              <ChargesList
+                head="All Charges"
+                allCharges={state.allCharges}
+                refreshPage={refreshPage}
+              />
             ) : (
               "There are no charges to display"
             )}

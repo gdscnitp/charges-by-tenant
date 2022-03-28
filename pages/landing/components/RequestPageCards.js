@@ -63,7 +63,7 @@ function RequestPageCard(props) {
   return (
     <section className="a-card">
       <div
-        className={`container shadow-lg text-white a-landing-card mt-5 ${props.cclass}`}
+        className={`container shadow-lg a-landing-card mt-5 ${props.cclass}`}
         style={{ width: "65vw" }}
       >
         <div className="row justify-content-md-center p-3">

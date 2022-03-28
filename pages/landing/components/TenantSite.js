@@ -113,11 +113,12 @@ const TenantSite = () => {
 
               return (
                 <div key={i++}>
+                  {console.log(data.site_id?.landlord_id?.name)}
                   <LandingPageCard
                     site_id={data.site_id?._id}
                     leave_id={data._id}
                     alias={TitleCaseFormatter(data.site_id?.alias_name)}
-                    owner={TitleCaseFormatter(data.site_id?.owner)}
+                    owner={TitleCaseFormatter(data.site_id?.landlord_id?.name)}
                     rent={data.site_id?.rent}
                     address={TitleCaseFormatter(address)}
                     cclass="a-panel"
@@ -132,7 +133,7 @@ const TenantSite = () => {
               );
             }
           })}
-          {count == 0 ? "NO ACCEPTED SITES" : ""}
+          {count == 0 ? "No accepted sites." : ""}
         </>
       ) : (
         <div className="p_spinner">

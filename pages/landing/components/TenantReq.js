@@ -73,6 +73,20 @@ const TenantReq = () => {
     allSiteDetails = state.siteDetail;
   }, [state.siteDetail]);
 
+  function countReq() {
+    if (allSiteDetails) {
+      var count = 0;
+      allSiteDetails.map((data) => {
+        if (data.status == "0") {
+          count++;
+        }
+      });
+      return count;
+    } else {
+      return 0;
+    }
+  }
+
   return (
     <>
       <Head>
@@ -82,23 +96,26 @@ const TenantReq = () => {
         <>
           <Heading head="Your Requests" />
           <HorizontalLine />
+          {console.log(allSiteDetails)}
           {allSiteDetails
-            ? allSiteDetails?.map((data) => {
-                if (data.status == "0") {
-                  return (
-                    <RequestPageCard
-                      owner={TitleCaseFormatter(data.site_id?.alias_name)}
-                      rent={data.rent}
-                      address={`${data?.site_id?.address?.first_line}, ${data?.site_id?.address?.landmark}, ${data?.site_id?.address?.city}, ${data?.site_id?.address?.state}, ${data?.site_id?.address?.country} P.O: ${data?.site_id?.address?.pincode}`}
-                      cclass="blue"
-                      class2="btn-danger px-2 S_request"
-                      details={data}
-                      fromPage="request"
-                      viewReq={ViewReq}
-                    />
-                  );
-                }
-              })
+            ? countReq() == 0
+              ? "No current requests."
+              : allSiteDetails?.map((data) => {
+                  if (data.status == "0") {
+                    return (
+                      <RequestPageCard
+                        owner={TitleCaseFormatter(data.site_id?.alias_name)}
+                        rent={data.site_id.rent}
+                        address={`${data?.site_id?.address?.first_line}, ${data?.site_id?.address?.landmark}, ${data?.site_id?.address?.city}, ${data?.site_id?.address?.state}, ${data?.site_id?.address?.country} P.O: ${data?.site_id?.address?.pincode}`}
+                        cclass="blue"
+                        class2="btn-danger px-2 S_request"
+                        details={data}
+                        fromPage="request"
+                        viewReq={ViewReq}
+                      />
+                    );
+                  }
+                })
             : "There are curently no requests."}
         </>
       ) : (
