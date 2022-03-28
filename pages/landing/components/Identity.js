@@ -62,9 +62,13 @@ const Identity = (props) => {
           <div className="S_option S_option1" onClick={() => props.onShow2()}>
             <i className="fab fa-buffer"></i>
             <span>Requests</span>
-            <i className="fas fa-bell a-set-icon">
-              <span className="a-set-count"> {req}</span>
-            </i>
+            {req == 0 ? (
+              ""
+            ) : (
+              <i className="fas fa-bell a-set-icon">
+                <span className="a-set-count"> {req}</span>
+              </i>
+            )}
           </div>
         </div>
       </div>
