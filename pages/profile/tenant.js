@@ -92,15 +92,22 @@ export default function Home() {
             <div className="S_rightBottom">
               <Header head="Your Sites" />
 
-              <TableList
-                tableclass="table-striped Stable"
-                flat="Flat No."
-                loc="Address"
-                siteName="Site Name"
-                available="Type"
-                view="View"
-                allDetails={state.siteDetail}
-              />
+              {state.siteDetail.length == 0 ? (
+                <strong className="shadow-lg p-5 mt-5">
+                  No sites to display
+                </strong>
+              ) : (
+                <TableList
+                  tableclass="table-striped Stable"
+                  flat="Flat No."
+                  loc="Address"
+                  siteName="Site Name"
+                  available="Type"
+                  view="View"
+                  allDetails={state.siteDetail}
+                  
+                />
+              )}
 
               {/* <TableList
                   tableclass="table-striped Stable"

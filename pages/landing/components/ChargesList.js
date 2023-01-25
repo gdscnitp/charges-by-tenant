@@ -29,6 +29,7 @@ const ChargesList = (props) => {
         // });
         console.log(res);
         if (res.data?.success) {
+          props.refreshPage();
           enqueueSnackbar("Paid Successfully", { variant: "success" });
         }
       });
@@ -94,8 +95,8 @@ const ChargesList = (props) => {
                 <td>{TitleCaseFormatter(data.site_id?.alias_name)}</td>
                 <td>{TitleCaseFormatter(address)}</td>
                 <td>{rent}</td>
+                <td>{totalCharges - rent}</td>
                 <td>{totalCharges}</td>
-                <td>{rent + totalCharges}</td>
                 <td>
                   {data?.isPaid ? (
                     <button className="btn btn-success" disabled>

@@ -74,7 +74,7 @@ function EditBirthday(props) {
               name="date"
               className="form-select form-select-sm"
               aria-label="form-select"
-              style={{ width: "80px" }}
+              style={{ width: "100px" }}
               onChange={onChange}
             >
               {runCallback(() => {
@@ -126,7 +126,7 @@ function EditBirthday(props) {
               name="year"
               className="form-select form-select-sm"
               aria-label="form-select"
-              style={{ width: "80px" }}
+              style={{ width: "100px" }}
               onChange={onChange}
             >
               {runCallback(() => {
