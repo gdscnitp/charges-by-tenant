@@ -8,7 +8,7 @@ const TotalchargesCard = (props) => {
     // return <button className={`btn ${props.classNameProp}`}>{props.name}</button>;
 
     // <div className="p_card1 `${props.color}`">
-  
+
     <div className={`p_card1 ${props.color}`}>
       <div className="p_cardb">
         <table cellPadding="4" cellSpacing="4" border="0">
@@ -28,6 +28,7 @@ const TotalchargesCard = (props) => {
             </tr>
             {props.description
               ? Object.keys(props.description).map((data, index) => {
+                if (data != 'rent') {
                   totalCharges += parseInt(props.description[data]);
                   return (
                     <tr key={index}>
@@ -35,7 +36,8 @@ const TotalchargesCard = (props) => {
                       <td>{props.description[data]}</td>
                     </tr>
                   );
-                })
+                }
+              })
               : ""}
           </tbody>
           <tfoot>
