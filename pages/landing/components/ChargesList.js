@@ -94,8 +94,8 @@ const ChargesList = (props) => {
                 <td>{TitleCaseFormatter(data.site_id?.alias_name)}</td>
                 <td>{TitleCaseFormatter(address)}</td>
                 <td>{rent}</td>
-                <td>{totalCharges}</td>
-                <td>{rent + totalCharges}</td>
+                <td>{totalCharges - rent}</td>
+                <td>{rent + totalCharges - rent}</td>
                 <td>
                   {data?.isPaid ? (
                     <button className="btn btn-success" disabled>
